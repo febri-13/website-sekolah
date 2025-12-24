@@ -1,0 +1,71 @@
+---
+const themeScript = '
+( function() {
+  const theme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefer-color-scheme: dark)').matches;
+
+  if (theme === 'dark' || (!theme && prefersDark)) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+  })();'
+;
+---
+
+<script set:html={themeScript} />
+
+  <div class="theme-toggle" onclick="toggleTheme()" >
+    <button class="
+    w-10 h-10 rounded-full flex items-center justify-center
+    bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200
+    hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors
+    ">
+
+    <span class="sun-icon">☀️</span>
+    <span class="moon-icon hidden">🌙</span>
+
+    </button>
+  </div>
+
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.classList.contains('dark');
+  
+    if (isDark){
+      html.classList.remove('dark');
+      localStorage.setItem('theme','light');
+    } else {
+      html.classList.add('dark');
+      localStorage.setItem('theme','dark');
+    }
+
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
+
+    if (isDark){
+      sunIcon.classList.remove('hidden');
+      moonIcon.classList.add('hidden');
+    } else { 
+      sunIcon.classList.add('hidden');
+      moonIcon.classList.remove('hidden');
+    }
+  }
+</script>
+
+<style>
+  .dark .sun-icon { 
+    display: none;
+  }
+  .dark .moon-icon {
+    display: inline;
+  }
+  .sun-icon {
+    display: inline;
+  }
+  .moon-icon{
+    display: none;
+  }
+</style>
+

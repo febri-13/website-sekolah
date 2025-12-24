@@ -1,43 +1,63 @@
-# Astro Starter Kit: Minimal
+# Nama Project Sekolah
 
-```sh
-pnpm create astro@latest -- --template minimal
+Website sekolah menggunakan Astro + Sanity CMS
+
+## Tech Stack
+- **Frontend**: Astro
+- **CMS**: Sanity Studio
+- **Language**: TypeScript
+
+## Setup Local Development
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/username/repo-name.git
+cd repo-name
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### 2. Install Dependencies
+```bash
+# Install Astro dependencies
+pnpm install
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+# Install Sanity Studio dependencies
+cd sanity-studio
+pnpm install
+cd ..
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 3. Setup Environment Variables
+```bash
+# Copy .env.example ke .env
+cp .env.example .env
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+# Edit .env dan isi dengan credentials Anda
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+### 4. Run Development Server
 
-## 🧞 Commands
+**Terminal 1 - Astro:**
+```bash
+pnpm run dev
+```
 
-All commands are run from the root of the project, from a terminal:
+**Terminal 2 - Sanity Studio:**
+```bash
+cd sanity-studio
+pnpm run dev
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+### 5. Open Browser
+- Astro: http://localhost:4321
+- Sanity Studio: http://localhost:3333
 
-## 👀 Want to learn more?
+## Deploy
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Astro (Vercel/Netlify)
+[Instruksi deploy]
+
+### Sanity Studio
+```bash
+cd sanity-studio
+pnpm run deploy
+```

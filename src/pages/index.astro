@@ -1,16 +1,31 @@
 ---
+import {client} from '../lib/sanity'
+import Layout from '../layouts/Layout.astro'
 
+const beritaList = await client.fetch('*[_type == "berita"] | order(tanggal desc)')
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <main class="max-w-4xl mx-auto p-4">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Berita Sekolah Terbaru</h1>
+
+    {beritaList.length === 0 ? (
+      <p class="text-gray-600 text-lg">Belum ada berita.</p>
+    ) : (
+      beritaList.map((berita: any) => (
+        <article class="border border-gray-200 rounded-lg p-6 mb-6 shadow-sm hover:shadow-md transition-shadow bg-white">
+          <h2 class="text-xl font-semibold text-blue-600 mb-2">{berita.judul}</h2>
+          <p class="text-gray-500 text-sm mb-3">
+            {new Date(berita.tanggal).toLocaleDateString('id-ID', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </p>
+          <p class="text-gray-700">{berita.ringkasan}</p>
+        </article>
+      ))
+    )}
+  </main>
+</Layout>

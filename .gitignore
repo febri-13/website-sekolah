@@ -12,10 +12,13 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+#tanpa sanity dulu
+sanity-studio
 
 # environment variables
 .env
 .env.production
+.env.*
 
 # macOS-specific files
 .DS_Store

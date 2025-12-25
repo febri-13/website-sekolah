@@ -1,0 +1,309 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const programs = [
+  {
+    id: 'bilingual',
+    title: 'Program Bilingual',
+    icon: '🌍',
+    description: 'Pembelajaran dwi bahasa (Indonesia & Inggris) dengan metode modern dan interaktif untuk mempersiapkan siswa menghadapi tantangan global.',
+    features: [
+      'Native Speaker untuk pembelajaran Bahasa Inggris',
+      'English Day setiap hari Jumat',
+      'Sertifikasi TOEFL/IELTS preparation',
+      'Conversation Club & Debate Competition'
+    ],
+    borderColor: 'border-primary-500',
+    gradientFrom: 'from-primary-500',
+    gradientTo: 'to-primary-600'
+  },
+  {
+    id: 'boarding',
+    title: 'Boarding School',
+    icon: '🏠',
+    description: 'Sistem asrama yang mendidik kemandirian, kedisiplinan, dan tanggung jawab dengan pengawasan 24 jam oleh pembina yang kompeten.',
+    features: [
+      'Asrama terpisah putra-putri dengan fasilitas lengkap',
+      'Pengawasan dan pembinaan 24 jam',
+      'Bimbingan belajar malam terjadwal',
+      'Kegiatan pengembangan karakter harian'
+    ],
+    borderColor: 'border-secondary-400',
+    gradientFrom: 'from-secondary-400',
+    gradientTo: 'to-secondary-500'
+  },
+  {
+    id: 'tahfidz',
+    title: 'Program Tahfidz',
+    icon: '📖',
+    description: 'Program menghafal Al-Qur\'an dengan metode yang terbukti efektif, dibimbing oleh ustadz/ustadzah hafidz berpengalaman.',
+    features: [
+      'Target hafalan minimal 5 juz dalam 3 tahun',
+      'Metode Tilawati & Yanbu\'a yang terbukti efektif',
+      'Muroja\'ah rutin setiap hari',
+      'Wisuda tahfidz setiap tahun ajaran'
+    ],
+    borderColor: 'border-tertiary-500',
+    gradientFrom: 'from-tertiary-500',
+    gradientTo: 'to-tertiary-600'
+  },
+  {
+    id: 'leadership',
+    title: 'Leadership Development',
+    icon: '👔',
+    description: 'Program pengembangan kepemimpinan melalui organisasi siswa, kepanitiaan, dan berbagai kegiatan yang melatih soft skills.',
+    features: [
+      'OSIS & MPK yang aktif dan terstruktur',
+      'Public Speaking Training rutin',
+      'Event Management Workshop',
+      'Student Leadership Conference tahunan'
+    ],
+    borderColor: 'border-primary-500',
+    gradientFrom: 'from-primary-500',
+    gradientTo: 'to-primary-600'
+  },
+  {
+    id: 'steam',
+    title: 'STEAM Education',
+    icon: '🔬',
+    description: 'Pembelajaran berbasis Science, Technology, Engineering, Arts, dan Mathematics untuk mengembangkan critical thinking dan problem solving.',
+    features: [
+      'Laboratorium sains dengan peralatan modern',
+      'Coding & Robotics Club',
+      'Kompetisi sains tingkat regional & nasional',
+      'Project-based learning yang aplikatif'
+    ],
+    borderColor: 'border-tertiary-500',
+    gradientFrom: 'from-tertiary-500',
+    gradientTo: 'to-tertiary-600'
+  },
+  {
+    id: 'extracurricular',
+    title: 'Ekstrakurikuler',
+    icon: '⚽',
+    description: 'Beragam pilihan ekstrakurikuler untuk mengembangkan bakat dan minat siswa di bidang olahraga, seni, dan akademik.',
+    features: [
+      'Olahraga: Futsal, Basket, Badminton, Silat',
+      'Media: Jurnalistik, Fotografi, Sinematografi',
+      'Seni: Qasidah, Hadroh, Rebana, Band',
+      'Akademik: English Club, Science Club, Math Club'
+    ],
+    borderColor: 'border-secondary-400',
+    gradientFrom: 'from-secondary-400',
+    gradientTo: 'to-secondary-500'
+  }
+];
+---
+
+<Layout title="Program - ABBS Surakarta">
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 text-white overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-secondary-400/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-tertiary-500/10 rounded-full blur-3xl"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 py-20 md:py-32">
+      <div class="text-center">
+        <div class="inline-block mb-4 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
+          🎯 Program Unggulan
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+          Program Pendidikan ABBS
+        </h1>
+        <p class="text-xl md:text-2xl mb-2 text-primary-100 font-light">
+          Pendidikan Holistik untuk Generasi Unggul
+        </p>
+        <p class="text-lg mb-8 text-primary-100 max-w-2xl mx-auto">
+          Program pendidikan yang mengintegrasikan akademik, karakter Islam, dan pengembangan bakat untuk membentuk siswa yang berakhlak mulia dan berprestasi
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Grid Section -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Program Unggulan Kami
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Berbagai program dirancang untuk mengembangkan potensi siswa secara maksimal
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {programs.map((program) => (
+          <div class={`bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 border-t-4 ${program.borderColor}`}>
+            <div class={`w-16 h-16 bg-gradient-to-br ${program.gradientFrom} ${program.gradientTo} rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg`}>
+              {program.icon}
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              {program.title}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+              {program.description}
+            </p>
+            <ul class="space-y-3">
+              {program.features.map((feature) => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-tertiary-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-sm text-gray-600 dark:text-gray-400">
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Approach Section -->
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Metode Pembelajaran
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400">
+          Pendekatan pembelajaran yang inovatif dan terbukti efektif
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 border-t-4 border-primary-500">
+          <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
+            🎯
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Student-Centered</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Pembelajaran berpusat pada siswa dengan pendekatan personal
+          </p>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 border-t-4 border-tertiary-500">
+          <div class="w-16 h-16 bg-gradient-to-br from-tertiary-500 to-tertiary-600 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
+            💡
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Active Learning</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Siswa aktif terlibat dalam proses pembelajaran melalui praktik
+          </p>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 border-t-4 border-secondary-400">
+          <div class="w-16 h-16 bg-gradient-to-br from-secondary-400 to-secondary-500 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
+            🤝
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Collaborative</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Kerja sama tim dan diskusi untuk membangun pemahaman
+          </p>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 border-t-4 border-primary-500">
+          <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
+            📊
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Assessment</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Evaluasi berkelanjutan untuk memantau perkembangan siswa
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Schedule Section -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Aktivitas Harian Santri
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400">
+          Jadwal terstruktur untuk pembentukan karakter dan disiplin
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <span class="text-2xl">🌅</span>
+            Pagi Hari
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex gap-3 text-gray-600 dark:text-gray-400">
+              <span class="font-semibold text-primary-600 dark:text-primary-400 min-w-[80px]">04.30</span>
+              <span>Bangun tidur & shalat Subuh berjamaah</span>
+            </li>
+            <li class="flex gap-3 text-gray-600 dark:text-gray-400">
+              <span class="font-semibold text-primary-600 dark:text-primary-400 min-w-[80px]">05.30</span>
+              <span>Tahfidz & muroja'ah Al-Qur'an</span>
+            </li>
+            <li class="flex gap-3 text-gray-600 dark:text-gray-400">
+              <span class="font-semibold text-primary-600 dark:text-primary-400 min-w-[80px]">06.30</span>
+              <span>Sarapan & persiapan sekolah</span>
+            </li>
+            <li class="flex gap-3 text-gray-600 dark:text-gray-400">
+              <span class="font-semibold text-primary-600 dark:text-primary-400 min-w-[80px]">07.00</span>
+              <span>Kegiatan belajar mengajar</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+            <span class="text-2xl">🌙</span>
+            Sore & Malam
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex gap-3 text-gray-600 dark:text-gray-400">
+              <span class="font-semibold text-primary-600 dark:text-primary-400 min-w-[80px]">15.00</span>
+              <span>Shalat Ashar & ekskul</span>
+            </li>
+            <li class="flex gap-3 text-gray-600 dark:text-gray-400">
+              <span class="font-semibold text-primary-600 dark:text-primary-400 min-w-[80px]">18.00</span>
+              <span>Shalat Maghrib & makan malam</span>
+            </li>
+            <li class="flex gap-3 text-gray-600 dark:text-gray-400">
+              <span class="font-semibold text-primary-600 dark:text-primary-400 min-w-[80px]">19.30</span>
+              <span>Bimbingan belajar malam</span>
+            </li>
+            <li class="flex gap-3 text-gray-600 dark:text-gray-400">
+              <span class="font-semibold text-primary-600 dark:text-primary-400 min-w-[80px]">21.30</span>
+              <span>Istirahat malam</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-br from-primary-600 via-primary-500 to-tertiary-500 text-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary-400/10 rounded-full blur-3xl"></div>
+    
+    <div class="relative max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">
+        Tertarik dengan Program Kami?
+      </h2>
+      <p class="text-xl mb-8 text-primary-100 max-w-2xl mx-auto">
+        Daftarkan putra-putri Anda sekarang dan berikan pendidikan terbaik untuk masa depan mereka
+      </p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="/kontak" class="bg-secondary-400 text-dark-700 px-8 py-4 rounded-lg font-bold hover:bg-secondary-300 transition-all shadow-xl text-lg">
+          📞 Hubungi Kami
+        </a>
+        <a href="/tentang" class="bg-white text-primary-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all shadow-xl text-lg">
+          📖 Pelajari Lebih Lanjut
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

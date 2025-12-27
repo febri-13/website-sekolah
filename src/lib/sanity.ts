@@ -1,19 +1,16 @@
-import { createClient } from '@sanity/client'
-import type { ClientConfig } from '@sanity/client'
+// src/lib/sanity.ts
+import { createClient } from '@sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
 
-const config: ClientConfig = {
+export const sanityClient = createClient({
   projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
   dataset: import.meta.env.PUBLIC_SANITY_DATASET,
   useCdn: true,
   apiVersion: import.meta.env.PUBLIC_SANITY_API_VERSION,
-}
+});
 
-export const client = createClient(config)
+const builder = imageUrlBuilder(sanityClient);
 
-export async function getDocuments<T>(query:string): Promise<T[]>{
-  return await client.fetch<T[]>(query)
-}
-
-export async function getDocument<T>(query:string): Promise<T>{
-  return await client.fetch<T>(query)
+export function urlFor(source: any) {
+  return builder.image(source);
 }

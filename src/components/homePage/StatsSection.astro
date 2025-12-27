@@ -1,0 +1,48 @@
+---
+import { sanityClient } from '../lib/sanity.ts';
+
+interface Stat {
+  _id: string;
+  order: number;
+  value: string;
+  label: string;
+  icon?: string;
+  isActive: boolean;
+}
+
+// Fetch stats dari Sanity
+const stats = await sanityClient.fetch<Stat[]>(
+  `*[_type == "stats" && isActive == true] | order(order asc) [0...4]`
+);
+
+// Fallback kalau belum ada data di Sanity
+const defaultStats = [
+  { order: 1, value: '500+', label: 'Siswa Aktif', icon: '👨‍🎓' },
+  { order: 2, value: '50+', label: 'Guru Berpengalaman', icon: '👨‍🏫' },
+  { order: 3, value: '20+', label: 'Prestasi Nasional', icon: '🏆' },
+  { order: 4, value: '15', label: 'Tahun Berdiri', icon: '📅' },
+];
+
+const displayStats = stats.length > 0 ? stats : defaultStats;
+---
+
+<section class="py-12 bg-white dark:bg-gray-800 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {displayStats.map((stat) => (
+        <div key={stat._id || stat.order}>
+          {stat.icon && (
+            <div class="text-3xl mb-2">{stat.icon}</div>
+          )}
+          <div class="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+            {stat.value}
+          </div>
+          <div class="text-gray-600 dark:text-gray-400">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+

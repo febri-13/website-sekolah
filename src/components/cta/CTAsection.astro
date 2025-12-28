@@ -1,0 +1,63 @@
+---
+// src/components/cta/CTASection.astro
+
+interface Props {
+  id?: string;
+  title?: string;
+  description?: string;
+  primaryButton?: {
+    text: string;
+    href: string;
+    icon?: string;
+  };
+  secondaryButton?: {
+    text: string;
+    href: string;
+    icon?: string;
+  };
+}
+
+const {
+  id = 'daftar',
+  title = 'Bergabunglah Bersama Kami',
+  description = 'Wujudkan masa depan cerah putra-putri Anda dengan pendidikan berkualitas di ABBS Surakarta',
+  primaryButton = {
+    text: 'Hubungi Kami',
+    href: '/kontak',
+    icon: '📞'
+  },
+  secondaryButton = {
+    text: 'Download Brosur',
+    href: '#',
+    icon: '📥'
+  }
+} = Astro.props;
+---
+
+<section id={id} class="py-20 bg-gradient-to-br from-primary-600 via-primary-500 to-tertiary-500 text-white relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary-400/10 rounded-full blur-3xl"></div>
+  
+  <div class="relative max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6">
+      {title}
+    </h2>
+    <p class="text-xl mb-8 text-primary-100 max-w-2xl mx-auto">
+      {description}
+    </p>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <a 
+        href={primaryButton.href}
+        class="bg-secondary-400 text-dark-700 px-8 py-4 rounded-lg font-bold hover:bg-secondary-300 transition-all shadow-xl text-lg"
+      >
+        {primaryButton.icon && `${primaryButton.icon} `}{primaryButton.text}
+      </a>
+      <a 
+        href={secondaryButton.href}
+        class="bg-white text-primary-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all shadow-xl text-lg"
+      >
+        {secondaryButton.icon && `${secondaryButton.icon} `}{secondaryButton.text}
+      </a>
+    </div>
+  </div>
+</section>

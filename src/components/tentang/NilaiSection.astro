@@ -1,0 +1,98 @@
+---
+interface Nilai {
+  icon: string;
+  title: string;
+  description: string;
+  colorFrom: string;
+  colorTo: string;
+  borderColor: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  values?: Nilai[];
+}
+
+const {
+  title = 'Nilai-Nilai Kami',
+  subtitle = 'Prinsip-prinsip yang menjadi fondasi pendidikan di ABBS Surakarta',
+  values = [
+    {
+      icon: '🤲',
+      title: 'Religius',
+      description: 'Menanamkan nilai-nilai keislaman dalam setiap aspek kehidupan dan pembelajaran',
+      colorFrom: 'from-primary-50',
+      colorTo: 'to-primary-100',
+      borderColor: 'border-primary-200 dark:border-primary-900',
+    },
+    {
+      icon: '🎓',
+      title: 'Prestasi',
+      description: 'Mendorong siswa untuk mencapai keunggulan akademik dan non-akademik',
+      colorFrom: 'from-tertiary-50',
+      colorTo: 'to-tertiary-100',
+      borderColor: 'border-tertiary-200 dark:border-tertiary-900',
+    },
+    {
+      icon: '🤝',
+      title: 'Integritas',
+      description: 'Membangun karakter jujur, bertanggung jawab, dan dapat dipercaya',
+      colorFrom: 'from-secondary-50',
+      colorTo: 'to-secondary-100',
+      borderColor: 'border-secondary-200 dark:border-secondary-900',
+    },
+    {
+      icon: '💡',
+      title: 'Inovatif',
+      description: 'Menerapkan metode pembelajaran modern dan kreatif yang efektif',
+      colorFrom: 'from-primary-50',
+      colorTo: 'to-primary-100',
+      borderColor: 'border-primary-200 dark:border-primary-900',
+    },
+    {
+      icon: '🌍',
+      title: 'Global',
+      description: 'Mempersiapkan siswa dengan wawasan dan kemampuan berkelas internasional',
+      colorFrom: 'from-tertiary-50',
+      colorTo: 'to-tertiary-100',
+      borderColor: 'border-tertiary-200 dark:border-tertiary-900',
+    },
+    {
+      icon: '❤️',
+      title: 'Peduli',
+      description: 'Menumbuhkan empati dan kepedulian terhadap sesama dan lingkungan',
+      colorFrom: 'from-secondary-50',
+      colorTo: 'to-secondary-100',
+      borderColor: 'border-secondary-200 dark:border-secondary-900',
+    },
+  ]
+} = Astro.props;
+---
+
+<section class="py-16 bg-white dark:bg-gray-800">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        {title}
+      </h2>
+      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {values.map((nilai) => (
+        <div class={`bg-gradient-to-br ${nilai.colorFrom} ${nilai.colorTo} dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-2 ${nilai.borderColor} hover:shadow-xl transition-all transform hover:-translate-y-1`}>
+          <div class="text-4xl mb-4">{nilai.icon}</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+            {nilai.title}
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            {nilai.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

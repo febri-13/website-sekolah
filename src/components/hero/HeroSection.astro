@@ -13,7 +13,7 @@ interface Props {
     subtitle: string;
     description: string;
   };
-  buttons: Array<{
+  buttons?: Array<{
     text: string;
     href: string;
     icon?: string;
@@ -39,7 +39,9 @@ const { badge, title, buttons } = Astro.props;
         description={title.description}
       />
       
+      {buttons && buttons.length > 0 && (
       <HeroButtons buttons={buttons} />
+      )}
     </div>
   </div>
 </section>

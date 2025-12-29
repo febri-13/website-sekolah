@@ -1,28 +1,31 @@
 ---
 // src/pages/tentang.astro
 import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/hero/HeroSection.astro';
+import NilaiSection from '../components/tentang/NilaiSection.astro';
+import CTASection from '../components/cta/CTASection.astro';
+import TeacherCarousel from '../components/tentang/TeacherCarousel.astro';
+// Hero Section Data
+const heroData = {
+  badge: {
+    icon: ' 🕌 ',
+    text: 'Tentang Kami'
+  },
+  title: {
+    main: 'Al Abidin Bilingual\nBoarding School',
+    subtitle: 'Bring Excellence Beyond the Limits',
+    description: ' Lembaga pendidikan Islam modern yang mengintegrasikan kurikulum nasional dengan nilai-nilai keislaman dan kemampuan bilingual'
+  }
+};
+
 ---
 
 <Layout title="Tentang Kami - ABBS Surakarta">
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center">
-        <div class="inline-block mb-4 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-          🕌 Tentang Kami
-        </div>
-        <h1 class="text-4xl md:text-6xl font-bold mb-4">
-          SMP Al Abidin Bilingual<br>Boarding School
-        </h1>
-        <p class="text-xl md:text-2xl text-primary-100 font-light italic mb-6">
-          Bring Excellence Beyond the Limits
-        </p>
-        <p class="text-lg text-primary-100 max-w-3xl mx-auto">
-          Lembaga pendidikan Islam modern yang mengintegrasikan kurikulum nasional dengan nilai-nilai keislaman dan kemampuan bilingual
-        </p>
-      </div>
-    </div>
-  </section>
+    <HeroSection 
+    badge={heroData.badge}
+    title={heroData.title}
+        />
 
   <!-- Sejarah Singkat -->
   <section class="py-16 bg-white dark:bg-gray-800">
@@ -142,68 +145,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Nilai-nilai Kami -->
-  <section class="py-16 bg-white dark:bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Nilai-Nilai Kami
-        </h2>
-        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Prinsip-prinsip yang menjadi fondasi pendidikan di ABBS Surakarta
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-2 border-primary-200 dark:border-primary-900">
-          <div class="text-4xl mb-4">🤲</div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Religius</h3>
-          <p class="text-gray-600 dark:text-gray-400">
-            Menanamkan nilai-nilai keislaman dalam setiap aspek kehidupan dan pembelajaran
-          </p>
-        </div>
-
-        <div class="bg-gradient-to-br from-tertiary-50 to-tertiary-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-2 border-tertiary-200 dark:border-tertiary-900">
-          <div class="text-4xl mb-4">🎓</div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Prestasi</h3>
-          <p class="text-gray-600 dark:text-gray-400">
-            Mendorong siswa untuk mencapai keunggulan akademik dan non-akademik
-          </p>
-        </div>
-
-        <div class="bg-gradient-to-br from-secondary-50 to-secondary-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-2 border-secondary-200 dark:border-secondary-900">
-          <div class="text-4xl mb-4">🤝</div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Integritas</h3>
-          <p class="text-gray-600 dark:text-gray-400">
-            Membangun karakter jujur, bertanggung jawab, dan dapat dipercaya
-          </p>
-        </div>
-
-        <div class="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-2 border-primary-200 dark:border-primary-900">
-          <div class="text-4xl mb-4">💡</div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Inovatif</h3>
-          <p class="text-gray-600 dark:text-gray-400">
-            Menerapkan metode pembelajaran modern dan kreatif yang efektif
-          </p>
-        </div>
-
-        <div class="bg-gradient-to-br from-tertiary-50 to-tertiary-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-2 border-tertiary-200 dark:border-tertiary-900">
-          <div class="text-4xl mb-4">🌍</div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Global</h3>
-          <p class="text-gray-600 dark:text-gray-400">
-            Mempersiapkan siswa dengan wawasan dan kemampuan berkelas internasional
-          </p>
-        </div>
-
-        <div class="bg-gradient-to-br from-secondary-50 to-secondary-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-2 border-secondary-200 dark:border-secondary-900">
-          <div class="text-4xl mb-4">❤️</div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Peduli</h3>
-          <p class="text-gray-600 dark:text-gray-400">
-            Menumbuhkan empati dan kepedulian terhadap sesama dan lingkungan
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <NilaiSection/>
 
   <!-- Fasilitas -->
   <section class="py-16 bg-gray-50 dark:bg-gray-900">
@@ -270,71 +212,15 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Struktur Organisasi (Optional) -->
-  <section class="py-16 bg-white dark:bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Struktur Organisasi
-        </h2>
-        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Tim profesional yang berdedikasi untuk pendidikan terbaik
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Kepala Sekolah -->
-        <div class="text-center">
-          <div class="w-32 h-32 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full mx-auto mb-4 flex items-center justify-center text-5xl text-white shadow-xl">
-            👤
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Drs. H. Ahmad Fauzi, M.Pd</h3>
-          <p class="text-primary-600 dark:text-primary-400 font-semibold mb-2">Kepala Sekolah</p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Memimpin dan mengkoordinasikan seluruh kegiatan sekolah</p>
-        </div>
-
-        <!-- Wakil Kepala Kurikulum -->
-        <div class="text-center">
-          <div class="w-32 h-32 bg-gradient-to-br from-tertiary-500 to-tertiary-600 rounded-full mx-auto mb-4 flex items-center justify-center text-5xl text-white shadow-xl">
-            👤
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Dra. Siti Nurjanah, M.Pd</h3>
-          <p class="text-tertiary-600 dark:text-tertiary-400 font-semibold mb-2">Wakil Kepala Kurikulum</p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Mengatur dan mengembangkan kurikulum sekolah</p>
-        </div>
-
-        <!-- Wakil Kepala Kesiswaan -->
-        <div class="text-center">
-          <div class="w-32 h-32 bg-gradient-to-br from-secondary-400 to-secondary-500 rounded-full mx-auto mb-4 flex items-center justify-center text-5xl text-white shadow-xl">
-            👤
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Drs. Muhammad Rizki, S.Pd</h3>
-          <p class="text-secondary-600 dark:text-secondary-400 font-semibold mb-2">Wakil Kepala Kesiswaan</p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Membina dan mengembangkan potensi siswa</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <TeacherCarousel />
 
   <!-- CTA -->
-  <section class="py-20 bg-gradient-to-br from-primary-600 via-primary-500 to-tertiary-500 text-white relative overflow-hidden">
-    <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary-400/10 rounded-full blur-3xl"></div>
-    
-    <div class="relative max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">
-        Bergabunglah dengan Keluarga ABBS
-      </h2>
-      <p class="text-xl mb-8 text-primary-100 max-w-2xl mx-auto">
-        Jadilah bagian dari generasi unggul yang siap menghadapi tantangan masa depan
-      </p>
-      <div class="flex gap-4 justify-center flex-wrap">
-        <a href="/kontak" class="bg-secondary-400 text-dark-700 px-8 py-4 rounded-lg font-bold hover:bg-secondary-300 transition-all shadow-xl text-lg">
-          📞 Hubungi Kami
-        </a>
-        <a href="/program" class="bg-white text-primary-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all shadow-xl text-lg">
-          📚 Lihat Program
-        </a>
-      </div>
-    </div>
-  </section>
+  <CTASection 
+    id="kontak-cta"
+    title="Bergabunglah dengan Keluarga ABBS"
+    description="Jadilah bagian dari generasi unggul yang siap menghadapi tantangan masa depan"
+    primaryButton={{ text: 'Chat WhatsApp', href: '/kontak', icon: '💬' }}
+    secondaryButton={{ text: 'Lihat Program', href: '/program', icon: ' 📚' }}
+  />
+
 </Layout>

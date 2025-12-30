@@ -6,9 +6,7 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  adapter: cloudflare({
-    imageService: 'cloudflare'
-  }),
+  adapter: cloudflare(),
   integrations: [
     tailwind({
       configFile: './tailwind.config.cjs',

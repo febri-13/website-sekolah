@@ -1,5 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/hero/HeroSection.astro';
+import CTASection from '../components/cta/CTASection.astro';
+
+const heroData = {
+  badge: {
+    icon: '🎯',
+    text: 'Program Unggulan'
+  },
+  title: {
+    main: 'Program Pendidikan ABBS',
+    subtitle: 'Pendidikan Holistik untuk Generasi Unggul',
+    description: 'Program pendidikan yang mengintegrasikan akademik, karakter Islam, dan pengembangan bakat untuk membentuk siswa yang berakhlak mulia dan berprestasi'
+  }
+};
 
 const programs = [
   {
@@ -97,28 +111,10 @@ const programs = [
 
 <Layout title="Program - ABBS Surakarta">
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 text-white overflow-hidden">
-    <!-- Decorative Elements -->
-    <div class="absolute top-0 right-0 w-64 h-64 bg-secondary-400/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-96 h-96 bg-tertiary-500/10 rounded-full blur-3xl"></div>
-    
-    <div class="relative max-w-7xl mx-auto px-4 py-20 md:py-32">
-      <div class="text-center">
-        <div class="inline-block mb-4 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-          🎯 Program Unggulan
-        </div>
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-          Program Pendidikan ABBS
-        </h1>
-        <p class="text-xl md:text-2xl mb-2 text-primary-100 font-light">
-          Pendidikan Holistik untuk Generasi Unggul
-        </p>
-        <p class="text-lg mb-8 text-primary-100 max-w-2xl mx-auto">
-          Program pendidikan yang mengintegrasikan akademik, karakter Islam, dan pengembangan bakat untuk membentuk siswa yang berakhlak mulia dan berprestasi
-        </p>
-      </div>
-    </div>
-  </section>
+  <HeroSection 
+    badge={heroData.badge}
+    title={heroData.title}
+    /> 
 
   <!-- Programs Grid Section -->
   <section class="py-16 bg-gray-50 dark:bg-gray-900">
@@ -285,25 +281,12 @@ const programs = [
   </section>
 
   <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-br from-primary-600 via-primary-500 to-tertiary-500 text-white relative overflow-hidden">
-    <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary-400/10 rounded-full blur-3xl"></div>
-    
-    <div class="relative max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">
-        Tertarik dengan Program Kami?
-      </h2>
-      <p class="text-xl mb-8 text-primary-100 max-w-2xl mx-auto">
-        Daftarkan putra-putri Anda sekarang dan berikan pendidikan terbaik untuk masa depan mereka
-      </p>
-      <div class="flex gap-4 justify-center flex-wrap">
-        <a href="/kontak" class="bg-secondary-400 text-dark-700 px-8 py-4 rounded-lg font-bold hover:bg-secondary-300 transition-all shadow-xl text-lg">
-          📞 Hubungi Kami
-        </a>
-        <a href="/tentang" class="bg-white text-primary-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all shadow-xl text-lg">
-          📖 Pelajari Lebih Lanjut
-        </a>
-      </div>
-    </div>
-  </section>
+   <CTASection 
+    id="kontak-cta"
+    title="Tertarik dengan Program Kami?"
+    description="Daftarkan putra-putri Anda sekarang dan berikan pendidikan terbaik untuk masa depan mereka"
+    primaryButton={{ text: 'Hubungi Kami', href: '/kontak', icon: '📞' }}
+    secondaryButton={{ text: 'Pelajari Lebih Lanjut', href: '/program', icon: '📖' }}
+   />
+ 
 </Layout>

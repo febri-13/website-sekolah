@@ -1,0 +1,225 @@
+---
+// src/pages/berita/index.astro
+import Layout from '../../layouts/Layout.astro';
+import { sanityClient, urlFor, formatDate } from '../../lib/sanity';
+
+interface Berita {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  publishedAt: string;
+  excerpt: string;
+  featuredImage?: any;
+  category: string;
+  gradientFrom: string;
+  gradientTo: string;
+}
+
+// Fetch all published berita
+const allBerita = await sanityClient.fetch<Berita[]>(
+  `*[_type == "berita" && isPublished == true] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    publishedAt,
+    excerpt,
+    featuredImage,
+    category,
+    gradientFrom,
+    gradientTo
+  }`
+);
+
+// Categories for filtering
+const categories = [
+  { value: 'all', label: 'Semua', icon: '📚' },
+  { value: 'akademik', label: 'Akademik', icon: '📖' },
+  { value: 'prestasi', label: 'Prestasi', icon: '🏆' },
+  { value: 'kegiatan', label: 'Kegiatan', icon: '🌍' },
+  { value: 'pengumuman', label: 'Pengumuman', icon: '📢' },
+];
+
+const categoryIcons: Record<string, string> = {
+  'akademik': '📚',
+  'prestasi': '🏆',
+  'kegiatan': '🌍',
+  'pengumuman': '📢',
+};
+---
+
+<Layout title="Berita & Kegiatan - ABBS Surakarta">
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 text-white overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-secondary-400/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-tertiary-500/10 rounded-full blur-3xl"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 py-20 md:py-32">
+      <div class="text-center">
+        <div class="inline-block mb-4 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
+          📰 Berita & Kegiatan
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+          Berita & Kegiatan ABBS
+        </h1>
+        <p class="text-xl md:text-2xl mb-2 text-primary-100 font-light">
+          Update Terkini Seputar Aktivitas Sekolah
+        </p>
+        <p class="text-lg mb-8 text-primary-100 max-w-2xl mx-auto">
+          Ikuti perkembangan prestasi, kegiatan, dan pengumuman terbaru dari ABBS Surakarta
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Categories -->
+  <section class="py-8 bg-gray-50 dark:bg-gray-900 sticky top-[73px] z-40 border-b border-gray-200 dark:border-gray-700">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex gap-3 overflow-x-auto pb-2 hide-scrollbar" id="category-filters">
+        {categories.map((cat) => (
+          <button
+            class="category-filter whitespace-nowrap px-6 py-3 rounded-full font-semibold transition-all shrink-0"
+            data-category={cat.value}
+          >
+            {cat.icon} {cat.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Berita Grid -->
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4">
+      <div id="berita-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {allBerita.map((berita) => (
+          <article 
+            class="berita-card bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1"
+            data-category={berita.category}
+          >
+            {berita.featuredImage ? (
+              <img
+                src={urlFor(berita.featuredImage).width(600).height(400).url()}
+                alt={berita.title}
+                class="h-48 w-full object-cover"
+              />
+            ) : (
+              <div class={`h-48 bg-gradient-to-br ${berita.gradientFrom} ${berita.gradientTo} flex items-center justify-center text-6xl`}>
+                {categoryIcons[berita.category] || '📖'}
+              </div>
+            )}
+            
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-xs px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full font-semibold">
+                  {categoryIcons[berita.category]} {berita.category}
+                </span>
+                <span class="text-xs text-gray-500 dark:text-gray-400">
+                  {formatDate(berita.publishedAt)}
+                </span>
+              </div>
+              
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2">
+                {berita.title}
+              </h3>
+              
+              <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                {berita.excerpt}
+              </p>
+              
+              <a 
+                href={`/berita/${berita.slug.current}`}
+                class="text-primary-600 dark:text-primary-400 font-semibold hover:underline inline-flex items-center gap-2 group"
+              >
+                Baca Selengkapnya 
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="hidden text-center py-16">
+        <div class="text-6xl mb-4">🔍</div>
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          Tidak Ada Berita
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400">
+          Tidak ada berita dalam kategori ini
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-filter {
+    @apply bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300;
+    @apply hover:bg-primary-100 dark:hover:bg-primary-900/30;
+    @apply hover:text-primary-600 dark:hover:text-primary-400;
+  }
+
+  .category-filter.active {
+    @apply bg-primary-600 dark:bg-primary-500 text-white;
+  }
+</style>
+
+<script>
+  // Filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filters = document.querySelectorAll('.category-filter');
+    const cards = document.querySelectorAll('.berita-card');
+    const emptyState = document.getElementById('empty-state');
+    const grid = document.getElementById('berita-grid');
+
+    // Set initial active filter
+    const allFilter = document.querySelector('[data-category="all"]');
+    if (allFilter) {
+      allFilter.classList.add('active');
+    }
+
+    filters.forEach((filter) => {
+      filter.addEventListener('click', () => {
+        const category = filter.getAttribute('data-category');
+
+        // Update active state
+        filters.forEach((f) => f.classList.remove('active'));
+        filter.classList.add('active');
+
+        // Filter cards
+        let visibleCount = 0;
+        cards.forEach((card) => {
+          const cardCategory = card.getAttribute('data-category');
+          const htmlCard = card as HTMLElement;
+          
+          if (category === 'all' || cardCategory === category) {
+            htmlCard.style.display = 'block';
+            visibleCount++;
+          } else {
+            htmlCard.style.display = 'none';
+          }
+        });
+
+        // Show/hide empty state
+        const htmlGrid = grid as HTMLElement;
+        if (visibleCount === 0) {
+          if (htmlGrid) htmlGrid.style.display = 'none';
+          if (emptyState) emptyState.classList.remove('hidden');
+        } else {
+          if (htmlGrid) htmlGrid.style.display = 'grid';
+          if (emptyState) emptyState.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

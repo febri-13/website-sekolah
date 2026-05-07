@@ -14,29 +14,29 @@ const stats = await sanityClient.fetch<Stat[]>(
   `*[_type == "stats" && isActive == true] | order(order asc) [0...4]`
 );
 
-const defaultStats: Stat[] = [  // ← Tambah type annotation
-  { order: 1, value: '500+', label: 'Siswa Aktif', icon: '👨‍🎓' },
-  { order: 2, value: '50+', label: 'Guru Berpengalaman', icon: '👨‍🏫' },
-  { order: 3, value: '20+', label: 'Prestasi Nasional', icon: '🏆' },
-  { order: 4, value: '15', label: 'Tahun Berdiri', icon: '📅' },
+const defaultStats: Stat[] = [
+  { order: 1, value: '500+', label: 'Siswa Aktif', icon: 'user' },
+  { order: 2, value: '50+', label: 'Guru Berpengalaman', icon: 'users' },
+  { order: 3, value: '20+', label: 'Prestasi', icon: 'star' },
+  { order: 4, value: '15', label: 'Tahun Berdiri', icon: 'calendar' },
 ];
 
 const displayStats = stats.length > 0 ? stats : defaultStats;
 ---
 
-<section class="py-12 bg-white dark:bg-gray-800 shadow-sm">
+<section class="py-20 bg-cream-100 dark:bg-gray-800 border-y border-cream-200 dark:border-gray-700">
   <div class="max-w-7xl mx-auto px-4">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
       {displayStats.map((stat, index) => (
-        <div>
+        <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 md:p-8 text-center shadow-sm hover:shadow-lg transition-all border border-cream-200 dark:border-gray-700">
           {/* ↑ Hapus 'key' attribute, ganti pakai index di map */}
           {stat.icon && (
-            <div class="text-3xl mb-2">{stat.icon}</div>
+            <div class="mb-4 flex justify-center"><i data-feather={stat.icon} class="inline-block w-8 h-8 text-primary-600 dark:text-primary-400" /></div>
           )}
-          <div class="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+          <div class="text-3xl md:text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
             {stat.value}
           </div>
-          <div class="text-gray-600 dark:text-gray-400">
+          <div class="text-gray-600 dark:text-gray-300 font-medium text-sm md:text-base">
             {stat.label}
           </div>
         </div>

@@ -58,6 +58,14 @@ module.exports = {
           800: '#1e293b',
           900: '#0f172a',
         },
+        // Soft/Cream backgrounds untuk off-white aesthetic
+        cream: {
+          50: '#fafaf8',
+          100: '#f5f5f2',
+          200: '#efefeb',
+          300: '#e9e9e5',
+          400: '#e0e0db',
+        },
       },
     },
   },

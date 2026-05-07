@@ -18,8 +18,10 @@ const { title = 'ABBS Surakarta' } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link rel="icon" type="image/png" sizes="any" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
   </head>
-  <body class="min-h-screen bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+  <body class="min-h-screen bg-cream-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
     
     <HeaderSection />
     
@@ -29,5 +31,11 @@ const { title = 'ABBS Surakarta' } = Astro.props;
 
     <FooterSection />
     
+    <script type="module">
+      import feather from 'https://cdn.skypack.dev/feather-icons';
+      if (feather && feather.replace) {
+        feather.replace();
+      }
+    </script>
   </body>
 </html>

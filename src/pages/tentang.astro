@@ -1,226 +1,304 @@
 ---
 // src/pages/tentang.astro
-import Layout from '../layouts/Layout.astro';
-import HeroSection from '../components/hero/HeroSection.astro';
-import NilaiSection from '../components/tentang/NilaiSection.astro';
-import CTASection from '../components/cta/CTASection.astro';
-import TeacherCarousel from '../components/tentang/TeacherCarousel.astro';
-// Hero Section Data
-const heroData = {
-  badge: {
-    icon: ' 🕌 ',
-    text: 'Tentang Kami'
-  },
-  title: {
-    main: 'Al Abidin Bilingual\nBoarding School',
-    subtitle: 'Bring Excellence Beyond the Limits',
-    description: ' Lembaga pendidikan Islam modern yang mengintegrasikan kurikulum nasional dengan nilai-nilai keislaman dan kemampuan bilingual'
-  }
-};
-
+import Layout from "../layouts/Layout.astro";
+import CTASection from "../components/cta/CTASection.astro";
+import TeacherCarousel from "../components/tentang/TeacherCarousel.astro";
 ---
 
 <Layout title="Tentang Kami - ABBS Surakarta">
-  <!-- Hero Section -->
-    <HeroSection 
-    badge={heroData.badge}
-    title={heroData.title}
-        />
-
-  <!-- Sejarah Singkat -->
-  <section class="py-16 bg-white dark:bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-            Sejarah Kami
-          </h2>
-          <div class="space-y-4 text-gray-600 dark:text-gray-400">
-            <p>
-              SMP Al Abidin Bilingual Boarding School (ABBS) Surakarta didirikan pada tahun 2009 dengan visi menciptakan generasi muslim yang unggul dalam prestasi akademik, berakhlak mulia, dan mampu bersaing di tingkat global.
-            </p>
-            <p>
-              Berawal dari keinginan untuk menyediakan pendidikan berkualitas yang memadukan kurikulum nasional dengan pendidikan agama Islam yang kuat, ABBS terus berkembang menjadi salah satu boarding school terkemuka di Surakarta.
-            </p>
-            <p>
-              Dengan sistem bilingual (Bahasa Indonesia dan Bahasa Inggris), kami mempersiapkan siswa untuk menghadapi tantangan era globalisasi tanpa meninggalkan nilai-nilai keislaman.
-            </p>
-          </div>
-        </div>
-        <div class="bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl p-12 text-white shadow-2xl">
-          <div class="space-y-6">
-            <div class="flex items-start gap-4">
-              <div class="text-4xl">📅</div>
-              <div>
-                <div class="font-bold text-lg mb-1">Tahun 2009</div>
-                <div class="text-primary-100">ABBS Surakarta didirikan</div>
-              </div>
+    <!-- Sejarah Singkat -->
+    <section class="py-20 bg-cream-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2
+                        class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8"
+                    >
+                        Sejarah Kami
+                    </h2>
+                    <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">
+                        <p class="text-lg">
+                            SMP Al Abidin Bilingual Boarding School (ABBS)
+                            Surakarta didirikan pada tahun 2009 dengan visi
+                            menciptakan generasi muslim yang unggul dalam
+                            prestasi akademik, berakhlak mulia, dan mampu
+                            bersaing di tingkat global.
+                        </p>
+                        <p class="text-lg">
+                            Berawal dari keinginan untuk menyediakan pendidikan
+                            berkualitas yang memadukan kurikulum nasional dengan
+                            pendidikan agama Islam yang kuat, ABBS terus
+                            berkembang menjadi salah satu boarding school
+                            terkemuka di Surakarta.
+                        </p>
+                        <p class="text-lg">
+                            Dengan sistem bilingual (Bahasa Indonesia dan Bahasa
+                            Inggris), kami mempersiapkan siswa untuk menghadapi
+                            tantangan era globalisasi tanpa meninggalkan
+                            nilai-nilai keislaman.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="bg-gradient-to-br from-primary-400 to-primary-600 rounded-3xl p-12 text-white shadow-2xl"
+                >
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl flex-shrink-0">
+                                <i data-feather="calendar" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-lg mb-1">
+                                    Tahun 2009
+                                </div>
+                                <div class="text-primary-100">
+                                    SMP ABBS Surakarta didirikan dengan visi cemerlang
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl flex-shrink-0">
+                                <i data-feather="users" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-lg mb-1">
+                                    500+ Siswa
+                                </div>
+                                <div class="text-primary-100">
+                                    Alumni sukses di berbagai bidang
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl flex-shrink-0">
+                                <i data-feather="star" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-lg mb-1">
+                                    Prestasi Gemilang
+                                </div>
+                                <div class="text-primary-100">
+                                    Juara berbagai kompetisi nasional
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl flex-shrink-0">
+                                <i data-feather="award" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-lg mb-1">
+                                    Akreditasi A
+                                </div>
+                                <div class="text-primary-100">
+                                    Standar pendidikan terbaik
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex items-start gap-4">
-              <div class="text-4xl">👥</div>
-              <div>
-                <div class="font-bold text-lg mb-1">500+ Siswa</div>
-                <div class="text-primary-100">Alumni sukses di berbagai bidang</div>
-              </div>
+        </div>
+    </section>
+
+    <!-- Visi Misi -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+                >
+                    Visi & Misi
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Komitmen kami dalam membentuk generasi unggul dan berakhlak
+                    mulia
+                </p>
             </div>
-            <div class="flex items-start gap-4">
-              <div class="text-4xl">🏆</div>
-              <div>
-                <div class="font-bold text-lg mb-1">Prestasi Gemilang</div>
-                <div class="text-primary-100">Juara berbagai kompetisi nasional</div>
-              </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Visi -->
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border-t-4 border-primary-500"
+                >
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg"
+                        >
+                            <i data-feather="target" class="w-10 h-10"></i>
+                        </div>
+                        <h3
+                            class="text-2xl font-bold text-gray-900 dark:text-white"
+                        >
+                            Visi
+                        </h3>
+                    </div>
+                    <p
+                        class="text-gray-600 dark:text-gray-400 leading-relaxed text-lg"
+                    >
+                        Menjadi lembaga pendidikan Islam terdepan yang
+                        menghasilkan generasi muslim yang berilmu, berakhlak
+                        mulia, berprestasi, dan mampu berkomunikasi secara
+                        global dengan tetap berpegang teguh pada nilai-nilai
+                        keislaman.
+                    </p>
+                </div>
+
+                <!-- Misi -->
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border-t-4 border-tertiary-500"
+                >
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-tertiary-500 to-tertiary-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg"
+                        >
+                            <i data-feather="chevrons-up" class="w-10 h-10"></i>
+                        </div>
+                        <h3
+                            class="text-2xl font-bold text-gray-900 dark:text-white"
+                        >
+                            Misi
+                        </h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <span class="text-tertiary-500 text-xl mt-1">✓</span
+                            >
+                            <span
+                                >Menyelenggarakan pendidikan berkualitas dengan
+                                kurikulum nasional dan internasional</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-tertiary-500 text-xl mt-1">✓</span
+                            >
+                            <span
+                                >Membentuk karakter islami melalui pendidikan
+                                agama yang komprehensif</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-tertiary-500 text-xl mt-1">✓</span
+                            >
+                            <span
+                                >Mengembangkan kemampuan bilingual untuk
+                                komunikasi global</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-tertiary-500 text-xl mt-1">✓</span
+                            >
+                            <span
+                                >Memfasilitasi pengembangan bakat dan minat
+                                siswa secara optimal</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-tertiary-500 text-xl mt-1">✓</span
+                            >
+                            <span
+                                >Menciptakan lingkungan pembelajaran yang
+                                kondusif dan Islami</span
+                            >
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="flex items-start gap-4">
-              <div class="text-4xl">🌟</div>
-              <div>
-                <div class="font-bold text-lg mb-1">Akreditasi A</div>
-                <div class="text-primary-100">Standar pendidikan terbaik</div>
-              </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+                >
+                    Fasilitas Lengkap
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Sarana dan prasarana modern untuk mendukung proses
+                    pembelajaran optimal
+                </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Visi Misi -->
-  <section class="py-16 bg-gray-50 dark:bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Visi & Misi
-        </h2>
-        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Komitmen kami dalam membentuk generasi unggul dan berakhlak mulia
-        </p>
-      </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+                >
+                    <div class="text-5xl mb-3">
+                        <i data-feather="home" class="w-10 h-10"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">
+                        Gedung Modern
+                    </h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Ruang kelas ber-AC dan nyaman
+                    </p>
+                </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Visi -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border-t-4 border-primary-500">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
-             🎯
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+                >
+                    <div class="text-5xl mb-3">
+                        <i data-feather="home" class="w-10 h-10"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">
+                        Rooftop
+                    </h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Area luas untuk kegiatan acara sekolah
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+                >
+                    <div class="text-5xl mb-3">
+                        <i data-feather="book" class="w-10 h-10"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">
+                        Perpustakaan
+                    </h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Koleksi buku lengkap
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+                >
+                    <div class="text-5xl mb-3">
+                        <i data-feather="coffee" class="w-10 h-10"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">
+                        Kantin
+                    </h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Makanan sehat dan bergizi
+                    </p>
+                </div>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Visi</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
-            Menjadi lembaga pendidikan Islam terdepan yang menghasilkan generasi muslim yang berilmu, berakhlak mulia, berprestasi, dan mampu berkomunikasi secara global dengan tetap berpegang teguh pada nilai-nilai keislaman.
-          </p>
         </div>
+    </section>
 
-        <!-- Misi -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border-t-4 border-tertiary-500">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-16 h-16 bg-gradient-to-br from-tertiary-500 to-tertiary-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
-              🚀
-            </div>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Misi</h3>
-          </div>
-          <ul class="space-y-3 text-gray-600 dark:text-gray-400">
-            <li class="flex items-start gap-3">
-              <span class="text-tertiary-500 text-xl mt-1">✓</span>
-              <span>Menyelenggarakan pendidikan berkualitas dengan kurikulum nasional dan internasional</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-tertiary-500 text-xl mt-1">✓</span>
-              <span>Membentuk karakter islami melalui pendidikan agama yang komprehensif</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-tertiary-500 text-xl mt-1">✓</span>
-              <span>Mengembangkan kemampuan bilingual untuk komunikasi global</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-tertiary-500 text-xl mt-1">✓</span>
-              <span>Memfasilitasi pengembangan bakat dan minat siswa secara optimal</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-tertiary-500 text-xl mt-1">✓</span>
-              <span>Menciptakan lingkungan pembelajaran yang kondusif dan Islami</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Struktur Organisasi (Optional) -->
+    <TeacherCarousel />
 
-  <!-- Nilai-nilai Kami -->
-  <NilaiSection/>
-
-  <!-- Fasilitas -->
-  <section class="py-16 bg-gray-50 dark:bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Fasilitas Lengkap
-        </h2>
-        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Sarana dan prasarana modern untuk mendukung proses pembelajaran optimal
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-          <div class="text-5xl mb-3">🏫</div>
-          <h4 class="font-bold text-gray-900 dark:text-white mb-2">Gedung Modern</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Ruang kelas ber-AC dan nyaman</p>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-          <div class="text-5xl mb-3">🕌</div>
-          <h4 class="font-bold text-gray-900 dark:text-white mb-2">Masjid</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Masjid luas untuk ibadah berjamaah</p>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-          <div class="text-5xl mb-3">💻</div>
-          <h4 class="font-bold text-gray-900 dark:text-white mb-2">Lab Komputer</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Komputer modern dengan internet</p>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-          <div class="text-5xl mb-3">🔬</div>
-          <h4 class="font-bold text-gray-900 dark:text-white mb-2">Lab IPA</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Laboratorium lengkap untuk praktikum</p>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-          <div class="text-5xl mb-3">📚</div>
-          <h4 class="font-bold text-gray-900 dark:text-white mb-2">Perpustakaan</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Koleksi buku lengkap dan digital</p>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-          <div class="text-5xl mb-3">🏋️</div>
-          <h4 class="font-bold text-gray-900 dark:text-white mb-2">Lapangan Olahraga</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Basket, futsal, dan voli</p>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-          <div class="text-5xl mb-3">🏠</div>
-          <h4 class="font-bold text-gray-900 dark:text-white mb-2">Asrama</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Asrama nyaman dengan AC</p>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-          <div class="text-5xl mb-3">🍽️</div>
-          <h4 class="font-bold text-gray-900 dark:text-white mb-2">Kantin</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Makanan sehat dan bergizi</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Struktur Organisasi (Optional) -->
-  <TeacherCarousel />
-
-  <!-- CTA -->
-  <CTASection 
-    id="kontak-cta"
-    title="Bergabunglah dengan Keluarga ABBS"
-    description="Jadilah bagian dari generasi unggul yang siap menghadapi tantangan masa depan"
-    primaryButton={{ text: 'Chat WhatsApp', href: '/kontak', icon: '💬' }}
-    secondaryButton={{ text: 'Lihat Program', href: '/program', icon: ' 📚' }}
-  />
-
+    <!-- CTA -->
+    <CTASection
+        id="kontak-cta"
+        title="Bergabunglah dengan Keluarga ABBS"
+        description="Jadilah bagian dari generasi unggul yang siap menghadapi tantangan masa depan"
+        primaryButton={{
+            text: "Chat WhatsApp",
+            href: "/kontak",
+            icon: "message-circle",
+        }}
+        secondaryButton={{
+            text: "Lihat Program",
+            href: "/program",
+            icon: "book",
+        }}
+    />
 </Layout>

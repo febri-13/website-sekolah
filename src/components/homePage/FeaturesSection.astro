@@ -31,7 +31,7 @@ const defaultFeatures: Feature[] = [
     order: 1,
     title: 'Kurikulum Bilingual',
     description: 'Pembelajaran dwi bahasa (Indonesia & Inggris) dengan metode modern dan interaktif',
-    icon: '📚',
+    icon: 'book',
     borderColor: 'border-primary-500',
     gradientFrom: 'from-primary-500',
     gradientTo: 'to-primary-600',
@@ -40,7 +40,7 @@ const defaultFeatures: Feature[] = [
     order: 2,
     title: 'Pendidikan Islam',
     description: 'Pemahaman agama yang kuat dengan tahfidz Al-Qur\'an dan akhlak mulia',
-    icon: '🕌',
+    icon: 'home',
     borderColor: 'border-tertiary-500',
     gradientFrom: 'from-tertiary-500',
     gradientTo: 'to-tertiary-600',
@@ -49,7 +49,7 @@ const defaultFeatures: Feature[] = [
     order: 3,
     title: 'Boarding School',
     description: 'Asrama nyaman dengan pengawasan 24 jam dan pembinaan karakter terpadu',
-    icon: '🏠',
+    icon: 'home',
     borderColor: 'border-secondary-400',
     gradientFrom: 'from-secondary-400',
     gradientTo: 'to-secondary-500',
@@ -58,7 +58,7 @@ const defaultFeatures: Feature[] = [
     order: 4,
     title: 'Teknologi Modern',
     description: 'Fasilitas IT lengkap dengan pembelajaran berbasis teknologi digital',
-    icon: '💻',
+    icon: 'monitor',
     borderColor: 'border-primary-500',
     gradientFrom: 'from-primary-500',
     gradientTo: 'to-primary-600',
@@ -67,7 +67,7 @@ const defaultFeatures: Feature[] = [
     order: 5,
     title: 'Ekstrakurikuler',
     description: 'Beragam kegiatan untuk mengembangkan bakat dan minat siswa',
-    icon: '⚽',
+    icon: 'zap',
     borderColor: 'border-tertiary-500',
     gradientFrom: 'from-tertiary-500',
     gradientTo: 'to-tertiary-600',
@@ -76,7 +76,7 @@ const defaultFeatures: Feature[] = [
     order: 6,
     title: 'Prestasi Gemilang',
     description: 'Track record juara di berbagai kompetisi tingkat regional hingga nasional',
-    icon: '🏆',
+    icon: 'star',
     borderColor: 'border-secondary-400',
     gradientFrom: 'from-secondary-400',
     gradientTo: 'to-secondary-500',
@@ -86,27 +86,28 @@ const defaultFeatures: Feature[] = [
 const displayFeatures = features.length > 0 ? features : defaultFeatures;
 ---
 
-<section id="tentang" class="py-16 bg-gray-50 dark:bg-gray-900">
+<section id="tentang" class="py-20 bg-cream-50 dark:bg-gray-900">
   <div class="max-w-7xl mx-auto px-4">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
         Keunggulan ABBS Surakarta
       </h2>
-      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
         Fasilitas dan program unggulan untuk mengembangkan potensi siswa secara maksimal
       </p>
+      <div class="w-20 h-1 bg-primary-600 mx-auto mt-6"></div>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8">
       {displayFeatures.map((feature) => (
-        <div class={`bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 border-t-4 ${feature.borderColor}`}>
-          <div class={`w-16 h-16 bg-gradient-to-br ${feature.gradientFrom} ${feature.gradientTo} rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg`}>
-            {feature.icon}
+        <div class={`bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 ${feature.borderColor} group`}>
+          <div class={`w-16 h-16 bg-gradient-to-br ${feature.gradientFrom} ${feature.gradientTo} rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg text-white group-hover:scale-110 transition-transform`}>
+            <i data-feather={feature.icon} class="w-8 h-8"></i>
           </div>
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
             {feature.title}
           </h3>
-          <p class="text-gray-600 dark:text-gray-400">
+          <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
             {feature.description}
           </p>
         </div>

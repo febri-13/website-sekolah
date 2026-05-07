@@ -32,18 +32,18 @@ const allBerita = await sanityClient.fetch<Berita[]>(
 
 // Categories for filtering
 const categories = [
-  { value: 'all', label: 'Semua', icon: '📚' },
-  { value: 'akademik', label: 'Akademik', icon: '📖' },
-  { value: 'prestasi', label: 'Prestasi', icon: '🏆' },
-  { value: 'kegiatan', label: 'Kegiatan', icon: '🌍' },
-  { value: 'pengumuman', label: 'Pengumuman', icon: '📢' },
+  { value: 'all', label: 'Semua', icon: 'book' },
+  { value: 'akademik', label: 'Akademik', icon: 'book' },
+  { value: 'prestasi', label: 'Prestasi', icon: 'star' },
+  { value: 'kegiatan', label: 'Kegiatan', icon: 'globe' },
+  { value: 'pengumuman', label: 'Pengumuman', icon: 'megaphone' },
 ];
 
 const categoryIcons: Record<string, string> = {
-  'akademik': '📚',
-  'prestasi': '🏆',
-  'kegiatan': '🌍',
-  'pengumuman': '📢',
+  'akademik': 'book',
+  'prestasi': 'star',
+  'kegiatan': 'globe',
+  'pengumuman': 'megaphone',
 };
 ---
 
@@ -56,7 +56,7 @@ const categoryIcons: Record<string, string> = {
     <div class="relative max-w-7xl mx-auto px-4 py-20 md:py-32">
       <div class="text-center">
         <div class="inline-block mb-4 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-          📰 Berita & Kegiatan
+          <i data-feather="file-text" class="inline-block w-4 h-4 mr-2"></i>Berita & Kegiatan
         </div>
         <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
           Berita & Kegiatan ABBS
@@ -72,7 +72,7 @@ const categoryIcons: Record<string, string> = {
   </section>
 
   <!-- Filter Categories -->
-  <section class="py-8 bg-gray-50 dark:bg-gray-900 sticky top-[73px] z-40 border-b border-gray-200 dark:border-gray-700">
+  <section class="py-8 bg-cream-50 dark:bg-gray-900 sticky top-[73px] z-40 border-b border-cream-200 dark:border-gray-700">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex gap-3 overflow-x-auto pb-2 hide-scrollbar" id="category-filters">
         {categories.map((cat) => (
@@ -80,7 +80,7 @@ const categoryIcons: Record<string, string> = {
             class="category-filter whitespace-nowrap px-6 py-3 rounded-full font-semibold transition-all shrink-0"
             data-category={cat.value}
           >
-            {cat.icon} {cat.label}
+            {cat.icon && <i data-feather={cat.icon} class="inline-block w-4 h-4 mr-2" />} {cat.label}
           </button>
         ))}
       </div>
@@ -88,30 +88,30 @@ const categoryIcons: Record<string, string> = {
   </section>
 
   <!-- Berita Grid -->
-  <section class="py-16 bg-white dark:bg-gray-800">
+  <section class="py-20 bg-cream-50 dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-4">
       <div id="berita-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {allBerita.map((berita) => (
           <article 
-            class="berita-card bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1"
+            class="berita-card bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-cream-200 dark:border-gray-700"
             data-category={berita.category}
           >
-            {berita.featuredImage ? (
+              {berita.featuredImage ? (
               <img
                 src={urlFor(berita.featuredImage).width(600).height(400).url()}
                 alt={berita.title}
                 class="h-48 w-full object-cover"
               />
-            ) : (
-              <div class={`h-48 bg-gradient-to-br ${berita.gradientFrom} ${berita.gradientTo} flex items-center justify-center text-6xl`}>
-                {categoryIcons[berita.category] || '📖'}
+              ) : (
+              <div class={`h-48 bg-gradient-to-br ${berita.gradientFrom} ${berita.gradientTo} flex items-center justify-center`}>
+                {categoryIcons[berita.category] ? <i data-feather={categoryIcons[berita.category]} class="w-12 h-12" /> : <i data-feather="book" class="w-12 h-12" />}
               </div>
             )}
             
             <div class="p-6">
               <div class="flex items-center gap-2 mb-3">
                 <span class="text-xs px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full font-semibold">
-                  {categoryIcons[berita.category]} {berita.category}
+                  {categoryIcons[berita.category] && <i data-feather={categoryIcons[berita.category]} class="inline-block w-4 h-4 mr-2" />} {berita.category}
                 </span>
                 <span class="text-xs text-gray-500 dark:text-gray-400">
                   {formatDate(berita.publishedAt)}
@@ -142,7 +142,7 @@ const categoryIcons: Record<string, string> = {
 
       <!-- Empty State -->
       <div id="empty-state" class="hidden text-center py-16">
-        <div class="text-6xl mb-4">🔍</div>
+        <div class="text-6xl mb-4"><i data-feather="search" class="w-12 h-12" /></div>
         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
           Tidak Ada Berita
         </h3>

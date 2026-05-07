@@ -43,7 +43,7 @@ const relatedBerita = await sanityClient.fetch<Berita[]>(
 );
 
 const icons: Record<string, string> = {
-  akademik: '📚', prestasi: '🏆', kegiatan: '🌍', pengumuman: '📢'
+  akademik: 'book', prestasi: 'star', kegiatan: 'globe', pengumuman: 'megaphone'
 };
 
 function renderContent(content: any[]): string {
@@ -108,8 +108,8 @@ const heroUrl = hasHero ? urlFor(berita.featuredImage).width(1200).height(600).u
     </section>
 
     <article class="max-w-4xl mx-auto px-4 -mt-32 relative z-10">
-      <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 md:p-12 shadow-2xl mb-8">
-        <nav class="text-sm mb-6">
+      <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 md:p-12 shadow-2xl mb-8 border border-cream-200 dark:border-gray-700">
+        <nav class="text-sm mb-8">
           <a href="/" class="text-primary-600 dark:text-primary-400 hover:underline">Beranda</a>
           <span class="mx-2 text-gray-400">/</span>
           <a href="/berita" class="text-primary-600 dark:text-primary-400 hover:underline">Berita</a>
@@ -117,16 +117,16 @@ const heroUrl = hasHero ? urlFor(berita.featuredImage).width(1200).height(600).u
           <span class="text-gray-600 dark:text-gray-400">{berita.title}</span>
         </nav>
 
-        <div class="flex items-center gap-4 mb-6">
+        <div class="flex items-center gap-4 mb-8 flex-wrap">
           <span class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full font-semibold text-sm">
-            {icons[berita.category]} {berita.category}
+            {icons[berita.category.toLowerCase()] && <i data-feather={icons[berita.category.toLowerCase()]} class="inline-block w-4 h-4 mr-2" />} {berita.category}
           </span>
-          <span class="text-gray-500 dark:text-gray-400 text-sm">
-            📅 {formatDate(berita.publishedAt)}
+          <span class="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-2">
+            <i data-feather="calendar" class="inline-block w-4 h-4" />{formatDate(berita.publishedAt)}
           </span>
         </div>
 
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
           {berita.title}
         </h1>
 
@@ -134,18 +134,18 @@ const heroUrl = hasHero ? urlFor(berita.featuredImage).width(1200).height(600).u
           {berita.excerpt}
         </p>
 
-        <div class="border-t border-gray-200 dark:border-gray-700 mb-8"></div>
+        <div class="border-t border-cream-200 dark:border-gray-700 mb-8"></div>
 
         <div class="article-content prose prose-lg max-w-none">
           <Fragment set:html={contentHtml} />
         </div>
 
-        <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+        <div class="mt-12 pt-8 border-t border-cream-200 dark:border-gray-700">
           <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Bagikan Artikel</h3>
           <div class="flex gap-3">
-            <a href={`https://facebook.com/sharer/sharer.php?u=${Astro.url.href}`} target="_blank" rel="noopener" class="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition">📘</a>
-            <a href={`https://twitter.com/intent/tweet?url=${Astro.url.href}&text=${berita.title}`} target="_blank" rel="noopener" class="w-12 h-12 bg-sky-500 hover:bg-sky-600 text-white rounded-full flex items-center justify-center transition">🐦</a>
-            <a href={`https://wa.me/?text=${berita.title} ${Astro.url.href}`} target="_blank" rel="noopener" class="w-12 h-12 bg-green-600 hover:bg-green-700 text-white rounded-full flex items-center justify-center transition">💬</a>
+            <a href={`https://facebook.com/sharer/sharer.php?u=${Astro.url.href}`} target="_blank" rel="noopener" class="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition transform hover:scale-110" aria-label="Share to Facebook"><i data-feather="facebook" class="w-5 h-5"></i></a>
+            <a href={`https://twitter.com/intent/tweet?url=${Astro.url.href}&text=${berita.title}`} target="_blank" rel="noopener" class="w-12 h-12 bg-sky-500 hover:bg-sky-600 text-white rounded-full flex items-center justify-center transition transform hover:scale-110" aria-label="Share to Twitter"><i data-feather="twitter" class="w-5 h-5"></i></a>
+            <a href={`https://wa.me/?text=${berita.title} ${Astro.url.href}`} target="_blank" rel="noopener" class="w-12 h-12 bg-green-600 hover:bg-green-700 text-white rounded-full flex items-center justify-center transition transform hover:scale-110" aria-label="Share to WhatsApp"><i data-feather="message-circle" class="w-5 h-5"></i></a>
           </div>
         </div>
       </div>
@@ -161,9 +161,9 @@ const heroUrl = hasHero ? urlFor(berita.featuredImage).width(1200).height(600).u
                 <article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
                   {hasImg ? (
                     <img src={imgUrl} alt={r.title} class="h-40 w-full object-cover" />
-                  ) : (
-                    <div class={`h-40 bg-gradient-to-br ${r.gradientFrom} ${r.gradientTo} flex items-center justify-center text-4xl`}>
-                      {icons[r.category] || '📖'}
+                    ) : (
+                    <div class={`h-40 bg-gradient-to-br ${r.gradientFrom} ${r.gradientTo} flex items-center justify-center`}>
+                      {icons[r.category] ? <i data-feather={icons[r.category]} class="w-10 h-10" /> : <i data-feather="book" class="w-10 h-10" />}
                     </div>
                   )}
                   <div class="p-4">

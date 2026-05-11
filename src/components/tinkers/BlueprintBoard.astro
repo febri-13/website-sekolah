@@ -1,0 +1,1132 @@
+---
+
+---
+
+<div
+    id="blueprint-board"
+    class="opacity-0 transition-opacity duration-1000 hidden w-full h-full bg-[#001226] text-[#00f2ff] relative overflow-auto p-4 md:p-10"
+    style="font-family: 'JetBrains Mono', 'Fira Code', monospace;"
+>
+    <!-- Futuristic Grid -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div
+            class="absolute inset-0"
+            style="background-image: 
+                linear-gradient(rgba(0, 242, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 255, 0.1) 1px, transparent 1px);
+                background-size: 50px 50px;"
+        >
+        </div>
+        <!-- Scanning Line -->
+        <div
+            class="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-[#00f2ff] to-transparent top-0 opacity-30 scanning-line"
+        >
+        </div>
+    </div>
+
+    <!-- HUD Elements (Corners) -->
+    <div
+        class="absolute top-10 left-10 w-24 h-24 border-t-4 border-l-4 border-[#00f2ff] opacity-40"
+    >
+    </div>
+    <div
+        class="absolute top-10 right-10 w-24 h-24 border-t-4 border-r-4 border-[#00f2ff] opacity-40"
+    >
+    </div>
+    <div
+        class="absolute bottom-10 left-10 w-24 h-24 border-b-4 border-l-4 border-[#00f2ff] opacity-40"
+    >
+    </div>
+    <div
+        class="absolute bottom-10 right-10 w-24 h-24 border-b-4 border-r-4 border-[#00f2ff] opacity-40"
+    >
+    </div>
+
+    <!-- Main Content Area -->
+    <div
+        class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-7xl mx-auto py-12"
+    >
+        <!-- Header Module -->
+        <div
+            class="lg:col-span-12 mb-12 border-b-2 border-[#00f2ff] pb-6 flex flex-col md:flex-row justify-between items-start md:items-end relative"
+        >
+            <div>
+                <div
+                    class="text-[10px] text-[#00f2ff] opacity-60 mb-1 tracking-[0.3em] uppercase"
+                >
+                    Club Profile // 2026
+                </div>
+                <h1
+                    class="text-5xl md:text-8xl font-black italic tracking-tighter text-white glow-text mb-2"
+                >
+                    THE TINKERS
+                </h1>
+                <div
+                    class="flex items-center gap-4 text-[10px] tracking-widest"
+                >
+                    <span
+                        class="bg-[#00f2ff] text-black px-2 font-bold animate-pulse"
+                        >OPERATIONAL ACTIVE</span
+                    >
+                    <span class="opacity-50">SMP ABBS SURAKARTA</span>
+                </div>
+            </div>
+            <div
+                class="text-right hidden md:block font-mono text-[10px] opacity-70"
+            >
+                <div class="mb-1">ESTABLISHED: 27.4.2026</div>
+                <div class="mb-1">NETWORK_STATUS: ENCRYPTED</div>
+                <div
+                    class="w-32 h-1 bg-[#00f2ff]/20 rounded-full overflow-hidden"
+                >
+                    <div class="h-full bg-[#00f2ff] w-full animate-load"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module 01: Core Protocol (Latar Belakang & Visi) -->
+        <div class="lg:col-span-8 group">
+            <div
+                class="border border-[#00f2ff]/30 p-8 relative bg-[#001226]/60 backdrop-blur-md hover:border-[#00f2ff] transition-all shadow-[inset_0_0_30px_rgba(0,242,255,0.05)] h-full"
+            >
+                <div
+                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
+                >
+                    Module_01 // Core_Foundation
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+                    <div>
+                        <h2
+                            class="text-xs font-bold mb-4 text-[#00f2ff] opacity-50 tracking-[0.2em] uppercase"
+                        >
+                            I. Latar Belakang
+                        </h2>
+                        <p class="text-sm leading-relaxed text-gray-300">
+                            Perkembangan teknologi menuntut siswa tidak hanya
+                            memahami teori, tetapi juga kemampuan praktis dan
+                            inovatif. <span class="text-[#00f2ff]"
+                                >The Tinkers</span
+                            > hadir sebagai wadah terstruktur untuk pengembangan ide
+                            dan persiapan kompetisi IT secara optimal.
+                        </p>
+                    </div>
+                    <div>
+                        <h2
+                            class="text-xs font-bold mb-4 text-[#00f2ff] opacity-50 tracking-[0.2em] uppercase"
+                        >
+                            III. Visi Utama
+                        </h2>
+                        <div
+                            class="border-l-2 border-[#00f2ff] pl-4 italic text-sm md:text-base text-white"
+                        >
+                            "Menjadi wadah unggulan bagi siswa dalam
+                            mengembangkan keterampilan teknologi, inovasi, dan
+                            kreativitas untuk menghasilkan karya yang kompetitif
+                            di tingkat nasional maupun internasional."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module 02: Strategic Objectives -->
+        <div class="lg:col-span-4">
+            <div
+                class="border border-[#00f2ff]/30 p-8 bg-[#00f2ff]/5 relative h-full"
+            >
+                <div
+                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
+                >
+                    Module_02 // Objectives
+                </div>
+                <h3
+                    class="text-xs font-bold mb-6 mt-4 text-[#00f2ff] tracking-widest uppercase"
+                >
+                    II. Tujuan Strategis
+                </h3>
+                <ul class="space-y-4">
+                    {
+                        [
+                            "Kreativitas & Inovasi Siswa",
+                            "Persiapan Lomba IT Terstruktur",
+                            "Project-Based Learning Culture",
+                            "Teamwork & Problem Solving",
+                        ].map((item, index) => (
+                            <li class="flex items-center gap-3 text-xs">
+                                <span class="text-[#00f2ff] font-bold">
+                                    0{index + 1}
+                                </span>
+                                <span class="text-gray-300 uppercase tracking-tighter">
+                                    {item}
+                                </span>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <!-- Module 03: Deployment Divisi -->
+        <div class="lg:col-span-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {
+                    [
+                        {
+                            id: "IOT",
+                            name: "IoT Innovation",
+                            coord: "Mr Febri",
+                            lead: "Xavier (8B)",
+                            slogan: "Bringing Creativity to Life.",
+                            desc: "We bridge the gap between imagination and the physical world. By leveraging smart sensors and automation, we transform complex ideas into tangible, innovative hardware solutions.",
+                        },
+                        {
+                            id: "GAME",
+                            name: "Game Dev",
+                            coord: "Mr Musfiq",
+                            lead: "Jabbar (8A)",
+                            slogan: "Turning Curiosity into Playable Worlds.",
+                            desc: "We push the boundaries of interaction by transforming raw curiosity into engaging gameplay. We build immersive environments and mechanics that allow users to explore and interact with your ideas.",
+                        },
+                        {
+                            id: "WEB",
+                            name: "Website Creative",
+                            coord: "Mr Ifan",
+                            lead: "Ammar (8A)",
+                            slogan: "Digitizing Your Vision.",
+                            desc: "We craft immersive digital experiences that blend aesthetics with functionality. From concept to code, we ensure your brand stands out in the digital landscape with high-performance web solutions.",
+                        },
+                    ].map((div) => (
+                        <div
+                            class="div-card border border-[#00f2ff]/20 p-6 bg-[#001226]/80 hover:bg-[#00f2ff]/5 transition-all group relative cursor-pointer overflow-hidden"
+                            data-name={div.name}
+                            data-slogan={div.slogan}
+                            data-desc={div.desc}
+                            data-coord={div.coord}
+                            data-lead={div.lead}
+                        >
+                            <div class="absolute top-0 right-0 p-2 text-[8px] text-[#00f2ff] opacity-0 group-hover:opacity-40 transition-opacity uppercase tracking-widest">
+                                Access Division Data
+                            </div>
+                            <div class="text-[10px] opacity-40 mb-2 font-mono uppercase">
+                                DIV_#{div.id}
+                            </div>
+                            <h4 class="text-xl font-black italic text-white mb-4 group-hover:text-[#00f2ff] transition-colors uppercase">
+                                {div.name}
+                            </h4>
+                            <div class="space-y-2 text-[11px] font-mono border-t border-[#00f2ff]/10 pt-4">
+                                <div class="flex justify-between">
+                                    <span class="opacity-50 uppercase">
+                                        Coordinator:
+                                    </span>
+                                    <span class="text-[#00f2ff]">
+                                        {div.coord}
+                                    </span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="opacity-50 uppercase">
+                                        Leader:
+                                    </span>
+                                    <span class="text-[#00f2ff] font-bold">
+                                        {div.lead}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <!-- Division Detail Modal -->
+        <div
+            id="div-modal"
+            class="fixed inset-0 z-[1000] flex items-center justify-center p-6 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300"
+        >
+            <div
+                class="relative w-full max-w-xl bg-[#001226] border-2 border-[#00f2ff] p-10 shadow-[0_0_50px_rgba(0,242,255,0.2)]"
+            >
+                <div
+                    class="absolute inset-0 pointer-events-none overflow-hidden opacity-10"
+                >
+                    <div
+                        class="absolute inset-0"
+                        style="background-image: radial-gradient(#00f2ff 1px, transparent 1px); background-size: 30px 30px;"
+                    >
+                    </div>
+                </div>
+
+                <button
+                    id="close-div-modal"
+                    class="absolute top-4 right-4 text-[#00f2ff] hover:text-white transition-colors text-xl font-bold"
+                    >[ X ]</button
+                >
+
+                <div class="relative z-10 text-center">
+                    <div
+                        class="text-[10px] text-[#00f2ff] tracking-[0.6em] uppercase mb-2"
+                    >
+                        Division Operational Briefing
+                    </div>
+                    <h2
+                        id="div-modal-name"
+                        class="text-4xl font-black italic text-white uppercase mb-4 glow-text"
+                    >
+                        IoT Innovation
+                    </h2>
+
+                    <div
+                        class="inline-block px-4 py-1 bg-[#00f2ff] text-[#001226] text-xs font-bold uppercase mb-8 italic"
+                        id="div-modal-slogan"
+                    >
+                        "Bringing Creativity to Life."
+                    </div>
+
+                    <div class="text-left space-y-6">
+                        <div
+                            class="p-6 bg-[#00f2ff]/5 border border-[#00f2ff]/20"
+                        >
+                            <div
+                                class="text-[9px] text-[#00f2ff] font-bold uppercase mb-2"
+                            >
+                                // MISSION_PROFILE
+                            </div>
+                            <p
+                                id="div-modal-desc"
+                                class="text-sm text-gray-300 leading-relaxed"
+                            >
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div
+                                class="bg-[#001226] border border-[#00f2ff]/10 p-3"
+                            >
+                                <div
+                                    class="text-[8px] opacity-40 uppercase mb-1"
+                                >
+                                    Assigned Coord
+                                </div>
+                                <div
+                                    id="div-modal-coord"
+                                    class="text-xs text-white font-bold"
+                                >
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#001226] border border-[#00f2ff]/10 p-3"
+                            >
+                                <div
+                                    class="text-[8px] opacity-40 uppercase mb-1"
+                                >
+                                    Squad Lead
+                                </div>
+                                <div
+                                    id="div-modal-lead"
+                                    class="text-xs text-white font-bold"
+                                >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module 04: Progression System (Levels) -->
+        <div class="lg:col-span-12">
+            <div
+                class="border border-[#00f2ff]/30 p-8 bg-[#001226]/60 relative"
+            >
+                <div
+                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
+                >
+                    Module_04 // System_Level
+                </div>
+
+                <h3
+                    class="text-center text-2xl font-black mb-10 tracking-[0.4em] text-white uppercase"
+                >
+                    V. Ranking Hierarchy
+                </h3>
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
+                >
+                    {
+                        [
+                            {
+                                lvl: "I",
+                                name: "Explorer",
+                                focus: "Dasar & Tools",
+                                details: {
+                                    focus: "Mempelajari dasar-dasar teknologi (coding, elektronika, dll) dan mengenal tools club.",
+                                    activity:
+                                        "Mengikuti kegiatan pembelajaran secara aktif.",
+                                    competition:
+                                        "Hanya Kompetisi Internal untuk melatih mental dan dasar teknis.",
+                                    promotion:
+                                        "Lulus Ujian Teori 'Basic Of Tech 101' dengan nilai >78%.",
+                                },
+                            },
+                            {
+                                lvl: "II",
+                                name: "Builder",
+                                focus: "Mini Projects",
+                                details: {
+                                    focus: "Mengerjakan mini project sesuai arahan dan memahami alur pembuatan proyek.",
+                                    activity:
+                                        "Mengikuti latihan rutin dan menyelesaikan task dengan baik.",
+                                    competition:
+                                        "Kompetisi Tingkat Lokal/Regional (antar sekolah atau tingkat kota).",
+                                    promotion:
+                                        "Berhasil menyelesaikan Latihan Rutin selama 2 bulan.",
+                                },
+                            },
+                            {
+                                lvl: "III",
+                                name: "Engineer",
+                                focus: "Advanced Systems",
+                                details: {
+                                    focus: "Upgrade project kompleks dan menggabungkan konsep software & hardware.",
+                                    activity:
+                                        "Problem solving mandiri dalam pengerjaan project.",
+                                    competition:
+                                        "Kompetisi Tingkat Provinsi atau Undangan Khusus.",
+                                    promotion:
+                                        "Lulus Ujian Lisan 'Advanced Tech 101'.",
+                                },
+                            },
+                            {
+                                lvl: "IV",
+                                name: "Inventor",
+                                focus: "Original Innovation",
+                                details: {
+                                    focus: "Menciptakan proyek orisinal yang inovatif dan siap lomba.",
+                                    activity:
+                                        "Membimbing anggota level di bawahnya (menjadi mentor).",
+                                    competition:
+                                        "Garda terdepan untuk Kompetisi Tingkat Nasional dan Internasional.",
+                                    promotion:
+                                        "Menjadi perwakilan utama klub dalam ajang-ajang bergengsi.",
+                                },
+                            },
+                        ].map((rank) => (
+                            <div
+                                class="level-card border border-[#00f2ff]/20 p-6 bg-[#001226] hover:border-[#00f2ff] transition-all group cursor-pointer relative overflow-hidden"
+                                data-lvl={rank.lvl}
+                                data-name={rank.name}
+                                data-focus={rank.details.focus}
+                                data-activity={rank.details.activity}
+                                data-comp={rank.details.competition}
+                                data-promo={rank.details.promotion}
+                            >
+                                <div class="absolute top-0 right-0 p-2 text-[8px] text-[#00f2ff] opacity-0 group-hover:opacity-40 transition-opacity uppercase tracking-widest">
+                                    Click to Decrypt
+                                </div>
+                                <div class="text-4xl font-black text-[#00f2ff]/10 mb-2 group-hover:text-[#00f2ff]/30 transition-colors">
+                                    {rank.lvl}
+                                </div>
+                                <div class="text-xl font-bold text-white mb-4 uppercase tracking-tighter group-hover:text-[#00f2ff] transition-colors">
+                                    {rank.name}
+                                </div>
+                                <div class="border-t border-[#00f2ff]/10 pt-4">
+                                    <div class="text-[8px] opacity-40 uppercase tracking-widest mb-1">
+                                        Primary Focus
+                                    </div>
+                                    <div class="text-[11px] text-[#00f2ff] uppercase">
+                                        {rank.focus}
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <!-- Level Detail Modal -->
+                <div
+                    id="level-modal"
+                    class="fixed inset-0 z-[1000] flex items-center justify-center p-6 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300"
+                >
+                    <div
+                        class="relative w-full max-w-lg bg-[#001226] border-2 border-[#00f2ff] p-8 shadow-[0_0_50px_rgba(0,242,255,0.2)]"
+                    >
+                        <div
+                            class="absolute inset-0 pointer-events-none overflow-hidden opacity-10"
+                        >
+                            <div
+                                class="absolute inset-0"
+                                style="background-image: linear-gradient(rgba(0, 242, 255, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 242, 255, 0.5) 1px, transparent 1px); background-size: 20px 20px;"
+                            >
+                            </div>
+                        </div>
+
+                        <button
+                            id="close-modal"
+                            class="absolute top-4 right-4 text-[#00f2ff] hover:text-white transition-colors text-xl font-bold"
+                            >[ X ]</button
+                        >
+
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div
+                                    id="modal-lvl-id"
+                                    class="text-5xl font-black text-[#00f2ff] border-r border-[#00f2ff]/30 pr-6"
+                                >
+                                    I
+                                </div>
+                                <div>
+                                    <div
+                                        class="text-[10px] text-[#00f2ff] tracking-[0.4em] uppercase"
+                                    >
+                                        Security Level Granted
+                                    </div>
+                                    <h2
+                                        id="modal-name"
+                                        class="text-3xl font-black italic text-white uppercase"
+                                    >
+                                        Explorer
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="border-l-2 border-[#00f2ff] pl-4">
+                                    <div
+                                        class="text-[9px] text-[#00f2ff] font-bold uppercase tracking-widest mb-1"
+                                    >
+                                        // FOKUS
+                                    </div>
+                                    <p
+                                        id="modal-focus"
+                                        class="text-sm text-gray-300"
+                                    >
+                                    </p>
+                                </div>
+                                <div class="border-l-2 border-[#00f2ff] pl-4">
+                                    <div
+                                        class="text-[9px] text-[#00f2ff] font-bold uppercase tracking-widest mb-1"
+                                    >
+                                        // AKTIVITAS
+                                    </div>
+                                    <p
+                                        id="modal-activity"
+                                        class="text-sm text-gray-300"
+                                    >
+                                    </p>
+                                </div>
+                                <div class="border-l-2 border-[#00f2ff] pl-4">
+                                    <div
+                                        class="text-[9px] text-[#00f2ff] font-bold uppercase tracking-widest mb-1"
+                                    >
+                                        // BATAS KOMPETISI
+                                    </div>
+                                    <p
+                                        id="modal-comp"
+                                        class="text-sm text-[#ffbd2e]"
+                                    >
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-[#00f2ff]/10 p-4 border border-[#00f2ff]/30"
+                                >
+                                    <div
+                                        class="text-[9px] text-[#00f2ff] font-bold uppercase tracking-widest mb-2"
+                                    >
+                                        // SYARAT NAIK PANGKAT
+                                    </div>
+                                    <p
+                                        id="modal-promo"
+                                        class="text-sm font-bold text-white"
+                                    >
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="mt-8 pt-4 border-t border-[#00f2ff]/20 text-center text-[9px] opacity-30 tracking-[0.5em] uppercase"
+                            >
+                                System Decryption Complete
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module 05: Operational Protocols (Expanded) -->
+        <div class="lg:col-span-8">
+            <div
+                class="border border-[#00f2ff]/30 p-8 bg-[#001226]/60 relative h-full"
+            >
+                <div
+                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
+                >
+                    Module_05 // Operational_Protocols
+                </div>
+
+                <h3
+                    class="text-xs font-bold mb-6 mt-4 text-[#00f2ff] tracking-widest uppercase"
+                >
+                    X. Teknis & Sistem Pembelajaran
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    {
+                        [
+                            {
+                                t: "Theory Session",
+                                d: "Penyampaian konsep coding, elektronika, & problem solving.",
+                            },
+                            {
+                                t: "Hands-on Session",
+                                d: "Praktik langsung melalui mini project atau eksperimen.",
+                            },
+                            {
+                                t: "Tech Sharing",
+                                d: "Sesi berbagi tools, teknologi baru, & pengalaman antar anggota.",
+                            },
+                        ].map((item) => (
+                            <div class="p-4 bg-[#00f2ff]/5 border border-[#00f2ff]/10">
+                                <div class="text-[10px] font-bold text-white mb-2 uppercase">
+                                    {item.t}
+                                </div>
+                                <p class="text-[9px] text-gray-400 leading-relaxed">
+                                    {item.d}
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <div class="space-y-6">
+                    <div class="border-t border-[#00f2ff]/10 pt-4">
+                        <div
+                            class="text-[10px] font-bold text-[#00f2ff] mb-4 uppercase tracking-widest"
+                        >
+                            Weekly Deployment Flow
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div
+                                class="bg-[#00f2ff]/5 p-4 border-l-2 border-[#00f2ff]"
+                            >
+                                <div
+                                    class="text-[11px] font-bold text-white mb-1"
+                                >
+                                    MINGGU GANJIL
+                                </div>
+                                <div class="text-[10px] text-gray-400 italic">
+                                    Core Materials + Basic Practice
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#00f2ff]/5 p-4 border-l-2 border-[#00f2ff]"
+                            >
+                                <div
+                                    class="text-[11px] font-bold text-white mb-1"
+                                >
+                                    MINGGU GENAP
+                                </div>
+                                <div class="text-[10px] text-gray-400 italic">
+                                    Tech Sharing + Routine Training + Evaluation
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                        {
+                            [
+                                { t: "Briefing", m: "10m" },
+                                { t: "Theory/Sharing", m: "45m" },
+                                { t: "Practice", m: "60m" },
+                                { t: "Evaluation", m: "15m" },
+                            ].map((step) => (
+                                <div class="bg-[#00f2ff]/5 p-2 text-center border border-[#00f2ff]/10">
+                                    <div class="text-[8px] opacity-50 uppercase">
+                                        {step.t}
+                                    </div>
+                                    <div class="text-xs font-bold text-[#00f2ff]">
+                                        {step.m}
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module 09: Tech Stack & Tools -->
+        <div class="lg:col-span-4">
+            <div
+                class="border border-[#00f2ff]/30 p-8 bg-[#001226]/60 relative h-full"
+            >
+                <div
+                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
+                >
+                    Module_09 // Tech_Stack
+                </div>
+                <h3
+                    class="text-xs font-bold mb-6 mt-4 text-[#00f2ff] tracking-widest uppercase"
+                >
+                    Hardware & Software
+                </h3>
+
+                <div class="space-y-6">
+                    <div>
+                        <div
+                            class="text-[9px] opacity-40 uppercase mb-2 tracking-widest"
+                        >
+                            Hardware Layer
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            {
+                                [
+                                    "Arduino",
+                                    "ESP32",
+                                    "Sensors",
+                                    "Automation",
+                                ].map((tag) => (
+                                    <span class="px-2 py-1 bg-[#00f2ff]/10 border border-[#00f2ff]/20 text-[9px] text-[#00f2ff] font-mono">
+                                        {tag}
+                                    </span>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    <div>
+                        <div
+                            class="text-[9px] opacity-40 uppercase mb-2 tracking-widest"
+                        >
+                            Logic Layer
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            {
+                                ["Python", "C++", "JavaScript", "HTML/CSS"].map(
+                                    (tag) => (
+                                        <span class="px-2 py-1 bg-[#00f2ff]/10 border border-[#00f2ff]/20 text-[9px] text-white font-mono">
+                                            {tag}
+                                        </span>
+                                    ),
+                                )
+                            }
+                        </div>
+                    </div>
+                    <div>
+                        <div
+                            class="text-[9px] opacity-40 uppercase mb-2 tracking-widest"
+                        >
+                            Platform & Tools
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            {
+                                [
+                                    "VS Code",
+                                    "Arduino IDE",
+                                    "Figma",
+                                    "Canva",
+                                ].map((tag) => (
+                                    <span class="px-2 py-1 border border-[#00f2ff]/30 text-[9px] text-gray-400 font-mono italic">
+                                        {tag}
+                                    </span>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module 10: Performance Metrics & Success Indication -->
+        <div class="lg:col-span-6">
+            <div
+                class="border border-[#00f2ff]/30 p-8 bg-[#001226]/60 relative h-full"
+            >
+                <div
+                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
+                >
+                    Module_10 // Success_Metrics
+                </div>
+                <h3
+                    class="text-xs font-bold mb-6 mt-4 text-[#00f2ff] tracking-widest uppercase"
+                >
+                    IX. Indikator Keberhasilan
+                </h3>
+                <div class="space-y-4">
+                    {
+                        [
+                            {
+                                t: "Productivity",
+                                d: "Jumlah proyek inovatif yang dihasilkan anggota.",
+                            },
+                            {
+                                t: "Engagement",
+                                d: "Tingkat keaktifan anggota dalam sesi rutin.",
+                            },
+                            {
+                                t: "Competitiveness",
+                                d: "Partisipasi dan prestasi dalam lomba IT.",
+                            },
+                            {
+                                t: "Contribution",
+                                d: "Kontribusi nyata dalam ICT Show sekolah.",
+                            },
+                        ].map((metric) => (
+                            <div class="flex items-start gap-4 p-3 border border-[#00f2ff]/5 hover:bg-[#00f2ff]/5 transition-colors">
+                                <div class="w-1 h-10 bg-[#00f2ff]/30" />
+                                <div>
+                                    <div class="text-[10px] font-black text-white uppercase">
+                                        {metric.t}
+                                    </div>
+                                    <p class="text-[9px] text-gray-500">
+                                        {metric.d}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Module 11: Collaboration & Competition Protocol -->
+        <div class="lg:col-span-6">
+            <div
+                class="border border-[#00f2ff]/30 p-8 bg-[#00f2ff]/60 relative h-full"
+            >
+                <div
+                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
+                >
+                    Module_11 // Competition_Protocol
+                </div>
+                <h3
+                    class="text-xs font-bold mb-6 mt-4 text-[#00f2ff] tracking-widest uppercase"
+                >
+                    Teamwork & Competition
+                </h3>
+
+                <div class="space-y-6">
+                    <div class="bg-[#00f2ff]/10 p-4 border border-[#00f2ff]/20">
+                        <div
+                            class="text-[9px] text-[#00f2ff] font-bold uppercase mb-2"
+                        >
+                            // SQUAD STRUCTURE
+                        </div>
+                        <p class="text-[11px] text-gray-300">
+                            Tim kecil beranggotakan <span
+                                class="text-white font-bold">2-4 orang</span
+                            > per divisi. Kolaborasi lintas divisi diperbolehkan untuk
+                            proyek lomba skala besar.
+                        </p>
+                    </div>
+
+                    <div
+                        class="relative pl-6 border-l border-[#00f2ff]/30 space-y-4"
+                    >
+                        {
+                            [
+                                {
+                                    s: "Monthly Selection",
+                                    d: "Seleksi internal untuk project terbaik.",
+                                },
+                                {
+                                    s: "Prototyping",
+                                    d: "Pengembangan lanjut menjadi model lomba.",
+                                },
+                                {
+                                    s: "Intensive Mentoring",
+                                    d: "Bimbingan khusus dari guru pendamping.",
+                                },
+                                {
+                                    s: "Presentation Simulation",
+                                    d: "Uji performa dan teknik presentasi.",
+                                },
+                            ].map((step, i) => (
+                                <div class="relative">
+                                    <div class="absolute -left-[29px] top-1 w-2 h-2 bg-[#00f2ff] rounded-full shadow-[0_0_10px_#00f2ff]" />
+                                    <div class="text-[10px] font-bold text-white uppercase">
+                                        {step.s}
+                                    </div>
+                                    <div class="text-[9px] text-gray-500">
+                                        {step.d}
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module 06: Commitments & Values -->
+        <div class="lg:col-span-5">
+            <div
+                class="border border-[#00f2ff]/30 p-8 bg-[#00f2ff]/5 relative h-full"
+            >
+                <div
+                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
+                >
+                    Module_06 // Values
+                </div>
+
+                <div class="space-y-6 mt-4">
+                    <div>
+                        <h4
+                            class="text-xs font-bold text-white mb-2 uppercase tracking-widest border-b border-[#00f2ff]/20 pb-1"
+                        >
+                            Dwi Sumpah
+                        </h4>
+                        <ul class="text-[10px] space-y-1 text-gray-400">
+                            <li>1. Belajar dan berkembang</li>
+                            <li>2. Teknologi secara bijak</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="text-xs font-bold text-white mb-2 uppercase tracking-widest border-b border-[#00f2ff]/20 pb-1"
+                        >
+                            Tri Rachana
+                        </h4>
+                        <div
+                            class="flex justify-between text-[10px] font-black text-[#00f2ff] tracking-tighter"
+                        >
+                            <span>EKSPLORASI</span>
+                            <span>INOVASI</span>
+                            <span>KOLABORASI</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="text-xs font-bold text-white mb-2 uppercase tracking-widest border-b border-[#00f2ff]/20 pb-1"
+                        >
+                            Panca Dasar
+                        </h4>
+                        <div
+                            class="grid grid-cols-2 gap-2 text-[9px] uppercase text-gray-400"
+                        >
+                            {
+                                [
+                                    "Disiplin",
+                                    "Kreativitas",
+                                    "Tanggung Jawab",
+                                    "Kerja Sama",
+                                    "Etika Teknologi",
+                                ].map((v) => (
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-1 h-1 bg-[#00f2ff]" />
+                                        <span>{v}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating HUD Decorations -->
+    <div
+        class="fixed top-1/4 -right-20 w-64 h-64 border border-[#00f2ff]/10 rounded-full pointer-events-none animate-spin-slow"
+    >
+    </div>
+    <div
+        class="fixed -bottom-20 -left-20 w-80 h-80 border border-[#00f2ff]/5 rounded-full pointer-events-none animate-spin-reverse"
+    >
+    </div>
+</div>
+
+<script>
+    // Transition from CrtBoot
+    window.addEventListener("boot-finished", () => {
+        const board = document.getElementById("blueprint-board");
+        if (board) {
+            board.classList.remove("hidden");
+            requestAnimationFrame(() => {
+                board.classList.remove("opacity-0");
+            });
+        }
+    });
+
+    // Level Modal Logic
+    const modal = document.getElementById("level-modal");
+    const closeBtn = document.getElementById("close-modal");
+    const levelCards = document.querySelectorAll(".level-card");
+
+    const modalLvlId = document.getElementById("modal-lvl-id");
+    const modalName = document.getElementById("modal-name");
+    const modalFocus = document.getElementById("modal-focus");
+    const modalActivity = document.getElementById("modal-activity");
+    const modalComp = document.getElementById("modal-comp");
+    const modalPromo = document.getElementById("modal-promo");
+
+    levelCards.forEach((card) => {
+        card.addEventListener("click", () => {
+            const data = (card as HTMLElement).dataset;
+
+            // Populate Modal
+            if (modalLvlId) modalLvlId.textContent = data.lvl || "";
+            if (modalName) modalName.textContent = data.name || "";
+            if (modalFocus) modalFocus.textContent = data.focus || "";
+            if (modalActivity) modalActivity.textContent = data.activity || "";
+            if (modalComp) modalComp.textContent = data.comp || "";
+            if (modalPromo) modalPromo.textContent = data.promo || "";
+
+            // Show Modal
+            if (modal) {
+                modal.classList.remove("hidden");
+                requestAnimationFrame(() => {
+                    modal.classList.remove("opacity-0");
+                });
+            }
+        });
+    });
+
+    if (closeBtn && modal) {
+        closeBtn.addEventListener("click", () => {
+            modal.classList.add("opacity-0");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+            }, 300);
+        });
+
+        // Close on backdrop click
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                if (closeBtn) (closeBtn as HTMLElement).click();
+            }
+        });
+    }
+
+    // Division Modal Logic
+    const divModal = document.getElementById("div-modal");
+    const closeDivBtn = document.getElementById("close-div-modal");
+    const divCards = document.querySelectorAll(".div-card");
+
+    const divModalName = document.getElementById("div-modal-name");
+    const divModalSlogan = document.getElementById("div-modal-slogan");
+    const divModalDesc = document.getElementById("div-modal-desc");
+    const divModalCoord = document.getElementById("div-modal-coord");
+    const divModalLead = document.getElementById("div-modal-lead");
+
+    divCards.forEach((card) => {
+        card.addEventListener("click", () => {
+            const data = (card as HTMLElement).dataset;
+
+            if (divModalName) divModalName.textContent = data.name || "";
+            if (divModalSlogan)
+                divModalSlogan.textContent = `"${data.slogan || ""}"`;
+            if (divModalDesc) divModalDesc.textContent = data.desc || "";
+            if (divModalCoord) divModalCoord.textContent = data.coord || "";
+            if (divModalLead) divModalLead.textContent = data.lead || "";
+
+            if (divModal) {
+                divModal.classList.remove("hidden");
+                requestAnimationFrame(() => {
+                    divModal.classList.remove("opacity-0");
+                });
+            }
+        });
+    });
+
+    if (closeDivBtn && divModal) {
+        closeDivBtn.addEventListener("click", () => {
+            divModal.classList.add("opacity-0");
+            setTimeout(() => {
+                divModal.classList.add("hidden");
+            }, 300);
+        });
+
+        divModal.addEventListener("click", (e) => {
+            if (e.target === divModal) {
+                if (closeDivBtn) (closeDivBtn as HTMLElement).click();
+            }
+        });
+    }
+
+    // Update Date
+    const dateEl = document.getElementById("bp-date");
+    if (dateEl) {
+        const now = new Date();
+        dateEl.textContent =
+            now.getFullYear() +
+            "." +
+            String(now.getMonth() + 1).padStart(2, "0") +
+            "." +
+            String(now.getDate()).padStart(2, "0");
+    }
+</script>
+
+<style>
+    #blueprint-board {
+        scrollbar-width: thin;
+        scrollbar-color: #00f2ff transparent;
+    }
+    #blueprint-board::-webkit-scrollbar {
+        width: 4px;
+    }
+    #blueprint-board::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    #blueprint-board::-webkit-scrollbar-thumb {
+        background: #00f2ff;
+        box-shadow: 0 0 10px #00f2ff;
+    }
+
+    .glow-text {
+        text-shadow:
+            0 0 15px rgba(0, 242, 255, 0.8),
+            0 0 30px rgba(0, 242, 255, 0.4);
+    }
+
+    @keyframes scanning {
+        0% {
+            top: 0;
+        }
+        100% {
+            top: 100%;
+        }
+    }
+    .scanning-line {
+        animation: scanning 8s linear infinite;
+    }
+
+    @keyframes load {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+    .animate-load {
+        animation: load 2s ease-out forwards;
+    }
+
+    @keyframes spin-slow {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    .animate-spin-slow {
+        animation: spin-slow 60s linear infinite;
+    }
+
+    @keyframes spin-reverse {
+        from {
+            transform: rotate(360deg);
+        }
+        to {
+            transform: rotate(0deg);
+        }
+    }
+    .animate-spin-reverse {
+        animation: spin-reverse 90s linear infinite;
+    }
+</style>

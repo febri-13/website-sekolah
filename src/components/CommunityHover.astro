@@ -1,0 +1,167 @@
+---
+interface Community {
+  name: string;
+  id: string;
+  logo: string;
+  link: string;
+  color: string;
+}
+
+const communities: Community[] = [
+  {
+    name: "OSSAKA",
+    id: "osis",
+    logo: "/ossaka.png",
+    link: "/wip",
+    color: "from-yellow-400 to-yellow-600",
+  },
+  {
+    name: "Meca Knight",
+    id: "pmr",
+    logo: "/meca_knight.png",
+    link: "/wip",
+    color: "from-red-400 to-red-600",
+  },
+  {
+    name: "PRASAKA",
+    id: "dg",
+    logo: "/prasaka.png",
+    link: "/wip",
+    color: "from-emerald-400 to-emerald-600",
+  },
+  {
+    name: "The Tinkers",
+    id: "tinkers",
+    logo: "/the_tinkers.png",
+    link: "/the_tinkers",
+    color: "from-sky-400 to-sky-600",
+  },
+];
+---
+
+<div class="community-container group relative">
+  <button
+    class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm cursor-pointer"
+  >
+    Komunitas Murid
+  </button>
+
+  <!-- Logos Container -->
+  <div
+    class="absolute left-1/2 -translate-x-1/2 top-full pt-2 container-outer"
+  >
+    <!-- Logos Grid -->
+    <div
+      class="flex gap-4 p-5 bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-xl container-wrapper"
+    >
+      {
+        communities.map((community, index) => (
+          <a
+            href={community.link}
+            class={`community-logo opacity-0 transform`}
+            style={`--index: ${index};`}
+            title={community.name}
+          >
+            <div
+              class="w-16 h-16 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-linear-to-br group/logo hover:scale-110"
+              class:list={[community.color]}
+            >
+              <img
+                src={community.logo}
+                alt={community.name}
+                class="w-full h-full object-contain p-2 bg-white/10 group-hover/logo:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <p class="text-xs text-center mt-2 text-gray-700 dark:text-gray-300 font-medium whitespace-nowrap">
+              {community.name}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .community-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Hide container by default */
+  .container-outer {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .container-wrapper {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .community-container:hover .container-wrapper {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .community-container:hover .container-outer {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Smooth stagger animation for logos */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-140px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-140px);
+      filter: blur(4px);
+    }
+  }
+
+  .community-container:hover .community-logo {
+    animation: slideDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: calc(var(--index, 0) * 60ms);
+  }
+
+  .community-logo {
+    animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: calc(var(--index, 0) * 40ms);
+    transform-origin: center;
+  }
+
+  /* Stagger delay untuk setiap logo */
+  .community-logo:nth-child(1) {
+    --index: 0;
+  }
+  .community-logo:nth-child(2) {
+    --index: 1;
+  }
+  .community-logo:nth-child(3) {
+    --index: 2;
+  }
+  .community-logo:nth-child(4) {
+    --index: 3;
+  }
+</style>

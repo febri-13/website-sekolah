@@ -1,41 +1,70 @@
 ---
 // src/layouts/Layout.astro
-import '../styles/global.css';
-import HeaderSection from '../components/Layouts/HeaderSection.astro';
-import FooterSection from '../components/Layouts/FooterSection.astro';
+import "../styles/global.css";
+import HeaderSection from "../components/Layouts/HeaderSection.astro";
+import FooterSection from "../components/Layouts/FooterSection.astro";
 
 interface Props {
-  title?: string;
+    title?: string;
 }
 
-const { title = 'ABBS Surakarta' } = Astro.props;
+const { title = "SMP ABBS Surakarta" } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <link rel="icon" type="image/png" sizes="any" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
-  </head>
-  <body class="min-h-screen bg-cream-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
-    
-    <HeaderSection />
-    
-    <main>
-      <slot />
-    </main>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <link rel="icon" type="image/png" sizes="any" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+    </head>
+    <body
+        class="min-h-screen bg-[#fafaf9] text-gray-900 dark:bg-[#0a0a0a] dark:text-gray-100 selection:bg-primary-500/30 selection:text-primary-900 dark:selection:text-primary-100 transition-colors duration-300"
+    >
+        <HeaderSection />
 
-    <FooterSection />
-    
-    <script type="module">
-      import feather from 'https://cdn.skypack.dev/feather-icons';
-      if (feather && feather.replace) {
-        feather.replace();
-      }
-    </script>
-  </body>
+        <main>
+            <slot />
+        </main>
+
+        <FooterSection />
+
+        <script>
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const reveals = document.querySelectorAll('.reveal');
+                reveals.forEach(el => observer.observe(el));
+            });
+
+            // Re-observe when content changes (useful for Astro)
+            document.addEventListener('astro:page-load', () => {
+                const reveals = document.querySelectorAll('.reveal');
+                reveals.forEach(el => observer.observe(el));
+            });
+        </script>
+
+        <script type="module">
+            import feather from "https://cdn.skypack.dev/feather-icons";
+            if (feather && feather.replace) {
+                feather.replace();
+            }
+        </script>
+    </body>
 </html>
+

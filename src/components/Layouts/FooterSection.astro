@@ -1,117 +1,85 @@
-<footer
-    class="bg-gray-900 text-gray-100 py-16 mt-20 border-t-4 border-primary-600"
->
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="grid md:grid-cols-3 gap-12 mb-12">
-            <div>
-                <h3 class="font-bold text-xl mb-4 text-primary-400">
-                    SMP ABBS Surakarta
-                </h3>
-                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
-                    Sekolah Menengah Pertama Al Abidin Bilingual Boarding School
+<footer class="bg-[#0a0a0a] text-gray-400 py-24 relative overflow-hidden">
+    <!-- Subtle glow -->
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-900/20 rounded-full blur-[120px] -z-10"></div>
+    
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-4 gap-16 mb-20">
+            <div class="lg:col-span-2">
+                <img
+                    src="/logo.png"
+                    alt="SMP ABBS Surakarta Logo"
+                    class="w-48 h-16 object-contain mb-8 opacity-80"
+                    height="64"
+                    width="192"
+                />
+                <p class="text-lg text-gray-500 max-w-md leading-relaxed mb-8">
+                    Sekolah Menengah Pertama Al Abidin Bilingual Boarding School. Mencetak pemimpin masa depan dengan karakter Islami dan wawasan global.
                 </p>
-                <p class="text-gray-400 text-sm italic font-medium">
-                    Bring Excellence Beyond the Limits
-                </p>
-            </div>
-            <div>
-                <h4 class="font-bold mb-6 text-lg">Kontak</h4>
-                <div class="space-y-3">
-                    <p class="text-gray-300 text-sm">
-                        <a
-                            href="https://maps.app.goo.gl/nhtZbKCV35aSe5dXA"
-                            class="hover:text-primary-400 transition-colors flex items-start gap-2"
-                        >
-                            <i
-                                data-feather="map-pin"
-                                class="inline-block w-4 h-4 mt-0.5 flex-shrink-0"
-                            ></i><span
-                                >Jl. Tarumanegara III, Banyuanyar, Kec.
-                                Banjarsari, Kota Surakarta, Jawa Tengah 57137</span
-                            >
+                <div class="flex gap-4">
+                    {['facebook', 'instagram', 'youtube', 'twitter'].map((social) => (
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300">
+                            <i data-feather={social} class="w-4 h-4"></i>
                         </a>
-                    </p>
-                    <p class="text-gray-300 text-sm">
-                        <a
-                            href="tel:+6282242719492"
-                            class="hover:text-primary-400 transition-colors flex items-center gap-2"
-                        >
-                            <i data-feather="phone" class="inline-block w-4 h-4"
-                            ></i><span>+62 822-4271-9492 (Ms Nourma)</span>
-                        </a>
-                    </p>
-                    <p class="text-gray-300 text-sm">
-                        <a
-                            href="mailto:smpabbs@alabidin.sch.id"
-                            class="hover:text-primary-400 transition-colors flex items-center gap-2"
-                        >
-                            <i data-feather="mail" class="inline-block w-4 h-4"
-                            ></i><span>smpabbs@alabidin.sch.id</span>
-                        </a>
-                    </p>
+                    ))}
                 </div>
             </div>
+
             <div>
-                <h4 class="font-bold mb-6 text-lg">Quick Links</h4>
-                <ul class="space-y-2 text-gray-300">
-                    <li>
-                        <a
-                            href="/tentang"
-                            class="hover:text-primary-400 transition-colors text-sm"
-                            >Tentang Kami</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="/program"
-                            class="hover:text-primary-400 transition-colors text-sm"
-                            >Program</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="/pendaftaran"
-                            class="hover:text-primary-400 transition-colors text-sm"
-                            >Pendaftaran</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="/kontak"
-                            class="hover:text-primary-400 transition-colors text-sm"
-                            >Kontak</a
-                        >
-                    </li>
+                <h4 class="text-white font-bold mb-8 tracking-wider uppercase text-sm">Quick Links</h4>
+                <ul class="space-y-4">
+                    {[
+                        { name: 'Tentang Kami', href: '/tentang' },
+                        { name: 'Program Unggulan', href: '/program' },
+                        { name: 'Berita & Kegiatan', href: '/berita' },
+                        { name: 'Pendaftaran', href: '#' },
+                        { name: 'Kontak Kami', href: '/kontak' },
+                    ].map((link) => (
+                        <li>
+                            <a href={link.href} class="hover:text-primary-400 transition-colors inline-flex items-center group">
+                                <span class="w-0 group-hover:w-4 h-px bg-primary-500 mr-0 group-hover:mr-2 transition-all"></span>
+                                {link.name}
+                            </a>
+                        </li>
+                    ))}
                 </ul>
             </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-8 tracking-wider uppercase text-sm">Hubungi Kami</h4>
+                <div class="space-y-6">
+                    <a href="https://maps.app.goo.gl/nhtZbKCV35aSe5dXA" class="flex items-start gap-4 group">
+                        <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary-900/30 transition-colors flex-shrink-0">
+                            <i data-feather="map-pin" class="w-4 h-4 text-primary-500"></i>
+                        </div>
+                        <span class="text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+                            Jl. Tarumanegara III, Banyuanyar, Banjarsari, Surakarta, Jawa Tengah 57137
+                        </span>
+                    </a>
+                    <a href="tel:+6282242719492" class="flex items-center gap-4 group">
+                        <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary-900/30 transition-colors flex-shrink-0">
+                            <i data-feather="phone" class="w-4 h-4 text-primary-500"></i>
+                        </div>
+                        <span class="text-sm group-hover:text-gray-300 transition-colors">+62 822-4271-9492</span>
+                    </a>
+                    <a href="mailto:smpabbs@alabidin.sch.id" class="flex items-center gap-4 group">
+                        <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary-900/30 transition-colors flex-shrink-0">
+                            <i data-feather="mail" class="w-4 h-4 text-primary-500"></i>
+                        </div>
+                        <span class="text-sm group-hover:text-gray-300 transition-colors">smpabbs@alabidin.sch.id</span>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div
-            class="border-t border-gray-700 pt-8 text-center text-gray-500 mb-12"
-        >
-            <p>&copy; 2024 SMP ABBS Surakarta. All rights reserved.</p>
-        </div>
-        <div class="flex justify-center gap-12 items-center flex-wrap">
-            <img
-                src="/logo.png"
-                alt="ABBS Logo"
-                class="w-40 h-14 object-contain hover:opacity-80 transition-opacity"
-                height="56"
-                width="160"
-            />
-            <img
-                src="/ict.png"
-                alt="ICT Logo"
-                class="w-40 h-14 object-contain hover:opacity-80 transition-opacity"
-                height="56"
-                width="160"
-            />
-            <img
-                src="/tcp.png"
-                alt="TCP Logo"
-                class="w-40 h-14 object-contain hover:opacity-80 transition-opacity"
-                height="56"
-                width="160"
-            />
+
+        <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+            <p class="text-sm text-gray-600">
+                &copy; {new Date().getFullYear()} SMP ABBS Surakarta. All rights reserved.
+            </p>
+            <div class="flex gap-8 items-center opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+                <img src="/ict.png" alt="ICT" class="h-8 object-contain" />
+                <img src="/tcp.png" alt="TCP" class="h-8 object-contain" />
+            </div>
         </div>
     </div>
 </footer>
+

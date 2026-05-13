@@ -40,47 +40,54 @@ const communities: Community[] = [
 ---
 
 <div class="community-container group relative">
-  <button
-    class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm cursor-pointer"
+  <a
+    href="/komunitas_siswa"
+    class="px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-all relative flex items-center gap-2 group/btn"
   >
-    Komunitas Murid
-  </button>
+    Komunitas
+    <i data-feather="chevron-down" class="w-4 h-4 group-hover:rotate-180 transition-transform duration-300"></i>
+    <span class="absolute bottom-1 left-4 right-8 h-0.5 bg-primary-500 scale-x-0 group-hover/btn:scale-x-100 transition-transform origin-left duration-300"></span>
+  </a>
 
   <!-- Logos Container -->
   <div
-    class="absolute left-1/2 -translate-x-1/2 top-full pt-2 container-outer"
+    class="absolute left-1/2 -translate-x-1/2 top-full pt-4 container-outer z-[60] min-w-[400px]"
   >
     <!-- Logos Grid -->
     <div
-      class="flex gap-4 p-5 bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-xl container-wrapper"
+      class="grid grid-cols-2 gap-4 p-6 bg-white/80 dark:bg-gray-950/80 rounded-[3rem] shadow-[0_30px_70px_rgba(0,0,0,0.2)] border border-white/40 dark:border-white/5 backdrop-blur-2xl container-wrapper"
     >
       {
         communities.map((community, index) => (
           <a
             href={community.link}
-            class={`community-logo opacity-0 transform`}
+            class={`community-logo opacity-0 transform flex items-center gap-4 p-4 rounded-[2rem] hover:bg-white/50 dark:hover:bg-white/5 transition-all duration-300 group/item`}
             style={`--index: ${index};`}
-            title={community.name}
           >
             <div
-              class="w-16 h-16 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-linear-to-br group/logo hover:scale-110"
-              class:list={[community.color]}
+              class={`w-16 h-16 rounded-2xl overflow-hidden shadow-xl transition-all duration-500 bg-gradient-to-br ${community.color} p-0.5 group-hover/item:scale-110 group-hover/item:rotate-3`}
             >
-              <img
-                src={community.logo}
-                alt={community.name}
-                class="w-full h-full object-contain p-2 bg-white/10 group-hover/logo:scale-105 transition-transform duration-300"
-              />
+              <div class="w-full h-full bg-white dark:bg-gray-950 rounded-[calc(1rem-2px)] flex items-center justify-center p-2.5">
+                <img
+                  src={community.logo}
+                  alt={community.name}
+                  class={`w-full h-full object-contain group-hover/item:scale-110 transition-transform duration-500 ${community.id === 'tinkers' ? 'dark:invert' : ''}`}
+                />
+              </div>
             </div>
-            <p class="text-xs text-center mt-2 text-gray-700 dark:text-gray-300 font-medium whitespace-nowrap">
-              {community.name}
-            </p>
+            <div class="flex flex-col">
+                <p class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">Member</p>
+                <p class="text-sm font-black text-gray-900 dark:text-white group-hover/item:text-primary-600 dark:group-hover/item:text-primary-400 transition-colors tracking-tight">
+                {community.name}
+                </p>
+            </div>
           </a>
         ))
       }
     </div>
   </div>
 </div>
+
 
 <style>
   .community-container {
@@ -92,76 +99,38 @@ const communities: Community[] = [
   .container-outer {
     opacity: 0;
     visibility: hidden;
-  }
-
-  .container-wrapper {
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(0.95);
-    transition: all 0.2s ease-in-out;
-  }
-
-  .community-container:hover .container-wrapper {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
-    transition: all 0.2s ease-in-out;
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .community-container:hover .container-outer {
     opacity: 1;
     visibility: visible;
+    transform: translateY(0);
   }
 
   /* Smooth stagger animation for logos */
-  @keyframes slideDown {
+  @keyframes revealItem {
     from {
       opacity: 0;
-      transform: translateY(-140px);
-      filter: blur(4px);
+      transform: translateY(20px) scale(0.9);
+      filter: blur(10px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
       filter: blur(0);
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(-140px);
-      filter: blur(4px);
     }
   }
 
   .community-container:hover .community-logo {
-    animation: slideDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: calc(var(--index, 0) * 60ms);
+    animation: revealItem 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--index, 0) * 80ms);
   }
 
-  .community-logo {
-    animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    animation-delay: calc(var(--index, 0) * 40ms);
-    transform-origin: center;
-  }
-
-  /* Stagger delay untuk setiap logo */
-  .community-logo:nth-child(1) {
-    --index: 0;
-  }
-  .community-logo:nth-child(2) {
-    --index: 1;
-  }
-  .community-logo:nth-child(3) {
-    --index: 2;
-  }
-  .community-logo:nth-child(4) {
-    --index: 3;
-  }
+  .community-logo:nth-child(1) { --index: 0; }
+  .community-logo:nth-child(2) { --index: 1; }
+  .community-logo:nth-child(3) { --index: 2; }
+  .community-logo:nth-child(4) { --index: 3; }
 </style>
+

@@ -80,45 +80,70 @@ const programs = [
 ];
 ---
 
-<Layout title="Program - ABBS Surakarta">
+<Layout title="Program - SMP ABBS Surakarta">
+  <!-- Hero Header -->
+  <section class="pt-32 pb-20 relative overflow-hidden text-center">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[120%] bg-primary-500/5 blur-[120px] rounded-full"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 reveal">
+      <h1 class="text-5xl md:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight">
+        Program <span class="text-primary-600 dark:text-primary-400">Unggulan</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
+        Dirancang khusus untuk membangun kompetensi global dan karakter Islami yang kokoh.
+      </p>
+    </div>
+  </section>
 
   <!-- Programs Grid Section -->
-  <section class="py-20 bg-cream-50 dark:bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-          Program Unggulan Kami
-        </h2>
-        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-          Berbagai program dirancang untuk mengembangkan potensi siswa secara maksimal
-        </p>
-        <div class="w-20 h-1 bg-primary-600 mx-auto mt-6"></div>
-      </div>
+  <section class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 reveal">
+        {programs.map((program, index) => (
+          <div class="group relative">
+            <div class={`absolute inset-0 bg-gradient-to-br ${program.gradientFrom} ${program.gradientTo} opacity-0 group-hover:opacity-5 blur-2xl transition-opacity duration-500 rounded-3xl`}></div>
+            <div class="relative h-full bg-white dark:bg-gray-900/40 backdrop-blur-sm rounded-[2.5rem] p-10 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+              
+              <!-- Icon with Popup Overlay -->
+              <div class="relative w-14 h-14 mb-8">
+                <!-- Logo Popup for ICT/TCP (Centered on Icon) -->
+                { (program.id === 'ict' || program.id === 'tahfidz') && (
+                  <div class={`absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none z-20 popup-anim-${(index % 2) + 1}`}>
+                    <div class="bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] border border-gray-100 dark:border-gray-800 flex items-center justify-center min-w-[120px] backdrop-blur-xl">
+                      <img 
+                        src={program.id === 'ict' ? "/ict.png" : "/tcp.png"} 
+                        alt={`${program.id} Logo`} 
+                        class="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                  </div>
+                )}
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {programs.map((program) => (
-          <div class={`bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 ${program.borderColor} group`}>
-            <div class={`w-16 h-16 bg-gradient-to-br ${program.gradientFrom} ${program.gradientTo} rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg text-white group-hover:scale-110 transition-transform`}>
-              <i data-feather={program.icon} class="w-8 h-8"></i>
+                <div class={`w-full h-full bg-gradient-to-br ${program.gradientFrom} ${program.gradientTo} rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500`}>
+                  <i data-feather={program.icon} class="w-7 h-7"></i>
+                </div>
+              </div>
+
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                {program.title}
+              </h3>
+              <p class="text-gray-500 dark:text-gray-400 mb-8 leading-relaxed font-light text-sm">
+                {program.description}
+              </p>
+              <ul class="space-y-4">
+                {program.features.map((feature) => (
+                  <li class="flex items-start gap-3">
+                    <div class="mt-1 w-4 h-4 rounded-full bg-gray-50 dark:bg-gray-800 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-500 transition-colors">
+                      <i data-feather="check" class="w-2.5 h-2.5 text-primary-600 dark:text-primary-400 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
-              {program.title}
-            </h3>
-            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-              {program.description}
-            </p>
-            <ul class="space-y-3">
-              {program.features.map((feature) => (
-                <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-tertiary-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span class="text-sm text-gray-600 dark:text-gray-400">
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         ))}
       </div>
@@ -126,68 +151,67 @@ const programs = [
   </section>
 
   <!-- Learning Approach Section -->
-  <section class="py-16 bg-white dark:bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Metode Pembelajaran
+  <section class="py-24 bg-gray-50/50 dark:bg-white/5 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20 reveal">
+        <h2 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">
+          Metode <span class="text-primary-600 dark:text-primary-400">Pembelajaran</span>
         </h2>
-        <p class="text-gray-600 dark:text-gray-400">
-          Pendekatan pembelajaran yang inovatif dan terbukti efektif
+        <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-light">
+          Pendekatan inovatif yang memastikan setiap siswa mencapai potensi terbaiknya.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 border-t-4 border-primary-500">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
-            <i data-feather="target" class="w-10 h-10"></i>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
+        {[
+          { title: "Student-Centered", desc: "Pembelajaran personal yang berpusat pada kebutuhan siswa.", icon: "target", color: "primary" },
+          { title: "Active Learning", desc: "Praktik langsung untuk membangun pemahaman mendalam.", icon: "zap", color: "secondary" },
+          { title: "Collaborative", desc: "Membangun soft skills melalui kerja sama tim yang solid.", icon: "users", color: "primary" },
+          { title: "Agile Assessment", desc: "Evaluasi adaptif untuk progres belajar yang terukur.", icon: "activity", color: "secondary" }
+        ].map((item) => (
+          <div class="group p-8 bg-white dark:bg-gray-900 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            <div class={`w-14 h-14 bg-${item.color}-50 dark:bg-${item.color}-900/20 rounded-2xl flex items-center justify-center text-${item.color}-600 dark:text-${item.color}-400 group-hover:bg-${item.color}-600 group-hover:text-white transition-all duration-500 mb-6`}>
+              <i data-feather={item.icon} class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3 tracking-tight">{item.title}</h4>
+            <p class="text-gray-500 dark:text-gray-400 font-light text-sm leading-relaxed">{item.desc}</p>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Student-Centered</h3>
-          <p class="text-gray-600 dark:text-gray-400">
-            Pembelajaran berpusat pada siswa dengan pendekatan personal
-          </p>
-        </div>
-
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 border-t-4 border-tertiary-500">
-            <div class="w-16 h-16 bg-gradient-to-br from-tertiary-500 to-tertiary-600 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
-            <i data-feather="user-check" class="w-10 h-10"></i>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Active Learning</h3>
-          <p class="text-gray-600 dark:text-gray-400">
-            Siswa aktif terlibat dalam proses pembelajaran melalui praktik
-          </p>
-        </div>
-
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 border-t-4 border-secondary-400">
-            <div class="w-16 h-16 bg-gradient-to-br from-secondary-400 to-secondary-500 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
-            <i data-feather="users" class="w-10 h-10"></i>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Collaborative</h3>
-          <p class="text-gray-600 dark:text-gray-400">
-            Kerja sama tim dan diskusi untuk membangun pemahaman
-          </p>
-        </div>
-
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 border-t-4 border-primary-500">
-          <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
-            <i data-feather="bar-chart-2" class="w-10 h-10"></i>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Assessment</h3>
-          <p class="text-gray-600 dark:text-gray-400">
-            Evaluasi berkelanjutan untuk memantau perkembangan siswa
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-   <CTASection 
+  <CTASection 
     id="kontak-cta"
     title="Tertarik dengan Program Kami?"
     description="Daftarkan putra-putri Anda sekarang dan berikan pendidikan terbaik untuk masa depan mereka"
     primaryButton={{ text: 'Hubungi Kami', href: '/kontak', icon: 'phone' }}
     secondaryButton={{ text: 'Pelajari Lebih Lanjut', href: '/program', icon: 'book' }}
-   />
- 
+  />
 </Layout>
+
+<style>
+  /* Centered Popup Animations */
+  @keyframes popup-center-1 {
+    0% { opacity: 0; transform: scale(0.2) rotate(-20deg); filter: blur(10px); }
+    70% { transform: scale(1.1) rotate(10deg); }
+    100% { opacity: 1; transform: scale(1) rotate(5deg); filter: blur(0); }
+  }
+
+  @keyframes popup-center-2 {
+    0% { opacity: 0; transform: scale(0.2) rotate(20deg); filter: blur(10px); }
+    70% { transform: scale(1.1) rotate(-10deg); }
+    100% { opacity: 1; transform: scale(1) rotate(-5deg); filter: blur(0); }
+  }
+
+  .group:hover .popup-anim-1 {
+    animation: popup-center-1 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .group:hover .popup-anim-2 {
+    animation: popup-center-2 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+</style>
+
+

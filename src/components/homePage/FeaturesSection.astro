@@ -86,32 +86,39 @@ const defaultFeatures: Feature[] = [
 const displayFeatures = features.length > 0 ? features : defaultFeatures;
 ---
 
-<section id="tentang" class="py-20 bg-cream-50 dark:bg-gray-900">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-        Keunggulan SMP ABBS Surakarta
+<section id="tentang" class="py-24 relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute top-1/4 -right-20 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl -z-10"></div>
+  <div class="absolute bottom-1/4 -left-20 w-96 h-96 bg-tertiary-500/5 rounded-full blur-3xl -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20 reveal">
+      <h2 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">
+        Keunggulan <span class="text-primary-600 dark:text-primary-400">SMP ABBS Surakarta</span>
       </h2>
-      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-        Fasilitas dan program unggulan untuk mengembangkan potensi siswa secara maksimal
+      <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
+        Fasilitas dan program unggulan yang dirancang untuk membekali siswa dengan kompetensi masa depan.
       </p>
-      <div class="w-20 h-1 bg-primary-600 mx-auto mt-6"></div>
+      <div class="w-12 h-1.5 bg-primary-600 rounded-full mx-auto mt-8"></div>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-12 reveal">
       {displayFeatures.map((feature) => (
-        <div class={`bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 ${feature.borderColor} group`}>
-          <div class={`w-16 h-16 bg-gradient-to-br ${feature.gradientFrom} ${feature.gradientTo} rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg text-white group-hover:scale-110 transition-transform`}>
-            <i data-feather={feature.icon} class="w-8 h-8"></i>
+        <div class="group relative">
+          <div class={`absolute inset-0 bg-gradient-to-br ${feature.gradientFrom} ${feature.gradientTo} opacity-0 group-hover:opacity-5 blur-2xl transition-opacity duration-500 rounded-3xl`}></div>
+          <div class={`relative h-full bg-white dark:bg-gray-900/40 backdrop-blur-sm rounded-3xl p-10 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2`}>
+            <div class={`w-14 h-14 bg-gradient-to-br ${feature.gradientFrom} ${feature.gradientTo} rounded-2xl flex items-center justify-center text-white mb-8 shadow-lg shadow-primary-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500`}>
+              <i data-feather={feature.icon} class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+              {feature.title}
+            </h3>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed font-light">
+              {feature.description}
+            </p>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
-            {feature.title}
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-            {feature.description}
-          </p>
         </div>
       ))}
     </div>
   </div>
-</section>
+</section>

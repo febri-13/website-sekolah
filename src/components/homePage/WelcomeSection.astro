@@ -3,33 +3,62 @@
 ---
 
 <section
-    class="w-full relative overflow-hidden min-h-screen flex items-center justify-center text-center"
+    class="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
 >
-    <iframe
-        class="absolute top-0 left-0 w-full h-full z-0"
-        width="100%"
-        height="100%"
-        src="https://www.youtube-nocookie.com/embed/E2NzAyXjExc?si=3B86aZivOYxjlzEM&controls=0&autoplay=1&mute=1"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen></iframe>
-    <div class="max-w-4xl mx-auto px-4 relative z-10">
-        <div class="mb-6">
-            <p
-                class="text-lg md:text-2xl font-bold text-white mb-4 whitespace-nowrap overflow-hidden text-ellipsis"
-            >
-                Selamat Datang / أهلا وسهلا / 어서 오십시오 / いらっしゃいませ / 欢迎
-            </p>
-            <h2 class="text-4xl md:text-5xl font-bold text-white">
-                Welcome to SMP ABBS Surakarta
-            </h2>
+    <!-- Background Video with Overlay -->
+    <div class="absolute inset-0 z-0">
+        <iframe
+            class="w-full h-full object-cover scale-[1.5]"
+            src="https://www.youtube-nocookie.com/embed/E2NzAyXjExc?si=3B86aZivOYxjlzEM&controls=0&autoplay=1&mute=1&loop=1&playlist=E2NzAyXjExc"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+        <!-- Animated Mesh Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-cream-50/20 dark:to-[#0a0a0a]/20"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,184,166,0.1),transparent_50%)]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center reveal">
+        <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
+            <span class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></span>
+            SMP ABBS Surakarta
         </div>
-        <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto">
-            Sebuah institusi pendidikan yang berdedikasi untuk membentuk
-            generasi cemerlang dengan nilai-nilai Islam modern dan kualitas
-            internasional
+        
+        <h1 class="text-6xl md:text-[8rem] font-[900] text-white mb-8 leading-[0.9] tracking-tighter">
+            Build Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-teal-300">Legacy.</span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+            Membentuk pemimpin masa depan dengan karakter Islami dan wawasan global. Bergabunglah bersama kami di <span class="font-bold text-primary-400 underline decoration-2 underline-offset-4">SMP ABBS Surakarta</span>.
         </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="/program" class="group relative px-10 py-5 bg-primary-600 text-white rounded-2xl font-bold transition-all hover:scale-[1.05] hover:shadow-[0_20px_40px_-10px_rgba(20,184,166,0.5)] overflow-hidden">
+                <span class="relative z-10">Jelajahi Program</span>
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
+            </a>
+            <a href="/kontak" class="px-10 py-5 bg-white/5 hover:bg-white/10 backdrop-blur-2xl text-white border border-white/20 rounded-2xl font-bold transition-all hover:scale-[1.05]">
+                Hubungi Kami
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4 opacity-50 hover:opacity-100 transition-opacity">
+        <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white">Scroll Down</span>
+        <div class="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
     </div>
 </section>
+
+<style>
+    @keyframes shimmer {
+        100% {
+            transform: translateX(100%);
+        }
+    }
+</style>
+
+
+

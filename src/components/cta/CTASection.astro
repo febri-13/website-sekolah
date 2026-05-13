@@ -20,7 +20,7 @@ interface Props {
 const {
   id = 'daftar',
   title = 'Bergabunglah Bersama Kami',
-  description = 'Wujudkan masa depan cerah putra-putri Anda dengan pendidikan berkualitas di ABBS Surakarta',
+  description = 'Wujudkan masa depan cerah putra-putri Anda dengan pendidikan berkualitas di SMP ABBS Surakarta',
   primaryButton = {
     text: 'Hubungi Kami',
     href: '/kontak',
@@ -34,30 +34,40 @@ const {
 } = Astro.props;
 ---
 
-<section id={id} class="py-24 bg-gradient-to-br from-primary-600 via-primary-500 to-tertiary-500 text-white relative overflow-hidden">
-  <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary-400/15 rounded-full blur-3xl"></div>
-  
-  <div class="relative max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-      {title}
-    </h2>
-    <p class="text-xl mb-10 text-primary-100 max-w-2xl mx-auto leading-relaxed">
-      {description}
-    </p>
-    <div class="flex gap-4 justify-center flex-wrap">
-      <a 
-        href={primaryButton.href}
-        class="bg-secondary-400 text-gray-900 px-8 py-4 rounded-xl font-bold hover:bg-secondary-300 transition-all shadow-xl text-lg inline-flex items-center gap-2 transform hover:scale-105"
-      >
-        {primaryButton.icon && <i data-feather={primaryButton.icon} class="inline-block w-5 h-5" />} {primaryButton.text}
-      </a>
-      <a 
-        href={secondaryButton.href}
-        class="bg-white text-primary-600 px-8 py-4 rounded-xl font-bold hover:bg-primary-50 transition-all shadow-xl text-lg inline-flex items-center gap-2 transform hover:scale-105"
-      >
-        {secondaryButton.icon && <i data-feather={secondaryButton.icon} class="inline-block w-5 h-5" />} {secondaryButton.text}
-      </a>
+<section id={id} class="py-24 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 reveal">
+    <div class="relative rounded-[3rem] overflow-hidden bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 p-12 md:p-20 text-center shadow-2xl">
+      <!-- Decorative background -->
+      <div class="absolute top-0 right-0 w-full h-full opacity-10">
+        <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white"></path>
+        </svg>
+      </div>
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-primary-400/20 rounded-full blur-3xl"></div>
+
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <h2 class="text-4xl md:text-6xl font-black text-white mb-8 leading-tight tracking-tight">
+          {title}
+        </h2>
+        <p class="text-xl md:text-2xl text-primary-50 mb-12 font-light leading-relaxed">
+          {description}
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <a 
+            href={primaryButton.href}
+            class="w-full sm:w-auto px-10 py-5 bg-white text-primary-900 rounded-full font-black text-lg hover:bg-primary-50 transition-all shadow-xl hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-3"
+          >
+            {primaryButton.icon && <i data-feather={primaryButton.icon} class="w-5 h-5" />} {primaryButton.text}
+          </a>
+          <a 
+            href={secondaryButton.href}
+            class="w-full sm:w-auto px-10 py-5 bg-white/10 backdrop-blur-md text-white border border-white/30 rounded-full font-bold text-lg hover:bg-white/20 transition-all hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-3"
+          >
+            {secondaryButton.icon && <i data-feather={secondaryButton.icon} class="w-5 h-5" />} {secondaryButton.text}
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-</section>
+</section>

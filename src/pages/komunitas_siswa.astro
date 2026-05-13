@@ -1,0 +1,121 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CTASection from "../components/cta/CTASection.astro";
+
+const communities = [
+  {
+    name: "OSSAKA",
+    id: "osis",
+    logo: "/ossaka.png",
+    description: "Organisasi Siswa Intra Sekolah SMP ABBS Surakarta. Wadah aspirasi dan pengembangan diri siswa dalam berorganisasi.",
+    link: "/wip",
+    color: "from-yellow-400 to-yellow-600",
+    features: ["Kepemimpinan", "Manajemen Event", "Aspirasi Siswa"]
+  },
+  {
+    name: "Meca Knight",
+    id: "pmr",
+    logo: "/meca_knight.png",
+    description: "Palang Merah Remaja yang berfokus pada kemanusiaan, kesehatan, dan kesiapsiagaan bencana.",
+    link: "/wip",
+    color: "from-red-400 to-red-600",
+    features: ["Pertolongan Pertama", "Kesehatan Remaja", "Donor Darah"]
+  },
+  {
+    name: "PRASAKA",
+    id: "dg",
+    logo: "/prasaka.png",
+    description: "Dewan Galang Pramuka SMP ABBS Surakarta. Membentuk karakter mandiri, disiplin, dan cinta alam.",
+    link: "/wip",
+    color: "from-emerald-400 to-emerald-600",
+    features: ["Kepramukaan", "Survival Skills", "Character Building"]
+  },
+  {
+    name: "The Tinkers",
+    id: "tinkers",
+    logo: "/the_tinkers.png",
+    description: "Komunitas teknologi dan inovasi. Tempat berkumpulnya para inovator muda di bidang IT dan robotik.",
+    link: "/the_tinkers",
+    color: "from-sky-400 to-sky-600",
+    features: ["Coding", "Robotics", "Innovation Lab"],
+    invert: true
+  },
+];
+---
+
+<Layout title="Komunitas Siswa - SMP ABBS Surakarta">
+    <!-- Hero Header -->
+    <section class="pt-40 pb-24 relative overflow-hidden text-center bg-cream-50 dark:bg-gray-950">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-50">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[120%] bg-primary-500/5 blur-[120px] rounded-full"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 reveal">
+            <span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-bold tracking-widest uppercase">
+                Student Life
+            </span>
+            <h1 class="text-6xl md:text-8xl font-[900] text-gray-900 dark:text-white mb-8 tracking-tighter leading-[0.8]">
+                Komunitas <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary-600 to-primary-400">Siswa.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+                Temukan tempatmu untuk berkembang, berkarya, dan menjalin persahabatan di ekosistem komunitas kami.
+            </p>
+        </div>
+    </section>
+
+    <!-- Communities Grid -->
+    <section class="py-24 relative bg-white dark:bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-10">
+                {communities.map((community, index) => (
+                    <div class="group relative reveal" style={`transition-delay: ${index * 100}ms`}>
+                        <div class={`absolute inset-0 bg-gradient-to-br ${community.color} opacity-0 group-hover:opacity-5 blur-3xl transition-opacity duration-700 rounded-[3rem]`}></div>
+                        <div class="relative bg-white dark:bg-gray-900/40 backdrop-blur-xl border border-gray-100 dark:border-gray-800 rounded-[3rem] p-8 md:p-12 shadow-sm hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
+                            
+                            <!-- Logo Wrapper -->
+                            <div class={`w-24 h-24 md:w-32 md:h-32 rounded-[2rem] overflow-hidden shadow-xl bg-gradient-to-br ${community.color} p-0.5 shrink-0 group-hover:rotate-3 group-hover:scale-105 transition-all duration-700`}>
+                                <div class="w-full h-full bg-white dark:bg-gray-950 rounded-[calc(2rem-2px)] flex items-center justify-center p-4">
+                                    <img 
+                                        src={community.logo} 
+                                        alt={community.name}
+                                        class={`w-full h-full object-contain ${community.invert ? 'dark:invert' : ''}`}
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="flex-1">
+                                <h3 class="text-3xl font-black text-gray-900 dark:text-white mb-4 tracking-tight group-hover:text-primary-500 transition-colors">
+                                    {community.name}
+                                </h3>
+                                <p class="text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-6">
+                                    {community.description}
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-8 justify-center md:justify-start">
+                                    {community.features.map((feature) => (
+                                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 rounded-lg text-[10px] font-bold text-gray-400 uppercase tracking-widest border border-gray-100 dark:border-gray-700">
+                                            {feature}
+                                        </span>
+                                    ))}
+                                </div>
+                                <a 
+                                    href={community.link}
+                                    class="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 font-bold hover:gap-4 transition-all"
+                                >
+                                    Pelajari Selengkapnya
+                                    <i data-feather="arrow-right" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <CTASection 
+        title="Siap Bergabung?"
+        description="Jadilah bagian dari komunitas kami dan kembangkan bakatmu bersama teman-teman yang hebat."
+        primaryButton={{ text: 'Hubungi Pembina', href: '/kontak', icon: 'phone' }}
+    />
+</Layout>

@@ -14,25 +14,48 @@ import BlueprintBoard from "../components/tinkers/BlueprintBoard.astro";
 
         /* Futuristic Blueprint Header Overwrite */
         header {
-            background-color: #001226 !important;
-            border-bottom: 2px solid #00f2ff !important;
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2) !important;
+            background-color: rgba(0, 18, 38, 0.95) !important;
+            backdrop-blur: 10px !important;
+            border-bottom: 1px solid rgba(0, 242, 255, 0.3) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+            transition: transform 0.5s ease, opacity 0.5s ease !important;
+            z-index: 50 !important;
+        }
+        header.hide-header {
+            transform: translateY(-100%) !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
         header nav a,
         header nav button {
-            color: #00f2ff !important;
+            color: rgba(0, 242, 255, 0.7) !important;
             font-family: "JetBrains Mono", monospace !important;
             text-transform: uppercase !important;
-            font-size: 11px !important;
-            letter-spacing: 0.1em !important;
-            outline: none !important;
-            border: none !important;
-            background: none !important;
+            font-size: 10px !important;
+            letter-spacing: 0.2em !important;
+            transition: all 0.3s ease !important;
+            padding: 0.5rem 1rem !important;
+            position: relative !important;
         }
         header nav a:hover,
         header nav button:hover {
             color: white !important;
-            text-shadow: 0 0 8px #00f2ff !important;
+            background: rgba(0, 242, 255, 0.1) !important;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.8) !important;
+        }
+        header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: #00f2ff;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        header nav a:hover::after {
+            width: 100%;
         }
 
         /* Futuristic Blueprint Footer Overwrite */

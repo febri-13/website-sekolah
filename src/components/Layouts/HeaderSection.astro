@@ -5,9 +5,10 @@ import CommunityHover from "../CommunityHover.astro";
 
 <header
     id="main-header"
-    class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl transition-all duration-500"
+    class="fixed top-0 left-0 z-50 w-full transition-all duration-500"
 >
-    <div class="glass-container rounded-2xl px-6 py-3 flex items-center justify-between border border-white/20 dark:border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] backdrop-blur-xl bg-white/60 dark:bg-gray-900/60">
+    <div class="glass-container px-[44px] flex items-center border-b border-white/20 dark:border-white/5 shadow-md backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 w-full" style="height: 90px;">
+        <div class="w-full flex items-center justify-between">
         <div class="flex items-center gap-3">
             <a href="/" class="group flex items-center">
                 <img
@@ -62,6 +63,7 @@ import CommunityHover from "../CommunityHover.astro";
             </button>
         </div>
     </div>
+</div>
 
     <!-- Mobile Menu Drawer -->
     <div 
@@ -96,7 +98,7 @@ import CommunityHover from "../CommunityHover.astro";
     </div>
 </header>
 
-<div class="h-28"></div>
+<div style="height: 90px;"></div>
 
 <script>
     const menuToggle = document.getElementById('menu-toggle');
@@ -118,7 +120,8 @@ import CommunityHover from "../CommunityHover.astro";
         }
     });
 
-    // Scroll effect
+    // Scroll effect disabled as per user request
+    /*
     window.addEventListener('scroll', () => {
         if (window.scrollY > 20) {
             header?.classList.add('top-2', 'w-full', 'max-w-full');
@@ -128,6 +131,7 @@ import CommunityHover from "../CommunityHover.astro";
             header?.classList.add('top-6', 'w-[95%]', 'max-w-7xl');
         }
     });
+    */
 </script>
 
 <style>

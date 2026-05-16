@@ -11,7 +11,7 @@ const organization = {
   },
   sekben: {
     name: "Natha (8A)",
-    role: "SekBen",
+    role: "Sekretaris & Bendahara",
     image: "/sekben.png",
     desc: "Secretary and Treasurer (SekBen) division handles basic administration and financial management. The Secretary keeps records, documents activities, and manages correspondence, while the Treasurer tracks income and expenses and maintains simple financial reports to support the team’s operations.",
     koord_name: "Mr Febri",
@@ -43,7 +43,8 @@ const organization = {
       koord_name: "Mr Ifan",
       koord_img: "/koord_web.png",
       slogan: "Digitizing Your Vision.",
-      desc: "In Website Creative We bridge the gap between imagination and the physical world. By leveraging smart sensors and automation, we transform complex ideas into tangible, innovative hardware solutions."
+      desc: "In Website Creative We bridge the gap between imagination and the physical world. By leveraging smart sensors and automation, we transform complex ideas into tangible, innovative hardware solutions.",
+      added_style: "transform: scale(1.4);"
     }
   ]
 };
@@ -922,23 +923,79 @@ const organization = {
         </div>
 
         <!-- Module 07: Organizational Hierarchy (CLASSIFIED) -->
-        <div class="lg:col-span-12 mt-12">
-            <div class="border border-[#00f2ff]/30 p-12 bg-[#001226]/60 backdrop-blur-md relative overflow-hidden">
-                <div class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
-                    Module_07 // CLASSIFIED_ORGANIZATION
-                </div>
-
-                <!-- HUD Background Grid -->
-                <div class="absolute inset-0 pointer-events-none opacity-5">
-                    <div class="absolute inset-0" style="background-image: radial-gradient(#00f2ff 1px, transparent 1px); background-size: 40px 40px;"></div>
-                </div>
+        <div class="lg:col-span-12 mt-12 transition-all duration-700 ease-in-out" id="hierarchy-module">
+            <div class="border border-[#00f2ff]/30 bg-[#001226]/60 backdrop-blur-md relative overflow-hidden min-h-[100px] flex items-center justify-center transition-all duration-700" id="hierarchy-container">
                 
-                <h3 class="text-center text-3xl font-black mb-20 tracking-[0.4em] text-white uppercase glow-text relative z-10">
-                    // Command Hierarchy
-                </h3>
+                <!-- Initial Access Button (Collapsed State) -->
+                <div id="hierarchy-collapsed" class="py-12 flex flex-col items-center gap-6 z-[110]">
+                    <div class="flex items-center gap-4">
+                        <div class="h-px w-8 bg-gradient-to-r from-transparent to-[#00f2ff]/50"></div>
+                        <div class="text-[10px] text-[#00f2ff] tracking-[0.6em] uppercase font-black animate-pulse">Security protocol 07 active</div>
+                        <div class="h-px w-8 bg-gradient-to-l from-transparent to-[#00f2ff]/50"></div>
+                    </div>
 
-                <!-- Grid-Based Tree System -->
-                <div class="relative z-10 max-w-6xl mx-auto font-mono">
+                    <button 
+                        id="btn-initiate-access" 
+                        class="tactical-btn group relative px-16 py-6 bg-transparent text-[#00f2ff] font-black uppercase tracking-[0.6em] transition-all duration-500"
+                    >
+                        <!-- Tactical Corners -->
+                        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#00f2ff] group-hover:w-full group-hover:h-full transition-all duration-500"></div>
+                        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#00f2ff] group-hover:w-full group-hover:h-full transition-all duration-500"></div>
+                        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#00f2ff] group-hover:w-full group-hover:h-full transition-all duration-500"></div>
+                        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#00f2ff] group-hover:w-full group-hover:h-full transition-all duration-500"></div>
+                        
+                        <!-- Internal Fill -->
+                        <div class="absolute inset-1 bg-[#00f2ff]/5 group-hover:bg-[#00f2ff]/20 transition-colors duration-500"></div>
+                        
+                        <!-- Scanning Line -->
+                        <div class="absolute inset-0 overflow-hidden">
+                            <div class="w-full h-[2px] bg-[#00f2ff] opacity-50 shadow-[0_0_15px_#00f2ff] absolute -top-full animate-scan-fast"></div>
+                        </div>
+
+                        <span class="relative z-10 group-hover:tracking-[0.8em] transition-all duration-500 glow-text">Access Hierarchy</span>
+                    </button>
+
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="flex gap-1">
+                            <div class="w-1 h-3 bg-red-500/20"></div>
+                            <div class="w-1 h-3 bg-red-500/40"></div>
+                            <div class="w-1 h-3 bg-red-500 animate-pulse"></div>
+                        </div>
+                        <span class="text-[9px] text-red-500 font-mono tracking-widest uppercase">System Restricted // Authorized Personnel Only</span>
+                    </div>
+                </div>
+
+                <!-- Terminal Access Overlay (Hidden initially) -->
+                <div id="terminal-access" class="absolute inset-0 bg-[#000a12] z-[100] flex flex-col items-center justify-center p-8 transition-all duration-700 opacity-0 pointer-events-none">
+                    <div class="w-full max-w-xl bg-black/80 border border-[#00f2ff]/20 p-6 font-mono text-[11px] shadow-[0_0_50px_rgba(0,242,255,0.05)] relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00f2ff]/30 to-transparent"></div>
+                        
+                        <div id="terminal-output" class="space-y-1 text-[#00f2ff] h-40 overflow-hidden">
+                            <div class="opacity-70 text-[9px] mb-4 uppercase tracking-[0.3em]">-- TINKERS_OS V4.1 SECURITY_KERNEL --</div>
+                            <div class="flex gap-2">
+                                <span class="text-green-500">root@tinkers-hq:~$</span>
+                                <span id="terminal-command"></span><span class="animate-pulse">_</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="hierarchy-real-content" class="w-full p-12 opacity-0 pointer-events-none transition-all duration-1000 scale-95 blur-md hidden">
+                    <div class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
+                        Module_07 // CLASSIFIED_ORGANIZATION
+                    </div>
+
+                    <!-- HUD Background Grid -->
+                    <div class="absolute inset-0 pointer-events-none opacity-5">
+                        <div class="absolute inset-0" style="background-image: radial-gradient(#00f2ff 1px, transparent 1px); background-size: 40px 40px;"></div>
+                    </div>
+                    
+                    <h3 class="text-center text-3xl font-black mb-20 tracking-[0.4em] text-white uppercase glow-text relative z-10">
+                        // Core Command Unit
+                    </h3>
+
+                    <!-- Grid-Based Tree System -->
+                    <div class="relative z-10 max-w-6xl mx-auto font-mono">
                     
                     <!-- Row 1: Coordinator Layer (TOP ADVISORY) -->
                     <div class="relative px-12 lg:px-24 mb-0">
@@ -946,7 +1003,7 @@ const organization = {
                             {organization.kabids.map((kabid) => (
                                 <div class="flex flex-col items-center group relative z-10 hover:z-50">
                                     <div 
-                                        class="div-card w-24 h-32 border border-[#00f2ff]/40 relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] group-hover:border-[#00f2ff] hover:scale-110 transition-all duration-300 cursor-pointer"
+                                        class="div-card is-classified w-24 h-32 border border-[#00f2ff]/40 relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] group-hover:border-[#00f2ff] hover:scale-110 transition-all duration-300 cursor-pointer"
                                         data-name={kabid.koord_name}
                                         data-slogan="Expert Technical Advisor"
                                         data-desc={`As the Coordinator for ${kabid.role.split("// ")[1] || kabid.role}, ${kabid.koord_name} provides essential technical mentorship and strategic oversight. The advisor ensures that all division projects maintain high innovation standards and represent the school effectively in national and international IT competitions.`}
@@ -957,12 +1014,29 @@ const organization = {
                                         data-img={kabid.koord_img}
                                         data-coord-img={kabid.image}
                                     >
-                                        <img src={kabid.koord_img} class="w-full h-full object-cover opacity-60 mix-blend-screen grayscale hover:grayscale-0 hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500" />
-                                        <div class="absolute top-0 left-0 bg-[#00f2ff]/20 px-1 text-[6px] text-[#00f2ff] font-bold">ADVISOR</div>
+                                        <div class="classified-content w-full h-full">
+                                            <img src={kabid.koord_img} class="w-full h-full object-cover opacity-60 mix-blend-screen grayscale hover:grayscale-0 hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500" style={(kabid as any).added_style_koord || ""} />
+                                            <div class="absolute top-0 left-0 bg-[#00f2ff]/20 px-1 text-[6px] text-[#00f2ff] font-bold">ADVISOR</div>
+                                        </div>
+                                        <div class="classified-overlay absolute inset-0 bg-[#001226] flex flex-col items-center justify-center p-2 z-20">
+                                            <div class="text-[6px] text-[#00f2ff] font-black tracking-widest uppercase mb-1">Classified</div>
+                                            <i data-feather="lock" class="w-3 h-3 text-[#00f2ff]/40"></i>
+                                        </div>
+                                        <div class="hex-reveal">
+                                            {Array.from({ length: 20 }).map(() => (
+                                                <div class="hex-cell">00</div>
+                                            ))}
+                                        </div>
                                     </div>
-                                    <div class="mt-2 text-center">
-                                        <div class="text-[7px] text-[#00f2ff] opacity-40 uppercase tracking-widest">COORDINATOR</div>
-                                        <div class="text-white/80 font-bold uppercase text-[9px]">{kabid.koord_name}</div>
+                                    <div class="mt-2 text-center reveal-info relative w-24 h-8 group/info">
+                                        <div class="info-placeholder absolute inset-0 bg-[#001226] border border-[#00f2ff]/20 flex items-center justify-center z-10 transition-all duration-500">
+                                            <div class="text-[5px] text-[#00f2ff]/40 font-black tracking-widest uppercase">Classified</div>
+                                        </div>
+                                        <div class="info-real opacity-0 transition-opacity duration-500">
+                                            <div class="absolute inset-0 border border-[#00f2ff]/10 bg-[#001226]/40 -z-10"></div>
+                                            <div class="text-[7px] text-[#00f2ff] opacity-40 uppercase tracking-widest decrypt-text" data-text="COORDINATOR">********</div>
+                                            <div class="text-white/80 font-bold uppercase text-[9px] decrypt-text" data-text={kabid.koord_name}>[ REDACTED ]</div>
+                                        </div>
                                     </div>
                                     <div class="w-px h-10 bg-[#00f2ff]/30 mt-2"></div>
                                 </div>
@@ -980,7 +1054,7 @@ const organization = {
                             <div class="w-px h-16 bg-[#00f2ff]/50 -mt-[1px] mb-0 relative z-0"></div>
                             
                             <div 
-                                class="div-card w-44 h-56 border-2 border-[#00f2ff] relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] shadow-[0_0_30px_rgba(0,242,255,0.1)] group cursor-pointer hover:scale-105 transition-transform duration-300 z-10"
+                                class="div-card is-classified w-44 h-56 border-2 border-[#00f2ff] relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] shadow-[0_0_30px_rgba(0,242,255,0.1)] group cursor-pointer hover:scale-105 transition-transform duration-300 z-10"
                                 data-name={organization.chairperson.role}
                                 data-slogan="Chief Executive Officer"
                                 data-desc={organization.chairperson.desc}
@@ -992,11 +1066,37 @@ const organization = {
                                 data-lead={organization.chairperson.name}
                                 data-img={organization.chairperson.image}
                             >
-                                <img src={organization.chairperson.image} class="w-full h-full object-cover opacity-80 mix-blend-screen hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500 hover:scale-105" />
+                                <div class="classified-content w-full h-full">
+                                    <img src={organization.chairperson.image} class="w-full h-full object-cover opacity-80 mix-blend-screen hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500 hover:scale-105" style={(organization.chairperson as any).added_style || ""} />
+                                </div>
+                                <div class="classified-overlay absolute inset-0 bg-[#001226] flex flex-col items-center justify-center p-4 z-20">
+                                    <div class="text-[12px] text-[#00f2ff] font-black tracking-[0.4em] uppercase mb-2 glow-text">Classified</div>
+                                    <i data-feather="lock" class="w-8 h-8 text-[#00f2ff]/30"></i>
+                                    <div class="mt-4 text-[8px] text-[#00f2ff]/20 font-mono tracking-widest">ENCRYPTION_ACTIVE</div>
+                                </div>
+                                <div class="hex-reveal">
+                                    {Array.from({ length: 20 }).map(() => (
+                                        <div class="hex-cell">00</div>
+                                    ))}
+                                </div>
                             </div>
-                            <div class="mt-4 text-center">
-                                <div class="bg-[#00f2ff] text-[#001226] px-4 py-1 text-[10px] font-black uppercase italic">{organization.chairperson.role}</div>
-                                <div class="text-white font-bold mt-2 uppercase tracking-widest text-base">{organization.chairperson.name}</div>
+                            <div class="mt-4 text-center reveal-info relative w-44 h-16 group/info">
+                                <!-- Classified Placeholder -->
+                                <div class="info-placeholder absolute inset-0 bg-[#001226] border border-[#00f2ff]/30 flex flex-col items-center justify-center z-10 transition-all duration-500">
+                                    <div class="text-[10px] text-[#00f2ff]/40 font-black tracking-[0.3em] uppercase">Classified</div>
+                                    <div class="w-8 h-[1px] bg-[#00f2ff]/20 mt-1"></div>
+                                </div>
+
+                                <div class="info-real opacity-0 transition-opacity duration-500">
+                                    <div class="absolute -inset-2 border border-[#00f2ff]/10 bg-[#001226]/40 -z-10"></div>
+                                    <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#00f2ff]/30"></div>
+                                    <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#00f2ff]/30"></div>
+
+                                    <div class="relative overflow-hidden">
+                                        <div class="bg-[#00f2ff] text-[#001226] px-4 py-1 text-[10px] font-black uppercase italic decrypt-text" data-text={organization.chairperson.role}>********</div>
+                                        <div class="text-white font-bold mt-2 uppercase tracking-[0.3em] text-base decrypt-text" data-text={organization.chairperson.name}>[ REDACTED ]</div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- Vertical line down -->
                             <div class="w-px h-16 bg-[#00f2ff]/50 mt-4"></div>
@@ -1021,23 +1121,40 @@ const organization = {
                         <div class="flex flex-col items-start relative pt-12 z-10">
                             <div class="flex items-center group relative ml-12 transition-all duration-300 hover:z-50">
                                 <div 
-                                    class="div-card w-28 h-36 border border-[#00f2ff]/30 relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] cursor-pointer hover:scale-110 transition-transform duration-300"
-                                    data-name="SekBen"
+                                    class="div-card is-classified w-28 h-36 border border-[#00f2ff]/30 relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] cursor-pointer hover:scale-110 transition-transform duration-300"
+                                    data-name="Sekretaris & Bendahara"
                                     data-slogan="Administration & Finance"
                                     data-desc={organization.sekben.desc}
                                     data-coord={organization.sekben.koord_name}
                                     data-coord-label="Assigned Coordinator"
-                                    data-rank-label={`SEKBEN: ${organization.sekben.name}`}
+                                    data-rank-label={`SEKRETARIS & BENDAHARA: ${organization.sekben.name}`}
                                     data-coord-rank-label={`COORDINATOR: ${organization.sekben.koord_name}`}
                                     data-coord-img={organization.sekben.koord_img}
                                     data-lead={organization.sekben.name}
                                     data-img={organization.sekben.image}
                                 >
-                                    <img src={organization.sekben.image} class="w-full h-full object-cover opacity-80 mix-blend-screen hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500" />
+                                    <div class="classified-content w-full h-full">
+                                        <img src={organization.sekben.image} class="w-full h-full object-cover opacity-80 mix-blend-screen hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500" style={(organization.sekben as any).added_style || ""} />
+                                    </div>
+                                    <div class="classified-overlay absolute inset-0 bg-[#001226] flex flex-col items-center justify-center p-2 z-20">
+                                        <div class="text-[8px] text-[#00f2ff] font-black tracking-widest uppercase mb-1">Classified</div>
+                                        <i data-feather="lock" class="w-4 h-4 text-[#00f2ff]/30"></i>
+                                    </div>
+                                    <div class="hex-reveal">
+                                        {Array.from({ length: 20 }).map(() => (
+                                            <div class="hex-cell">00</div>
+                                        ))}
+                                    </div>
                                 </div>
-                                <div class="ml-6 text-left">
-                                    <div class="bg-[#00f2ff]/20 text-[#00f2ff] border border-[#00f2ff]/50 px-3 py-1 text-[8px] font-bold uppercase tracking-tighter inline-block">{organization.sekben.role}</div>
-                                    <div class="text-white font-bold mt-1 uppercase tracking-widest text-xs">{organization.sekben.name}</div>
+                                <div class="ml-6 text-center reveal-info relative w-36 h-12 group/info">
+                                    <div class="info-placeholder absolute inset-0 bg-[#001226] border border-[#00f2ff]/20 flex items-center justify-center z-10 transition-all duration-500">
+                                        <div class="text-[8px] text-[#00f2ff]/40 font-black tracking-widest uppercase">Classified</div>
+                                    </div>
+                                    <div class="info-real opacity-0 transition-opacity duration-500">
+                                        <div class="absolute inset-0 border border-[#00f2ff]/10 bg-[#001226]/40 -z-10"></div>
+                                        <div class="bg-[#00f2ff]/20 text-[#00f2ff] border border-[#00f2ff]/50 px-3 py-1 text-[8px] font-bold uppercase tracking-tighter inline-block decrypt-text" data-text={organization.sekben.role}>********</div>
+                                        <div class="text-white font-bold mt-1 uppercase tracking-widest text-xs decrypt-text" data-text={organization.sekben.name}>[ REDACTED ]</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1062,7 +1179,7 @@ const organization = {
                                 <div class="flex flex-col items-center group relative z-10 hover:z-50">
                                     <div class="w-px h-10 bg-[#00f2ff]/50 -mt-[1px] relative z-0"></div>
                                     <div 
-                                        class="div-card w-28 h-36 border border-[#00f2ff]/20 relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] group-hover:border-[#00f2ff]/60 hover:scale-110 hover:shadow-[0_0_40px_rgba(0,242,255,0.2)] transition-all duration-300 cursor-pointer z-10"
+                                        class="div-card is-classified w-28 h-36 border border-[#00f2ff]/20 relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] group-hover:border-[#00f2ff]/60 hover:scale-110 hover:shadow-[0_0_40px_rgba(0,242,255,0.2)] transition-all duration-300 cursor-pointer z-10"
                                         data-name={kabid.role.split("// ")[1] || kabid.role}
                                         data-slogan={kabid.slogan}
                                         data-desc={kabid.desc}
@@ -1074,15 +1191,30 @@ const organization = {
                                         data-lead={kabid.name}
                                         data-img={kabid.image}
                                     >
-                                        <!-- Tactical Background 'Box' -->
-                                        <div class="absolute inset-0 bg-[#00f2ff]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                        <div class="absolute -inset-1 border border-[#00f2ff]/10 opacity-0 group-hover:opacity-100 transition-all scale-110 blur-sm"></div>
-                                        
-                                        <img src={kabid.image} class="w-full h-full object-cover opacity-70 mix-blend-screen group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-700" />
+                                        <div class="classified-content w-full h-full">
+                                            <!-- Tactical Background 'Box' -->
+                                            <div class="absolute inset-0 bg-[#00f2ff]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                            <div class="absolute -inset-1 border border-[#00f2ff]/10 opacity-0 group-hover:opacity-100 transition-all scale-110 blur-sm"></div>
+                                            
+                                            <img src={kabid.image} class="w-full h-full object-cover opacity-70 mix-blend-screen group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-700" style={(kabid as any).added_style || ""} />
+                                        </div>
+                                        <div class="classified-overlay absolute inset-0 bg-[#001226] flex flex-col items-center justify-center p-2 z-20">
+                                            <div class="text-[8px] text-[#00f2ff] font-black tracking-widest uppercase mb-1">Classified</div>
+                                            <i data-feather="lock" class="w-4 h-4 text-[#00f2ff]/30"></i>
+                                        </div>
                                     </div>
-                                    <div class="mt-4 text-center">
-                                        <div class="text-[8px] text-[#00f2ff] opacity-50 uppercase mb-1 tracking-widest">{kabid.role}</div>
-                                        <div class="text-white font-bold uppercase text-[10px]">{kabid.name}</div>
+                                    <div class="mt-4 text-center reveal-info relative w-32 h-10 group/info">
+                                        <!-- Classified Placeholder -->
+                                        <div class="info-placeholder absolute inset-0 bg-[#001226] border border-[#00f2ff]/20 flex items-center justify-center z-10 transition-all duration-500">
+                                            <div class="text-[7px] text-[#00f2ff]/40 font-black tracking-[0.2em] uppercase">Classified</div>
+                                        </div>
+                                        
+                                        <!-- Decrypted Content -->
+                                        <div class="info-real opacity-0 transition-opacity duration-500">
+                                            <div class="absolute inset-0 border border-[#00f2ff]/10 bg-[#001226]/40 -z-10"></div>
+                                            <div class="text-[8px] text-[#00f2ff] opacity-50 uppercase mb-1 tracking-widest decrypt-text" data-text={kabid.role}>********</div>
+                                            <div class="text-white font-bold uppercase text-[10px] decrypt-text" data-text={kabid.name}>[ REDACTED ]</div>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
@@ -1201,8 +1333,66 @@ const organization = {
     const divModalTagLead = document.getElementById("div-modal-tag-lead");
     const divModalAuth = document.getElementById("div-modal-auth");
 
+    // Decryption Effect Function
+    const decryptEffect = (el: HTMLElement, finalResult: string) => {
+        const chars = "0123456789ABCDEF!@#$%^&*()_+";
+        let iteration = 0;
+        const interval = setInterval(() => {
+            el.innerText = finalResult
+                .split("")
+                .map((char, index) => {
+                    if (index < iteration) return finalResult[index];
+                    return chars[Math.floor(Math.random() * chars.length)];
+                })
+                .join("");
+
+            if (iteration >= finalResult.length) clearInterval(interval);
+            iteration += 1 / 3;
+        }, 30);
+    };
+
     divCards.forEach((card) => {
-        card.addEventListener("click", () => {
+        card.addEventListener("click", (e) => {
+            if (card.classList.contains('is-classified')) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                card.classList.add('decrypting');
+                const overlayText = card.querySelector('.classified-overlay div');
+                if (overlayText) overlayText.textContent = "DECRYPTING...";
+                
+                // Animate hex cells
+                const hexCells = card.querySelectorAll('.hex-cell');
+                const hexInterval = setInterval(() => {
+                    hexCells.forEach((cell: any) => {
+                        cell.innerText = Math.floor(Math.random() * 256).toString(16).toUpperCase().padStart(2, '0');
+                    });
+                }, 50);
+
+                // Trigger reveal
+                setTimeout(() => {
+                    clearInterval(hexInterval);
+                    card.classList.remove('is-classified', 'decrypting');
+                    card.classList.add('is-revealed');
+                    
+                    const info = card.parentElement?.querySelector('.reveal-info');
+                    if (info) {
+                        const placeholder = info.querySelector('.info-placeholder');
+                        const real = info.querySelector('.info-real');
+                        
+                        if (placeholder) placeholder.classList.add('opacity-0', 'pointer-events-none');
+                        if (real) real.classList.remove('opacity-0');
+                        
+                        info.querySelectorAll('.decrypt-text').forEach((textEl: any) => {
+                            decryptEffect(textEl, textEl.dataset.text || "");
+                        });
+                    }
+                }, 1000);
+                
+                return;
+            }
+
+            // Original Modal Logic
             // Remove active class from all and add to this one
             divCards.forEach(c => c.classList.remove('active-modal-trigger'));
             card.classList.add('active-modal-trigger');
@@ -1326,6 +1516,91 @@ const organization = {
         });
     }
 
+    // Hierarchy Access Terminal Logic
+    const btnInitiate = document.getElementById("btn-initiate-access");
+    const terminalAccess = document.getElementById("terminal-access");
+    const terminalCommand = document.getElementById("terminal-command");
+    const terminalOutput = document.getElementById("terminal-output");
+    const hierarchyContent = document.getElementById("hierarchy-real-content");
+    const hierarchyCollapsed = document.getElementById("hierarchy-collapsed");
+    const hierarchyContainer = document.getElementById("hierarchy-container");
+
+    if (btnInitiate && terminalAccess && terminalCommand && terminalOutput && hierarchyContent && hierarchyCollapsed && hierarchyContainer) {
+        btnInitiate.addEventListener("click", () => {
+            // Step 1: Collapse the initial button and expand container
+            hierarchyCollapsed.classList.add("hidden");
+            hierarchyContainer.classList.remove("min-h-[100px]");
+            hierarchyContainer.classList.add("min-h-[400px]");
+            
+            // Step 2: Show Terminal
+            terminalAccess.classList.remove("opacity-0", "pointer-events-none");
+
+            const command = "abbs-cli access --community=\"The Tinkers\"";
+            let cmdIdx = 0;
+
+            const typeCommand = setInterval(() => {
+                terminalCommand.textContent += command[cmdIdx];
+                cmdIdx++;
+                if (cmdIdx >= command.length) {
+                    clearInterval(typeCommand);
+                    startLogSequence();
+                }
+            }, 50);
+
+            const startLogSequence = () => {
+                const logs = [
+                    { t: "[SYSTEM] Initializing handshake...", d: 500 },
+                    { t: "[OK] Encryption keys received.", d: 300 },
+                    { t: "[SYSTEM] Bypassing firewall...", d: 700 },
+                    { t: "[OK] Root access established.", d: 400 },
+                    { t: "[SYSTEM] Decrypting organization.json...", d: 800 },
+                    { t: "[WARN] Integrity check bypass successful.", d: 300 },
+                    { t: "[OK] Visualizing structure...", d: 400 },
+                    { t: ">> ACCESS GRANTED <<", d: 1000, color: "text-green-400 font-black" }
+                ];
+
+                let logIdx = 0;
+                const addLog = () => {
+                    if (logIdx >= logs.length) {
+                        setTimeout(revealHierarchy, 500);
+                        return;
+                    }
+
+                    const log = logs[logIdx];
+                    const div = document.createElement("div");
+                    div.className = `opacity-0 transition-opacity duration-300 ${log.color || ""}`;
+                    div.textContent = log.t;
+                    terminalOutput.appendChild(div);
+                    
+                    // Auto scroll
+                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+                    requestAnimationFrame(() => div.classList.remove("opacity-0"));
+
+                    logIdx++;
+                    setTimeout(addLog, log.d);
+                };
+
+                setTimeout(addLog, 500);
+            };
+
+            const revealHierarchy = () => {
+                terminalAccess.classList.add("opacity-0", "scale-110", "pointer-events-none");
+                hierarchyContent.classList.remove("hidden");
+                
+                // Allow browser to register 'hidden' removal before animating opacity
+                requestAnimationFrame(() => {
+                    hierarchyContent.classList.remove("opacity-0", "pointer-events-none", "scale-95", "blur-md");
+                    hierarchyContainer.style.minHeight = "auto";
+                });
+                
+                setTimeout(() => {
+                    terminalAccess.classList.add("hidden");
+                }, 700);
+            };
+        });
+    }
+
     // Update Date
     const dateEl = document.getElementById("bp-date");
     if (dateEl) {
@@ -1362,15 +1637,12 @@ const organization = {
     }
 
     @keyframes scanning {
-        0% {
-            top: 0;
-        }
-        100% {
-            top: 100%;
-        }
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
     }
     .scanning-line {
         animation: scanning 8s linear infinite;
+        will-change: transform;
     }
 
     @keyframes load {
@@ -1395,17 +1667,143 @@ const organization = {
     }
     .animate-spin-slow {
         animation: spin-slow 60s linear infinite;
+        will-change: transform;
+        transform: translateZ(0);
     }
 
     @keyframes spin-reverse {
-        from {
-            transform: rotate(360deg);
-        }
-        to {
-            transform: rotate(0deg);
-        }
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
     }
     .animate-spin-reverse {
         animation: spin-reverse 90s linear infinite;
+        will-change: transform;
+        transform: translateZ(0);
+    }
+
+    /* Classified Effects */
+    .classified-overlay {
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .is-revealed .classified-overlay {
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(1.1) translateZ(0);
+        filter: blur(10px);
+    }
+
+    .is-revealed .classified-content {
+        filter: none;
+        opacity: 1;
+        transform: translateZ(0);
+    }
+
+    .classified-content {
+        transition: all 0.8s ease;
+        filter: blur(20px) brightness(0);
+        opacity: 0;
+        transform: translateZ(0);
+        will-change: filter, opacity, transform;
+    }
+
+    .is-revealed .classified-content {
+        filter: blur(0) brightness(1);
+        opacity: 1;
+    }
+
+    .div-card {
+        contain: paint;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+
+    .shimmer-text {
+        background: linear-gradient(90deg, transparent, #00f2ff, transparent);
+        background-size: 200% 100%;
+        animation: shimmer 2s infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+
+    .decrypting .classified-overlay {
+        background: rgba(0, 242, 255, 0.1);
+    }
+
+    .decrypting .classified-overlay::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(0, 242, 255, 0.5),
+            transparent
+        );
+        animation: scan-vertical 1s linear infinite;
+        will-change: transform;
+    }
+
+    @keyframes scan-vertical {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+    }
+
+    .hex-reveal {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 1px;
+        z-index: 15;
+        pointer-events: none;
+    }
+
+    .hex-cell {
+        background: #001226;
+        color: #00f2ff;
+        font-size: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .decrypting .hex-cell {
+        opacity: 0.8;
+    }
+
+    /* Terminal Scanlines */
+    #terminal-access::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        z-index: 101;
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+    }
+
+    @keyframes scan-fast {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(200%); }
+    }
+    .animate-scan-fast {
+        animation: scan-fast 3s linear infinite;
+        will-change: transform;
     }
 </style>

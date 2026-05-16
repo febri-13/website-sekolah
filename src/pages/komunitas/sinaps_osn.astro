@@ -518,6 +518,36 @@ import Layout from "../../layouts/Layout.astro";
 
         (window as any).flipPage = flipPage;
 
+        // Touch Gestures for Mobile
+        let touchstartX = 0;
+        let touchendX = 0;
+        const swipeThreshold = 50;
+
+        const bookContainer = document.querySelector('.book-container');
+        if (bookContainer) {
+            bookContainer.addEventListener('touchstart', (e: any) => {
+                touchstartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            bookContainer.addEventListener('touchend', (e: any) => {
+                touchendX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+        }
+
+        function handleSwipe() {
+            const diff = touchstartX - touchendX;
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe Left -> Next
+                    flipPage(1);
+                } else {
+                    // Swipe Right -> Back
+                    flipPage(-1);
+                }
+            }
+        }
+
         document.addEventListener('keydown', (e) => {
             if (e.code === 'Space' || e.code === 'ArrowRight') {
                 flipPage(1);

@@ -1,0 +1,59 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<div class="page" id={id}>
+  <div class="front bg-slate-50 border-l border-slate-300">
+    <div class="p-16 h-full flex flex-col">
+      <h2 class="text-3xl font-serif text-slate-800 border-b-2 border-slate-200 pb-4 mb-8">What is OSN?</h2>
+      <div class="prose prose-slate prose-sm overflow-y-auto font-serif space-y-6">
+        <p class="text-slate-600 leading-relaxed text-sm">
+          Olimpiade Sains Nasional (OSN) adalah ajang talenta di bidang sains bagi peserta didik yang diselenggarakan oleh Pusat Prestasi Nasional. 
+        </p>
+        <p class="text-slate-600 leading-relaxed text-sm">
+          Ajang ini menjadi saksi bisu perjuangan para intelektual muda dalam menaklukkan batas-batas logika dan teori ilmiah di tingkat Nasional hingga Internasional.
+        </p>
+        <div class="mt-10 p-6 bg-teal-50 border border-teal-100 rounded-lg italic text-sm text-teal-800">
+          "Bukan sekadar kompetisi, melainkan perayaan ilmu pengetahuan."
+        </div>
+      </div>
+      <div class="mt-auto flex justify-end">
+        <button onclick="window.flipPage(2)" class="text-xs font-serif italic text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-2">Next Page <i data-feather="arrow-right" class="w-4 h-4"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="back bg-slate-50 border-r border-slate-300 shadow-inner">
+    <div class="p-16 flex flex-col h-full">
+      <h2 class="text-3xl font-black text-[#004d4d] mb-8 uppercase tracking-tight border-b border-teal-100 pb-3">The Benefits</h2>
+      <div class="space-y-6 font-serif">
+        <p class="text-sm text-slate-700 leading-relaxed">
+          Berpartisipasi dalam OSN memberikan akses ke dunia pendidikan yang lebih luas, melatih ketangguhan mental, dan membangun relasi dengan para ilmuwan masa depan.
+        </p>
+        <div class="bg-[#003333]/5 p-6 border border-teal-200 rounded-xl">
+          <h4 class="text-[10px] font-bold text-[#004d4d] uppercase tracking-widest mb-4">Hierarki Kompetisi:</h4>
+          <div class="flex flex-col gap-4 text-xs text-teal-800 font-serif">
+            <div class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+              <span>OSN-K (Kabupaten/Kota)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+              <span>OSN-P (Provinsi)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal-600"></span>
+              <span class="font-bold">OSN Nasional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-auto flex justify-start">
+        <button onclick="window.flipPage(-2)" class="text-xs font-serif italic text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-2"><i data-feather="arrow-left" class="w-4 h-4"></i> Back Page</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import SinapsCover from "../../components/osn/SinapsCover.astro";
+import SinapsIntro from "../../components/osn/SinapsIntro.astro";
+import SinapsIpa from "../../components/osn/SinapsIpa.astro";
+import SinapsIps from "../../components/osn/SinapsIps.astro";
+import SinapsMath from "../../components/osn/SinapsMath.astro";
+import SinapsStructure from "../../components/osn/SinapsStructure.astro";
+import SinapsCta from "../../components/osn/SinapsCta.astro";
 ---
 
 <Layout title="SINAPS - Scientific & Intellectual Squad">
@@ -12,315 +19,13 @@ import Layout from "../../layouts/Layout.astro";
         <div class="book-container relative shadow-[0_50px_100px_rgba(0,0,0,0.6)]">
             <div id="book" class="book relative transition-transform duration-1000 ease-in-out">
                 
-                <!-- PAGE 1: PREMIUM HARDCOVER -->
-                <div class="page active" id="p1">
-                    <div class="front bg-[#002b2b] border-2 border-[#004d4d] flex flex-col items-center justify-center p-12 text-center shadow-2xl relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/leather.png');"></div>
-                        <div class="absolute inset-8 border-2 border-teal-500/20 rounded-sm pointer-events-none"></div>
-                        
-                        <!-- Main Content Container -->
-                        <div class="relative z-10 flex flex-col items-center w-full">
-                            <img src="/communities/sinaps.png" alt="SINAPS Logo" class="w-44 mb-10 drop-shadow-[0_0_20px_rgba(20,184,166,0.2)] filter brightness-110" />
-                            <h1 class="text-6xl font-serif font-black text-transparent bg-clip-text bg-gradient-to-b from-teal-100 via-teal-400 to-teal-600 tracking-[0.1em] mb-4 uppercase">Sinaps</h1>
-                            <p class="text-teal-500/80 font-serif italic text-xs tracking-widest mb-12">Where Curiosity Meets Victory</p>
-                            
-                            <div class="flex items-center justify-center gap-6 mb-12 w-full">
-                                <div class="h-px w-16 bg-gradient-to-r from-transparent to-teal-500/40"></div>
-                                <div class="w-3 h-3 rotate-45 border border-teal-500/40"></div>
-                                <div class="h-px w-16 bg-gradient-to-l from-transparent to-teal-500/40"></div>
-                            </div>
-                            
-                            <p class="text-teal-100/30 text-[10px] font-serif italic max-w-[250px] leading-relaxed mb-16">"A testament to the pursuit of excellence and the mastery of science."</p>
-                            
-                            <button onclick="flipPage(1)" class="group relative px-12 py-5 bg-transparent cursor-pointer overflow-hidden transition-all hover:scale-105 active:scale-95">
-                                <div class="absolute inset-0 border border-teal-500/40 group-hover:border-teal-300 transition-colors"></div>
-                                <div class="absolute inset-0 bg-teal-500/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-                                <span class="relative z-10 text-teal-200 text-xs font-serif italic tracking-widest group-hover:text-white uppercase">Open Journal</span>
-                            </button>
-                        </div>
-                        <div class="absolute top-0 left-0 w-12 h-full bg-gradient-to-r from-black/50 to-transparent pointer-events-none"></div>
-                    </div>
-                    <div class="back bg-[#001f1f] border-r border-black/40 shadow-inner relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/leather.png');"></div>
-                        <div class="p-16 h-full flex flex-col items-center justify-center text-center">
-                             <div class="w-32 h-32 border border-teal-500/10 rounded-full flex items-center justify-center mb-8">
-                                <img src="/communities/sinaps.png" class="w-20 grayscale opacity-10" />
-                             </div>
-                             <p class="text-teal-500/20 text-[10px] font-serif tracking-[0.4em] uppercase">Official Archive // Vol. 2024</p>
-                        </div>
-                        <div class="absolute top-0 right-0 w-12 h-full bg-gradient-to-l from-black/30 to-transparent pointer-events-none"></div>
-                    </div>
-                </div>
-
-                <!-- PAGE 2: INTRODUCTION -->
-                <div class="page" id="p2">
-                    <div class="front bg-slate-50 border-l border-slate-300">
-                        <div class="p-16 h-full flex flex-col">
-                            <h2 class="text-3xl font-serif text-slate-800 border-b-2 border-slate-200 pb-4 mb-8">What is OSN?</h2>
-                            <div class="prose prose-slate prose-sm overflow-y-auto font-serif space-y-6">
-                                <p class="text-slate-600 leading-relaxed text-sm">
-                                    Olimpiade Sains Nasional (OSN) adalah ajang talenta di bidang sains bagi peserta didik yang diselenggarakan oleh Pusat Prestasi Nasional. 
-                                </p>
-                                <p class="text-slate-600 leading-relaxed text-sm">
-                                    Ajang ini menjadi saksi bisu perjuangan para intelektual muda dalam menaklukkan batas-batas logika dan teori ilmiah di tingkat Nasional hingga Internasional.
-                                </p>
-                                <div class="mt-10 p-6 bg-teal-50 border border-teal-100 rounded-lg italic text-sm text-teal-800">
-                                    "Bukan sekadar kompetisi, melainkan perayaan ilmu pengetahuan."
-                                </div>
-                            </div>
-                            <div class="mt-auto flex justify-end">
-                                <button onclick="flipPage(2)" class="text-xs font-serif italic text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-2">Next Page <i data-feather="arrow-right" class="w-4 h-4"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="back bg-slate-50 border-r border-slate-300 shadow-inner">
-                        <div class="p-16 flex flex-col h-full">
-                            <h2 class="text-3xl font-black text-[#004d4d] mb-8 uppercase tracking-tight border-b border-teal-100 pb-3">The Benefits</h2>
-                            <div class="space-y-6 font-serif">
-                                <p class="text-sm text-slate-700 leading-relaxed">
-                                    Berpartisipasi dalam OSN memberikan akses ke dunia pendidikan yang lebih luas, melatih ketangguhan mental, dan membangun relasi dengan para ilmuwan masa depan.
-                                </p>
-                                <div class="bg-[#003333]/5 p-6 border border-teal-200 rounded-xl">
-                                    <h4 class="text-[10px] font-bold text-[#004d4d] uppercase tracking-widest mb-4">Hierarki Kompetisi:</h4>
-                                    <div class="flex flex-col gap-4 text-xs text-teal-800 font-serif">
-                                        <div class="flex items-center gap-3">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
-                                            <span>OSN-K (Kabupaten/Kota)</span>
-                                        </div>
-                                        <div class="flex items-center gap-3">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
-                                            <span>OSN-P (Provinsi)</span>
-                                        </div>
-                                        <div class="flex items-center gap-3">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-600"></span>
-                                            <span class="font-bold">OSN Nasional</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-auto flex justify-start">
-                                <button onclick="flipPage(-2)" class="text-xs font-serif italic text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-2"><i data-feather="arrow-left" class="w-4 h-4"></i> Back Page</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PAGE 3: DETAILED IPA (PHYSICS) -->
-                <div class="page" id="p3">
-                    <div class="front bg-slate-50 border-l border-slate-300 relative overflow-hidden">
-                        <!-- Doodle: Physics Sketch -->
-                        <div class="absolute top-10 right-10 opacity-20 pointer-events-none rotate-12">
-                            <svg width="100" height="100" viewBox="0 0 100 100" class="stroke-teal-800 fill-none">
-                                <circle cx="50" cy="50" r="30" stroke-dasharray="5 5" />
-                                <path d="M50 20 L50 80 M20 50 L80 50" stroke-width="1" />
-                                <text x="55" y="45" class="text-[8px] font-hand text-teal-900">f = 1/T</text>
-                            </svg>
-                        </div>
-
-                        <div class="p-16 h-full flex flex-col relative z-10">
-                            <div class="flex items-center gap-4 border-b-4 border-teal-500 pb-3 mb-8">
-                                <h2 class="text-3xl font-black text-teal-950 uppercase tracking-tighter">IPA: Physics</h2>
-                            </div>
-                            <div class="prose prose-slate prose-sm font-serif space-y-4">
-                                <h4 class="text-sm font-bold text-teal-800 uppercase tracking-widest relative">
-                                    Mastering the Universe
-                                    <svg class="absolute -bottom-1 left-0 w-full h-2 opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none">
-                                        <path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="#0d9488" stroke-width="2" fill="none" />
-                                    </svg>
-                                </h4>
-                                <div class="text-xs text-slate-600 space-y-4 leading-relaxed">
-                                    <p>Materi Fisika dalam OSN SMP mencakup pemahaman mendalam tentang hukum-hukum alam yang fundamental:</p>
-                                    <ul class="list-disc pl-5 space-y-2">
-                                        <li><strong>Mekanika:</strong> Gerak lurus, Hukum Newton, Usaha dan Energi, Fluida Statis & Dinamis.</li>
-                                        <li><strong>Optik & Gelombang:</strong> Pembiasan cahaya, alat optik, bunyi, dan karakteristik gelombang.</li>
-                                        <li><strong>Listrik & Magnet:</strong> Rangkaian DC, Hukum Ohm, daya listrik, dan induksi elektromagnetik.</li>
-                                        <li><span class="bg-yellow-200/50 px-1">Suhu & Kalor:</span> Pemuaian, azas Black, dan perpindahan kalor.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Margin Note -->
-                            <div class="absolute bottom-24 left-10 -rotate-6 font-hand text-teal-700/60 text-[10px] max-w-[100px]">
-                                *Ingat Hukum Pascal! Tekanan diteruskan ke segala arah.
-                            </div>
-
-                            <div class="mt-auto flex justify-end">
-                                <button onclick="flipPage(3)" class="text-xs font-serif italic text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-2">Next Page <i data-feather="arrow-right" class="w-4 h-4"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="back bg-slate-50 border-r border-slate-300 shadow-inner relative overflow-hidden">
-                        <!-- Doodle: DNA -->
-                        <div class="absolute bottom-10 right-4 opacity-10 pointer-events-none -rotate-12">
-                             <svg width="60" height="120" viewBox="0 0 50 100" class="stroke-emerald-800">
-                                <path d="M10 0 Q 40 25, 10 50 Q 40 75, 10 100" fill="none" stroke-width="2" />
-                                <path d="M40 0 Q 10 25, 40 50 Q 10 75, 40 100" fill="none" stroke-width="2" />
-                             </svg>
-                        </div>
-
-                        <div class="p-16 h-full flex flex-col relative z-10">
-                            <div class="flex items-center gap-4 border-b-4 border-emerald-500 pb-3 mb-8">
-                                <h2 class="text-3xl font-black text-emerald-950 uppercase tracking-tighter">IPA: Biology</h2>
-                            </div>
-                            <div class="prose prose-slate prose-sm font-serif space-y-4">
-                                <h4 class="text-sm font-bold text-emerald-800 uppercase tracking-widest">The Secret of Life</h4>
-                                <div class="text-xs text-slate-600 space-y-4 leading-relaxed">
-                                    <p>Menjelajahi struktur kehidupan dari unit terkecil hingga ekosistem global:</p>
-                                    <ul class="list-disc pl-5 space-y-2 font-serif">
-                                        <li><strong>Sel & Jaringan:</strong> Struktur organel, metabolisme seluler, dan spesialisasi jaringan.</li>
-                                        <li><strong>Anatomi:</strong> Sistem peredaran darah, pernapasan, pencernaan, dan koordinasi manusia.</li>
-                                        <li><strong>Genetika:</strong> Hereditas mendel, struktur DNA, dan rekayasa genetika dasar.</li>
-                                        <li><strong>Ekologi:</strong> Rantai makanan, siklus biogeokimia, dan pelestarian lingkungan.</li>
-                                    </ul>
-                                </div>
-                                <div class="mt-8 border-l-2 border-emerald-200 pl-4 py-2 italic text-[10px] text-emerald-800/70 font-hand">
-                                    "Mitochondria is the powerhouse of the cell!" - Catatan praktikum.
-                                </div>
-                            </div>
-                            <div class="mt-auto flex justify-start">
-                                <button onclick="flipPage(-3)" class="text-xs font-serif italic text-emerald-700 hover:text-emerald-900 transition-colors flex items-center gap-2"><i data-feather="arrow-left" class="w-4 h-4"></i> Back Page</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PAGE 4: DETAILED IPS (GEOGRAPHY & HISTORY) -->
-                <div class="page" id="p4">
-                    <div class="front bg-slate-50 border-l border-slate-300 relative overflow-hidden">
-                        <!-- Scribble: Coffee Ring -->
-                        <div class="absolute -top-10 -left-10 w-40 h-40 border-[10px] border-amber-900/5 rounded-full pointer-events-none"></div>
-
-                        <div class="p-16 h-full flex flex-col relative z-10">
-                            <div class="flex items-center gap-4 border-b-4 border-amber-700 pb-3 mb-8">
-                                <h2 class="text-3xl font-black text-amber-950 uppercase tracking-tighter">IPS: Geography</h2>
-                            </div>
-                            <div class="prose prose-slate prose-sm font-serif space-y-4">
-                                <h4 class="text-sm font-bold text-amber-800 uppercase tracking-widest relative inline-block">
-                                    Earth & Society
-                                    <svg class="absolute -right-6 top-0 w-4 h-4 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                                    </svg>
-                                </h4>
-                                <div class="text-xs text-slate-600 space-y-4 leading-relaxed">
-                                    <p>Memahami interaksi antara ruang bumi dan aktivitas manusia:</p>
-                                    <ul class="list-disc pl-5 space-y-2">
-                                        <li><strong>Litosfer:</strong> Struktur bumi, vulkanisme, gempa, dan siklus air global.</li>
-                                        <li><strong>Atmosfer:</strong> Cuaca, iklim, dan fenomena perubahan iklim global.</li>
-                                        <li><strong>Kependudukan:</strong> Dinamika penduduk, urbanisasi, dan sumber daya manusia.</li>
-                                        <li><strong>Peta & SIG:</strong> Teknik proyeksi, interpretasi citra, dan pemetaan tematik.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-auto flex justify-end">
-                                <button onclick="flipPage(4)" class="text-xs font-serif italic text-amber-700 hover:text-amber-900 transition-colors flex items-center gap-2">Next Page <i data-feather="arrow-right" class="w-4 h-4"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="back bg-slate-50 border-r border-slate-300 shadow-inner relative overflow-hidden">
-                        <div class="p-16 h-full flex flex-col relative z-10">
-                            <div class="flex items-center gap-4 border-b-4 border-orange-800 pb-3 mb-8">
-                                <h2 class="text-3xl font-black text-orange-950 uppercase tracking-tighter">IPS: Social</h2>
-                            </div>
-                            <div class="prose prose-slate prose-sm font-serif space-y-4">
-                                <div class="text-xs text-slate-600 space-y-6 leading-relaxed">
-                                    <div>
-                                        <h4 class="text-sm font-bold text-orange-900 uppercase tracking-widest mb-2">Sejarah & Peradaban</h4>
-                                        <p class="relative">
-                                            Akar kolonialisme di Indonesia, pergerakan nasional, hingga sejarah ekonomi nusantara.
-                                            <span class="absolute -right-8 top-0 font-hand text-[8px] text-orange-700/50 rotate-12">*Wajib hafal timeline 1945!</span>
-                                        </p>
-                                    </div>
-                                    <div class="border-t border-orange-100 pt-4">
-                                        <h4 class="text-sm font-bold text-orange-900 uppercase tracking-widest mb-2">Ekonomi & Sosiologi</h4>
-                                        <p>Prinsip permintaan & penawaran, perilaku konsumen, peran lembaga keuangan, dan interaksi sosial.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-auto flex justify-start">
-                                <button onclick="flipPage(-4)" class="text-xs font-serif italic text-orange-700 hover:text-orange-900 transition-colors flex items-center gap-2"><i data-feather="arrow-left" class="w-4 h-4"></i> Back Page</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PAGE 5: DETAILED MATHEMATICS -->
-                <div class="page" id="p5">
-                    <div class="front bg-slate-50 border-l border-slate-300 relative overflow-hidden">
-                        <!-- Scribble: Math Formulas -->
-                        <div class="absolute bottom-10 right-10 opacity-10 font-hand text-[9px] text-rose-900 space-y-1 pointer-events-none">
-                            <p>a² + b² = c²</p>
-                            <p>x = (-b ± √D) / 2a</p>
-                            <p>∑ x_i / n</p>
-                        </div>
-
-                        <div class="p-16 h-full flex flex-col relative z-10">
-                            <div class="flex items-center gap-4 border-b-4 border-rose-600 pb-3 mb-8">
-                                <h2 class="text-3xl font-black text-rose-950 uppercase tracking-tighter">Mathematics</h2>
-                            </div>
-                            <div class="prose prose-slate prose-sm font-serif space-y-4">
-                                <h4 class="text-sm font-bold text-rose-800 uppercase tracking-widest">The Art of Reasoning</h4>
-                                <div class="text-xs text-slate-600 space-y-4 leading-relaxed">
-                                    <p>Matematika OSN SMP menguji intuisi dan kreativitas dalam pemecahan masalah:</p>
-                                    <ul class="list-disc pl-5 space-y-2">
-                                        <li><strong>Aljabar:</strong> Polinomial, sistem persamaan linear, dan ketidaksamaan.</li>
-                                        <li><strong>Geometri:</strong> Sifat lingkaran, segitiga, dan dalil Pythagoras/Ptolemy.</li>
-                                        <li><strong>Teori Bilangan:</strong> Modulo, keterbagian, FPB & KPK, dan prima.</li>
-                                        <li><span class="border-b border-rose-400 border-dashed">Kombinatorika:</span> Peluang, permutasi/kombinasi, dan PHP.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-auto flex justify-end">
-                                <button onclick="flipPage(5)" class="text-xs font-serif italic text-rose-700 hover:text-rose-900 transition-colors flex items-center gap-2">Next Page <i data-feather="arrow-right" class="w-4 h-4"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="back bg-slate-50 border-r border-slate-300 shadow-inner relative overflow-hidden">
-                        <div class="p-16 h-full flex flex-col relative z-10">
-                            <h2 class="text-2xl font-bold text-slate-800 border-b border-slate-200 pb-4 mb-8">Join the Elite</h2>
-                            <div class="space-y-6 relative">
-                                <p class="text-sm text-slate-600 leading-relaxed font-serif">
-                                    Siapkan dirimu untuk menjadi bagian dari perwakilan sekolah di ajang sains paling bergengsi di Indonesia.
-                                </p>
-                                <!-- Sticky Note effect -->
-                                <div class="rotate-2 bg-yellow-100 p-6 shadow-md border border-yellow-200 relative">
-                                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-3 bg-slate-400/20"></div>
-                                    <h4 class="font-bold text-amber-900 text-xs mb-1 uppercase font-serif">Ayo Join OSN SMP ABBS Sekarang!</h4>
-                                    <p class="text-[10px] text-amber-800 font-hand">Hubungi Pembina OSN segera!</p>
-                                </div>
-                            </div>
-                            <div class="mt-auto flex justify-start">
-                                <button onclick="flipPage(-5)" class="text-xs font-serif italic text-slate-700 hover:text-slate-900 transition-colors flex items-center gap-2"><i data-feather="arrow-left" class="w-4 h-4"></i> Back Page</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PAGE 6: FINAL CTA & END -->
-                <div class="page" id="p6">
-                    <div class="front bg-slate-50 border-l border-slate-300">
-                        <div class="p-16 flex flex-col items-center justify-center h-full text-center">
-                            <div class="w-24 h-24 bg-[#004d4d] rounded-full flex items-center justify-center mb-8 shadow-2xl">
-                                <i data-feather="award" class="text-white w-12 h-12"></i>
-                            </div>
-                            <h2 class="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tighter font-serif">Dare to Excel?</h2>
-                            <p class="text-slate-500 text-xs mb-12 max-w-xs uppercase tracking-[0.2em] font-serif font-bold">The Journey Starts Here.</p>
-                            <div class="flex flex-col gap-5 w-full max-w-[280px]">
-                                <a href="https://instagram.com/sinaps_abbs" target="_blank" class="flex items-center justify-center gap-3 px-8 py-4 bg-[#E1306C] text-white rounded shadow-lg font-serif font-bold text-xs tracking-widest hover:scale-105 transition-transform">
-                                    <i data-feather="instagram" class="w-5 h-5"></i> @SINAPS_ABBS
-                                </a>
-                                <button onclick="flipPage(-6)" class="text-[10px] font-serif italic text-slate-400 hover:text-slate-600 transition-colors uppercase tracking-[0.4em]">Return to Cover</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="back bg-[#002b2b] border-r border-black/40 shadow-inner relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
-                        <div class="p-16 h-full flex flex-col items-center justify-center text-center">
-                            <img src="/communities/sinaps.png" alt="SINAPS" class="w-28 mx-auto mb-10 opacity-30 grayscale" />
-                            <h2 class="text-2xl font-serif font-black mb-16 uppercase tracking-[0.6em] text-white/20 italic">End of Archive</h2>
-                            <a href="/komunitas_siswa" class="px-12 py-5 border border-white/10 text-white/30 hover:text-white hover:border-white/30 transition-all text-xs font-serif italic tracking-[0.5em] uppercase">Exit Experience</a>
-                        </div>
-                    </div>
-                </div>
+                <SinapsCover id="p1" />
+                <SinapsIntro id="p2" />
+                <SinapsIpa id="p3" />
+                <SinapsIps id="p4" />
+                <SinapsMath id="p5" />
+                <SinapsStructure id="p6" />
+                <SinapsCta id="p7" />
             </div>
 
             <!-- Organic Navigation Hints (Inside container to sync with book movement) -->
@@ -332,7 +37,7 @@ import Layout from "../../layouts/Layout.astro";
         </div>
     </main>
 
-    <style>
+    <style is:global>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Inter:wght@300;400;700&family=Architects+Daughter&display=swap');
 
         .font-hand {
@@ -378,6 +83,10 @@ import Layout from "../../layouts/Layout.astro";
             pointer-events: auto;
         }
 
+        .page.flipped .back {
+            pointer-events: auto;
+        }
+
         .front, .back {
             width: 100%;
             height: 100%;
@@ -398,9 +107,9 @@ import Layout from "../../layouts/Layout.astro";
         }
 
         .page:not(#p1) .front, 
-        .page:not(#p6) .back,
+        .page:not(#p7) .back,
         #p1 .back,
-        #p6 .front {
+        #p7 .front {
             background-color: #fdfdfb;
             background-image: 
                 linear-gradient(#e5e7eb 1px, transparent 1px),
@@ -415,7 +124,7 @@ import Layout from "../../layouts/Layout.astro";
             overflow: hidden;
         }
 
-        #p6 .back {
+        #p7 .back {
             background-color: #002b2b !important;
             background-image: none !important;
             border-radius: 15px 4px 4px 15px;
@@ -431,12 +140,13 @@ import Layout from "../../layouts/Layout.astro";
             transform: rotateY(-180deg);
         }
 
-        #p1 { z-index: 6; }
-        #p2 { z-index: 5; }
-        #p3 { z-index: 4; }
-        #p4 { z-index: 3; }
-        #p5 { z-index: 2; }
-        #p6 { z-index: 1; }
+        #p1 { z-index: 7; }
+        #p2 { z-index: 6; }
+        #p3 { z-index: 5; }
+        #p4 { z-index: 4; }
+        #p5 { z-index: 3; }
+        #p6 { z-index: 2; }
+        #p7 { z-index: 1; }
 
         .font-serif {
             font-family: 'Playfair Display', serif;
@@ -445,7 +155,7 @@ import Layout from "../../layouts/Layout.astro";
 
     <script>
         let currentLoc = 1;
-        let numOfPapers = 6;
+        let numOfPapers = 7;
         let maxLoc = numOfPapers + 1;
 
         function flipPage(target: number) {
@@ -475,7 +185,7 @@ import Layout from "../../layouts/Layout.astro";
                     book.style.transform = `translateX(50%)`;
                 }
             } else {
-                if (target === -6) {
+                if (target === -7) {
                     const allPages = document.querySelectorAll('.page');
                     allPages.forEach((page, index) => {
                         page.classList.remove('flipped');
@@ -554,7 +264,7 @@ import Layout from "../../layouts/Layout.astro";
             } else if (e.code === 'ArrowLeft') {
                 flipPage(-1);
             } else if (e.code === 'Escape') {
-                flipPage(-6);
+                flipPage(-7);
             }
         });
     </script>

@@ -1,0 +1,97 @@
+---
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+---
+
+<div class="page" id={id}>
+  <div class="front bg-slate-50 border-l border-slate-300 relative overflow-hidden">
+    <!-- Scribble: Coffee Ring -->
+    <div class="absolute -top-10 -left-10 w-40 h-40 border-[10px] border-amber-900/5 rounded-full pointer-events-none"></div>
+
+    <div class="p-14 h-full flex flex-col relative z-10">
+      <div class="flex items-center gap-4 border-b-4 border-amber-700 pb-3 mb-6">
+        <h2 class="text-3xl font-black text-amber-950 uppercase tracking-tighter">IPS: Geography</h2>
+      </div>
+
+      <div class="prose prose-slate prose-sm font-serif space-y-3 flex-1">
+        <h4 class="text-sm font-bold text-amber-800 uppercase tracking-widest relative inline-block">
+          Earth &amp; Society
+          <svg class="absolute -right-6 top-0 w-4 h-4 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+        </h4>
+        <div class="text-xs text-slate-600 space-y-2 leading-relaxed">
+          <p>Memahami interaksi antara ruang bumi dan aktivitas manusia:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>Litosfer:</strong> Struktur bumi, vulkanisme, gempa, dan siklus air global.</li>
+            <li><strong>Atmosfer:</strong> Cuaca, iklim, dan fenomena perubahan iklim global.</li>
+            <li><strong>Kependudukan:</strong> Dinamika penduduk, urbanisasi, dan sumber daya manusia.</li>
+            <li><strong>Peta &amp; SIG:</strong> Teknik proyeksi, interpretasi citra, dan pemetaan tematik.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tim Koordinator IPS -->
+      <div class="mt-4 pt-4 border-t border-amber-100">
+        <p class="text-[9px] font-bold text-amber-700 uppercase tracking-widest mb-3">Tim Koordinator IPS</p>
+        <div class="flex gap-4">
+          <!-- Putra -->
+          <div class="flex items-center gap-2 bg-white/60 border border-amber-100 rounded-xl px-3 py-2 flex-1 group hover:bg-white transition-all duration-200">
+            <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-amber-200 flex-shrink-0 group-hover:border-amber-500 transition-all duration-200">
+              <img data-pfp src="/sinaps/ghifari.png" alt="Muhammad Ghifari"
+                   class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-400 cursor-zoom-in" />
+            </div>
+            <div class="min-w-0">
+              <p class="text-[8px] text-amber-600 font-bold uppercase tracking-wider">Koord. Putra</p>
+              <p class="text-[10px] font-serif font-bold text-slate-800 leading-tight truncate">M. Ghifari</p>
+            </div>
+          </div>
+          <!-- Putri -->
+          <div class="flex items-center gap-2 bg-white/60 border border-amber-100 rounded-xl px-3 py-2 flex-1 group hover:bg-white transition-all duration-200">
+            <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-orange-200 flex-shrink-0 group-hover:border-orange-500 transition-all duration-200">
+              <img data-pfp src="/sinaps/raisa.png" alt="Raisa Putri"
+                   class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-400 cursor-zoom-in" />
+            </div>
+            <div class="min-w-0">
+              <p class="text-[8px] text-orange-600 font-bold uppercase tracking-wider">Koord. Putri</p>
+              <p class="text-[10px] font-serif font-bold text-slate-800 leading-tight truncate">Raisa Putri</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3 flex justify-end">
+        <button onclick="window.flipPage(4)" class="text-xs font-serif italic text-amber-700 hover:text-amber-900 transition-colors flex items-center gap-2">Next Page <i data-feather="arrow-right" class="w-4 h-4"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="back bg-slate-50 border-r border-slate-300 shadow-inner relative overflow-hidden">
+    <div class="p-14 h-full flex flex-col relative z-10">
+      <div class="flex items-center gap-4 border-b-4 border-orange-800 pb-3 mb-6">
+        <h2 class="text-3xl font-black text-orange-950 uppercase tracking-tighter">IPS: Social</h2>
+      </div>
+      <div class="prose prose-slate prose-sm font-serif space-y-4 flex-1">
+        <div class="text-xs text-slate-600 space-y-4 leading-relaxed">
+          <div>
+            <h4 class="text-sm font-bold text-orange-900 uppercase tracking-widest mb-2">Sejarah &amp; Peradaban</h4>
+            <p class="relative">
+              Akar kolonialisme di Indonesia, pergerakan nasional, hingga sejarah ekonomi nusantara.
+              <span class="absolute -right-8 top-0 font-hand text-[8px] text-orange-700/50 rotate-12">*Wajib hafal timeline 1945!</span>
+            </p>
+          </div>
+          <div class="border-t border-orange-100 pt-4">
+            <h4 class="text-sm font-bold text-orange-900 uppercase tracking-widest mb-2">Ekonomi &amp; Sosiologi</h4>
+            <p>Prinsip permintaan &amp; penawaran, perilaku konsumen, peran lembaga keuangan, dan interaksi sosial.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-auto flex justify-start">
+        <button onclick="window.flipPage(-4)" class="text-xs font-serif italic text-orange-700 hover:text-orange-900 transition-colors flex items-center gap-2"><i data-feather="arrow-left" class="w-4 h-4"></i> Back Page</button>
+      </div>
+    </div>
+  </div>
+</div>

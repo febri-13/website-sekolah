@@ -1,0 +1,110 @@
+---
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+---
+
+<div class="page" id={id}>
+  <div class="front bg-slate-50 border-l border-slate-300 relative overflow-hidden">
+    <!-- Doodle: Physics Sketch -->
+    <div class="absolute top-10 right-10 opacity-20 pointer-events-none rotate-12">
+      <svg width="80" height="80" viewBox="0 0 100 100" class="stroke-teal-800 fill-none">
+        <circle cx="50" cy="50" r="30" stroke-dasharray="5 5" />
+        <path d="M50 20 L50 80 M20 50 L80 50" stroke-width="1" />
+        <text x="55" y="45" class="text-[8px]">f = 1/T</text>
+      </svg>
+    </div>
+
+    <div class="p-14 h-full flex flex-col relative z-10">
+      <div class="flex items-center gap-4 border-b-4 border-teal-500 pb-3 mb-6">
+        <h2 class="text-3xl font-black text-teal-950 uppercase tracking-tighter">IPA: Physics</h2>
+      </div>
+
+      <div class="prose prose-slate prose-sm font-serif space-y-3 flex-1">
+        <h4 class="text-sm font-bold text-teal-800 uppercase tracking-widest relative">
+          Mastering the Universe
+          <svg class="absolute -bottom-1 left-0 w-full h-2 opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none">
+            <path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="#0d9488" stroke-width="2" fill="none" />
+          </svg>
+        </h4>
+        <div class="text-xs text-slate-600 space-y-2 leading-relaxed">
+          <p>Materi Fisika dalam OSN SMP mencakup pemahaman mendalam tentang hukum-hukum alam yang fundamental:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>Mekanika:</strong> Gerak lurus, Hukum Newton, Usaha dan Energi, Fluida Statis &amp; Dinamis.</li>
+            <li><strong>Optik &amp; Gelombang:</strong> Pembiasan cahaya, alat optik, bunyi, dan karakteristik gelombang.</li>
+            <li><strong>Listrik &amp; Magnet:</strong> Rangkaian DC, Hukum Ohm, daya listrik, dan induksi elektromagnetik.</li>
+            <li><span class="bg-yellow-200/50 px-1">Suhu &amp; Kalor:</span> Pemuaian, azas Black, dan perpindahan kalor.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tim Koordinator IPA -->
+      <div class="mt-4 pt-4 border-t border-teal-100">
+        <p class="text-[9px] font-bold text-teal-700 uppercase tracking-widest mb-3">Tim Koordinator IPA</p>
+        <div class="flex gap-4">
+          <!-- Putra -->
+          <div class="flex items-center gap-2 bg-white/60 border border-teal-100 rounded-xl px-3 py-2 flex-1 group hover:bg-white transition-all duration-200">
+            <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-teal-200 flex-shrink-0 group-hover:border-teal-500 transition-all duration-200">
+              <img data-pfp src="/sinaps/fardhan.png" alt="Muhammad Fardhan"
+                   class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-400 cursor-zoom-in" />
+            </div>
+            <div class="min-w-0">
+              <p class="text-[8px] text-teal-600 font-bold uppercase tracking-wider">Koord. Putra</p>
+              <p class="text-[10px] font-serif font-bold text-slate-800 leading-tight truncate">M. Fardhan</p>
+            </div>
+          </div>
+          <!-- Putri -->
+          <div class="flex items-center gap-2 bg-white/60 border border-teal-100 rounded-xl px-3 py-2 flex-1 group hover:bg-white transition-all duration-200">
+            <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-emerald-200 flex-shrink-0 group-hover:border-emerald-500 transition-all duration-200">
+              <img data-pfp src="/sinaps/azizah.png" alt="Azizah Zahratusyifa"
+                   class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-400 cursor-zoom-in" />
+            </div>
+            <div class="min-w-0">
+              <p class="text-[8px] text-emerald-600 font-bold uppercase tracking-wider">Koord. Putri</p>
+              <p class="text-[10px] font-serif font-bold text-slate-800 leading-tight truncate">Azizah Z.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3 flex justify-end">
+        <button onclick="window.flipPage(3)" class="text-xs font-serif italic text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-2">Next Page <i data-feather="arrow-right" class="w-4 h-4"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="back bg-slate-50 border-r border-slate-300 shadow-inner relative overflow-hidden">
+    <!-- Doodle: DNA -->
+    <div class="absolute bottom-10 right-4 opacity-10 pointer-events-none -rotate-12">
+      <svg width="60" height="120" viewBox="0 0 50 100" class="stroke-emerald-800">
+        <path d="M10 0 Q 40 25, 10 50 Q 40 75, 10 100" fill="none" stroke-width="2" />
+        <path d="M40 0 Q 10 25, 40 50 Q 10 75, 40 100" fill="none" stroke-width="2" />
+      </svg>
+    </div>
+
+    <div class="p-14 h-full flex flex-col relative z-10">
+      <div class="flex items-center gap-4 border-b-4 border-emerald-500 pb-3 mb-6">
+        <h2 class="text-3xl font-black text-emerald-950 uppercase tracking-tighter">IPA: Biology</h2>
+      </div>
+      <div class="prose prose-slate prose-sm font-serif space-y-3 flex-1">
+        <h4 class="text-sm font-bold text-emerald-800 uppercase tracking-widest">The Secret of Life</h4>
+        <div class="text-xs text-slate-600 space-y-2 leading-relaxed">
+          <p>Menjelajahi struktur kehidupan dari unit terkecil hingga ekosistem global:</p>
+          <ul class="list-disc pl-5 space-y-1 font-serif">
+            <li><strong>Sel &amp; Jaringan:</strong> Struktur organel, metabolisme seluler, dan spesialisasi jaringan.</li>
+            <li><strong>Anatomi:</strong> Sistem peredaran darah, pernapasan, pencernaan, dan koordinasi manusia.</li>
+            <li><strong>Genetika:</strong> Hereditas mendel, struktur DNA, dan rekayasa genetika dasar.</li>
+            <li><strong>Ekologi:</strong> Rantai makanan, siklus biogeokimia, dan pelestarian lingkungan.</li>
+          </ul>
+        </div>
+        <div class="border-l-2 border-emerald-200 pl-4 py-2 italic text-[10px] text-emerald-800/70 font-hand">
+          "Mitochondria is the powerhouse of the cell!" - Catatan praktikum.
+        </div>
+      </div>
+      <div class="mt-auto flex justify-start">
+        <button onclick="window.flipPage(-3)" class="text-xs font-serif italic text-emerald-700 hover:text-emerald-900 transition-colors flex items-center gap-2"><i data-feather="arrow-left" class="w-4 h-4"></i> Back Page</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,18 @@
 ---
+import BoardHeader from './BoardHeader.astro';
+import OverviewTab from './OverviewTab.astro';
+import ProjectsTab from './ProjectsTab.astro';
+import HierarchyModule from './HierarchyModule.astro';
+import DivisionModal from './modals/DivisionModal.astro';
+import LevelModal from './modals/LevelModal.astro';
+import { sanityClient } from '../../lib/sanity';
+import type { Tinkers } from '../../types/sanity';
+
+// Fetch Tinkers data (only topProjects) from Sanity
+const tinkersData = await sanityClient.fetch<Tinkers>(`*[_type == "tinkers"][0]{
+    topProjects
+}`);
+
 const organization = {
   chairperson: {
     name: "Daffa (8A)",
@@ -73,1172 +87,36 @@ const organization = {
     </div>
 
     <!-- HUD Elements (Corners) -->
-    <div
-        class="absolute top-10 left-10 w-24 h-24 border-t-4 border-l-4 border-[#00f2ff] opacity-40"
-    >
-    </div>
-    <div
-        class="absolute top-10 right-10 w-24 h-24 border-t-4 border-r-4 border-[#00f2ff] opacity-40"
-    >
-    </div>
-    <div
-        class="absolute bottom-10 left-10 w-24 h-24 border-b-4 border-l-4 border-[#00f2ff] opacity-40"
-    >
-    </div>
-    <div
-        class="absolute bottom-10 right-10 w-24 h-24 border-b-4 border-r-4 border-[#00f2ff] opacity-40"
-    >
-    </div>
+    <div class="absolute top-10 left-10 w-24 h-24 border-t-4 border-l-4 border-[#00f2ff] opacity-40"></div>
+    <div class="absolute top-10 right-10 w-24 h-24 border-t-4 border-r-4 border-[#00f2ff] opacity-40"></div>
+    <div class="absolute bottom-10 left-10 w-24 h-24 border-b-4 border-l-4 border-[#00f2ff] opacity-40"></div>
+    <div class="absolute bottom-10 right-10 w-24 h-24 border-b-4 border-r-4 border-[#00f2ff] opacity-40"></div>
 
     <!-- Main Content Area -->
-    <div
-        class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-7xl mx-auto py-12"
-    >
-        <!-- Header Module (Refined & Static) -->
-        <div
-            class="lg:col-span-12 mb-12 border-b-2 border-[#00f2ff] pb-8 flex flex-col md:flex-row justify-between items-start md:items-end relative"
-        >
-            <!-- HUD Corner Details -->
-            <div class="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-[#00f2ff]/30"></div>
-            <div class="absolute -top-4 -right-4 w-8 h-8 border-t border-r border-[#00f2ff]/30"></div>
+    <div class="relative z-10 max-w-7xl mx-auto py-12">
+        <BoardHeader 
+            title="THE TINKERS" 
+            location="SMP ABBS SURAKARTA" 
+            date="27.04.2026"
+        />
 
-            <div class="relative z-10">
-                <div
-                    class="text-[9px] text-[#00f2ff] opacity-40 mb-2 tracking-[0.5em] uppercase font-bold"
-                >
-                    System_Status // Archive_2026
-                </div>
-                <h1
-                    class="text-4xl md:text-7xl font-black italic tracking-tighter text-white glow-text mb-4 leading-none"
-                >
-                    THE TINKERS
-                </h1>
-                <div
-                    class="flex items-center gap-6 text-[10px] tracking-[0.2em] font-mono"
-                >
-                    <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 bg-[#00f2ff] rounded-full"></span>
-                        <span class="text-[#00f2ff] font-bold uppercase"
-                            >Status: Operational</span
-                        >
-                    </div>
-                    <div class="h-3 w-[1px] bg-[#00f2ff]/20"></div>
-                    <span class="opacity-50 uppercase">Location: SMP ABBS SURAKARTA</span>
-                </div>
-            </div>
-
-            <div
-                class="text-right hidden md:flex flex-col items-end font-mono text-[9px] opacity-60 mt-6 md:mt-0"
-            >
-                <div class="mb-2 flex items-center gap-2">
-                    <span class="opacity-40">EST_DATE:</span>
-                    <span class="text-white">27.04.2026</span>
-                </div>
-                <div class="mb-3 flex items-center gap-2">
-                    <span class="opacity-40">SEC_PROTOCOL:</span>
-                    <span class="text-[#00f2ff]">ENCRYPTED_v2</span>
-                </div>
-                <div
-                    class="w-48 h-[2px] bg-[#00f2ff]/10 relative overflow-hidden"
-                >
-                    <div class="absolute inset-0 bg-[#00f2ff] w-full"></div>
-                </div>
-                <div class="mt-1 text-[8px] opacity-30">DATA_INTEGRITY_VERIFIED</div>
-            </div>
+        <div id="overview-content" class="tab-content transition-all duration-500">
+            <OverviewTab organization={organization} />
+            <HierarchyModule organization={organization} />
         </div>
 
-        <!-- Module 01: Core Protocol (Latar Belakang & Visi) -->
-        <div class="lg:col-span-8 group">
-            <div
-                class="border border-[#00f2ff]/30 p-8 relative bg-[#001226]/60 backdrop-blur-md hover:border-[#00f2ff] transition-all shadow-[inset_0_0_30px_rgba(0,242,255,0.05)] h-full"
-            >
-                <div
-                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
-                >
-                    Module_01 // Core_Foundation
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-                    <div>
-                        <h2
-                            class="text-xs font-bold mb-4 text-[#00f2ff] opacity-50 tracking-[0.2em] uppercase"
-                        >
-                            // Latar Belakang
-                        </h2>
-                        <p class="text-sm leading-relaxed text-gray-300">
-                            Perkembangan teknologi menuntut siswa tidak hanya
-                            memahami teori, tetapi juga kemampuan praktis dan
-                            inovatif. <span class="text-[#00f2ff]"
-                                >The Tinkers</span
-                            > hadir sebagai wadah terstruktur untuk pengembangan ide
-                            dan persiapan kompetisi IT secara optimal.
-                        </p>
-                    </div>
-                    <div>
-                        <h2
-                            class="text-xs font-bold mb-4 text-[#00f2ff] opacity-50 tracking-[0.2em] uppercase"
-                        >
-                            // Visi Utama
-                        </h2>
-                        <div
-                            class="border-l-2 border-[#00f2ff] pl-4 italic text-sm md:text-base text-white"
-                        >
-                            "Menjadi wadah unggulan bagi siswa dalam
-                            mengembangkan keterampilan teknologi, inovasi, dan
-                            kreativitas untuk menghasilkan karya yang kompetitif
-                            di tingkat nasional maupun internasional."
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Module 02: Strategic Objectives -->
-        <div class="lg:col-span-4">
-            <div
-                class="border border-[#00f2ff]/30 p-8 bg-[#00f2ff]/5 relative h-full"
-            >
-                <div
-                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
-                >
-                    Module_02 // Objectives
-                </div>
-                <h3
-                    class="text-xs font-bold mb-6 mt-4 text-[#00f2ff] tracking-widest uppercase"
-                >
-                    // Tujuan Strategis
-                </h3>
-                <ul class="space-y-4">
-                    {
-                        [
-                            "Kreativitas & Inovasi Siswa",
-                            "Persiapan Lomba IT Terstruktur",
-                            "Project-Based Learning Culture",
-                            "Teamwork & Problem Solving",
-                        ].map((item, index) => (
-                            <li class="flex items-center gap-3 text-xs">
-                                <span class="text-[#00f2ff] font-bold">
-                                    0{index + 1}
-                                </span>
-                                <span class="text-gray-300 uppercase tracking-tighter">
-                                    {item}
-                                </span>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
-        </div>
-
-        <!-- Module 03: Deployment Divisi -->
-        <div class="lg:col-span-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {
-                    organization.kabids.map((div) => (
-                        <div
-                            class="div-card border border-[#00f2ff]/20 p-6 bg-[#001226]/80 hover:bg-[#00f2ff]/5 transition-all group relative cursor-pointer overflow-hidden"
-                            data-name={div.role.split("// ")[1] || div.role}
-                            data-slogan={div.slogan}
-                            data-desc={div.desc}
-                            data-coord={div.koord_name}
-                            data-coord-label="Assigned Coordinator"
-                            data-rank-label={`SQUAD LEADER: ${div.name}`}
-                            data-coord-rank-label={`COORDINATOR: ${div.koord_name}`}
-                            data-coord-img={div.koord_img}
-                            data-lead={div.name}
-                            data-img={div.image}
-                        >
-                            <div class="absolute top-0 right-0 p-2 text-[8px] text-[#00f2ff] opacity-0 group-hover:opacity-40 transition-opacity uppercase tracking-widest">
-                                Access Division Data
-                            </div>
-                            <div class="text-[10px] opacity-40 mb-2 font-mono uppercase">
-                                DIV_#{div.role.split("// ")[1]?.substring(0, 3) || "UNIT"}
-                            </div>
-                            <h4 class="text-xl font-black italic text-white mb-4 group-hover:text-[#00f2ff] transition-colors uppercase">
-                                {div.role.split("// ")[1] || div.role}
-                            </h4>
-                            <div class="space-y-2 text-[11px] font-mono border-t border-[#00f2ff]/10 pt-4">
-                                <div class="flex justify-between">
-                                    <span class="opacity-50 uppercase">
-                                        Coordinator:
-                                    </span>
-                                    <span class="text-[#00f2ff]">
-                                        {div.koord_name}
-                                    </span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="opacity-50 uppercase">
-                                        Leader:
-                                    </span>
-                                    <span class="text-[#00f2ff] font-bold">
-                                        {div.name}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-
-        <!-- Division Detail Modal (SEMI-FULLSCREEN) -->
-        <div
-            id="div-modal"
-            class="fixed inset-0 z-[1000] flex items-center justify-center p-4 md:p-10 bg-black/80 backdrop-blur-xl hidden opacity-0 transition-all duration-500 overflow-hidden"
-        >
-            <div class="relative w-full h-full max-w-7xl bg-[#001226] border-2 border-[#00f2ff]/50 shadow-[0_0_100px_rgba(0,242,255,0.1)] overflow-hidden flex flex-col md:flex-row">
-                <!-- Background HUD Elements -->
-                <div class="absolute inset-0 pointer-events-none opacity-20">
-                    <div
-                        class="absolute inset-0"
-                        style="background-image: 
-                            linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
-                            background-size: 100px 100px;"
-                    >
-                    </div>
-                </div>
-                <!-- Left Side: Image Display -->
-                <div class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden group/img border-r border-[#00f2ff]/20">
-                    <div class="absolute inset-0 bg-[#001226]"></div>
-                    <img 
-                        id="div-modal-img" 
-                        src="" 
-                        alt="Division Illustration" 
-                        class="w-full h-full object-cover opacity-70 mix-blend-screen grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-1000 scale-110 group-hover/img:scale-100"
-                    />
-                    
-                    <!-- Dynamic Name Tag -->
-                    <div class="absolute bottom-10 left-10 z-20">
-                        <div class="flex flex-col">
-                            <div id="div-modal-label" class="bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-black uppercase tracking-widest inline-block self-start mb-1">
-                                SQUAD_LEADER_IDENTIFIED
-                            </div>
-                            <div class="bg-black/60 backdrop-blur-md border border-[#00f2ff]/50 px-6 py-3">
-                                <h3 id="div-modal-tag-lead" class="text-2xl font-black italic text-white uppercase glow-text">
-                                    --
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- HUD Scanning Lines on Image -->
-                    <div class="absolute inset-0 pointer-events-none">
-                        <div class="absolute w-full h-[1px] bg-[#00f2ff]/30 top-1/4 animate-pulse"></div>
-                        <div class="absolute w-full h-[1px] bg-[#00f2ff]/30 top-2/4 animate-pulse delay-75"></div>
-                        <div class="absolute w-full h-[1px] bg-[#00f2ff]/30 top-3/4 animate-pulse delay-150"></div>
-                        <div class="absolute h-full w-[1px] bg-[#00f2ff]/30 left-1/4 animate-pulse"></div>
-                        <div class="absolute h-full w-[1px] bg-[#00f2ff]/30 left-2/4 animate-pulse delay-75"></div>
-                        <div class="absolute h-full w-[1px] bg-[#00f2ff]/30 left-3/4 animate-pulse delay-150"></div>
-                    </div>
-
-                    <!-- Image Overlays -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#001226] via-transparent to-transparent hidden md:block"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#001226] via-transparent to-transparent md:hidden"></div>
-                    
-                    <!-- HUD Corner Brackets for Image -->
-                    <div class="absolute top-10 left-10 w-12 h-12 border-t-2 border-l-2 border-[#00f2ff]/40"></div>
-                    <div class="absolute top-10 right-10 w-12 h-12 border-t-2 border-r-2 border-[#00f2ff]/40"></div>
-                </div>
-
-                <!-- Right Side: Data/Content -->
-                <div class="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-20 flex flex-col justify-center relative overflow-y-auto bg-[#001226]/80 backdrop-blur-sm">
-                    <!-- Close Button -->
-                    <button
-                        id="close-div-modal"
-                        class="fixed md:absolute top-8 right-8 z-[1100] group flex items-center gap-3 text-[#00f2ff] hover:text-white transition-all"
-                    >
-                        <span class="text-[10px] font-bold tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        <div class="w-10 h-10 border border-[#00f2ff] flex items-center justify-center font-bold text-sm bg-[#00f2ff]/10 group-hover:bg-[#00f2ff] group-hover:text-black transition-all">
-                            X
-                        </div>
-                    </button>
-
-                    <div class="relative z-10 space-y-10 max-w-2xl w-full mx-auto md:mx-0">
-                        <div class="animate-in fade-in slide-in-from-left duration-700 mt-12 md:mt-20">
-                            <div class="flex items-center gap-3 mb-6 opacity-60">
-                                <div class="h-[1px] w-8 bg-[#00f2ff]"></div>
-                                <div class="text-[9px] text-[#00f2ff] tracking-[0.4em] uppercase font-mono">
-                                    Operational_Briefing_v2.0
-                                </div>
-                            </div>
-                            
-                            <h2
-                                id="div-modal-name"
-                                class="text-3xl md:text-6xl font-black italic text-white uppercase glow-text leading-tight mb-6"
-                            >
-                                IoT Innovation
-                            </h2>
-                            
-                            <div
-                                class="inline-flex items-center gap-4 px-5 py-2.5 bg-[#00f2ff] text-[#001226] text-xs font-bold uppercase italic shadow-[0_0_20px_rgba(0,242,255,0.3)]"
-                            >
-                                <span class="animate-pulse">▶</span>
-                                <span id="div-modal-slogan">"Bringing Creativity to Life."</span>
-                            </div>
-                        </div>
-
-                        <div class="space-y-10 animate-in fade-in slide-in-from-bottom duration-1000 delay-300">
-                            <div class="bg-[#00f2ff]/3 border-l-2 border-[#00f2ff] p-8 md:p-10 relative overflow-hidden group/profile">
-                                <div class="absolute top-4 right-4 text-[7px] text-[#00f2ff]/20 font-mono">ID: MISSION_DEBRIEF_01</div>
-                                <div class="absolute inset-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(rgba(0,242,255,0.1)_50%,transparent_50%)] bg-[length:100%_4px] animate-scan"></div>
-                                <div class="flex items-center gap-3 mb-6">
-                                    <div class="w-2 h-2 bg-[#00f2ff] animate-pulse"></div>
-                                    <div class="text-[9px] text-[#00f2ff] font-bold tracking-[0.4em] uppercase">
-                                        Mission_Profile
-                                    </div>
-                                </div>
-                                <p
-                                    id="div-modal-desc"
-                                    class="text-base md:text-lg text-white/90 leading-relaxed font-light italic"
-                                >
-                                </p>
-                            </div>
-
-                            <div id="div-modal-footer-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div id="div-modal-assigned-box" class="bg-[#00f2ff]/5 border border-[#00f2ff]/10 p-6 relative group/meta hover:bg-[#00f2ff]/10 transition-colors flex items-center gap-4">
-                                    <div class="absolute top-0 left-0 w-1 h-full bg-[#00f2ff]/20 group-hover:bg-[#00f2ff] transition-colors"></div>
-                                    <div class="w-12 h-12 rounded-full border border-[#00f2ff]/30 overflow-hidden bg-black/40 flex-shrink-0 cursor-help group/coord">
-                                        <img id="div-modal-coord-img" src="" alt="Coordinator" class="w-full h-full object-cover opacity-80 mix-blend-screen hover:opacity-100 transition-all" />
-                                    </div>
-                                    <div class="flex-grow pl-2">
-                                        <div id="div-modal-coord-label" class="text-[9px] opacity-40 uppercase mb-1 tracking-widest">
-                                            Assigned Coordinator
-                                        </div>
-                                        <div
-                                            id="div-modal-coord"
-                                            class="text-lg text-white font-bold uppercase leading-tight"
-                                        >
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bg-[#00f2ff]/5 border border-[#00f2ff]/10 p-6 relative group/meta hover:bg-[#00f2ff]/10 transition-colors">
-                                    <div class="absolute top-0 left-0 w-1 h-full bg-[#00f2ff]/20 group-hover:bg-[#00f2ff] transition-colors"></div>
-                                    <div id="div-modal-lead-label" class="text-[9px] opacity-40 uppercase mb-2 tracking-widest">
-                                        Coordinator
-                                    </div>
-                                    <div
-                                        id="div-modal-lead"
-                                        class="text-xl text-white font-bold uppercase"
-                                    >
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Footer HUD Junk -->
-                        <div class="pt-10 border-t border-[#00f2ff]/10 flex flex-wrap gap-10 text-[9px] font-mono opacity-30">
-                            <div id="div-modal-auth">AUTH_ID: TK-DIV-XXXX</div>
-                            <div>LOCATION: SMP_ABBS_SURAKARTA</div>
-                            <div class="animate-pulse">ENCRYPTION: AES-256-ACTIVE</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Module 04: Progression System (Levels) -->
-        <div class="lg:col-span-12">
-            <div
-                class="border border-[#00f2ff]/30 p-8 bg-[#001226]/60 relative"
-            >
-                <div
-                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
-                >
-                    Module_04 // System_Level
-                </div>
-
-                <h3
-                    class="text-center text-2xl font-black mb-10 tracking-[0.4em] text-white uppercase"
-                >
-                    // Ranking Hierarchy
-                </h3>
-
-                <div
-                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
-                >
-                    {
-                        [
-                            {
-                                lvl: "0x01",
-                                name: "Explorer",
-                                focus: "Dasar & Tools",
-                                details: {
-                                    focus: "Mempelajari dasar-dasar teknologi (coding, elektronika, dll) dan mengenal tools club.",
-                                    activity:
-                                        "Mengikuti kegiatan pembelajaran secara aktif.",
-                                    competition:
-                                        "Hanya Kompetisi Internal untuk melatih mental dan dasar teknis.",
-                                    promotion:
-                                        "Lulus Ujian Teori 'Basic Of Tech 101' dengan nilai >78%.",
-                                },
-                            },
-                            {
-                                lvl: "0x02",
-                                name: "Builder",
-                                focus: "Mini Projects",
-                                details: {
-                                    focus: "Mengerjakan mini project sesuai arahan dan memahami alur pembuatan proyek.",
-                                    activity:
-                                        "Mengikuti latihan rutin dan menyelesaikan task dengan baik.",
-                                    competition:
-                                        "Kompetisi Tingkat Lokal/Regional (antar sekolah atau tingkat kota).",
-                                    promotion:
-                                        "Berhasil menyelesaikan Latihan Rutin selama 2 bulan.",
-                                },
-                            },
-                            {
-                                lvl: "0x03",
-                                name: "Engineer",
-                                focus: "Advanced Systems",
-                                details: {
-                                    focus: "Upgrade project kompleks dan menggabungkan konsep software & hardware.",
-                                    activity:
-                                        "Problem solving mandiri dalam pengerjaan project.",
-                                    competition:
-                                        "Kompetisi Tingkat Provinsi atau Undangan Khusus.",
-                                    promotion:
-                                        "Lulus Ujian Lisan 'Advanced Tech 101'.",
-                                },
-                            },
-                            {
-                                lvl: "0x04",
-                                name: "Inventor",
-                                focus: "Original Innovation",
-                                details: {
-                                    focus: "Menciptakan proyek orisinal yang inovatif dan siap lomba.",
-                                    activity:
-                                        "Membimbing anggota level di bawahnya (menjadi mentor).",
-                                    competition:
-                                        "Garda terdepan untuk Kompetisi Tingkat Nasional dan Internasional.",
-                                    promotion:
-                                        "Menjadi perwakilan utama klub dalam ajang-ajang bergengsi.",
-                                },
-                            },
-                        ].map((rank) => (
-                            <div
-                                class="level-card border border-[#00f2ff]/20 p-6 bg-[#001226] hover:border-[#00f2ff] transition-all group cursor-pointer relative overflow-hidden"
-                                data-lvl={rank.lvl}
-                                data-name={rank.name}
-                                data-focus={rank.details.focus}
-                                data-activity={rank.details.activity}
-                                data-comp={rank.details.competition}
-                                data-promo={rank.details.promotion}
-                            >
-                                <div class="absolute top-0 right-0 p-2 text-[8px] text-[#00f2ff] opacity-0 group-hover:opacity-40 transition-opacity uppercase tracking-widest">
-                                    Click to Decrypt
-                                </div>
-                                <div class="text-4xl font-black text-[#00f2ff]/10 mb-2 group-hover:text-[#00f2ff]/30 transition-colors">
-                                    {rank.lvl}
-                                </div>
-                                <div class="text-xl font-bold text-white mb-4 uppercase tracking-tighter group-hover:text-[#00f2ff] transition-colors">
-                                    {rank.name}
-                                </div>
-                                <div class="border-t border-[#00f2ff]/10 pt-4">
-                                    <div class="text-[8px] opacity-40 uppercase tracking-widest mb-1">
-                                        Primary Focus
-                                    </div>
-                                    <div class="text-[11px] text-[#00f2ff] uppercase">
-                                        {rank.focus}
-                                    </div>
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-
-                <!-- Level Detail Modal -->
-                <div
-                    id="level-modal"
-                    class="fixed inset-0 z-[1000] flex items-center justify-center p-6 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300"
-                >
-                    <div
-                        class="relative w-full max-w-lg bg-[#001226] border-2 border-[#00f2ff] p-8 shadow-[0_0_50px_rgba(0,242,255,0.2)]"
-                    >
-                        <div
-                            class="absolute inset-0 pointer-events-none overflow-hidden opacity-10"
-                        >
-                            <div
-                                class="absolute inset-0"
-                                style="background-image: linear-gradient(rgba(0, 242, 255, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 242, 255, 0.5) 1px, transparent 1px); background-size: 20px 20px;"
-                            >
-                            </div>
-                        </div>
-
-                        <button
-                            id="close-modal"
-                            class="absolute top-4 right-4 text-[#00f2ff] hover:text-white transition-colors text-xl font-bold"
-                            >[ X ]</button
-                        >
-
-                        <div class="relative z-10">
-                            <div class="flex items-center gap-4 mb-6">
-                                <div
-                                    id="modal-lvl-id"
-                                    class="text-5xl font-black text-[#00f2ff] border-r border-[#00f2ff]/30 pr-6"
-                                >
-                                    0x--
-                                </div>
-                                <div>
-                                    <div
-                                        class="text-[10px] text-[#00f2ff] tracking-[0.4em] uppercase"
-                                    >
-                                        Security Level Granted
-                                    </div>
-                                    <h2
-                                        id="modal-name"
-                                        class="text-3xl font-black italic text-white uppercase"
-                                    >
-                                        Explorer
-                                    </h2>
-                                </div>
-                            </div>
-
-                            <div class="space-y-6">
-                                <div class="border-l-2 border-[#00f2ff] pl-4">
-                                    <div
-                                        class="text-[9px] text-[#00f2ff] font-bold uppercase tracking-widest mb-1"
-                                    >
-                                        // FOKUS
-                                    </div>
-                                    <p
-                                        id="modal-focus"
-                                        class="text-sm text-gray-300"
-                                    >
-                                    </p>
-                                </div>
-                                <div class="border-l-2 border-[#00f2ff] pl-4">
-                                    <div
-                                        class="text-[9px] text-[#00f2ff] font-bold uppercase tracking-widest mb-1"
-                                    >
-                                        // AKTIVITAS
-                                    </div>
-                                    <p
-                                        id="modal-activity"
-                                        class="text-sm text-gray-300"
-                                    >
-                                    </p>
-                                </div>
-                                <div class="border-l-2 border-[#00f2ff] pl-4">
-                                    <div
-                                        class="text-[9px] text-[#00f2ff] font-bold uppercase tracking-widest mb-1"
-                                    >
-                                        // BATAS KOMPETISI
-                                    </div>
-                                    <p
-                                        id="modal-comp"
-                                        class="text-sm text-[#ffbd2e]"
-                                    >
-                                    </p>
-                                </div>
-                                <div
-                                    class="bg-[#00f2ff]/10 p-4 border border-[#00f2ff]/30"
-                                >
-                                    <div
-                                        class="text-[9px] text-[#00f2ff] font-bold uppercase tracking-widest mb-2"
-                                    >
-                                        // SYARAT NAIK PANGKAT
-                                    </div>
-                                    <p
-                                        id="modal-promo"
-                                        class="text-sm font-bold text-white"
-                                    >
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div
-                                class="mt-8 pt-4 border-t border-[#00f2ff]/20 text-center text-[9px] opacity-30 tracking-[0.5em] uppercase"
-                            >
-                                System Decryption Complete
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Module 05: Operational Protocols (Expanded) -->
-        <div class="lg:col-span-8">
-            <div
-                class="border border-[#00f2ff]/30 p-8 bg-[#001226]/60 relative h-full"
-            >
-                <div
-                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
-                >
-                    Module_05 // Operational_Protocols
-                </div>
-
-                <h3
-                    class="text-xs font-bold mb-6 mt-4 text-[#00f2ff] tracking-widest uppercase"
-                >
-                    // Teknis & Sistem Pembelajaran
-                </h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                    {
-                        [
-                            {
-                                t: "Theory Session",
-                                d: "Penyampaian konsep coding, elektronika, & problem solving.",
-                            },
-                            {
-                                t: "Hands-on Session",
-                                d: "Praktik langsung melalui mini project atau eksperimen.",
-                            },
-                            {
-                                t: "Tech Sharing",
-                                d: "Sesi berbagi tools, teknologi baru, & pengalaman antar anggota.",
-                            },
-                        ].map((item) => (
-                            <div class="p-4 bg-[#00f2ff]/5 border border-[#00f2ff]/10">
-                                <div class="text-[10px] font-bold text-white mb-2 uppercase">
-                                    {item.t}
-                                </div>
-                                <p class="text-[9px] text-gray-400 leading-relaxed">
-                                    {item.d}
-                                </p>
-                            </div>
-                        ))
-                    }
-                </div>
-
-                <div class="space-y-6">
-                    <div class="border-t border-[#00f2ff]/10 pt-4">
-                        <div
-                            class="text-[10px] font-bold text-[#00f2ff] mb-4 uppercase tracking-widest"
-                        >
-                            Weekly Deployment Flow
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div
-                                class="bg-[#00f2ff]/5 p-4 border-l-2 border-[#00f2ff]"
-                            >
-                                <div
-                                    class="text-[11px] font-bold text-white mb-1"
-                                >
-                                    MINGGU GANJIL
-                                </div>
-                                <div class="text-[10px] text-gray-400 italic">
-                                    Core Materials + Basic Practice
-                                </div>
-                            </div>
-                            <div
-                                class="bg-[#00f2ff]/5 p-4 border-l-2 border-[#00f2ff]"
-                            >
-                                <div
-                                    class="text-[11px] font-bold text-white mb-1"
-                                >
-                                    MINGGU GENAP
-                                </div>
-                                <div class="text-[10px] text-gray-400 italic">
-                                    Tech Sharing + Routine Training + Evaluation
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Module 09: Tech Stack & Tools -->
-        <div class="lg:col-span-4">
-            <div
-                class="border border-[#00f2ff]/30 p-8 bg-[#001226]/60 relative h-full"
-            >
-                <div
-                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
-                >
-                    Module_09 // Tech_Stack
-                </div>
-                <h3
-                    class="text-xs font-bold mb-6 mt-4 text-[#00f2ff] tracking-widest uppercase"
-                >
-                    Hardware & Software
-                </h3>
-
-                <div class="space-y-6">
-                    <div>
-                        <div
-                            class="text-[9px] opacity-40 uppercase mb-2 tracking-widest"
-                        >
-                            Hardware Layer
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            {
-                                [
-                                    "Arduino",
-                                    "ESP32",
-                                    "Sensors",
-                                    "Automation",
-                                ].map((tag) => (
-                                    <span class="px-2 py-1 bg-[#00f2ff]/10 border border-[#00f2ff]/20 text-[9px] text-[#00f2ff] font-mono">
-                                        {tag}
-                                    </span>
-                                ))
-                            }
-                        </div>
-                    </div>
-                    <div>
-                        <div
-                            class="text-[9px] opacity-40 uppercase mb-2 tracking-widest"
-                        >
-                            Logic Layer
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            {
-                                ["Python", "C++", "JavaScript", "HTML/CSS"].map(
-                                    (tag) => (
-                                        <span class="px-2 py-1 bg-[#00f2ff]/10 border border-[#00f2ff]/20 text-[9px] text-white font-mono">
-                                            {tag}
-                                        </span>
-                                    ),
-                                )
-                            }
-                        </div>
-                    </div>
-                    <div>
-                        <div
-                            class="text-[9px] opacity-40 uppercase mb-2 tracking-widest"
-                        >
-                            Platform & Tools
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            {
-                                [
-                                    "VS Code",
-                                    "Arduino IDE",
-                                    "Figma",
-                                    "Canva",
-                                ].map((tag) => (
-                                    <span class="px-2 py-1 border border-[#00f2ff]/30 text-[9px] text-gray-400 font-mono italic">
-                                        {tag}
-                                    </span>
-                                ))
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Module 10: Performance Metrics & Success Indication -->
-        <div class="lg:col-span-6">
-            <div
-                class="border border-[#00f2ff]/30 p-8 bg-[#001226]/60 relative h-full"
-            >
-                <div
-                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
-                >
-                    Module_10 // Success_Metrics
-                </div>
-                <h3
-                    class="text-xs font-bold mb-6 mt-4 text-[#00f2ff] tracking-widest uppercase"
-                >
-                    // Indikator Keberhasilan
-                </h3>
-                <div class="space-y-4">
-                    {
-                        [
-                            {
-                                t: "Productivity",
-                                d: "Jumlah proyek inovatif yang dihasilkan anggota.",
-                            },
-                            {
-                                t: "Engagement",
-                                d: "Tingkat keaktifan anggota dalam sesi rutin.",
-                            },
-                            {
-                                t: "Competitiveness",
-                                d: "Partisipasi dan prestasi dalam lomba IT.",
-                            },
-                            {
-                                t: "Contribution",
-                                d: "Kontribusi nyata dalam ICT Show sekolah.",
-                            },
-                        ].map((metric) => (
-                            <div class="flex items-start gap-4 p-3 border border-[#00f2ff]/5 hover:bg-[#00f2ff]/5 transition-colors">
-                                <div class="w-1 h-10 bg-[#00f2ff]/30" />
-                                <div>
-                                    <div class="text-[10px] font-black text-white uppercase">
-                                        {metric.t}
-                                    </div>
-                                    <p class="text-[9px] text-gray-500">
-                                        {metric.d}
-                                    </p>
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
-        </div>
-
-        <!-- Module 06: Commitments & Values -->
-        <div class="lg:col-span-5">
-            <div
-                class="border border-[#00f2ff]/30 p-8 bg-[#00f2ff]/5 relative h-full"
-            >
-                <div
-                    class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase"
-                >
-                    Module_06 // Values
-                </div>
-
-                <div class="space-y-6 mt-4">
-                    <div>
-                        <h4
-                            class="text-xs font-bold text-white mb-2 uppercase tracking-widest border-b border-[#00f2ff]/20 pb-1"
-                        >
-                            Dwi Sumpah
-                        </h4>
-                        <p class="text-[10px] text-gray-400 leading-relaxed">
-                            Setiap anggota The Tinkers berkomitmen untuk terus <span class="text-white">belajar dan berkembang</span> tanpa henti, serta memanfaatkan <span class="text-white">teknologi secara bijak</span> demi kebaikan bersama.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h4
-                            class="text-xs font-bold text-white mb-2 uppercase tracking-widest border-b border-[#00f2ff]/20 pb-1"
-                        >
-                            Tri Rachana
-                        </h4>
-                        <p class="text-[10px] text-gray-400 leading-relaxed">
-                            Club ini dibangun di atas tiga pilar utama: <span class="text-[#00f2ff] font-bold">Eksplorasi</span> — keberanian untuk mencoba hal baru; <span class="text-[#00f2ff] font-bold">Inovasi</span> — kemampuan mengubah ide menjadi solusi nyata; dan <span class="text-[#00f2ff] font-bold">Kolaborasi</span> — kekuatan yang lahir dari kerja tim.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h4
-                            class="text-xs font-bold text-white mb-2 uppercase tracking-widest border-b border-[#00f2ff]/20 pb-1"
-                        >
-                            Panca Dasar
-                        </h4>
-                        <p class="text-[10px] text-gray-400 leading-relaxed">
-                            Lima nilai fundamental yang menjadi pondasi setiap anggota: <span class="text-white">Disiplin</span> dalam berlatih, <span class="text-white">Kreativitas</span> dalam berkarya, <span class="text-white">Tanggung Jawab</span> dalam setiap tugas, <span class="text-white">Kerja Sama</span> dalam satu tim, dan <span class="text-white">Etika Teknologi</span> sebagai kompas moral.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Module 07: Organizational Hierarchy (CLASSIFIED) -->
-        <div class="lg:col-span-12 mt-12 transition-all duration-700 ease-in-out" id="hierarchy-module">
-            <div class="border border-[#00f2ff]/30 bg-[#001226]/60 backdrop-blur-md relative overflow-hidden min-h-[100px] flex items-center justify-center transition-all duration-700" id="hierarchy-container">
-                
-                <!-- Initial Access Button (Collapsed State) -->
-                <div id="hierarchy-collapsed" class="py-12 flex flex-col items-center gap-6 z-[110]">
-                    <div class="flex items-center gap-4">
-                        <div class="h-px w-8 bg-gradient-to-r from-transparent to-[#00f2ff]/50"></div>
-                        <div class="text-[10px] text-[#00f2ff] tracking-[0.6em] uppercase font-black animate-pulse">Security protocol 07 active</div>
-                        <div class="h-px w-8 bg-gradient-to-l from-transparent to-[#00f2ff]/50"></div>
-                    </div>
-
-                    <button 
-                        id="btn-initiate-access" 
-                        class="tactical-btn group relative px-16 py-6 bg-transparent text-[#00f2ff] font-black uppercase tracking-[0.6em] transition-all duration-500"
-                    >
-                        <!-- Tactical Corners -->
-                        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#00f2ff] group-hover:w-full group-hover:h-full transition-all duration-500"></div>
-                        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#00f2ff] group-hover:w-full group-hover:h-full transition-all duration-500"></div>
-                        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#00f2ff] group-hover:w-full group-hover:h-full transition-all duration-500"></div>
-                        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#00f2ff] group-hover:w-full group-hover:h-full transition-all duration-500"></div>
-                        
-                        <!-- Internal Fill -->
-                        <div class="absolute inset-1 bg-[#00f2ff]/5 group-hover:bg-[#00f2ff]/20 transition-colors duration-500"></div>
-                        
-                        <!-- Scanning Line -->
-                        <div class="absolute inset-0 overflow-hidden">
-                            <div class="w-full h-[2px] bg-[#00f2ff] opacity-50 shadow-[0_0_15px_#00f2ff] absolute -top-full animate-scan-fast"></div>
-                        </div>
-
-                        <span class="relative z-10 group-hover:tracking-[0.8em] transition-all duration-500 glow-text">Access Hierarchy</span>
-                    </button>
-
-                    <div class="flex flex-col items-center gap-2">
-                        <div class="flex gap-1">
-                            <div class="w-1 h-3 bg-red-500/20"></div>
-                            <div class="w-1 h-3 bg-red-500/40"></div>
-                            <div class="w-1 h-3 bg-red-500 animate-pulse"></div>
-                        </div>
-                        <span class="text-[9px] text-red-500 font-mono tracking-widest uppercase">System Restricted // Authorized Personnel Only</span>
-                    </div>
-                </div>
-
-                <!-- Terminal Access Overlay (Hidden initially) -->
-                <div id="terminal-access" class="absolute inset-0 bg-[#000a12] z-[100] flex flex-col items-center justify-center p-8 transition-all duration-700 opacity-0 pointer-events-none">
-                    <div class="w-full max-w-xl bg-black/80 border border-[#00f2ff]/20 p-6 font-mono text-[11px] shadow-[0_0_50px_rgba(0,242,255,0.05)] relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00f2ff]/30 to-transparent"></div>
-                        
-                        <div id="terminal-output" class="space-y-1 text-[#00f2ff] h-40 overflow-hidden">
-                            <div class="opacity-70 text-[9px] mb-4 uppercase tracking-[0.3em]">-- TINKERS_OS V4.1 SECURITY_KERNEL --</div>
-                            <div class="flex gap-2">
-                                <span class="text-green-500">root@tinkers-hq:~$</span>
-                                <span id="terminal-command"></span><span class="animate-pulse">_</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="hierarchy-real-content" class="w-full p-12 opacity-0 pointer-events-none transition-all duration-1000 scale-95 blur-md hidden">
-                    <div class="absolute -top-px -left-px bg-[#00f2ff] text-[#001226] px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
-                        Module_07 // CLASSIFIED_ORGANIZATION
-                    </div>
-
-                    <!-- HUD Background Grid -->
-                    <div class="absolute inset-0 pointer-events-none opacity-5">
-                        <div class="absolute inset-0" style="background-image: radial-gradient(#00f2ff 1px, transparent 1px); background-size: 40px 40px;"></div>
-                    </div>
-                    
-                    <h3 class="text-center text-3xl font-black mb-20 tracking-[0.4em] text-white uppercase glow-text relative z-10">
-                        // Core Command Unit
-                    </h3>
-
-                    <!-- Grid-Based Tree System -->
-                    <div class="relative z-10 max-w-6xl mx-auto font-mono">
-                    
-                    <!-- Row 1: Coordinator Layer (TOP ADVISORY) -->
-                    <div class="relative px-12 lg:px-24 mb-0">
-                        <div class="grid grid-cols-3 gap-4">
-                            {organization.kabids.map((kabid) => (
-                                <div class="flex flex-col items-center group relative z-10 hover:z-50">
-                                    <div 
-                                        class="div-card is-classified w-24 h-32 border border-[#00f2ff]/40 relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] group-hover:border-[#00f2ff] hover:scale-110 transition-all duration-300 cursor-pointer"
-                                        data-name={kabid.koord_name}
-                                        data-slogan="Expert Technical Advisor"
-                                        data-desc={`As the Coordinator for ${kabid.role.split("// ")[1] || kabid.role}, ${kabid.koord_name} provides essential technical mentorship and strategic oversight. The advisor ensures that all division projects maintain high innovation standards and represent the school effectively in national and international IT competitions.`}
-                                        data-coord={kabid.koord_name}
-                                        data-hide-assigned="true"
-                                        data-rank-label={`COORDINATOR: ${kabid.koord_name}`}
-                                        data-lead={kabid.koord_name}
-                                        data-img={kabid.koord_img}
-                                        data-coord-img={kabid.image}
-                                    >
-                                        <div class="classified-content w-full h-full">
-                                            <img src={kabid.koord_img} class="w-full h-full object-cover opacity-60 mix-blend-screen grayscale hover:grayscale-0 hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500" style={(kabid as any).added_style_koord || ""} />
-                                            <div class="absolute top-0 left-0 bg-[#00f2ff]/20 px-1 text-[6px] text-[#00f2ff] font-bold">ADVISOR</div>
-                                        </div>
-                                        <div class="classified-overlay absolute inset-0 bg-[#001226] flex flex-col items-center justify-center p-2 z-20">
-                                            <div class="text-[6px] text-[#00f2ff] font-black tracking-widest uppercase mb-1">Classified</div>
-                                            <i data-feather="lock" class="w-3 h-3 text-[#00f2ff]/40"></i>
-                                        </div>
-                                        <div class="hex-reveal">
-                                            {Array.from({ length: 20 }).map(() => (
-                                                <div class="hex-cell">00</div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 text-center reveal-info relative w-24 h-8 group/info">
-                                        <div class="info-placeholder absolute inset-0 bg-[#001226] border border-[#00f2ff]/20 flex items-center justify-center z-10 transition-all duration-500">
-                                            <div class="text-[5px] text-[#00f2ff]/40 font-black tracking-widest uppercase">Classified</div>
-                                        </div>
-                                        <div class="info-real opacity-0 transition-opacity duration-500">
-                                            <div class="absolute inset-0 border border-[#00f2ff]/10 bg-[#001226]/40 -z-10"></div>
-                                            <div class="text-[7px] text-[#00f2ff] opacity-40 uppercase tracking-widest decrypt-text" data-text="COORDINATOR">********</div>
-                                            <div class="text-white/80 font-bold uppercase text-[9px] decrypt-text" data-text={kabid.koord_name}>[ REDACTED ]</div>
-                                        </div>
-                                    </div>
-                                    <div class="w-px h-10 bg-[#00f2ff]/30 mt-2"></div>
-                                </div>
-                            ))}
-                        </div>
-                        <!-- Horizontal Branching Line (Collecting) -->
-                        <div class="w-full h-px bg-gradient-to-r from-transparent via-[#00f2ff]/50 to-transparent"></div>
-                    </div>
-
-                    <!-- Row 2: Chairperson -->
-                    <div class="grid grid-cols-3 gap-4 mb-0 mt-0">
-                        <div></div> <!-- Empty Col 1 -->
-                        <div class="flex flex-col items-center relative z-10 hover:z-50">
-                            <!-- Line from Advisors -->
-                            <div class="w-px h-16 bg-[#00f2ff]/50 -mt-[1px] mb-0 relative z-0"></div>
-                            
-                            <div 
-                                class="div-card is-classified w-44 h-56 border-2 border-[#00f2ff] relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] shadow-[0_0_30px_rgba(0,242,255,0.1)] group cursor-pointer hover:scale-105 transition-transform duration-300 z-10"
-                                data-name={organization.chairperson.role}
-                                data-slogan="Chief Executive Officer"
-                                data-desc={organization.chairperson.desc}
-                                data-coord={organization.chairperson.koord_name}
-                                data-coord-label="Assigned Coordinator"
-                                data-rank-label={`CHAIRPERSON: ${organization.chairperson.name}`}
-                                data-coord-rank-label={`COORDINATOR: ${organization.chairperson.koord_name}`}
-                                data-coord-img={organization.chairperson.koord_img}
-                                data-lead={organization.chairperson.name}
-                                data-img={organization.chairperson.image}
-                            >
-                                <div class="classified-content w-full h-full">
-                                    <img src={organization.chairperson.image} class="w-full h-full object-cover opacity-80 mix-blend-screen hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500 hover:scale-105" style={(organization.chairperson as any).added_style || ""} />
-                                </div>
-                                <div class="classified-overlay absolute inset-0 bg-[#001226] flex flex-col items-center justify-center p-4 z-20">
-                                    <div class="text-[12px] text-[#00f2ff] font-black tracking-[0.4em] uppercase mb-2 glow-text">Classified</div>
-                                    <i data-feather="lock" class="w-8 h-8 text-[#00f2ff]/30"></i>
-                                    <div class="mt-4 text-[8px] text-[#00f2ff]/20 font-mono tracking-widest">ENCRYPTION_ACTIVE</div>
-                                </div>
-                                <div class="hex-reveal">
-                                    {Array.from({ length: 20 }).map(() => (
-                                        <div class="hex-cell">00</div>
-                                    ))}
-                                </div>
-                            </div>
-                            <div class="mt-4 text-center reveal-info relative w-44 h-16 group/info">
-                                <!-- Classified Placeholder -->
-                                <div class="info-placeholder absolute inset-0 bg-[#001226] border border-[#00f2ff]/30 flex flex-col items-center justify-center z-10 transition-all duration-500">
-                                    <div class="text-[10px] text-[#00f2ff]/40 font-black tracking-[0.3em] uppercase">Classified</div>
-                                    <div class="w-8 h-[1px] bg-[#00f2ff]/20 mt-1"></div>
-                                </div>
-
-                                <div class="info-real opacity-0 transition-opacity duration-500">
-                                    <div class="absolute -inset-2 border border-[#00f2ff]/10 bg-[#001226]/40 -z-10"></div>
-                                    <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#00f2ff]/30"></div>
-                                    <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#00f2ff]/30"></div>
-
-                                    <div class="relative overflow-hidden">
-                                        <div class="bg-[#00f2ff] text-[#001226] px-4 py-1 text-[10px] font-black uppercase italic decrypt-text" data-text={organization.chairperson.role}>********</div>
-                                        <div class="text-white font-bold mt-2 uppercase tracking-[0.3em] text-base decrypt-text" data-text={organization.chairperson.name}>[ REDACTED ]</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Vertical line down -->
-                            <div class="w-px h-16 bg-[#00f2ff]/50 mt-4"></div>
-                        </div>
-                        <div></div> <!-- Empty Col 3 -->
-                    </div>
-
-                    <!-- Row 3: Sekben Branching -->
-                    <div class="grid grid-cols-3 gap-0 relative">
-                        <!-- Bridging Connector: From Center Trunk to Sekben Photo -->
-                        <div class="absolute top-[calc(50%+24px)] left-1/2 w-[calc(16.66%+48px)] h-px bg-[#00f2ff]/50 -translate-y-1/2 z-0"></div>
-
-                        <!-- Empty (Col 1) -->
-                        <div></div>
-
-                        <!-- Trunk (Col 2) -->
-                        <div class="flex flex-col items-center relative z-10">
-                            <div class="w-px h-full bg-[#00f2ff]/50"></div>
-                        </div>
-
-                        <!-- Sekben (Col 3) -->
-                        <div class="flex flex-col items-start relative pt-12 z-10">
-                            <div class="flex items-center group relative ml-12 transition-all duration-300 hover:z-50">
-                                <div 
-                                    class="div-card is-classified w-28 h-36 border border-[#00f2ff]/30 relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] cursor-pointer hover:scale-110 transition-transform duration-300"
-                                    data-name="Sekretaris & Bendahara"
-                                    data-slogan="Administration & Finance"
-                                    data-desc={organization.sekben.desc}
-                                    data-coord={organization.sekben.koord_name}
-                                    data-coord-label="Assigned Coordinator"
-                                    data-rank-label={`SEKRETARIS & BENDAHARA: ${organization.sekben.name}`}
-                                    data-coord-rank-label={`COORDINATOR: ${organization.sekben.koord_name}`}
-                                    data-coord-img={organization.sekben.koord_img}
-                                    data-lead={organization.sekben.name}
-                                    data-img={organization.sekben.image}
-                                >
-                                    <div class="classified-content w-full h-full">
-                                        <img src={organization.sekben.image} class="w-full h-full object-cover opacity-80 mix-blend-screen hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500" style={(organization.sekben as any).added_style || ""} />
-                                    </div>
-                                    <div class="classified-overlay absolute inset-0 bg-[#001226] flex flex-col items-center justify-center p-2 z-20">
-                                        <div class="text-[8px] text-[#00f2ff] font-black tracking-widest uppercase mb-1">Classified</div>
-                                        <i data-feather="lock" class="w-4 h-4 text-[#00f2ff]/30"></i>
-                                    </div>
-                                    <div class="hex-reveal">
-                                        {Array.from({ length: 20 }).map(() => (
-                                            <div class="hex-cell">00</div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div class="ml-6 text-center reveal-info relative w-36 h-12 group/info">
-                                    <div class="info-placeholder absolute inset-0 bg-[#001226] border border-[#00f2ff]/20 flex items-center justify-center z-10 transition-all duration-500">
-                                        <div class="text-[8px] text-[#00f2ff]/40 font-black tracking-widest uppercase">Classified</div>
-                                    </div>
-                                    <div class="info-real opacity-0 transition-opacity duration-500">
-                                        <div class="absolute inset-0 border border-[#00f2ff]/10 bg-[#001226]/40 -z-10"></div>
-                                        <div class="bg-[#00f2ff]/20 text-[#00f2ff] border border-[#00f2ff]/50 px-3 py-1 text-[8px] font-bold uppercase tracking-tighter inline-block decrypt-text" data-text={organization.sekben.role}>********</div>
-                                        <div class="text-white font-bold mt-1 uppercase tracking-widest text-xs decrypt-text" data-text={organization.sekben.name}>[ REDACTED ]</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Row 4: Transition to Kabids -->
-                    <div class="grid grid-cols-3 gap-0">
-                        <div></div>
-                        <div class="flex flex-col items-center">
-                            <div class="w-px h-16 bg-[#00f2ff]/50"></div>
-                        </div>
-                        <div></div>
-                    </div>
-
-                    <!-- Row 5: Kabid Layer -->
-                    <div class="relative px-12 lg:px-24">
-                        <!-- Horizontal Branching Line (Distributing) -->
-                        <div class="w-full h-px bg-gradient-to-r from-transparent via-[#00f2ff]/50 to-transparent"></div>
-                        
-                        <div class="grid grid-cols-3 gap-4 pt-0">
-                            {organization.kabids.map((kabid) => (
-                                <div class="flex flex-col items-center group relative z-10 hover:z-50">
-                                    <div class="w-px h-10 bg-[#00f2ff]/50 -mt-[1px] relative z-0"></div>
-                                    <div 
-                                        class="div-card is-classified w-28 h-36 border border-[#00f2ff]/20 relative overflow-hidden bg-[#001226]/40 group-hover:bg-[#001226] group-hover:border-[#00f2ff]/60 hover:scale-110 hover:shadow-[0_0_40px_rgba(0,242,255,0.2)] transition-all duration-300 cursor-pointer z-10"
-                                        data-name={kabid.role.split("// ")[1] || kabid.role}
-                                        data-slogan={kabid.slogan}
-                                        data-desc={kabid.desc}
-                                        data-coord={kabid.koord_name}
-                                        data-coord-label="Assigned Coordinator"
-                                        data-rank-label={`SQUAD LEADER: ${kabid.name}`}
-                                        data-coord-rank-label={`COORDINATOR: ${kabid.koord_name}`}
-                                        data-coord-img={kabid.koord_img}
-                                        data-lead={kabid.name}
-                                        data-img={kabid.image}
-                                    >
-                                        <div class="classified-content w-full h-full">
-                                            <!-- Tactical Background 'Box' -->
-                                            <div class="absolute inset-0 bg-[#00f2ff]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                            <div class="absolute -inset-1 border border-[#00f2ff]/10 opacity-0 group-hover:opacity-100 transition-all scale-110 blur-sm"></div>
-                                            
-                                            <img src={kabid.image} class="w-full h-full object-cover opacity-70 mix-blend-screen group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-700" style={(kabid as any).added_style || ""} />
-                                        </div>
-                                        <div class="classified-overlay absolute inset-0 bg-[#001226] flex flex-col items-center justify-center p-2 z-20">
-                                            <div class="text-[8px] text-[#00f2ff] font-black tracking-widest uppercase mb-1">Classified</div>
-                                            <i data-feather="lock" class="w-4 h-4 text-[#00f2ff]/30"></i>
-                                        </div>
-                                    </div>
-                                    <div class="mt-4 text-center reveal-info relative w-32 h-10 group/info">
-                                        <!-- Classified Placeholder -->
-                                        <div class="info-placeholder absolute inset-0 bg-[#001226] border border-[#00f2ff]/20 flex items-center justify-center z-10 transition-all duration-500">
-                                            <div class="text-[7px] text-[#00f2ff]/40 font-black tracking-[0.2em] uppercase">Classified</div>
-                                        </div>
-                                        
-                                        <!-- Decrypted Content -->
-                                        <div class="info-real opacity-0 transition-opacity duration-500">
-                                            <div class="absolute inset-0 border border-[#00f2ff]/10 bg-[#001226]/40 -z-10"></div>
-                                            <div class="text-[8px] text-[#00f2ff] opacity-50 uppercase mb-1 tracking-widest decrypt-text" data-text={kabid.role}>********</div>
-                                            <div class="text-white font-bold uppercase text-[10px] decrypt-text" data-text={kabid.name}>[ REDACTED ]</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                <!-- HUD Junk Details -->
-                <div class="absolute bottom-4 right-4 text-[8px] font-mono text-[#00f2ff]/20 uppercase tracking-[0.5em] hidden md:block">
-                    HEURISTIC_HIERARCHY_MAPPING_V4.1 // SECURE_ACCESS
-                </div>
-            </div>
+        <div id="projects-content" class="tab-content hidden opacity-0 transition-all duration-500 translate-y-4">
+            <ProjectsTab projects={tinkersData?.topProjects} />
         </div>
     </div>
+
+    <!-- Modals -->
+    <DivisionModal />
+    <LevelModal />
 
     <!-- Floating HUD Decorations -->
-    <div
-        class="fixed top-1/4 -right-20 w-64 h-64 border border-[#00f2ff]/10 rounded-full pointer-events-none animate-spin-slow"
-    >
-    </div>
-    <div
-        class="fixed -bottom-20 -left-20 w-80 h-80 border border-[#00f2ff]/5 rounded-full pointer-events-none animate-spin-reverse"
-    >
-    </div>
+    <div class="fixed top-1/4 -right-20 w-64 h-64 border border-[#00f2ff]/10 rounded-full pointer-events-none animate-spin-slow"></div>
+    <div class="fixed -bottom-20 -left-20 w-80 h-80 border border-[#00f2ff]/5 rounded-full pointer-events-none animate-spin-reverse"></div>
 </div>
 
 <script>
@@ -1253,6 +131,48 @@ const organization = {
         }
     });
 
+    // Tab Switching Logic
+    const tabOverview = document.getElementById("tab-overview");
+    const tabProjects = document.getElementById("tab-projects");
+    const overviewContent = document.getElementById("overview-content");
+    const projectsContent = document.getElementById("projects-content");
+
+    const switchTab = (activeTab: HTMLElement, inactiveTab: HTMLElement, showContent: HTMLElement, hideContent: HTMLElement, tabId: string) => {
+        activeTab.classList.add("active");
+        activeTab.classList.remove("opacity-50", "border-[#00f2ff]/30");
+        activeTab.classList.add("border-[#00f2ff]");
+        
+        inactiveTab.classList.remove("active");
+        inactiveTab.classList.add("opacity-50", "border-[#00f2ff]/30");
+        inactiveTab.classList.remove("border-[#00f2ff]");
+
+        hideContent.classList.add("opacity-0", "translate-y-4");
+        
+        // Update URL
+        history.pushState(null, '', `?${tabId}`);
+
+        setTimeout(() => {
+            hideContent.classList.add("hidden");
+            showContent.classList.remove("hidden");
+            requestAnimationFrame(() => {
+                showContent.classList.remove("opacity-0", "translate-y-4");
+            });
+        }, 300);
+    };
+
+    if (tabOverview && tabProjects && overviewContent && projectsContent) {
+        tabOverview.addEventListener("click", () => switchTab(tabOverview, tabProjects, overviewContent, projectsContent, '0'));
+        tabProjects.addEventListener("click", () => switchTab(tabProjects, tabOverview, projectsContent, overviewContent, '1'));
+        
+        // Handle URL tab parameter
+        const search = window.location.search;
+        if (search === '?1') {
+            switchTab(tabProjects, tabOverview, projectsContent, overviewContent, '1');
+        } else if (search === '?0') {
+            switchTab(tabOverview, tabProjects, overviewContent, projectsContent, '0');
+        }
+    }
+
     // Header Toggle Logic
     const siteHeader = document.querySelector('header');
     const toggleHeader = (show: boolean) => {
@@ -1262,356 +182,236 @@ const organization = {
         }
     };
 
-    // Level Modal Logic
-    const modal = document.getElementById("level-modal");
-    const closeBtn = document.getElementById("close-modal");
-    const levelCards = document.querySelectorAll(".level-card");
+    // Shared Modal Logic
+    const setupModals = () => {
+        // Level Modal
+        const levelModal = document.getElementById("level-modal");
+        const levelCloseBtn = document.getElementById("close-modal");
+        const levelCards = document.querySelectorAll(".level-card");
 
-    const modalLvlId = document.getElementById("modal-lvl-id");
-    const modalName = document.getElementById("modal-name");
-    const modalFocus = document.getElementById("modal-focus");
-    const modalActivity = document.getElementById("modal-activity");
-    const modalComp = document.getElementById("modal-comp");
-    const modalPromo = document.getElementById("modal-promo");
+        const modalLvlId = document.getElementById("modal-lvl-id");
+        const modalName = document.getElementById("modal-name");
+        const modalFocus = document.getElementById("modal-focus");
+        const modalActivity = document.getElementById("modal-activity");
+        const modalComp = document.getElementById("modal-comp");
+        const modalPromo = document.getElementById("modal-promo");
 
-    levelCards.forEach((card) => {
-        card.addEventListener("click", () => {
-            const data = (card as HTMLElement).dataset;
+        levelCards.forEach((card) => {
+            card.addEventListener("click", () => {
+                const data = (card as HTMLElement).dataset;
+                if (modalLvlId) modalLvlId.textContent = data.lvl || "";
+                if (modalName) modalName.textContent = data.name || "";
+                if (modalFocus) modalFocus.textContent = data.focus || "";
+                if (modalActivity) modalActivity.textContent = data.activity || "";
+                if (modalComp) modalComp.textContent = data.comp || "";
+                if (modalPromo) modalPromo.textContent = data.promo || "";
 
-            // Populate Modal
-            if (modalLvlId) modalLvlId.textContent = data.lvl || "";
-            if (modalName) modalName.textContent = data.name || "";
-            if (modalFocus) modalFocus.textContent = data.focus || "";
-            if (modalActivity) modalActivity.textContent = data.activity || "";
-            if (modalComp) modalComp.textContent = data.comp || "";
-            if (modalPromo) modalPromo.textContent = data.promo || "";
-
-            // Show Modal
-            if (modal) {
-                modal.classList.remove("hidden");
-                toggleHeader(false); // Hide Header
-                requestAnimationFrame(() => {
-                    modal.classList.remove("opacity-0");
-                });
-            }
-        });
-    });
-
-    if (closeBtn && modal) {
-        closeBtn.addEventListener("click", () => {
-            modal.classList.add("opacity-0");
-            toggleHeader(true); // Show Header
-            setTimeout(() => {
-                modal.classList.add("hidden");
-            }, 300);
+                if (levelModal) {
+                    levelModal.classList.remove("hidden");
+                    toggleHeader(false);
+                    requestAnimationFrame(() => levelModal.classList.remove("opacity-0"));
+                }
+            });
         });
 
-        // Close on backdrop click
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                if (closeBtn) (closeBtn as HTMLElement).click();
-            }
+        if (levelCloseBtn && levelModal) {
+            levelCloseBtn.addEventListener("click", () => {
+                levelModal.classList.add("opacity-0");
+                toggleHeader(true);
+                setTimeout(() => levelModal.classList.add("hidden"), 300);
+            });
+        }
+
+        // Division Modal
+        const divModal = document.getElementById("div-modal");
+        const divCloseBtn = document.getElementById("close-div-modal");
+        const divCards = document.querySelectorAll(".div-card");
+
+        const divModalImg = document.getElementById("div-modal-img") as HTMLImageElement;
+        const divModalName = document.getElementById("div-modal-name");
+        const divModalSlogan = document.getElementById("div-modal-slogan");
+        const divModalDesc = document.getElementById("div-modal-desc");
+        const divModalCoord = document.getElementById("div-modal-coord");
+        const divModalCoordLabel = document.getElementById("div-modal-coord-label");
+        const divModalAssignedBox = document.getElementById("div-modal-assigned-box");
+        const divModalFooterGrid = document.getElementById("div-modal-footer-grid");
+        const divModalCoordImg = document.getElementById("div-modal-coord-img") as HTMLImageElement;
+        const divModalLead = document.getElementById("div-modal-lead");
+        const divModalLeadLabel = document.getElementById("div-modal-lead-label");
+        const divModalTagLead = document.getElementById("div-modal-tag-lead");
+        const divModalLabel = document.getElementById("div-modal-label");
+
+        const decryptEffect = (el: HTMLElement, finalResult: string) => {
+            const chars = "0123456789ABCDEF!@#$%^&*()_+";
+            let iteration = 0;
+            const interval = setInterval(() => {
+                el.innerText = finalResult
+                    .split("")
+                    .map((char, index) => {
+                        if (index < iteration) return finalResult[index];
+                        return chars[Math.floor(Math.random() * chars.length)];
+                    })
+                    .join("");
+                if (iteration >= finalResult.length) clearInterval(interval);
+                iteration += 1 / 3;
+            }, 30);
+        };
+
+        divCards.forEach((card) => {
+            card.addEventListener("click", (e) => {
+                if (card.classList.contains('is-classified')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    card.classList.add('decrypting');
+                    const overlayText = card.querySelector('.classified-overlay div');
+                    if (overlayText) overlayText.textContent = "DECRYPTING...";
+                    
+                    const hexCells = card.querySelectorAll('.hex-cell');
+                    const hexInterval = setInterval(() => {
+                        hexCells.forEach((cell: any) => {
+                            cell.innerText = Math.floor(Math.random() * 256).toString(16).toUpperCase().padStart(2, '0');
+                        });
+                    }, 50);
+
+                    setTimeout(() => {
+                        clearInterval(hexInterval);
+                        card.classList.remove('is-classified', 'decrypting');
+                        card.classList.add('is-revealed');
+                        const info = card.parentElement?.querySelector('.reveal-info');
+                        if (info) {
+                            info.querySelector('.info-placeholder')?.classList.add('opacity-0', 'pointer-events-none');
+                            info.querySelector('.info-real')?.classList.remove('opacity-0');
+                            info.querySelectorAll('.decrypt-text').forEach((textEl: any) => {
+                                decryptEffect(textEl, textEl.dataset.text || "");
+                            });
+                        }
+                    }, 1000);
+                    return;
+                }
+
+                divCards.forEach(c => c.classList.remove('active-modal-trigger'));
+                card.classList.add('active-modal-trigger');
+
+                const data = (card as HTMLElement).dataset;
+                if (divModalName) divModalName.textContent = data.name || "";
+                if (divModalSlogan) divModalSlogan.textContent = `"${data.slogan || ""}"`;
+                if (divModalDesc) divModalDesc.textContent = data.desc || "";
+                if (divModalCoord) divModalCoord.textContent = data.coord || "";
+                if (divModalCoordLabel) divModalCoordLabel.textContent = data.coordLabel || "Assigned Coordinator";
+                if (divModalLabel) divModalLabel.textContent = data.rankLabel || "SQUAD_LEADER_IDENTIFIED";
+                if (divModalCoordImg) divModalCoordImg.src = data.coordImg || "/logo.png";
+                
+                if (divModalLead && divModalLeadLabel) {
+                    if (data.hideAssigned === "true") {
+                        divModalLead.textContent = data.name || "";
+                        divModalLeadLabel.textContent = "Coordinator";
+                    } else {
+                        divModalLead.textContent = data.lead || "";
+                        divModalLeadLabel.textContent = "Squad Leader";
+                    }
+                }
+                if (divModalTagLead) divModalTagLead.textContent = data.lead || "";
+                if (divModalImg) divModalImg.src = data.img || "";
+
+                if (divModalAssignedBox) {
+                    if (data.hideAssigned === "true") {
+                        divModalAssignedBox.classList.add("hidden");
+                        divModalFooterGrid?.classList.replace("sm:grid-cols-2", "sm:grid-cols-1");
+                    } else {
+                        divModalAssignedBox.classList.remove("hidden");
+                        divModalFooterGrid?.classList.replace("sm:grid-cols-1", "sm:grid-cols-2");
+                    }
+                }
+
+                if (divModal) {
+                    divModal.classList.remove("hidden");
+                    toggleHeader(false);
+                    requestAnimationFrame(() => divModal.classList.remove("opacity-0"));
+                }
+            });
         });
-    }
 
-    // Division Modal Logic
-    const divModal = document.getElementById("div-modal");
-    const closeDivBtn = document.getElementById("close-div-modal");
-    const divCards = document.querySelectorAll(".div-card");
-
-    const divModalImg = document.getElementById("div-modal-img") as HTMLImageElement;
-    const divModalName = document.getElementById("div-modal-name");
-    const divModalSlogan = document.getElementById("div-modal-slogan");
-    const divModalDesc = document.getElementById("div-modal-desc");
-    const divModalCoord = document.getElementById("div-modal-coord");
-    const divModalCoordLabel = document.getElementById("div-modal-coord-label");
-    const divModalAssignedBox = document.getElementById("div-modal-assigned-box");
-    const divModalFooterGrid = document.getElementById("div-modal-footer-grid");
-    const divModalCoordImg = document.getElementById("div-modal-coord-img") as HTMLImageElement;
-    const divModalLead = document.getElementById("div-modal-lead");
-    const divModalLeadLabel = document.getElementById("div-modal-lead-label");
-    const divModalTagLead = document.getElementById("div-modal-tag-lead");
-    const divModalAuth = document.getElementById("div-modal-auth");
-
-    // Decryption Effect Function
-    const decryptEffect = (el: HTMLElement, finalResult: string) => {
-        const chars = "0123456789ABCDEF!@#$%^&*()_+";
-        let iteration = 0;
-        const interval = setInterval(() => {
-            el.innerText = finalResult
-                .split("")
-                .map((char, index) => {
-                    if (index < iteration) return finalResult[index];
-                    return chars[Math.floor(Math.random() * chars.length)];
-                })
-                .join("");
-
-            if (iteration >= finalResult.length) clearInterval(interval);
-            iteration += 1 / 3;
-        }, 30);
+        if (divCloseBtn && divModal) {
+            divCloseBtn.addEventListener("click", () => {
+                divModal.classList.add("opacity-0");
+                toggleHeader(true);
+                setTimeout(() => divModal.classList.add("hidden"), 300);
+            });
+        }
     };
 
-    divCards.forEach((card) => {
-        card.addEventListener("click", (e) => {
-            if (card.classList.contains('is-classified')) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                card.classList.add('decrypting');
-                const overlayText = card.querySelector('.classified-overlay div');
-                if (overlayText) overlayText.textContent = "DECRYPTING...";
-                
-                // Animate hex cells
-                const hexCells = card.querySelectorAll('.hex-cell');
-                const hexInterval = setInterval(() => {
-                    hexCells.forEach((cell: any) => {
-                        cell.innerText = Math.floor(Math.random() * 256).toString(16).toUpperCase().padStart(2, '0');
-                    });
+    // Hierarchy Terminal Logic
+    const setupHierarchy = () => {
+        const btnInitiate = document.getElementById("btn-initiate-access");
+        const terminalAccess = document.getElementById("terminal-access");
+        const terminalCommand = document.getElementById("terminal-command");
+        const terminalOutput = document.getElementById("terminal-output");
+        const hierarchyContent = document.getElementById("hierarchy-real-content");
+        const hierarchyCollapsed = document.getElementById("hierarchy-collapsed");
+        const hierarchyContainer = document.getElementById("hierarchy-container");
+
+        if (btnInitiate && terminalAccess && terminalCommand && terminalOutput && hierarchyContent && hierarchyCollapsed && hierarchyContainer) {
+            btnInitiate.addEventListener("click", () => {
+                hierarchyCollapsed.classList.add("hidden");
+                hierarchyContainer.classList.replace("min-h-[100px]", "min-h-[400px]");
+                terminalAccess.classList.remove("opacity-0", "pointer-events-none");
+
+                const command = "abbs-cli access --community=\"The Tinkers\"";
+                let cmdIdx = 0;
+                const typeCommand = setInterval(() => {
+                    terminalCommand.textContent += command[cmdIdx];
+                    cmdIdx++;
+                    if (cmdIdx >= command.length) {
+                        clearInterval(typeCommand);
+                        startLogSequence();
+                    }
                 }, 50);
 
-                // Trigger reveal
-                setTimeout(() => {
-                    clearInterval(hexInterval);
-                    card.classList.remove('is-classified', 'decrypting');
-                    card.classList.add('is-revealed');
-                    
-                    const info = card.parentElement?.querySelector('.reveal-info');
-                    if (info) {
-                        const placeholder = info.querySelector('.info-placeholder');
-                        const real = info.querySelector('.info-real');
-                        
-                        if (placeholder) placeholder.classList.add('opacity-0', 'pointer-events-none');
-                        if (real) real.classList.remove('opacity-0');
-                        
-                        info.querySelectorAll('.decrypt-text').forEach((textEl: any) => {
-                            decryptEffect(textEl, textEl.dataset.text || "");
-                        });
-                    }
-                }, 1000);
-                
-                return;
-            }
-
-            // Original Modal Logic
-            // Remove active class from all and add to this one
-            divCards.forEach(c => c.classList.remove('active-modal-trigger'));
-            card.classList.add('active-modal-trigger');
-
-            const data = (card as HTMLElement).dataset;
-
-            if (divModalName) divModalName.textContent = data.name || "";
-            if (divModalSlogan)
-                divModalSlogan.textContent = `"${data.slogan || ""}"`;
-            if (divModalDesc) divModalDesc.textContent = data.desc || "";
-            if (divModalCoord) divModalCoord.textContent = data.coord || "";
-            if (divModalCoordLabel) divModalCoordLabel.textContent = data.coordLabel || "Assigned Coordinator";
-            if (divModalLabel) divModalLabel.textContent = data.rankLabel || "SQUAD_LEADER_IDENTIFIED";
-            if (divModalCoordImg) divModalCoordImg.src = data.coordImg || "/logo.png";
-            
-            // Set the second box to show Coordinator or Leader based on context
-            if (divModalLead && divModalLeadLabel) {
-                if (data.hideAssigned === "true") {
-                    divModalLead.textContent = data.name || "";
-                    divModalLeadLabel.textContent = "Coordinator";
-                } else {
-                    divModalLead.textContent = data.lead || "";
-                    divModalLeadLabel.textContent = "Squad Leader";
-                }
-            }
-
-            if (divModalTagLead) divModalTagLead.textContent = data.lead || "";
-            if (divModalImg) divModalImg.src = data.img || "";
-
-            if (divModalAssignedBox) {
-                if (data.hideAssigned === "true") {
-                    divModalAssignedBox.classList.add("hidden");
-                    if (divModalFooterGrid) {
-                        divModalFooterGrid.classList.remove("sm:grid-cols-2");
-                        divModalFooterGrid.classList.add("sm:grid-cols-1", "max-w-md", "mx-auto");
-                    }
-                } else {
-                    divModalAssignedBox.classList.remove("hidden");
-                    if (divModalFooterGrid) {
-                        divModalFooterGrid.classList.add("sm:grid-cols-2");
-                        divModalFooterGrid.classList.remove("sm:grid-cols-1", "max-w-md", "mx-auto");
-                    }
-                }
-            }
-
-            if (divModalAuth) divModalAuth.textContent = `AUTH_ID: TK-DIV-${Math.floor(Math.random() * 9000 + 1000)}`;
-
-            if (divModal) {
-                divModal.classList.remove("hidden");
-                toggleHeader(false); // Hide Header
-                requestAnimationFrame(() => {
-                    divModal.classList.remove("opacity-0");
-                });
-            }
-        });
-    });
-
-    if (closeDivBtn && divModal) {
-        closeDivBtn.addEventListener("click", () => {
-            divModal.classList.add("opacity-0");
-            toggleHeader(true); // Show Header
-            setTimeout(() => {
-                divModal.classList.add("hidden");
-            }, 300);
-        });
-
-        divModal.addEventListener("click", (e) => {
-            if (e.target === divModal) {
-                if (closeDivBtn) (closeDivBtn as HTMLElement).click();
-            }
-        });
-    }
-
-    // Modal Image Swap Logic
-    let originalMainImg = "";
-    let originalMainName = "";
-    let originalMainLabel = "";
-    const divModalLabel = document.getElementById("div-modal-label");
-
-    if (divModalCoordImg && divModalImg && divModalTagLead && divModalCoord && divModalLabel) {
-        divModalCoordImg.addEventListener("mouseenter", () => {
-            const data = (divModalCoordImg.closest('.div-modal-content') as any)?.dataset || {};
-            // We need to find the active card's data. 
-            // A better way: store current card data globally or on the modal
-            const currentCard = document.querySelector('.div-card.active-modal-trigger') as HTMLElement;
-            const cardData = currentCard ? currentCard.dataset : {};
-
-            originalMainImg = divModalImg.src;
-            originalMainName = divModalTagLead.textContent || "";
-            originalMainLabel = divModalLabel.textContent || "";
-            
-            divModalImg.classList.add("opacity-0");
-            divModalTagLead.classList.add("opacity-0");
-            divModalLabel.classList.add("opacity-0");
-            
-            setTimeout(() => {
-                divModalImg.src = divModalCoordImg.src;
-                divModalTagLead.textContent = divModalCoord.textContent;
-                divModalLabel.textContent = cardData.coordRankLabel || "COORDINATOR_IDENTIFIED";
-                
-                divModalImg.classList.remove("opacity-0");
-                divModalTagLead.classList.remove("opacity-0");
-                divModalLabel.classList.remove("opacity-0");
-            }, 150);
-        });
-
-        divModalCoordImg.addEventListener("mouseleave", () => {
-            divModalImg.classList.add("opacity-0");
-            divModalTagLead.classList.add("opacity-0");
-            divModalLabel.classList.add("opacity-0");
-            
-            setTimeout(() => {
-                divModalImg.src = originalMainImg;
-                divModalTagLead.textContent = originalMainName;
-                divModalLabel.textContent = originalMainLabel;
-                
-                divModalImg.classList.remove("opacity-0");
-                divModalTagLead.classList.remove("opacity-0");
-                divModalLabel.classList.remove("opacity-0");
-            }, 150);
-        });
-    }
-
-    // Hierarchy Access Terminal Logic
-    const btnInitiate = document.getElementById("btn-initiate-access");
-    const terminalAccess = document.getElementById("terminal-access");
-    const terminalCommand = document.getElementById("terminal-command");
-    const terminalOutput = document.getElementById("terminal-output");
-    const hierarchyContent = document.getElementById("hierarchy-real-content");
-    const hierarchyCollapsed = document.getElementById("hierarchy-collapsed");
-    const hierarchyContainer = document.getElementById("hierarchy-container");
-
-    if (btnInitiate && terminalAccess && terminalCommand && terminalOutput && hierarchyContent && hierarchyCollapsed && hierarchyContainer) {
-        btnInitiate.addEventListener("click", () => {
-            // Step 1: Collapse the initial button and expand container
-            hierarchyCollapsed.classList.add("hidden");
-            hierarchyContainer.classList.remove("min-h-[100px]");
-            hierarchyContainer.classList.add("min-h-[400px]");
-            
-            // Step 2: Show Terminal
-            terminalAccess.classList.remove("opacity-0", "pointer-events-none");
-
-            const command = "abbs-cli access --community=\"The Tinkers\"";
-            let cmdIdx = 0;
-
-            const typeCommand = setInterval(() => {
-                terminalCommand.textContent += command[cmdIdx];
-                cmdIdx++;
-                if (cmdIdx >= command.length) {
-                    clearInterval(typeCommand);
-                    startLogSequence();
-                }
-            }, 50);
-
-            const startLogSequence = () => {
-                const logs = [
-                    { t: "[SYSTEM] Initializing handshake...", d: 500 },
-                    { t: "[OK] Encryption keys received.", d: 300 },
-                    { t: "[SYSTEM] Bypassing firewall...", d: 700 },
-                    { t: "[OK] Root access established.", d: 400 },
-                    { t: "[SYSTEM] Decrypting organization.json...", d: 800 },
-                    { t: "[WARN] Integrity check bypass successful.", d: 300 },
-                    { t: "[OK] Visualizing structure...", d: 400 },
-                    { t: ">> ACCESS GRANTED <<", d: 1000, color: "text-green-400 font-black" }
-                ];
-
-                let logIdx = 0;
-                const addLog = () => {
-                    if (logIdx >= logs.length) {
-                        setTimeout(revealHierarchy, 500);
-                        return;
-                    }
-
-                    const log = logs[logIdx];
-                    const div = document.createElement("div");
-                    div.className = `opacity-0 transition-opacity duration-300 ${log.color || ""}`;
-                    div.textContent = log.t;
-                    terminalOutput.appendChild(div);
-                    
-                    // Auto scroll
-                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
-
-                    requestAnimationFrame(() => div.classList.remove("opacity-0"));
-
-                    logIdx++;
-                    setTimeout(addLog, log.d);
+                const startLogSequence = () => {
+                    const logs = [
+                        { t: "[SYSTEM] Initializing handshake...", d: 500 },
+                        { t: "[OK] Encryption keys received.", d: 300 },
+                        { t: "[SYSTEM] Bypassing firewall...", d: 700 },
+                        { t: "[OK] Root access established.", d: 400 },
+                        { t: "[SYSTEM] Decrypting organization.json...", d: 800 },
+                        { t: "[WARN] Integrity check bypass successful.", d: 300 },
+                        { t: "[OK] Visualizing structure...", d: 400 },
+                        { t: ">> ACCESS GRANTED <<", d: 1000, color: "text-green-400 font-black" }
+                    ];
+                    let logIdx = 0;
+                    const addLog = () => {
+                        if (logIdx >= logs.length) {
+                            setTimeout(revealHierarchy, 500);
+                            return;
+                        }
+                        const log = logs[logIdx];
+                        const div = document.createElement("div");
+                        div.className = `opacity-0 transition-opacity duration-300 ${log.color || ""}`;
+                        div.textContent = log.t;
+                        terminalOutput.appendChild(div);
+                        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                        requestAnimationFrame(() => div.classList.remove("opacity-0"));
+                        logIdx++;
+                        setTimeout(addLog, log.d);
+                    };
+                    setTimeout(addLog, 500);
                 };
 
-                setTimeout(addLog, 500);
-            };
+                const revealHierarchy = () => {
+                    terminalAccess.classList.add("opacity-0", "scale-110", "pointer-events-none");
+                    hierarchyContent.classList.remove("hidden");
+                    requestAnimationFrame(() => {
+                        hierarchyContent.classList.remove("opacity-0", "pointer-events-none", "scale-95", "blur-md");
+                        hierarchyContainer.style.minHeight = "auto";
+                    });
+                    setTimeout(() => terminalAccess.classList.add("hidden"), 700);
+                };
+            });
+        }
+    };
 
-            const revealHierarchy = () => {
-                terminalAccess.classList.add("opacity-0", "scale-110", "pointer-events-none");
-                hierarchyContent.classList.remove("hidden");
-                
-                // Allow browser to register 'hidden' removal before animating opacity
-                requestAnimationFrame(() => {
-                    hierarchyContent.classList.remove("opacity-0", "pointer-events-none", "scale-95", "blur-md");
-                    hierarchyContainer.style.minHeight = "auto";
-                });
-                
-                setTimeout(() => {
-                    terminalAccess.classList.add("hidden");
-                }, 700);
-            };
-        });
-    }
-
-    // Update Date
-    const dateEl = document.getElementById("bp-date");
-    if (dateEl) {
-        const now = new Date();
-        dateEl.textContent =
-            now.getFullYear() +
-            "." +
-            String(now.getMonth() + 1).padStart(2, "0") +
-            "." +
-            String(now.getDate()).padStart(2, "0");
-    }
+    setupModals();
+    setupHierarchy();
 </script>
 
 <style>
@@ -1622,18 +422,9 @@ const organization = {
     #blueprint-board::-webkit-scrollbar {
         width: 4px;
     }
-    #blueprint-board::-webkit-scrollbar-track {
-        background: transparent;
-    }
     #blueprint-board::-webkit-scrollbar-thumb {
         background: #00f2ff;
         box-shadow: 0 0 10px #00f2ff;
-    }
-
-    .glow-text {
-        text-shadow:
-            0 0 15px rgba(0, 242, 255, 0.8),
-            0 0 30px rgba(0, 242, 255, 0.4);
     }
 
     @keyframes scanning {
@@ -1642,33 +433,14 @@ const organization = {
     }
     .scanning-line {
         animation: scanning 8s linear infinite;
-        will-change: transform;
-    }
-
-    @keyframes load {
-        0% {
-            width: 0;
-        }
-        100% {
-            width: 100%;
-        }
-    }
-    .animate-load {
-        animation: load 2s ease-out forwards;
     }
 
     @keyframes spin-slow {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
     }
     .animate-spin-slow {
         animation: spin-slow 60s linear infinite;
-        will-change: transform;
-        transform: translateZ(0);
     }
 
     @keyframes spin-reverse {
@@ -1677,133 +449,9 @@ const organization = {
     }
     .animate-spin-reverse {
         animation: spin-reverse 90s linear infinite;
-        will-change: transform;
-        transform: translateZ(0);
     }
 
-    /* Classified Effects */
-    .classified-overlay {
+    .tab-content {
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .is-revealed .classified-overlay {
-        opacity: 0;
-        pointer-events: none;
-        transform: scale(1.1) translateZ(0);
-        filter: blur(10px);
-    }
-
-    .is-revealed .classified-content {
-        filter: none;
-        opacity: 1;
-        transform: translateZ(0);
-    }
-
-    .classified-content {
-        transition: all 0.8s ease;
-        filter: blur(20px) brightness(0);
-        opacity: 0;
-        transform: translateZ(0);
-        will-change: filter, opacity, transform;
-    }
-
-    .is-revealed .classified-content {
-        filter: blur(0) brightness(1);
-        opacity: 1;
-    }
-
-    .div-card {
-        contain: paint;
-        transform: translateZ(0);
-        backface-visibility: hidden;
-    }
-
-    .shimmer-text {
-        background: linear-gradient(90deg, transparent, #00f2ff, transparent);
-        background-size: 200% 100%;
-        animation: shimmer 2s infinite;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    @keyframes shimmer {
-        0% { background-position: -200% 0; }
-        100% { background-position: 200% 0; }
-    }
-
-    .decrypting .classified-overlay {
-        background: rgba(0, 242, 255, 0.1);
-    }
-
-    .decrypting .classified-overlay::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            to bottom,
-            transparent,
-            rgba(0, 242, 255, 0.5),
-            transparent
-        );
-        animation: scan-vertical 1s linear infinite;
-        will-change: transform;
-    }
-
-    @keyframes scan-vertical {
-        0% { transform: translateY(-100%); }
-        100% { transform: translateY(100%); }
-    }
-
-    .hex-reveal {
-        position: absolute;
-        inset: 0;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        gap: 1px;
-        z-index: 15;
-        pointer-events: none;
-    }
-
-    .hex-cell {
-        background: #001226;
-        color: #00f2ff;
-        font-size: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .decrypting .hex-cell {
-        opacity: 0.8;
-    }
-
-    /* Terminal Scanlines */
-    #terminal-access::before {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-        z-index: 101;
-        background-size: 100% 2px, 3px 100%;
-        pointer-events: none;
-    }
-
-    @keyframes scan-fast {
-        0% { transform: translateY(-100%); }
-        100% { transform: translateY(200%); }
-    }
-    .animate-scan-fast {
-        animation: scan-fast 3s linear infinite;
-        will-change: transform;
     }
 </style>

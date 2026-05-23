@@ -6,171 +6,285 @@ import TeacherCarousel from "../components/tentang/TeacherCarousel.astro";
 ---
 
 <Layout title="Tentang Kami - SMP ABBS Surakarta">
-    <!-- Hero Header -->
-    <section class="pt-32 pb-20 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[120%] bg-primary-500/5 blur-[120px] rounded-full"></div>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 text-center reveal">
-            <h1 class="text-5xl md:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight">
-                Sejarah & <span class="text-primary-600 dark:text-primary-400">Visi Kami</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
-                Membangun pondasi keunggulan sejak 2009 untuk mencetak generasi muslim global.
-            </p>
-        </div>
-    </section>
-
-    <!-- Sejarah Singkat -->
-    <section class="py-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-20 items-center">
-                <div class="reveal">
-                    <h2 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-10 tracking-tight">
-                        Warisan <span class="text-primary-600 dark:text-primary-400">Keunggulan</span>
-                    </h2>
-                    <div class="space-y-8 text-gray-500 dark:text-gray-400 leading-relaxed text-lg font-light">
-                        <p>
-                            SMP Al Abidin Bilingual Boarding School (ABBS) Surakarta didirikan pada tahun 2009 dengan visi menciptakan generasi muslim yang unggul dalam prestasi akademik, berakhlak mulia, dan mampu bersaing di tingkat global.
-                        </p>
-                        <p>
-                            Berawal dari keinginan untuk menyediakan pendidikan berkualitas yang memadukan kurikulum nasional dengan pendidikan agama Islam yang kuat, ABBS terus berkembang menjadi salah satu boarding school terkemuka di Surakarta.
-                        </p>
-                        <p>
-                            Dengan sistem bilingual, kami mempersiapkan siswa untuk menghadapi tantangan era globalisasi tanpa meninggalkan nilai-nilai keislaman yang menjadi akar karakter mereka.
-                        </p>
-                    </div>
-                </div>
-                <div class="relative reveal">
-                    <div class="absolute -inset-4 bg-primary-500/10 blur-2xl rounded-[3rem]"></div>
-                    <div class="relative bg-white dark:bg-gray-900/50 backdrop-blur-sm rounded-[3rem] p-12 border border-gray-100 dark:border-gray-800 shadow-2xl overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-primary-600/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
-                        <div class="space-y-12">
-                            {[
-                                { year: '2009', label: 'Tahun Berdiri', desc: 'Awal perjalanan mencetak generasi cemerlang.', icon: 'calendar' },
-                                { year: '500+', label: 'Siswa Aktif', desc: 'Komunitas belajar yang dinamis dan kompetitif.', icon: 'users' },
-                                { year: '100+', label: 'Prestasi Nasional', desc: 'Rekam jejak juara di berbagai kompetisi.', icon: 'star' },
-                                { year: 'A', label: 'Akreditasi', desc: 'Standar kualitas pendidikan tertinggi.', icon: 'award' }
-                            ].map((item) => (
-                                <div class="flex items-center gap-6 group/item">
-                                    <div class="w-14 h-14 rounded-2xl bg-primary-50 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400 group-hover/item:scale-110 transition-transform duration-300">
-                                        <i data-feather={item.icon} class="w-6 h-6"></i>
-                                    </div>
-                                    <div>
-                                        <div class="text-2xl font-black text-gray-900 dark:text-white leading-tight">
-                                            {item.year}
-                                        </div>
-                                        <div class="text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-1">
-                                            {item.label}
-                                        </div>
-                                        <div class="text-sm text-gray-500 dark:text-gray-400 font-light">
-                                            {item.desc}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Visi Misi -->
-    <section class="py-24 bg-gray-50/50 dark:bg-white/5 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Visi -->
-                <div class="relative group reveal">
-                    <div class="absolute inset-0 bg-primary-600 rounded-[2.5rem] rotate-1 group-hover:rotate-0 transition-transform duration-500 shadow-xl shadow-primary-900/20"></div>
-                    <div class="relative h-full bg-white dark:bg-gray-900 rounded-[2.5rem] p-12 border border-gray-100 dark:border-gray-800 -rotate-1 group-hover:rotate-0 transition-transform duration-500">
-                        <div class="w-16 h-16 bg-primary-50 dark:bg-primary-900/20 rounded-2xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-8">
-                            <i data-feather="target" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-4xl font-black text-gray-900 dark:text-white mb-6">Visi</h3>
-                        <p class="text-xl text-gray-500 dark:text-gray-400 leading-relaxed font-light">
-                            Menjadi lembaga pendidikan Islam terdepan yang menghasilkan generasi muslim yang berilmu, berakhlak mulia, berprestasi, dan mampu berkomunikasi secara global dengan tetap berpegang teguh pada nilai-nilai keislaman.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Misi -->
-                <div class="relative group reveal">
-                    <div class="absolute inset-0 bg-secondary-500 rounded-[2.5rem] -rotate-1 group-hover:rotate-0 transition-transform duration-500 shadow-xl shadow-secondary-900/20"></div>
-                    <div class="relative h-full bg-white dark:bg-gray-900 rounded-[2.5rem] p-12 border border-gray-100 dark:border-gray-800 rotate-1 group-hover:rotate-0 transition-transform duration-500">
-                        <div class="w-16 h-16 bg-secondary-50 dark:bg-secondary-900/20 rounded-2xl flex items-center justify-center text-secondary-600 dark:text-secondary-400 mb-8">
-                            <i data-feather="compass" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-4xl font-black text-gray-900 dark:text-white mb-6">Misi</h3>
-                        <ul class="space-y-4">
-                            {[
-                                "Pendidikan berkualitas nasional & internasional",
-                                "Pembentukan karakter islami komprehensif",
-                                "Pengembangan kemampuan bilingual global",
-                                "Fasilitasi bakat & minat siswa secara optimal",
-                                "Lingkungan belajar kondusif & Islami"
-                            ].map((misi) => (
-                                <li class="flex items-start gap-4 group/item">
-                                    <div class="mt-1 w-5 h-5 rounded-full bg-secondary-100 dark:bg-secondary-900/30 flex items-center justify-center flex-shrink-0 group-hover/item:bg-secondary-500 transition-colors">
-                                        <i data-feather="check" class="w-3 h-3 text-secondary-600 dark:text-secondary-400 group-hover/item:text-white transition-colors"></i>
-                                    </div>
-                                    <span class="text-gray-500 dark:text-gray-400 font-light">{misi}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fasilitas -->
-    <section class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20 reveal">
-                <h2 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">Fasilitas <span class="text-primary-600 dark:text-primary-400">Terbaik</span></h2>
-                <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-light">Mendukung ekosistem belajar yang modern, aman, dan nyaman.</p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
-                {[
-                    { title: "Gedung Modern", desc: "Ruang kelas cerdas ber-AC & multimedia.", icon: "home" },
-                    { title: "Rooftop Arena", desc: "Area terbuka untuk kegiatan & festival.", icon: "sun" },
-                    { title: "Smart Library", desc: "Akses literasi digital & fisik lengkap.", icon: "book-open" },
-                    { title: "Health Cafe", desc: "Kantin sehat dengan nutrisi terjamin.", icon: "coffee" }
-                ].map((item) => (
-                    <div class="group p-8 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                        <div class="w-14 h-14 bg-gray-50 dark:bg-gray-800 rounded-2xl flex items-center justify-center text-gray-400 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 mb-6">
-                            <i data-feather={item.icon} class="w-6 h-6"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">{item.title}</h4>
-                        <p class="text-gray-500 dark:text-gray-400 font-light text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <!-- Struktur Organisasi -->
-    <div class="reveal">
-        <TeacherCarousel />
+  <!-- Hero Header -->
+  <section class="pt-32 pb-20 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[120%] bg-primary-500/5 blur-[120px] rounded-full"
+      >
+      </div>
     </div>
+    <div class="max-w-7xl mx-auto px-6 text-center reveal">
+      <h1
+        class="text-5xl md:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight"
+      >
+        Sejarah & <span class="text-primary-600 dark:text-primary-400"
+          >Visi Kami</span
+        >
+      </h1>
+      <p
+        class="text-xl md:text-2xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto font-light leading-relaxed"
+      >
+        Membangun pondasi keunggulan sejak 2023 untuk mencetak generasi muslim
+        global.
+      </p>
+    </div>
+  </section>
 
-    <!-- CTA -->
-    <CTASection
-        id="kontak-cta"
-        title="Bergabunglah dengan Keluarga ABBS"
-        description="Jadilah bagian dari generasi unggul yang siap menghadapi tantangan masa depan"
-        primaryButton={{
-            text: "Chat WhatsApp",
-            href: "/kontak",
-            icon: "message-circle",
-        }}
-        secondaryButton={{
-            text: "Lihat Program",
-            href: "/program",
-            icon: "book",
-        }}
-    />
+  <!-- Sejarah Singkat -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div class="reveal">
+          <h2
+            class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-10 tracking-tight"
+          >
+            Warisan <span class="text-primary-600 dark:text-primary-400"
+              >Keunggulan</span
+            >
+          </h2>
+          <div
+            class="space-y-8 text-gray-500 dark:text-gray-400 leading-relaxed text-lg font-light"
+          >
+            <p>
+              SMP Al Abidin Bilingual Boarding School (ABBS) Surakarta didirikan
+              pada tahun 2023 dengan visi menciptakan generasi muslim yang
+              unggul dalam prestasi akademik, berakhlak mulia, dan mampu
+              bersaing di tingkat global.
+            </p>
+            <p>
+              Berawal dari keinginan untuk menyediakan pendidikan berkualitas
+              yang memadukan kurikulum nasional dengan pendidikan agama Islam
+              yang kuat, ABBS terus berkembang menjadi salah satu boarding
+              school terkemuka di Surakarta.
+            </p>
+            <p>
+              Dengan sistem bilingual, kami mempersiapkan siswa untuk menghadapi
+              tantangan era globalisasi tanpa meninggalkan nilai-nilai keislaman
+              yang menjadi akar karakter mereka.
+            </p>
+          </div>
+        </div>
+        <div class="relative reveal">
+          <div
+            class="absolute -inset-4 bg-primary-500/10 blur-2xl rounded-[3rem]"
+          >
+          </div>
+          <div
+            class="relative bg-white dark:bg-gray-900/50 backdrop-blur-sm rounded-[3rem] p-12 border border-gray-100 dark:border-gray-800 shadow-2xl overflow-hidden group"
+          >
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-primary-600/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"
+            >
+            </div>
+            <div class="space-y-12">
+              {
+                [
+                  {
+                    year: "2023",
+                    label: "Tahun Berdiri",
+                    desc: "Awal perjalanan mencetak generasi cemerlang.",
+                    icon: "calendar",
+                  },
+                  {
+                    year: "500+",
+                    label: "Siswa Aktif",
+                    desc: "Komunitas belajar yang dinamis dan kompetitif.",
+                    icon: "users",
+                  },
+                  {
+                    year: "100+",
+                    label: "Prestasi Nasional",
+                    desc: "Rekam jejak juara di berbagai kompetisi.",
+                    icon: "star",
+                  },
+                  {
+                    year: "A",
+                    label: "Akreditasi",
+                    desc: "Standar kualitas pendidikan tertinggi.",
+                    icon: "award",
+                  },
+                ].map((item) => (
+                  <div class="flex items-center gap-6 group/item">
+                    <div class="w-14 h-14 rounded-2xl bg-primary-50 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400 group-hover/item:scale-110 transition-transform duration-300">
+                      <i data-feather={item.icon} class="w-6 h-6" />
+                    </div>
+                    <div>
+                      <div class="text-2xl font-black text-gray-900 dark:text-white leading-tight">
+                        {item.year}
+                      </div>
+                      <div class="text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-1">
+                        {item.label}
+                      </div>
+                      <div class="text-sm text-gray-500 dark:text-gray-400 font-light">
+                        {item.desc}
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visi Misi -->
+  <section class="py-24 bg-gray-50/50 dark:bg-white/5 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Visi -->
+        <div class="relative group reveal">
+          <div
+            class="absolute inset-0 bg-primary-600 rounded-[2.5rem] rotate-1 group-hover:rotate-0 transition-transform duration-500 shadow-xl shadow-primary-900/20"
+          >
+          </div>
+          <div
+            class="relative h-full bg-white dark:bg-gray-900 rounded-[2.5rem] p-12 border border-gray-100 dark:border-gray-800 -rotate-1 group-hover:rotate-0 transition-transform duration-500"
+          >
+            <div
+              class="w-16 h-16 bg-primary-50 dark:bg-primary-900/20 rounded-2xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-8"
+            >
+              <i data-feather="target" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-4xl font-black text-gray-900 dark:text-white mb-6">
+              Visi
+            </h3>
+            <p
+              class="text-xl text-gray-500 dark:text-gray-400 leading-relaxed font-light"
+            >
+              Menjadi lembaga pendidikan Islam terdepan yang menghasilkan
+              generasi muslim yang berilmu, berakhlak mulia, berprestasi, dan
+              mampu berkomunikasi secara global dengan tetap berpegang teguh
+              pada nilai-nilai keislaman.
+            </p>
+          </div>
+        </div>
+
+        <!-- Misi -->
+        <div class="relative group reveal">
+          <div
+            class="absolute inset-0 bg-secondary-500 rounded-[2.5rem] -rotate-1 group-hover:rotate-0 transition-transform duration-500 shadow-xl shadow-secondary-900/20"
+          >
+          </div>
+          <div
+            class="relative h-full bg-white dark:bg-gray-900 rounded-[2.5rem] p-12 border border-gray-100 dark:border-gray-800 rotate-1 group-hover:rotate-0 transition-transform duration-500"
+          >
+            <div
+              class="w-16 h-16 bg-secondary-50 dark:bg-secondary-900/20 rounded-2xl flex items-center justify-center text-secondary-600 dark:text-secondary-400 mb-8"
+            >
+              <i data-feather="compass" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-4xl font-black text-gray-900 dark:text-white mb-6">
+              Misi
+            </h3>
+            <ul class="space-y-4">
+              {
+                [
+                  "Pendidikan berkualitas nasional & internasional",
+                  "Pembentukan karakter islami komprehensif",
+                  "Pengembangan kemampuan bilingual global",
+                  "Fasilitasi bakat & minat siswa secara optimal",
+                  "Lingkungan belajar kondusif & Islami",
+                ].map((misi) => (
+                  <li class="flex items-start gap-4 group/item">
+                    <div class="mt-1 w-5 h-5 rounded-full bg-secondary-100 dark:bg-secondary-900/30 flex items-center justify-center flex-shrink-0 group-hover/item:bg-secondary-500 transition-colors">
+                      <i
+                        data-feather="check"
+                        class="w-3 h-3 text-secondary-600 dark:text-secondary-400 group-hover/item:text-white transition-colors"
+                      />
+                    </div>
+                    <span class="text-gray-500 dark:text-gray-400 font-light">
+                      {misi}
+                    </span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fasilitas -->
+  <section class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20 reveal">
+        <h2
+          class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight"
+        >
+          Fasilitas <span class="text-primary-600 dark:text-primary-400"
+            >Terbaik</span>
+        </h2>
+        <p
+          class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-light"
+        >
+          Mendukung ekosistem belajar yang modern, aman, dan nyaman.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
+        {
+          [
+            {
+              title: "Gedung Modern",
+              desc: "Ruang kelas cerdas ber-AC & multimedia.",
+              icon: "home",
+            },
+            {
+              title: "Rooftop Arena",
+              desc: "Area terbuka untuk kegiatan & festival.",
+              icon: "sun",
+            },
+            {
+              title: "Smart Library",
+              desc: "Akses literasi digital & fisik lengkap.",
+              icon: "book-open",
+            },
+            {
+              title: "Health Cafe",
+              desc: "Kantin sehat dengan nutrisi terjamin.",
+              icon: "coffee",
+            },
+          ].map((item) => (
+            <div class="group p-8 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div class="w-14 h-14 bg-gray-50 dark:bg-gray-800 rounded-2xl flex items-center justify-center text-gray-400 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 mb-6">
+                <i data-feather={item.icon} class="w-6 h-6" />
+              </div>
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                {item.title}
+              </h4>
+              <p class="text-gray-500 dark:text-gray-400 font-light text-sm leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Struktur Organisasi -->
+  <div class="reveal">
+    <TeacherCarousel />
+  </div>
+
+  <!-- CTA -->
+  <CTASection
+    id="kontak-cta"
+    title="Bergabunglah dengan Keluarga ABBS"
+    description="Jadilah bagian dari generasi unggul yang siap menghadapi tantangan masa depan"
+    primaryButton={{
+      text: "Chat WhatsApp",
+      href: "/kontak",
+      icon: "message-circle",
+    }}
+    secondaryButton={{
+      text: "Lihat Program",
+      href: "/program",
+      icon: "book",
+    }}
+  />
 </Layout>
-

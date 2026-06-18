@@ -38,7 +38,13 @@ import SinapsCta from "../../components/osn/SinapsCta.astro";
     </main>
 
     <style is:global>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Inter:wght@300;400;700&family=Architects+Daughter&display=swap');
+        @import "@fontsource/playfair-display/400.css";
+        @import "@fontsource/playfair-display/900.css";
+        @import "@fontsource/playfair-display/400-italic.css";
+        @import "@fontsource/inter/300.css";
+        @import "@fontsource/inter/400.css";
+        @import "@fontsource/inter/700.css";
+        @import "@fontsource/architects-daughter/400.css";
 
         .font-hand {
             font-family: 'Architects Daughter', cursive;
@@ -265,20 +271,6 @@ import SinapsCta from "../../components/osn/SinapsCta.astro";
                 flipPage(-1);
             } else if (e.code === 'Escape') {
                 flipPage(-7);
-            }
-        });
-    </script>
-
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script is:inline>
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof feather !== 'undefined') {
-                feather.replace();
-            }
-        });
-        window.addEventListener('load', () => {
-            if (typeof feather !== 'undefined') {
-                feather.replace();
             }
         });
     </script>

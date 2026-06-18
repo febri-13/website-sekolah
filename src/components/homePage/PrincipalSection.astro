@@ -1,0 +1,52 @@
+---
+// src/components/homePage/PrincipalSection.astro
+---
+
+<section class="py-24 relative overflow-hidden bg-white dark:bg-gray-950">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-primary-500/5 -skew-x-12 translate-x-1/2 -z-10"></div>
+    
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <!-- Image Side -->
+            <div class="relative reveal">
+                <div class="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative z-10 bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+                    <span class="text-gray-400 dark:text-gray-600 font-bold uppercase tracking-widest">Foto Kepala Sekolah</span>
+                </div>
+                <!-- Decorative Elements -->
+                <div class="absolute -top-6 -left-6 w-32 h-32 border-t-4 border-l-4 border-primary-500/20 rounded-tl-[3rem] -z-0"></div>
+                <div class="absolute -bottom-6 -right-6 w-32 h-32 border-b-4 border-r-4 border-secondary-500/20 rounded-br-[3rem] -z-0"></div>
+            </div>
+
+            <!-- Content Side -->
+            <div class="reveal">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 text-xs font-bold uppercase tracking-widest mb-8">
+                    Sambutan Kepala Sekolah
+                </div>
+                
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight">
+                    Pendidikan Berkualitas untuk Masa Depan Siswa.
+                </h2>
+                
+                <div class="space-y-6 text-gray-600 dark:text-gray-400 text-lg font-light leading-relaxed">
+                    <p>
+                        SMP ABBS Surakarta berkomitmen menyediakan lingkungan belajar yang kondusif bagi pengembangan akademik dan karakter siswa. Kami memadukan kurikulum nasional dengan pendidikan nilai-nilai Islami untuk membentuk pribadi yang berintegritas.
+                    </p>
+                    <p>
+                        Kami mengundang Anda untuk mengenal lebih dekat program-program unggulan kami yang dirancang untuk membekali siswa dengan kemampuan berpikir kritis, keterampilan bahasa, dan kesiapan menghadapi tantangan global.
+                    </p>
+                </div>
+
+                <div class="mt-12 flex flex-col sm:flex-row items-center gap-8">
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-bold text-gray-900 dark:text-white leading-none">[Nama Kepala Sekolah]</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 mt-2">Kepala Sekolah</span>
+                    </div>
+                    <a href="/tentang" class="text-sm font-bold text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors flex items-center gap-2 group">
+                        Profil Sekolah
+                        <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

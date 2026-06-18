@@ -102,9 +102,17 @@ const displayFeatures = features.length > 0 ? features : defaultFeatures;
       <div class="w-12 h-1.5 bg-primary-600 rounded-full mx-auto mt-8"></div>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8 lg:gap-12 reveal">
-      {displayFeatures.map((feature) => (
-        <div class="group relative">
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+      {displayFeatures.map((feature, index) => (
+        <div 
+          class={`group relative reveal ${
+            index % 4 === 0 ? 'reveal-left' : 
+            index % 4 === 1 ? 'reveal-right' : 
+            index % 4 === 2 ? 'reveal-scale' : 
+            'reveal-rotate'
+          }`}
+          style={`transition-delay: ${index * 150}ms`}
+        >
           <div class={`absolute inset-0 bg-gradient-to-br ${feature.gradientFrom} ${feature.gradientTo} opacity-0 group-hover:opacity-5 blur-2xl transition-opacity duration-500 rounded-3xl`}></div>
           <div class={`relative h-full bg-white dark:bg-gray-900/40 backdrop-blur-sm rounded-3xl p-10 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2`}>
             <div class={`w-14 h-14 bg-gradient-to-br ${feature.gradientFrom} ${feature.gradientTo} rounded-2xl flex items-center justify-center text-white mb-8 shadow-lg shadow-primary-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500`}>

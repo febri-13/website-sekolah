@@ -28,9 +28,13 @@ const displayStats = stats.length > 0 ? stats : defaultStats;
   <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent"></div>
   
   <div class="max-w-7xl mx-auto px-6">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 reveal">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
       {displayStats.map((stat, index) => (
-        <div class="relative group">
+        <div class={`relative group reveal ${
+          index % 3 === 0 ? 'reveal-left' : 
+          index % 3 === 1 ? 'reveal-right' : 
+          'reveal-scale'
+        }`} style={`transition-delay: ${index * 100}ms`}>
           <div class="absolute inset-0 bg-primary-500/5 blur-2xl rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
           <div class="relative bg-white dark:bg-gray-900/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
             {stat.icon && (

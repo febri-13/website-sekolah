@@ -18,23 +18,42 @@
         <!-- Animated Mesh Gradient Overlay -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-cream-50/20 dark:to-[#0a0a0a]/20"></div>
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,184,166,0.1),transparent_50%)]"></div>
+        
+        <!-- Scattered Decorative Elements -->
+        <div class="absolute top-1/4 left-10 w-64 h-64 bg-primary-500/10 rounded-full blur-[100px] animate-pulse-glow"></div>
+        <div class="absolute bottom-1/4 right-10 w-80 h-80 bg-teal-500/10 rounded-full blur-[120px] animate-pulse-glow" style="animation-delay: -2s;"></div>
+        
+        <!-- Floating "Scattered" Icons/Shapes -->
+        <div class="absolute top-[15%] left-[10%] opacity-20 animate-float-slow">
+            <svg class="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="absolute top-[20%] right-[15%] opacity-15 animate-float" style="animation-delay: -1s;">
+            <svg class="w-16 h-16 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+        </div>
+        <div class="absolute bottom-[20%] left-[15%] opacity-20 animate-float-sideways">
+            <svg class="w-20 h-20 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="absolute bottom-[15%] right-[20%] opacity-10 animate-float-slow" style="animation-delay: -3s;">
+            <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 8-6 6-6-6"/></svg>
+        </div>
     </div>
 
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center reveal">
-        <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase reveal reveal-left">
             <span class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></span>
             SMP ABBS Surakarta
         </div>
         
-        <h1 class="text-6xl md:text-[8rem] font-[900] text-white mb-8 leading-[0.9] tracking-tighter">
-            Build Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-teal-300">Legacy.</span>
+        <h1 class="text-6xl md:text-[7rem] font-[900] text-white mb-8 leading-[0.9] tracking-tighter reveal reveal-right" style="transition-delay: 200ms;">
+            Build Your <br class="hidden md:block" /> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-teal-300">Legacy.</span>
         </h1>
         
-        <p class="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-            Membentuk pemimpin masa depan dengan karakter Islami dan wawasan global. Bergabunglah bersama kami di <span class="font-bold text-primary-400 underline decoration-2 underline-offset-4">SMP ABBS Surakarta</span>.
+        <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed font-light reveal reveal-left" style="transition-delay: 400ms;">
+            Bilingual Boarding School dengan Akreditasi A. <br class="hidden md:block" />
+            Membentuk pemimpin masa depan dengan <span class="font-bold text-primary-400">Karakter Islami</span> dan <span class="font-bold text-teal-300">Wawasan Global</span>.
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 reveal reveal-scale" style="transition-delay: 600ms;">
             <a href="/program" class="group relative px-10 py-5 bg-primary-600 text-white rounded-2xl font-bold transition-all hover:scale-[1.05] hover:shadow-[0_20px_40px_-10px_rgba(20,184,166,0.5)] overflow-hidden">
                 <span class="relative z-10">Jelajahi Program</span>
                 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></div>

@@ -3,75 +3,31 @@ import Layout from '../layouts/Layout.astro';
 import CTASection from '../components/cta/CTASection.astro';
 
 const programs = [
-    {
+  {
     id: 'ict',
     title: 'Program ICT',
-    icon: 'code',
-    description: 'Program pengembangan kompetensi teknologi informasi dan komunikasi untuk siswa.',
+    icon: 'cpu',
+    description: 'Program teknologi komputer yang mengajarkan siswa tentang perangkat keras, perangkat lunak, jaringan, dan literasi digital.',
     features: [
-      'Pengenalan pemrograman dasar',
-      'Penggunaan software produktif',
-      'Project-based learning dalam bidang TI',
-      'ICT Show'
+      'Dasar perangkat keras dan sistem operasi',
+      'Pemrograman dan aplikasi produktivitas',
+      'Jaringan komputer dan keamanan dasar',
+      'Proyek praktis berbasis teknologi'
     ],
     borderColor: 'border-primary-500',
     gradientFrom: 'from-primary-500',
     gradientTo: 'to-primary-600'
   },
   {
-    id: 'tahfidz',
-    title: 'Program Tahfidz',
+    id: 'tcp',
+    title: 'Program TCP',
     icon: 'book',
-    description: 'Program menghafal Al-Qur\'an dengan metode yang terbukti efektif, dibimbing oleh ustadz/ustadzah hafidz berpengalaman.',
+    description: 'Program Tahfidz khusus yang menguatkan kemampuan menghafal Al-Qur’an dan mendidik karakter Islami siswa.',
     features: [
-      'Target hafalan minimal 5 juz dalam 3 tahun',
-      'Metode Tilawati & Yanbu\'a yang terbukti efektif',
-      'Muroja\'ah rutin setiap hari',
-      'Wisuda tahfidz setiap tahun ajaran'
-    ],
-    borderColor: 'border-tertiary-500',
-    gradientFrom: 'from-tertiary-500',
-    gradientTo: 'to-tertiary-600'
-  },
-  {
-    id: 'leadership',
-    title: 'Leadership Development',
-    icon: 'briefcase',
-    description: 'Program pengembangan kepemimpinan melalui organisasi siswa, kepanitiaan, dan berbagai kegiatan yang melatih soft skills.',
-    features: [
-      'OSIS, PMR, Dewan Galang yang aktif dan terstruktur',
-      'Public Speaking Training rutin',
-      'Event Management Workshop',
-      'Student Leadership Conference tahunan'
-    ],
-    borderColor: 'border-primary-500',
-    gradientFrom: 'from-primary-500',
-    gradientTo: 'to-primary-600'
-  },
-  {
-    id: 'steam',
-    title: 'STEM Education',
-    icon: 'code',
-    description: 'Pembelajaran berbasis Science, Technology, Engineering, dan Mathematics untuk mengembangkan critical thinking dan problem solving.',
-    features: [
-      'Coding & Robotics Club',
-      'Kompetisi sains tingkat regional & nasional',
-      'Project-based learning yang aplikatif'
-    ],
-    borderColor: 'border-tertiary-500',
-    gradientFrom: 'from-tertiary-500',
-    gradientTo: 'to-tertiary-600'
-  },
-  {
-    id: 'extracurricular',
-    title: 'Ekstrakurikuler',
-    icon: 'zap',
-    description: 'Beragam pilihan ekstrakurikuler untuk mengembangkan bakat dan minat siswa di bidang olahraga, seni, dan akademik.',
-    features: [
-      'Olahraga: Futsal, Basket, Badminton, Silat',
-      'Media: Jurnalistik, Fotografi, Sinematografi',
-      'Seni: Qasidah, Hadroh, Rebana, Band',
-      'Akademik: English Club, Science Club, Math Club, Robotik, Coding', 
+      'Metode hafalan sistematis dan terstruktur',
+      'Murojaah rutin setiap hari',
+      'Pendampingan oleh pengajar tahfidz berpengalaman',
+      'Wisuda tahfidz dan evaluasi berkala'
     ],
     borderColor: 'border-secondary-400',
     gradientFrom: 'from-secondary-400',
@@ -108,7 +64,7 @@ const programs = [
               <!-- Icon with Popup Overlay -->
               <div class="relative w-14 h-14 mb-8">
                 <!-- Logo Popup for ICT/TCP (Centered on Icon) -->
-                { (program.id === 'ict' || program.id === 'tahfidz') && (
+                { (program.id === 'ict' || program.id === 'tcp') && (
                   <div class={`absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none z-20 popup-anim-${(index % 2) + 1}`}>
                     <div class="bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] border border-gray-100 dark:border-gray-800 flex items-center justify-center min-w-[120px] backdrop-blur-xl">
                       <img 
@@ -164,10 +120,10 @@ const programs = [
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
         {[
-          { title: "Student-Centered", desc: "Pembelajaran personal yang berpusat pada kebutuhan siswa.", icon: "target", color: "primary" },
-          { title: "Active Learning", desc: "Praktik langsung untuk membangun pemahaman mendalam.", icon: "zap", color: "secondary" },
-          { title: "Collaborative", desc: "Membangun soft skills melalui kerja sama tim yang solid.", icon: "users", color: "primary" },
-          { title: "Agile Assessment", desc: "Evaluasi adaptif untuk progres belajar yang terukur.", icon: "activity", color: "secondary" }
+          { title: "STEM Education", desc: "Pembelajaran terpadu sains, teknologi, engineering, dan matematika yang menumbuhkan kreativitas dan keterampilan abad 21.", icon: "cpu", color: "primary" },
+          { title: "Leadership Development", desc: "Penguatan kepemimpinan melalui praktik organisasi, kerja tim, dan manajemen proyek nyata.", icon: "briefcase", color: "secondary" },
+          { title: "Tahfidz", desc: "Pembiasaan hafalan Al-Qur'an dan penguatan karakter Islami sebagai dasar pembelajaran holistik.", icon: "book", color: "primary" },
+          { title: "Ekstrakurikuler", desc: "Aktivitas tambahan untuk mengembangkan bakat, minat, dan soft skill siswa di berbagai bidang.", icon: "zap", color: "secondary" }
         ].map((item) => (
           <div class="group p-8 bg-white dark:bg-gray-900 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
             <div class={`w-14 h-14 bg-${item.color}-50 dark:bg-${item.color}-900/20 rounded-2xl flex items-center justify-center text-${item.color}-600 dark:text-${item.color}-400 group-hover:bg-${item.color}-600 group-hover:text-white transition-all duration-500 mb-6`}>

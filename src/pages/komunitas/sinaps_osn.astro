@@ -10,14 +10,109 @@ import SinapsCta from "../../components/osn/SinapsCta.astro";
 ---
 
 <Layout title="SINAPS - Scientific & Intellectual Squad">
-    <main class="min-h-screen bg-[#001414] flex items-center justify-center p-6 overflow-hidden">
-        <!-- Subtle Organic Background -->
-        <div class="absolute inset-0 opacity-10 pointer-events-none">
-            <div class="absolute inset-0" style="background-image: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png');"></div>
+    <main class="min-h-screen bg-radial-gradient flex items-center justify-center p-6 overflow-hidden relative">
+        <!-- Futuristic Sci-Fi Grid and Telemetry HUD -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-30">
+            <!-- Radial tech grid -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] border border-teal-500/10 rounded-full flex items-center justify-center animate-spin" style="animation-duration: 40s;">
+                <div class="w-[850px] h-[850px] border border-dashed border-emerald-500/5 rounded-full"></div>
+                <div class="w-[600px] h-[600px] border border-teal-500/10 rounded-full flex items-center justify-center animate-spin" style="animation-duration: 20s; animation-direction: reverse;">
+                    <div class="w-[580px] h-[580px] border border-dashed border-teal-500/5 rounded-full"></div>
+                    <div class="w-[300px] h-[300px] border border-emerald-500/10 rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- Vertical & Horizontal HUD lines -->
+            <div class="absolute top-0 bottom-0 left-[10%] w-px bg-gradient-to-b from-transparent via-teal-500/10 to-transparent"></div>
+            <div class="absolute top-0 bottom-0 right-[10%] w-px bg-gradient-to-b from-transparent via-teal-500/10 to-transparent"></div>
+            <div class="absolute left-0 right-0 top-[15%] h-px bg-gradient-to-r from-transparent via-emerald-500/10 to-transparent"></div>
+            <div class="absolute left-0 right-0 bottom-[15%] h-px bg-gradient-to-r from-transparent via-teal-500/10 to-transparent"></div>
+
+            <!-- Sci-Fi Corner Brackets -->
+            <div class="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-teal-500/20"></div>
+            <div class="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-teal-500/20"></div>
+            <div class="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-teal-500/20"></div>
+            <div class="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-teal-500/20"></div>
+
+            <!-- Floating code/science bits -->
+            <div class="absolute top-24 left-[15%] font-mono text-[9px] text-teal-500/20 select-none">
+                SYS_INIT: SINAPS_V2.0<br>
+                STATUS: OPERATIONAL<br>
+                LOC: 7.2721° S, 110.8328° E
+            </div>
+            <div class="absolute bottom-24 right-[15%] font-mono text-[9px] text-emerald-500/20 select-none text-right">
+                ACADEMIC_LEVEL: OSN_PREP<br>
+                ALGORITHM: LOGIC_MODULE<br>
+                SECURE_HASH: 0x8FA4B2
+            </div>
         </div>
 
-        <div class="book-container relative shadow-[0_50px_100px_rgba(0,0,0,0.6)]">
+        <!-- Glowing Science Chalkboard Background -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <!-- Glow spotlights -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/5 rounded-full filter blur-[120px] animate-pulse" style="animation-duration: 8s;"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-emerald-500/5 rounded-full filter blur-[150px] animate-pulse" style="animation-duration: 12s; animation-delay: 2s;"></div>
+
+            <!-- Doodles: Atom -->
+            <div class="absolute top-12 left-12 w-32 h-32 text-teal-500/5 animate-float" style="animation-duration: 15s;">
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+                    <ellipse cx="50" cy="50" rx="40" ry="15" transform="rotate(30 50 50)" />
+                    <ellipse cx="50" cy="50" rx="40" ry="15" transform="rotate(90 50 50)" />
+                    <ellipse cx="50" cy="50" rx="40" ry="15" transform="rotate(150 50 50)" />
+                    <circle cx="50" cy="50" r="6" fill="currentColor" />
+                </svg>
+            </div>
+
+            <!-- Doodles: DNA -->
+            <div class="absolute bottom-16 left-16 w-24 h-48 text-emerald-500/5 animate-float" style="animation-duration: 20s; animation-delay: 1s;">
+                <svg viewBox="0 0 50 100" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M10 0 Q 40 25, 10 50 Q 40 75, 10 100" />
+                    <path d="M40 0 Q 10 25, 40 50 Q 10 75, 40 100" />
+                    <line x1="17" y1="12" x2="33" y2="12" />
+                    <line x1="25" y1="25" x2="25" y2="25" />
+                    <line x1="17" y1="38" x2="33" y2="38" />
+                    <line x1="17" y1="62" x2="33" y2="62" />
+                    <line x1="25" y1="75" x2="25" y2="75" />
+                    <line x1="17" y1="88" x2="33" y2="88" />
+                </svg>
+            </div>
+
+            <!-- Doodles: Math Graph -->
+            <div class="absolute top-16 right-16 w-40 h-40 text-teal-500/5 animate-float-slow">
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+                    <line x1="10" y1="50" x2="90" y2="50" stroke-dasharray="3 3" />
+                    <line x1="50" y1="10" x2="50" y2="90" stroke-dasharray="3 3" />
+                    <path d="M 10 50 Q 30 10, 50 50 T 90 50" />
+                    <text x="75" y="45" font-size="6" fill="currentColor">y = sin(x)</text>
+                </svg>
+            </div>
+
+            <!-- Doodles: Compass / Globe -->
+            <div class="absolute bottom-16 right-16 w-32 h-32 text-emerald-500/5 animate-float" style="animation-duration: 18s; animation-delay: 3s;">
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+                    <circle cx="50" cy="50" r="40" />
+                    <circle cx="50" cy="50" r="40" stroke-dasharray="4 4" />
+                    <path d="M10 50 H90 M50 10 V90" />
+                    <ellipse cx="50" cy="50" rx="40" ry="20" />
+                    <ellipse cx="50" cy="50" rx="20" ry="40" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="book-container relative shadow-[0_50px_100px_rgba(0,0,0,0.85),_0_0_120px_rgba(13,148,136,0.12)]">
             <div id="book" class="book relative transition-transform duration-1000 ease-in-out">
+                <!-- 3D Metal Ring Binder (Centered on Spine Axis) -->
+                <div id="binder-rings" class="absolute top-6 bottom-6 left-0 w-0 z-50 pointer-events-none opacity-0 transition-opacity duration-500 flex flex-col justify-around" style="transform: translateZ(10px);">
+                    <div class="ring-metal"></div>
+                    <div class="ring-metal"></div>
+                    <div class="ring-metal"></div>
+                    <div class="ring-metal"></div>
+                    <div class="ring-metal"></div>
+                    <div class="ring-metal"></div>
+                    <div class="ring-metal"></div>
+                    <div class="ring-metal"></div>
+                    <div class="ring-metal"></div>
+                </div>
                 
                 <SinapsCover id="p1" />
                 <SinapsIntro id="p2" />
@@ -48,6 +143,116 @@ import SinapsCta from "../../components/osn/SinapsCta.astro";
 
         .font-hand {
             font-family: 'Architects Daughter', cursive;
+        }
+
+        .bg-radial-gradient {
+            background: radial-gradient(circle at center, #002626 0%, #001414 60%, #000c0c 100%);
+        }
+
+        /* 3D Metal Ring Binder styles */
+        .ring-metal {
+            width: 38px;
+            height: 10px;
+            background: linear-gradient(180deg, #94a3b8 0%, #e2e8f0 30%, #ffffff 50%, #cbd5e1 75%, #475569 100%);
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.6);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            position: relative;
+            z-index: 10;
+        }
+
+        .ring-metal::before, .ring-metal::after {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 14px;
+            background: #111827;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.9);
+            z-index: -1;
+        }
+
+        .ring-metal::before {
+            left: -4px;
+        }
+
+        .ring-metal::after {
+            right: -4px;
+        }
+
+        /* Red Notebook Margin Line */
+        .page:not(#p1) .front::after, 
+        #p7 .front::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 45px;
+            width: 1px;
+            background-color: rgba(239, 68, 68, 0.25);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .page:not(#p7) .back::after, 
+        #p1 .back::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 45px;
+            width: 1px;
+            background-color: rgba(239, 68, 68, 0.25);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Inner creasing gradient shadow for open pages */
+        .page:not(#p1) .front::before,
+        #p7 .front::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            background: linear-gradient(to right, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.03) 50%, transparent 100%);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .page:not(#p7) .back::before,
+        #p1 .back::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 20px;
+            background: linear-gradient(to left, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.03) 50%, transparent 100%);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Background Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+            50% { transform: translateY(-18px) translateX(10px) rotate(-3deg); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-slow {
+            animation: float-slow 10s ease-in-out infinite;
         }
 
         .book-container {
@@ -164,9 +369,111 @@ import SinapsCta from "../../components/osn/SinapsCta.astro";
         let numOfPapers = 7;
         let maxLoc = numOfPapers + 1;
 
+        // Synthesize paper flip sound effect using Web Audio API
+        function playFlipSound() {
+            try {
+                const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+                if (!AudioContextClass) return;
+                const ctx = new AudioContextClass();
+                const bufferSize = ctx.sampleRate * 0.25; // 0.25 seconds duration
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                
+                // Populate with white noise
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
+                
+                const source = ctx.createBufferSource();
+                source.buffer = buffer;
+                
+                // Bandpass filter to model paper slide sound
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.setValueAtTime(1400, ctx.currentTime);
+                filter.frequency.exponentialRampToValueAtTime(500, ctx.currentTime + 0.25);
+                filter.Q.setValueAtTime(2.5, ctx.currentTime);
+                
+                // Volume envelope
+                const gain = ctx.createGain();
+                gain.gain.setValueAtTime(0.001, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.08, ctx.currentTime + 0.04);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+                
+                source.connect(filter);
+                filter.connect(gain);
+                gain.connect(ctx.destination);
+                
+                source.start();
+            } catch (err) {
+                console.warn('Audio Context failed to play:', err);
+            }
+        }
+
+        // Dynamically create floating background scientific particles
+        function createScienceParticles() {
+            const main = document.querySelector('main');
+            if (!main) return;
+            const container = document.createElement('div');
+            container.className = 'absolute inset-0 overflow-hidden pointer-events-none z-0';
+            for (let i = 0; i < 25; i++) {
+                const orb = document.createElement('div');
+                orb.className = 'absolute rounded-full bg-teal-400/10 blur-[2px] animate-float';
+                const size = Math.random() * 4 + 2;
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.left = `${Math.random() * 100}%`;
+                orb.style.top = `${Math.random() * 100}%`;
+                orb.style.animationDuration = `${6 + Math.random() * 8}s`;
+                orb.style.animationDelay = `${Math.random() * 4}s`;
+                container.appendChild(orb);
+            }
+            main.appendChild(container);
+        }
+
+        // 3D Parallax Tilt for book container
+        function init3DParallax() {
+            const container = document.querySelector('.book-container') as HTMLElement;
+            if (!container) return;
+
+            document.addEventListener('mousemove', (e) => {
+                const x = (window.innerWidth / 2 - e.clientX) / 30; // max rotation degrees
+                const y = (window.innerHeight / 2 - e.clientY) / 30;
+                
+                container.style.transform = `rotateY(${-x}deg) rotateX(${y}deg)`;
+            });
+
+            document.addEventListener('mouseleave', () => {
+                container.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            });
+        }
+
+        // Initialize background effects and 3D tilts
+        createScienceParticles();
+        init3DParallax();
+
+        function updateBinderRings() {
+            const rings = document.getElementById('binder-rings');
+            if (rings) {
+                if (currentLoc > 1 && currentLoc < maxLoc) {
+                    rings.classList.remove('opacity-0');
+                    rings.classList.add('opacity-100');
+                } else {
+                    rings.classList.remove('opacity-100');
+                    rings.classList.add('opacity-0');
+                }
+            }
+        }
+
+        // Run initially just in case page navigation left it open/closed
+        updateBinderRings();
+
         function flipPage(target: number) {
             const book = document.getElementById('book');
             if (!book) return;
+            
+            // Play physical flip sound
+            playFlipSound();
             
             if (target > 0) {
                 if (currentLoc < maxLoc) {
@@ -207,6 +514,7 @@ import SinapsCta from "../../components/osn/SinapsCta.astro";
                     
                     currentLoc = 1;
                     book.style.transform = `translateX(0)`;
+                    updateBinderRings();
                     return;
                 }
 
@@ -230,6 +538,7 @@ import SinapsCta from "../../components/osn/SinapsCta.astro";
                     }
                 }
             }
+            updateBinderRings();
         }
 
         (window as any).flipPage = flipPage;

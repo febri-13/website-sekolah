@@ -1,6 +1,8 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
 import CommunityHover from "../CommunityHover.astro";
+
+const currentYear = new Date().getFullYear();
 ---
 
 <header
@@ -49,7 +51,7 @@ import CommunityHover from "../CommunityHover.astro";
                     href="/kontak" 
                     class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2 rounded-xl text-sm font-bold transition-all hover:shadow-lg hover:shadow-primary-500/30 active:scale-95"
                 >
-                    PPDB 2024
+                    PPDB {currentYear}
                 </a>
             </div>
             

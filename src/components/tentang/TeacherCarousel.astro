@@ -46,7 +46,7 @@ try {
 
 // Fallback data
 const defaultTeachers: Teacher[] = [
-  { _id: "1", name: "Tri Wijayanti, M.Pd", position: "Kepala Sekolah", order: 1 },
+  { _id: "1", name: "Mr. Arif Hidayat, M.Pd.", position: "Kepala Sekolah", order: 1 },
   { _id: "2", name: "Muamar Fariq Salafy, S.Pd, Gr.", position: "Wakasek Kurikulum", subject: "ICT", order: 2 },
   { _id: "3", name: "Asnia Novitasari AM, M.E", position: "Wakasek Kesiswaan", subject: "PAI", order: 3 },
   { _id: "4", name: "Hari Rohmah, S.Pd", position: "Guru", subject: "Matematika", order: 4 },
@@ -100,9 +100,9 @@ const sortedTeachers = [...displayTeachers].sort((a, b) => {
 });
 
 // Get color scheme for variety
-type ColorScheme = 'primary' | 'secondary' | 'tertiary';
+type ColorScheme = 'primary' | 'secondary' | 'accent';
 const getColorScheme = (index: number): ColorScheme => {
-  const schemes: ColorScheme[] = ['primary', 'secondary', 'tertiary'];
+  const schemes: ColorScheme[] = ['primary', 'secondary', 'accent'];
   return schemes[index % 3];
 };
 ---

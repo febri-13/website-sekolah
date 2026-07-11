@@ -8,7 +8,7 @@ interface Props {
   subject?: string;
   photo?: string;
   description?: string;
-  colorScheme?: 'primary' | 'secondary' | 'tertiary';
+  colorScheme?: 'primary' | 'secondary' | 'accent';
 }
 
 const {
@@ -22,8 +22,8 @@ const {
 
 const colorClasses = {
   primary: 'from-primary-500 to-primary-600',
-  secondary: 'from-secondary-400 to-secondary-500',
-  tertiary: 'from-tertiary-500 to-tertiary-600'
+  secondary: 'from-secondary-500 to-secondary-600',
+  accent: 'from-accent-500 to-accent-600'
 };
 
 const gradientClass = colorClasses[colorScheme];

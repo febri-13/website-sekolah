@@ -22,16 +22,16 @@ const programs = [
     id: 'tcp',
     title: 'Program TCP',
     icon: 'book',
-    description: 'Program Tahfidz khusus yang menguatkan kemampuan menghafal Al-Qur’an dan mendidik karakter Islami siswa.',
+    description: 'Program Tahfidz khusus yang menguatkan kemampuan menghafal Al-Qur\'an dan mendidik karakter Islami siswa.',
     features: [
       'Metode hafalan sistematis dan terstruktur',
       'Murojaah rutin setiap hari',
       'Pendampingan oleh pengajar tahfidz berpengalaman',
       'Wisuda tahfidz dan evaluasi berkala'
     ],
-    borderColor: 'border-secondary-400',
-    gradientFrom: 'from-secondary-400',
-    gradientTo: 'to-secondary-500'
+    borderColor: 'border-secondary-500',
+    gradientFrom: 'from-secondary-500',
+    gradientTo: 'to-secondary-600'
   }
 ];
 ---
@@ -63,7 +63,6 @@ const programs = [
               
               <!-- Icon with Popup Overlay -->
               <div class="relative w-14 h-14 mb-8">
-                <!-- Logo Popup for ICT/TCP (Centered on Icon) -->
                 { (program.id === 'ict' || program.id === 'tcp') && (
                   <div class={`absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none z-20 popup-anim-${(index % 2) + 1}`}>
                     <div class="bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] border border-gray-100 dark:border-gray-800 flex items-center justify-center min-w-[120px] backdrop-blur-xl">
@@ -169,5 +168,3 @@ const programs = [
     animation: popup-center-2 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   }
 </style>
-
-

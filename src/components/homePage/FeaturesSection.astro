@@ -20,12 +20,10 @@ interface Feature {
   isActive?: boolean;
 }
 
-// Fetch features dari Sanity
 const features = await sanityClient.fetch<Feature[]>(
   `*[_type == "features" && isActive == true] | order(order asc) [0...6]`
 );
 
-// Fallback kalau belum ada data di Sanity
 const defaultFeatures: Feature[] = [
   {
     order: 1,
@@ -41,9 +39,9 @@ const defaultFeatures: Feature[] = [
     title: 'Pendidikan Islam',
     description: 'Pemahaman agama yang kuat dengan tahfidz Al-Qur\'an dan akhlak mulia',
     icon: 'home',
-    borderColor: 'border-tertiary-500',
-    gradientFrom: 'from-tertiary-500',
-    gradientTo: 'to-tertiary-600',
+    borderColor: 'border-accent-500',
+    gradientFrom: 'from-accent-500',
+    gradientTo: 'to-accent-600',
   },
   {
     order: 3,
@@ -68,9 +66,9 @@ const defaultFeatures: Feature[] = [
     title: 'Ekstrakurikuler',
     description: 'Beragam kegiatan untuk mengembangkan bakat dan minat siswa',
     icon: 'zap',
-    borderColor: 'border-tertiary-500',
-    gradientFrom: 'from-tertiary-500',
-    gradientTo: 'to-tertiary-600',
+    borderColor: 'border-accent-500',
+    gradientFrom: 'from-accent-500',
+    gradientTo: 'to-accent-600',
   },
   {
     order: 6,
@@ -86,42 +84,47 @@ const defaultFeatures: Feature[] = [
 const displayFeatures = features.length > 0 ? features : defaultFeatures;
 ---
 
-<section id="tentang" class="py-24 relative overflow-hidden">
+<section id="tentang" class="py-28 relative overflow-hidden">
   <!-- Decorative elements -->
-  <div class="absolute top-1/4 -right-20 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl -z-10"></div>
-  <div class="absolute bottom-1/4 -left-20 w-96 h-96 bg-tertiary-500/5 rounded-full blur-3xl -z-10"></div>
+  <div class="absolute top-1/4 -right-20 w-96 h-96 bg-primary-500/[0.03] rounded-full blur-3xl -z-10"></div>
+  <div class="absolute bottom-1/4 -left-20 w-96 h-96 bg-secondary-500/[0.03] rounded-full blur-3xl -z-10"></div>
 
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-20 reveal">
+    <div class="text-center mb-20 reveal reveal-up">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 text-xs font-bold uppercase tracking-[0.2em] mb-6 border border-primary-200/50 dark:border-primary-800/30">
+        Keunggulan Kami
+      </div>
       <h2 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">
-        Keunggulan <span class="text-primary-600 dark:text-primary-400">SMP ABBS Surakarta</span>
+        Kenapa <span class="text-gradient">ABBS?</span>
       </h2>
       <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
         Fasilitas dan program unggulan yang dirancang untuk membekali siswa dengan kompetensi masa depan.
       </p>
-      <div class="w-12 h-1.5 bg-primary-600 rounded-full mx-auto mt-8"></div>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 rounded-full mx-auto mt-8"></div>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
       {displayFeatures.map((feature, index) => (
-        <div 
-          class={`group relative reveal ${
-            index % 4 === 0 ? 'reveal-left' : 
-            index % 4 === 1 ? 'reveal-right' : 
-            index % 4 === 2 ? 'reveal-scale' : 
-            'reveal-rotate'
-          }`}
-          style={`transition-delay: ${index * 150}ms`}
+        <div
+          class={`group relative reveal ${index % 3 === 0 ? 'reveal-left' : index % 3 === 1 ? 'reveal-up' : 'reveal-right'}`}
+          style={`transition-delay: ${index * 120}ms`}
         >
-          <div class={`absolute inset-0 bg-gradient-to-br ${feature.gradientFrom} ${feature.gradientTo} opacity-0 group-hover:opacity-5 blur-2xl transition-opacity duration-500 rounded-3xl`}></div>
-          <div class={`relative h-full bg-white dark:bg-gray-900/40 backdrop-blur-sm rounded-3xl p-10 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2`}>
-            <div class={`w-14 h-14 bg-gradient-to-br ${feature.gradientFrom} ${feature.gradientTo} rounded-2xl flex items-center justify-center text-white mb-8 shadow-lg shadow-primary-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500`}>
+          <div class={`absolute inset-0 bg-gradient-to-br ${feature.gradientFrom} ${feature.gradientTo} opacity-0 group-hover:opacity-[0.07] blur-2xl transition-opacity duration-700 rounded-3xl`}></div>
+
+          <div class="relative h-full bg-white dark:bg-gray-900/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl hover:shadow-primary-500/5 transition-all duration-500 group-hover:-translate-y-2 overflow-hidden">
+            <!-- Top gradient accent line -->
+            <div class={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${feature.gradientFrom} ${feature.gradientTo} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
+
+            <!-- Icon -->
+            <div class={`w-14 h-14 bg-gradient-to-br ${feature.gradientFrom} ${feature.gradientTo} rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500`}>
               <i data-feather={feature.icon} class="w-7 h-7"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+
+            <!-- Content -->
+            <h3 class="text-xl font-black text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300 tracking-tight">
               {feature.title}
             </h3>
-            <p class="text-gray-500 dark:text-gray-400 leading-relaxed font-light">
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed font-light text-sm">
               {feature.description}
             </p>
           </div>
@@ -129,4 +132,4 @@ const displayFeatures = features.length > 0 ? features : defaultFeatures;
       ))}
     </div>
   </div>
-</section>
+</section>

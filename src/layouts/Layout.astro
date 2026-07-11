@@ -33,10 +33,10 @@ const { title = "SMP ABBS Surakarta" } = Astro.props;
         <FooterSection />
 
         <script>
-            // Intersection Observer for scroll animations
+            // Premium scroll reveal observer - handles all reveal classes
             const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px 100px 0px'
+                threshold: 0.08,
+                rootMargin: '0px 0px -60px 0px'
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -47,32 +47,46 @@ const { title = "SMP ABBS Surakarta" } = Astro.props;
                 });
             }, observerOptions);
 
-            document.addEventListener('DOMContentLoaded', () => {
-                const reveals = document.querySelectorAll('.reveal');
+            const observeAll = () => {
+                const reveals = document.querySelectorAll(
+                    '.reveal, .reveal-up, .reveal-fade, .reveal-scale-up, .reveal-left, .reveal-right'
+                );
                 reveals.forEach(el => observer.observe(el));
-            });
+            };
 
-            // Re-observe when content changes (useful for Astro)
-            document.addEventListener('astro:page-load', () => {
-                const reveals = document.querySelectorAll('.reveal');
-                reveals.forEach(el => observer.observe(el));
-            });
+            document.addEventListener('DOMContentLoaded', observeAll);
+            document.addEventListener('astro:page-load', observeAll);
         </script>
 
         <script>
             import feather from "feather-icons";
-            
+
             const replaceIcons = () => {
                 if (feather && feather.replace) {
                     feather.replace();
                 }
             };
 
-            // Run on initial load
             replaceIcons();
-
-            // Re-run when content changes (useful for Astro)
             document.addEventListener('astro:page-load', replaceIcons);
+        </script>
+
+        <script>
+            // Magnetic button effect
+            document.addEventListener('DOMContentLoaded', () => {
+                const magnetics = document.querySelectorAll('.magnetic');
+                magnetics.forEach((el) => {
+                    el.addEventListener('mousemove', (e) => {
+                        const rect = (el as HTMLElement).getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+                        (el as HTMLElement).style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        (el as HTMLElement).style.transform = 'translate(0, 0)';
+                    });
+                });
+            });
         </script>
     </body>
 </html>

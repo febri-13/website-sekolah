@@ -79,5 +79,4 @@ export interface TinkersProject {
 
 export interface Tinkers extends SanityDocument {
   _type: 'tinkers'
-  topProjects?: TinkersProject[]
 }

@@ -2,12 +2,12 @@
 import { sanityClient } from "../../lib/sanity";
 
 interface Stat {
-  _id?: string;  // ← Tambah optional
+  _id?: string;
   order: number;
   value: string;
   label: string;
   icon?: string;
-  isActive?: boolean;  // ← Tambah optional
+  isActive?: boolean;
 }
 
 const stats = await sanityClient.fetch<Stat[]>(
@@ -15,8 +15,8 @@ const stats = await sanityClient.fetch<Stat[]>(
 );
 
 const defaultStats: Stat[] = [
-  { order: 1, value: '500+', label: 'Siswa Aktif', icon: 'user' },
-  { order: 2, value: '50+', label: 'Guru Berpengalaman', icon: 'users' },
+  { order: 1, value: '500+', label: 'Siswa Aktif', icon: 'users' },
+  { order: 2, value: '50+', label: 'Guru Berpengalaman', icon: 'award' },
   { order: 3, value: '20+', label: 'Prestasi', icon: 'star' },
   { order: 4, value: '15', label: 'Tahun Berdiri', icon: 'calendar' },
 ];
@@ -25,27 +25,34 @@ const displayStats = stats.length > 0 ? stats : defaultStats;
 ---
 
 <section class="py-24 relative overflow-hidden">
-  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent"></div>
-  
+  <!-- Top gradient line -->
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-300/30 dark:via-primary-700/30 to-transparent"></div>
+  <!-- Background blobs -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-500/[0.03] rounded-full blur-[100px] -z-10"></div>
+
   <div class="max-w-7xl mx-auto px-6">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
       {displayStats.map((stat, index) => (
-        <div class={`relative group reveal ${
-          index % 3 === 0 ? 'reveal-left' : 
-          index % 3 === 1 ? 'reveal-right' : 
-          'reveal-scale'
-        }`} style={`transition-delay: ${index * 100}ms`}>
-          <div class="absolute inset-0 bg-primary-500/5 blur-2xl rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div class="relative bg-white dark:bg-gray-900/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
+        <div
+          class={`stat-card group relative reveal ${index % 2 === 0 ? 'reveal-left' : 'reveal-right'}`}
+          style={`transition-delay: ${index * 120}ms`}
+        >
+          <!-- Hover glow -->
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 blur-2xl rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+          <div class="relative bg-white dark:bg-gray-900/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-500 hover:-translate-y-1 overflow-hidden">
+            <!-- Animated gradient top accent -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full"></div>
+
             {stat.icon && (
-              <div class="mb-6 w-12 h-12 rounded-2xl bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 group-hover:scale-110 transition-transform duration-500">
+              <div class="mb-6 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-50 to-primary-100/50 dark:from-primary-900/30 dark:to-primary-900/10 flex items-center justify-center text-primary-600 dark:text-primary-400 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 border border-primary-200/30 dark:border-primary-800/30">
                 <i data-feather={stat.icon} class="w-6 h-6" />
               </div>
             )}
-            <div class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-2">
+            <div class="stat-value text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-2" data-target={stat.value}>
               {stat.value}
             </div>
-            <div class="text-gray-500 dark:text-gray-400 font-medium tracking-wide text-sm uppercase">
+            <div class="text-gray-500 dark:text-gray-400 font-medium tracking-wide text-xs uppercase">
               {stat.label}
             </div>
           </div>
@@ -53,4 +60,4 @@ const displayStats = stats.length > 0 ? stats : defaultStats;
       ))}
     </div>
   </div>
-</section>
+</section>

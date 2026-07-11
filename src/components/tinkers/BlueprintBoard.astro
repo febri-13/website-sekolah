@@ -1,67 +1,7 @@
 ---
 import BoardHeader from './BoardHeader.astro';
 import OverviewTab from './OverviewTab.astro';
-import ProjectsTab from './ProjectsTab.astro';
-import HierarchyModule from './HierarchyModule.astro';
-import DivisionModal from './modals/DivisionModal.astro';
 import LevelModal from './modals/LevelModal.astro';
-import { sanityClient } from '../../lib/sanity';
-import type { Tinkers } from '../../types/sanity';
-
-// Fetch Tinkers data (only topProjects) from Sanity
-const tinkersData = await sanityClient.fetch<Tinkers>(`*[_type == "tinkers"][0]{
-    topProjects
-}`);
-
-const organization = {
-  chairperson: {
-    name: "Daffa (8A)",
-    role: "Chairperson",
-    image: "/the_tinkers/chairperson.png",
-    level: "LEVEL_01",
-    desc: "The Chairperson is responsible for overseeing all organizational activities, coordinating between divisions to ensure synergy, and making strategic decisions to achieve the team's goals, the Chairperson acts as the main representative for the organization in both internal and external affairs.",
-    koord_name: "Mr Febri",
-    koord_img: "/the_tinkers/koord_iot.png"
-  },
-  sekben: {
-    name: "Natha (8A)",
-    role: "Sekretaris & Bendahara",
-    image: "/the_tinkers/sekben.png",
-    desc: "Secretary and Treasurer (SekBen) division handles basic administration and financial management. The Secretary keeps records, documents activities, and manages correspondence, while the Treasurer tracks income and expenses and maintains simple financial reports to support the team’s operations.",
-    koord_name: "Mr Febri",
-    koord_img: "/the_tinkers/koord_iot.png"
-  },
-  kabids: [
-    {
-      name: "Jabbar (8A)",
-      role: "HEAD // GAME DEVELOPMENT",
-      image: "/the_tinkers/game_dev.png",
-      koord_name: "Mr Musfiq",
-      koord_img: "/the_tinkers/koord_game.png",
-      slogan: "Turning Curiosity into Playable Worlds.",
-      desc: "In Game Dev Division We push the boundaries of interaction by transforming raw curiosity into engaging gameplay. We build immersive environments and mechanics that allow users to explore and interact with your ideas."
-    },
-    {
-      name: "Xavier (8B)",
-      role: "HEAD // IOT INNOVATION",
-      image: "/the_tinkers/iot.png",
-      koord_name: "Mr Febri",
-      koord_img: "/the_tinkers/koord_iot.png",
-      slogan: "Bringing Creativity to Life.",
-      desc: "In IoT Innovation Division We bridge the gap between imagination and the physical world. By leveraging smart sensors and automation, we transform complex ideas into tangible, innovative hardware solutions."
-    },
-    {
-      name: "Ammar (8A)",
-      role: "HEAD // WEBSITE CREATIVE",
-      image: "/the_tinkers/web_dev.png",
-      koord_name: "Mr Ifan",
-      koord_img: "/the_tinkers/koord_web.png",
-      slogan: "Digitizing Your Vision.",
-      desc: "In Website Creative We bridge the gap between imagination and the physical world. By leveraging smart sensors and automation, we transform complex ideas into tangible, innovative hardware solutions.",
-      added_style: "transform: scale(1.4);"
-    }
-  ]
-};
 ---
 
 <div
@@ -101,17 +41,11 @@ const organization = {
         />
 
         <div id="overview-content" class="tab-content transition-all duration-500">
-            <OverviewTab organization={organization} />
-            <HierarchyModule organization={organization} />
-        </div>
-
-        <div id="projects-content" class="tab-content hidden opacity-0 transition-all duration-500 translate-y-4">
-            <ProjectsTab projects={tinkersData?.topProjects} />
+            <OverviewTab />
         </div>
     </div>
 
     <!-- Modals -->
-    <DivisionModal />
     <LevelModal />
 
     <!-- Floating HUD Decorations -->
@@ -133,43 +67,13 @@ const organization = {
 
     // Tab Switching Logic
     const tabOverview = document.getElementById("tab-overview");
-    const tabProjects = document.getElementById("tab-projects");
     const overviewContent = document.getElementById("overview-content");
-    const projectsContent = document.getElementById("projects-content");
 
-    const switchTab = (activeTab: HTMLElement, inactiveTab: HTMLElement, showContent: HTMLElement, hideContent: HTMLElement, tabId: string) => {
-        activeTab.classList.add("active");
-        activeTab.classList.remove("opacity-50", "border-[#00f2ff]/30");
-        activeTab.classList.add("border-[#00f2ff]");
-        
-        inactiveTab.classList.remove("active");
-        inactiveTab.classList.add("opacity-50", "border-[#00f2ff]/30");
-        inactiveTab.classList.remove("border-[#00f2ff]");
-
-        hideContent.classList.add("opacity-0", "translate-y-4");
-        
-        // Update URL
-        history.pushState(null, '', `?${tabId}`);
-
-        setTimeout(() => {
-            hideContent.classList.add("hidden");
-            showContent.classList.remove("hidden");
-            requestAnimationFrame(() => {
-                showContent.classList.remove("opacity-0", "translate-y-4");
-            });
-        }, 300);
-    };
-
-    if (tabOverview && tabProjects && overviewContent && projectsContent) {
-        tabOverview.addEventListener("click", () => switchTab(tabOverview, tabProjects, overviewContent, projectsContent, '0'));
-        tabProjects.addEventListener("click", () => switchTab(tabProjects, tabOverview, projectsContent, overviewContent, '1'));
-        
-        // Handle URL tab parameter
+    if (tabOverview && overviewContent) {
+        // Handle URL tab parameter (overview only now)
         const search = window.location.search;
         if (search === '?1') {
-            switchTab(tabProjects, tabOverview, projectsContent, overviewContent, '1');
-        } else if (search === '?0') {
-            switchTab(tabOverview, tabProjects, overviewContent, projectsContent, '0');
+            history.replaceState(null, '', '?0');
         }
     }
 
@@ -221,197 +125,9 @@ const organization = {
                 setTimeout(() => levelModal.classList.add("hidden"), 300);
             });
         }
-
-        // Division Modal
-        const divModal = document.getElementById("div-modal");
-        const divCloseBtn = document.getElementById("close-div-modal");
-        const divCards = document.querySelectorAll(".div-card");
-
-        const divModalImg = document.getElementById("div-modal-img") as HTMLImageElement;
-        const divModalName = document.getElementById("div-modal-name");
-        const divModalSlogan = document.getElementById("div-modal-slogan");
-        const divModalDesc = document.getElementById("div-modal-desc");
-        const divModalCoord = document.getElementById("div-modal-coord");
-        const divModalCoordLabel = document.getElementById("div-modal-coord-label");
-        const divModalAssignedBox = document.getElementById("div-modal-assigned-box");
-        const divModalFooterGrid = document.getElementById("div-modal-footer-grid");
-        const divModalCoordImg = document.getElementById("div-modal-coord-img") as HTMLImageElement;
-        const divModalLead = document.getElementById("div-modal-lead");
-        const divModalLeadLabel = document.getElementById("div-modal-lead-label");
-        const divModalTagLead = document.getElementById("div-modal-tag-lead");
-        const divModalLabel = document.getElementById("div-modal-label");
-
-        const decryptEffect = (el: HTMLElement, finalResult: string) => {
-            const chars = "0123456789ABCDEF!@#$%^&*()_+";
-            let iteration = 0;
-            const interval = setInterval(() => {
-                el.innerText = finalResult
-                    .split("")
-                    .map((char, index) => {
-                        if (index < iteration) return finalResult[index];
-                        return chars[Math.floor(Math.random() * chars.length)];
-                    })
-                    .join("");
-                if (iteration >= finalResult.length) clearInterval(interval);
-                iteration += 1 / 3;
-            }, 30);
-        };
-
-        divCards.forEach((card) => {
-            card.addEventListener("click", (e) => {
-                if (card.classList.contains('is-classified')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    card.classList.add('decrypting');
-                    const overlayText = card.querySelector('.classified-overlay div');
-                    if (overlayText) overlayText.textContent = "DECRYPTING...";
-                    
-                    const hexCells = card.querySelectorAll('.hex-cell');
-                    const hexInterval = setInterval(() => {
-                        hexCells.forEach((cell: any) => {
-                            cell.innerText = Math.floor(Math.random() * 256).toString(16).toUpperCase().padStart(2, '0');
-                        });
-                    }, 50);
-
-                    setTimeout(() => {
-                        clearInterval(hexInterval);
-                        card.classList.remove('is-classified', 'decrypting');
-                        card.classList.add('is-revealed');
-                        const info = card.parentElement?.querySelector('.reveal-info');
-                        if (info) {
-                            info.querySelector('.info-placeholder')?.classList.add('opacity-0', 'pointer-events-none');
-                            info.querySelector('.info-real')?.classList.remove('opacity-0');
-                            info.querySelectorAll('.decrypt-text').forEach((textEl: any) => {
-                                decryptEffect(textEl, textEl.dataset.text || "");
-                            });
-                        }
-                    }, 1000);
-                    return;
-                }
-
-                divCards.forEach(c => c.classList.remove('active-modal-trigger'));
-                card.classList.add('active-modal-trigger');
-
-                const data = (card as HTMLElement).dataset;
-                if (divModalName) divModalName.textContent = data.name || "";
-                if (divModalSlogan) divModalSlogan.textContent = `"${data.slogan || ""}"`;
-                if (divModalDesc) divModalDesc.textContent = data.desc || "";
-                if (divModalCoord) divModalCoord.textContent = data.coord || "";
-                if (divModalCoordLabel) divModalCoordLabel.textContent = data.coordLabel || "Assigned Coordinator";
-                if (divModalLabel) divModalLabel.textContent = data.rankLabel || "SQUAD_LEADER_IDENTIFIED";
-                if (divModalCoordImg) divModalCoordImg.src = data.coordImg || "/logo.png";
-                
-                if (divModalLead && divModalLeadLabel) {
-                    if (data.hideAssigned === "true") {
-                        divModalLead.textContent = data.name || "";
-                        divModalLeadLabel.textContent = "Coordinator";
-                    } else {
-                        divModalLead.textContent = data.lead || "";
-                        divModalLeadLabel.textContent = "Squad Leader";
-                    }
-                }
-                if (divModalTagLead) divModalTagLead.textContent = data.lead || "";
-                if (divModalImg) divModalImg.src = data.img || "";
-
-                if (divModalAssignedBox) {
-                    if (data.hideAssigned === "true") {
-                        divModalAssignedBox.classList.add("hidden");
-                        divModalFooterGrid?.classList.replace("sm:grid-cols-2", "sm:grid-cols-1");
-                    } else {
-                        divModalAssignedBox.classList.remove("hidden");
-                        divModalFooterGrid?.classList.replace("sm:grid-cols-1", "sm:grid-cols-2");
-                    }
-                }
-
-                if (divModal) {
-                    divModal.classList.remove("hidden");
-                    toggleHeader(false);
-                    requestAnimationFrame(() => divModal.classList.remove("opacity-0"));
-                }
-            });
-        });
-
-        if (divCloseBtn && divModal) {
-            divCloseBtn.addEventListener("click", () => {
-                divModal.classList.add("opacity-0");
-                toggleHeader(true);
-                setTimeout(() => divModal.classList.add("hidden"), 300);
-            });
-        }
-    };
-
-    // Hierarchy Terminal Logic
-    const setupHierarchy = () => {
-        const btnInitiate = document.getElementById("btn-initiate-access");
-        const terminalAccess = document.getElementById("terminal-access");
-        const terminalCommand = document.getElementById("terminal-command");
-        const terminalOutput = document.getElementById("terminal-output");
-        const hierarchyContent = document.getElementById("hierarchy-real-content");
-        const hierarchyCollapsed = document.getElementById("hierarchy-collapsed");
-        const hierarchyContainer = document.getElementById("hierarchy-container");
-
-        if (btnInitiate && terminalAccess && terminalCommand && terminalOutput && hierarchyContent && hierarchyCollapsed && hierarchyContainer) {
-            btnInitiate.addEventListener("click", () => {
-                hierarchyCollapsed.classList.add("hidden");
-                hierarchyContainer.classList.replace("min-h-[100px]", "min-h-[400px]");
-                terminalAccess.classList.remove("opacity-0", "pointer-events-none");
-
-                const command = "abbs-cli access --community=\"The Tinkers\"";
-                let cmdIdx = 0;
-                const typeCommand = setInterval(() => {
-                    terminalCommand.textContent += command[cmdIdx];
-                    cmdIdx++;
-                    if (cmdIdx >= command.length) {
-                        clearInterval(typeCommand);
-                        startLogSequence();
-                    }
-                }, 50);
-
-                const startLogSequence = () => {
-                    const logs = [
-                        { t: "[SYSTEM] Initializing handshake...", d: 500 },
-                        { t: "[OK] Encryption keys received.", d: 300 },
-                        { t: "[SYSTEM] Bypassing firewall...", d: 700 },
-                        { t: "[OK] Root access established.", d: 400 },
-                        { t: "[SYSTEM] Decrypting organization.json...", d: 800 },
-                        { t: "[WARN] Integrity check bypass successful.", d: 300 },
-                        { t: "[OK] Visualizing structure...", d: 400 },
-                        { t: ">> ACCESS GRANTED <<", d: 1000, color: "text-green-400 font-black" }
-                    ];
-                    let logIdx = 0;
-                    const addLog = () => {
-                        if (logIdx >= logs.length) {
-                            setTimeout(revealHierarchy, 500);
-                            return;
-                        }
-                        const log = logs[logIdx];
-                        const div = document.createElement("div");
-                        div.className = `opacity-0 transition-opacity duration-300 ${log.color || ""}`;
-                        div.textContent = log.t;
-                        terminalOutput.appendChild(div);
-                        terminalOutput.scrollTop = terminalOutput.scrollHeight;
-                        requestAnimationFrame(() => div.classList.remove("opacity-0"));
-                        logIdx++;
-                        setTimeout(addLog, log.d);
-                    };
-                    setTimeout(addLog, 500);
-                };
-
-                const revealHierarchy = () => {
-                    terminalAccess.classList.add("opacity-0", "scale-110", "pointer-events-none");
-                    hierarchyContent.classList.remove("hidden");
-                    requestAnimationFrame(() => {
-                        hierarchyContent.classList.remove("opacity-0", "pointer-events-none", "scale-95", "blur-md");
-                        hierarchyContainer.style.minHeight = "auto";
-                    });
-                    setTimeout(() => terminalAccess.classList.add("hidden"), 700);
-                };
-            });
-        }
     };
 
     setupModals();
-    setupHierarchy();
 </script>
 
 <style>

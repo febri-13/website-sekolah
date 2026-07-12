@@ -11,4 +11,9 @@ export default defineConfig({
       configFile: './tailwind.config.cjs',
     }),
   ],
+  server: {
+    allowedHosts: [
+      'minute-consultancy-filing-validation.trycloudflare.com'
+    ]
+  }
 });

@@ -46,15 +46,29 @@ const icons: Record<string, string> = {
   akademik: 'book', prestasi: 'star', kegiatan: 'globe', pengumuman: 'megaphone'
 };
 
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function sanitizeUrl(url: string): string {
+  const trimmed = url.trim();
+  if (/^javascript:/i.test(trimmed)) return '';
+  if (/^data:/i.test(trimmed)) return '';
+  if (/^vbscript:/i.test(trimmed)) return '';
+  return trimmed;
+}
+
 function renderContent(content: any[]): string {
   if (!content) return '';
   return content.map((block: any) => {
     if (block._type === 'block') {
-      // Handle text dengan marks (bold, italic, etc)
       const children = block.children?.map((child: any) => {
-        let text = child.text || '';
-        
-        // Handle marks (bold, italic, underline, etc)
+        let text = escapeHtml(child.text || '');
         if (child.marks && child.marks.length > 0) {
           child.marks.forEach((mark: string) => {
             if (mark === 'strong') text = `<strong>${text}</strong>`;
@@ -63,30 +77,25 @@ function renderContent(content: any[]): string {
             if (mark === 'code') text = `<code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm">${text}</code>`;
           });
         }
-        
         return text;
       }).join('') || '';
-      
-      // Handle different block styles
+
       if (block.style === 'h1') return `<h1 class="text-3xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">${children}</h1>`;
       if (block.style === 'h2') return `<h2 class="text-2xl font-bold mb-3 mt-6 text-gray-900 dark:text-white">${children}</h2>`;
       if (block.style === 'h3') return `<h3 class="text-xl font-bold mb-2 mt-4 text-gray-900 dark:text-white">${children}</h3>`;
       if (block.style === 'blockquote') return `<blockquote class="border-l-4 border-primary-500 pl-4 italic my-6 text-gray-600 dark:text-gray-400">${children}</blockquote>`;
-      
-      // Handle lists
       if (block.listItem === 'bullet') return `<li class="ml-6 mb-2 text-gray-700 dark:text-gray-300">${children}</li>`;
       if (block.listItem === 'number') return `<li class="ml-6 mb-2 text-gray-700 dark:text-gray-300">${children}</li>`;
-      
-      // Default paragraph - PENTING: mb-6 untuk spacing antar paragraph!
       return `<p class="mb-6 text-gray-700 dark:text-gray-300 leading-relaxed text-justify">${children}</p>`;
     }
-    
+
     if (block._type === 'image' && block.asset) {
       const img = urlFor(block).width(800).url();
-      const caption = block.caption ? `<figcaption class="text-sm text-center text-gray-600 dark:text-gray-400 mt-2 italic">${block.caption}</figcaption>` : '';
-      return `<figure class="my-8"><img src="${img}" alt="${block.alt || ''}" class="rounded-lg w-full shadow-lg" />${caption}</figure>`;
+      const alt = escapeHtml(block.alt || '');
+      const caption = block.caption ? `<figcaption class="text-sm text-center text-gray-600 dark:text-gray-400 mt-2 italic">${escapeHtml(block.caption)}</figcaption>` : '';
+      return `<figure class="my-8"><img src="${img}" alt="${alt}" class="rounded-lg w-full shadow-lg" />${caption}</figure>`;
     }
-    
+
     return '';
   }).join('');
 }

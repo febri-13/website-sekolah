@@ -30,13 +30,6 @@ const communities: Community[] = [
     color: "from-emerald-400 to-emerald-600",
   },
   {
-    name: "The Tinkers",
-    id: "tinkers",
-    logo: "/communities/the_tinkers.png",
-    link: "/komunitas/the_tinkers",
-    color: "from-sky-400 to-sky-600",
-  },
-  {
     name: "SINAPS",
     id: "sinaps",
     logo: "/communities/sinaps.png",
@@ -78,7 +71,7 @@ const communities: Community[] = [
                 <img
                   src={community.logo}
                   alt={community.name}
-                  class={`w-full h-full object-contain group-hover/item:scale-110 transition-transform duration-500 ${community.id === 'tinkers' ? 'dark:invert' : ''}`}
+                  class={`w-full h-full object-contain group-hover/item:scale-110 transition-transform duration-500`}
                 />
               </div>
             </div>
@@ -139,6 +132,5 @@ const communities: Community[] = [
   .community-logo:nth-child(2) { --index: 1; }
   .community-logo:nth-child(3) { --index: 2; }
   .community-logo:nth-child(4) { --index: 3; }
-  .community-logo:nth-child(5) { --index: 4; }
 </style>
 

@@ -65,18 +65,3 @@ export interface Program extends SanityDocument{
   durasi?: string
   targetPeserta?: string
 }
-
-export interface TinkersProject {
-  projectName: string
-  studentName: string
-  class: string
-  description?: string
-  docLink?: string
-  status?: 'Completed' | 'In Development' | 'Beta Testing'
-  tags?: string[]
-  type: 'kurikulum' | 'personal'
-}
-
-export interface Tinkers extends SanityDocument {
-  _type: 'tinkers'
-}

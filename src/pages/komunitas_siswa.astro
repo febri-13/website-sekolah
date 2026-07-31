@@ -31,16 +31,6 @@ const communities = [
     features: ["Kepramukaan", "Survival Skills", "Character Building"]
   },
   {
-    name: "The Tinkers",
-    id: "tinkers",
-    logo: "/communities/the_tinkers.png",
-    description: "Komunitas teknologi dan inovasi. Tempat berkumpulnya para inovator muda di bidang IT dan robotik.",
-    link: "/komunitas/the_tinkers",
-    color: "from-sky-400 to-sky-600",
-    features: ["Coding", "Robotics", "Innovation Lab"],
-    invert: true
-  },
-  {
     name: "SINAPS",
     id: "sinaps",
     logo: "/communities/sinaps.png",
@@ -86,7 +76,7 @@ const communities = [
                                     <img 
                                         src={community.logo} 
                                         alt={community.name}
-                                        class={`w-full h-full object-contain ${community.invert ? 'dark:invert' : ''}`}
+                                        class={`w-full h-full object-contain`}
                                     />
                                 </div>
                             </div>

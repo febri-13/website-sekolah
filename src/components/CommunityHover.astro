@@ -5,6 +5,7 @@ interface Community {
   logo: string;
   link: string;
   color: string;
+  invert?: boolean;
 }
 
 const communities: Community[] = [
@@ -35,6 +36,7 @@ const communities: Community[] = [
     logo: "/communities/the_tinkers.png",
     link: "/komunitas/the_tinkers",
     color: "from-sky-400 to-sky-600",
+    invert: true
   },
   {
     name: "SINAPS",
@@ -46,45 +48,35 @@ const communities: Community[] = [
 ];
 ---
 
-<div class="community-container group relative">
+<div class="group relative">
   <a
     href="/komunitas_siswa"
-    class="px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-all relative flex items-center gap-2 group/btn"
+    class="px-4 py-2 text-sm font-semibold text-slate-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors flex items-center gap-1"
   >
     Komunitas
-    <i data-feather="chevron-down" class="w-4 h-4 group-hover:rotate-180 transition-transform duration-300"></i>
-    <span class="absolute bottom-1 left-4 right-8 h-0.5 bg-primary-500 scale-x-0 group-hover/btn:scale-x-100 transition-transform origin-left duration-300"></span>
+    <i data-feather="chevron-down" class="w-3.5 h-3.5"></i>
   </a>
 
-  <!-- Logos Container -->
-  <div
-    class="absolute left-1/2 -translate-x-1/2 top-full pt-4 container-outer z-[60] min-w-[400px]"
-  >
-    <!-- Logos Grid -->
-    <div
-      class="grid grid-cols-2 gap-4 p-6 bg-white/80 dark:bg-gray-950/80 rounded-[3rem] shadow-[0_30px_70px_rgba(0,0,0,0.2)] border border-white/40 dark:border-white/5 backdrop-blur-2xl container-wrapper"
-    >
+  <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60] min-w-[380px]">
+    <div class="grid grid-cols-2 gap-3 p-5 bg-white dark:bg-gray-950 rounded-2xl shadow-lg border border-slate-200/80 dark:border-gray-800">
       {
-        communities.map((community, index) => (
+        communities.map((community) => (
           <a
             href={community.link}
-            class={`community-logo opacity-0 transform flex items-center gap-4 p-4 rounded-[2rem] hover:bg-white/50 dark:hover:bg-white/5 transition-all duration-300 group/item`}
-            style={`--index: ${index};`}
+            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-gray-900 transition-colors group/item"
           >
-            <div
-              class={`w-16 h-16 shrink-0 rounded-2xl overflow-hidden shadow-xl transition-all duration-500 bg-gradient-to-br ${community.color} p-0.5 group-hover/item:scale-110 group-hover/item:rotate-3`}
-            >
-              <div class="w-full h-full bg-white dark:bg-gray-950 rounded-[calc(1rem-2px)] flex items-center justify-center p-2.5">
+            <div class="w-12 h-12 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br p-0.5">
+              <div class="w-full h-full bg-white dark:bg-gray-950 rounded-[calc(0.75rem-2px)] flex items-center justify-center p-2">
                 <img
                   src={community.logo}
                   alt={community.name}
-                  class={`w-full h-full object-contain group-hover/item:scale-110 transition-transform duration-500 ${community.id === 'tinkers' ? 'dark:invert' : ''}`}
+                  class={`w-full h-full object-contain ${community.invert ? 'dark:invert' : ''}`}
                 />
               </div>
             </div>
-            <div class="flex flex-col">
-                <p class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">Member</p>
-                <p class="text-sm font-black text-gray-900 dark:text-white group-hover/item:text-primary-600 dark:group-hover/item:text-primary-400 transition-colors tracking-tight">
+            <div>
+                <p class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Komunitas</p>
+                <p class="text-sm font-bold text-slate-900 dark:text-white group-hover/item:text-primary-600 dark:group-hover/item:text-primary-400 transition-colors">
                 {community.name}
                 </p>
             </div>
@@ -94,51 +86,4 @@ const communities: Community[] = [
     </div>
   </div>
 </div>
-
-
-<style>
-  .community-container {
-    position: relative;
-    display: inline-block;
-  }
-
-  /* Hide container by default */
-  .container-outer {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .community-container:hover .container-outer {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  /* Smooth stagger animation for logos */
-  @keyframes revealItem {
-    from {
-      opacity: 0;
-      transform: translateY(20px) scale(0.9);
-      filter: blur(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
-    }
-  }
-
-  .community-container:hover .community-logo {
-    animation: revealItem 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    animation-delay: calc(var(--index, 0) * 80ms);
-  }
-
-  .community-logo:nth-child(1) { --index: 0; }
-  .community-logo:nth-child(2) { --index: 1; }
-  .community-logo:nth-child(3) { --index: 2; }
-  .community-logo:nth-child(4) { --index: 3; }
-  .community-logo:nth-child(5) { --index: 4; }
-</style>
 

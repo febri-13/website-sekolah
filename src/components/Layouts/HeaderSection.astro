@@ -11,8 +11,7 @@ const currentYear = new Date().getFullYear();
 >
     <div
         id="header-bg"
-        class="px-[44px] flex items-center border-b border-transparent w-full transition-all duration-500"
-        style="height: 90px;"
+        class="px-6 lg:px-10 py-2.5 flex items-center border-b border-transparent w-full transition-all duration-500"
     >
         <div class="w-full flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -20,8 +19,8 @@ const currentYear = new Date().getFullYear();
                     <img
                         src="/abbs_logos/logo.png"
                         alt="SMP ABBS Surakarta Logo"
-                        class="w-44 h-12 object-contain group-hover:scale-105 transition-all duration-300 filter drop-shadow-sm"
-                        height="48"
+                        class="w-36 h-9 object-contain group-hover:scale-105 transition-all duration-300 filter drop-shadow-sm"
+                        height="36"
                         width="176"
                     />
                 </a>
@@ -38,13 +37,12 @@ const currentYear = new Date().getFullYear();
                 ].map((link) => (
                     <a
                         href={link.href}
-                        class="nav-link px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-all relative group"
+                        class="px-4 py-2 text-sm font-semibold text-slate-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                     >
                         {link.name}
-                        <span class="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 rounded-full"></span>
                     </a>
                 ))}
-                <div class="mx-2 h-6 w-px bg-gray-300/50 dark:bg-gray-700/50"></div>
+                <div class="mx-2 h-6 w-px bg-slate-300/50 dark:bg-gray-700/50"></div>
                 <CommunityHover />
             </nav>
 
@@ -53,16 +51,15 @@ const currentYear = new Date().getFullYear();
                     <ThemeToggle />
                     <a
                         href="/kontak"
-                        class="group relative bg-secondary-500 hover:bg-secondary-600 text-white px-5 py-2 rounded-xl text-sm font-bold transition-all duration-300 hover:shadow-lg hover:shadow-secondary-500/30 active:scale-95 overflow-hidden"
+                        class="group relative bg-secondary-500 hover:bg-secondary-600 text-white px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 hover:shadow-md hover:shadow-secondary-500/30 active:scale-95 overflow-hidden"
                     >
-                        <span class="relative z-10">PPDB {currentYear}</span>
-                        <div class="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        PPDB {currentYear}
                     </a>
                 </div>
 
                 <button
                     id="menu-toggle"
-                    class="lg:hidden p-2.5 rounded-xl bg-gray-100/50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-200 transition-colors hover:bg-gray-200/50 dark:hover:bg-gray-700/50"
+                    class="lg:hidden p-2.5 rounded-xl bg-slate-100/50 dark:bg-gray-800/50 text-slate-700 dark:text-gray-200 transition-colors hover:bg-slate-200/50 dark:hover:bg-gray-700/50"
                     aria-label="Toggle Menu"
                 >
                     <i data-feather="menu" class="w-5 h-5"></i>
@@ -74,7 +71,7 @@ const currentYear = new Date().getFullYear();
     <!-- Mobile Menu Drawer -->
     <div
         id="mobile-menu"
-        class="fixed inset-0 top-0 left-0 w-full h-screen bg-white/95 dark:bg-gray-950/95 backdrop-blur-2xl z-[-1] opacity-0 pointer-events-none transition-all duration-500 flex flex-col items-center justify-center gap-8 lg:hidden"
+        class="fixed inset-0 top-0 left-0 w-full h-screen bg-white dark:bg-gray-950 z-[-1] opacity-0 pointer-events-none transition-all duration-300 flex flex-col items-center justify-center gap-6 lg:hidden"
     >
         {[
             { name: 'Beranda', href: '/' },
@@ -87,18 +84,17 @@ const currentYear = new Date().getFullYear();
         ].map((link, i) => (
             <a
                 href={link.href}
-                class="text-2xl font-bold text-gray-800 dark:text-white hover:text-primary-500 transition-all duration-300 hover:translate-x-2"
+                class="text-2xl font-bold text-slate-800 dark:text-white hover:text-primary-500 transition-all duration-300 hover:translate-x-2"
                 style={`transition-delay: ${i * 50}ms`}
             >
                 {link.name}
             </a>
         ))}
-        <div class="h-px w-24 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent"></div>
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-4">
             <ThemeToggle />
             <a
                 href="/kontak"
-                class="bg-gradient-to-r from-secondary-500 to-primary-600 text-white px-8 py-3 rounded-2xl font-bold shadow-xl shadow-secondary-500/20 hover:scale-105 transition-transform"
+                class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors"
             >
                 Daftar Sekarang
             </a>
@@ -106,7 +102,7 @@ const currentYear = new Date().getFullYear();
     </div>
 </header>
 
-<div style="height: 90px;"></div>
+<div style="height: 60px;"></div>
 
 <script>
     // Glassmorphism header on scroll

@@ -1,44 +1,20 @@
----
-// Premium Identity Section with tilt cards, gradient borders, and glowing accents
----
-
-<section class="py-28 relative overflow-hidden bg-cream-50 dark:bg-[#0a0a0a]">
-    <!-- Background decorative -->
-    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-500/[0.03] rounded-full blur-[120px] -z-10"></div>
-    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary-500/[0.03] rounded-full blur-[100px] -z-10"></div>
-
+<section class="py-12 md:py-20 bg-white dark:bg-gray-950">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="grid lg:grid-cols-3 gap-8 items-stretch">
-            <!-- Motto Card - Premium teal gradient -->
-            <div class="lg:col-span-1 group reveal reveal-left">
-                <div class="relative h-full">
-                    <!-- Animated gradient border -->
-                    <div class="absolute -inset-0.5 bg-gradient-to-br from-primary-400 via-accent-400 to-secondary-500 rounded-[2.5rem] opacity-40 group-hover:opacity-70 transition-opacity duration-700 blur-sm"></div>
-                    <div class="absolute -inset-0.5 bg-gradient-to-br from-primary-400 via-accent-400 to-secondary-500 rounded-[2.5rem] animate-gradient-shift opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background-size: 200% 200%;"></div>
-
-                    <div class="relative h-full bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-700 rounded-[2.5rem] p-10 text-white flex flex-col justify-between overflow-hidden z-10">
-                        <!-- Decorative elements inside -->
-                        <div class="absolute top-0 right-0 opacity-[0.07] group-hover:scale-110 transition-transform duration-700">
-                            <svg class="w-40 h-40" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.5">
-                                <circle cx="50" cy="50" r="45" />
-                                <circle cx="50" cy="50" r="30" />
-                                <circle cx="50" cy="50" r="15" />
-                            </svg>
-                        </div>
-                        <div class="absolute bottom-0 left-0 w-32 h-32 bg-accent-400/10 rounded-full blur-2xl"></div>
-
-                        <div class="relative">
-                            <h3 class="text-white/50 text-[10px] font-black uppercase tracking-[0.4em] mb-6">Our Motto</h3>
-                            <p class="text-3xl md:text-4xl font-black leading-[1.1] tracking-tight">
-                                Inspiring <br/>
-                                <span class="text-primary-200">Excellence,</span> <br/>
-                                Empowering <br/>
-                                <span class="text-accent-300">Future Leaders.</span>
-                            </p>
-                        </div>
-                        <div class="relative mt-12">
-                            <div class="w-16 h-1 bg-white/20 rounded-full"></div>
-                        </div>
+        <div class="grid lg:grid-cols-3 gap-6 items-stretch">
+            <!-- Motto Card -->
+            <div class="lg:col-span-1">
+                <div class="h-full bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-700 rounded-2xl p-8 text-white flex flex-col justify-between shadow-md">
+                    <div>
+                        <p class="font-hand text-accent-200 text-base rotate-[-2deg] mb-4">motto kami</p>
+                        <p class="font-serif text-3xl md:text-4xl font-medium italic leading-[1.2] tracking-tight">
+                            Inspiring Excellence,<br/>
+                            Empowering<br/>
+                            Future Leaders.
+                        </p>
+                    </div>
+                    <div class="mt-8 flex items-center gap-3">
+                        <div class="w-10 h-0.5 bg-white/20 rounded-full"></div>
+                        <span class="text-xs text-white/40">smp abbs surakarta</span>
                     </div>
                 </div>
             </div>
@@ -46,36 +22,39 @@
             <!-- Vision/Values Grid -->
             <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
                 <!-- Visi -->
-                <div class="bg-white dark:bg-gray-900 rounded-[2.5rem] p-8 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-500 group reveal reveal-right" style="transition-delay: 100ms;">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-900/10 flex items-center justify-center text-primary-600 dark:text-primary-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 border border-primary-200/30 dark:border-primary-800/30">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                <div class="relative bg-white dark:bg-gray-900 rounded-2xl p-6 border border-slate-200/80 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <span class="absolute top-4 right-5 font-serif italic text-2xl text-slate-600 dark:text-slate-400">01</span>
+                    <div class="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 mb-4">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
                     </div>
-                    <h4 class="text-xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Visi Kami</h4>
-                    <p class="text-gray-500 dark:text-gray-400 font-light leading-relaxed text-sm">
+                    <h4 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-2">Visi Kami</h4>
+                    <p class="text-slate-600 dark:text-gray-400 leading-relaxed text-sm">
                         Menjadi lembaga pendidikan Islam terdepan yang menghasilkan generasi muslim yang berilmu, berakhlak mulia, dan berwawasan global.
                     </p>
                 </div>
 
                 <!-- Core Values -->
-                <div class="bg-white dark:bg-gray-900 rounded-[2.5rem] p-8 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:shadow-secondary-500/5 transition-all duration-500 group reveal reveal-right" style="transition-delay: 200ms;">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary-50 to-secondary-100 dark:from-secondary-900/30 dark:to-secondary-900/10 flex items-center justify-center text-secondary-600 dark:text-secondary-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 border border-secondary-200/30 dark:border-secondary-800/30">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <div class="relative bg-white dark:bg-gray-900 rounded-2xl p-6 border border-slate-200/80 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <span class="absolute top-4 right-5 font-serif italic text-2xl text-slate-600 dark:text-slate-400">02</span>
+                    <div class="w-12 h-12 rounded-xl bg-secondary-50 dark:from-secondary-900/30 flex items-center justify-center text-secondary-600 dark:text-secondary-400 mb-4">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                     </div>
-                    <h4 class="text-xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Core Values</h4>
-                    <p class="text-gray-500 dark:text-gray-400 font-light leading-relaxed text-sm">
+                    <h4 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-2">Core Values</h4>
+                    <p class="text-slate-600 dark:text-gray-400 leading-relaxed text-sm">
                         Integritas, Keunggulan, Karakter Islami, dan Semangat Inovasi dalam setiap aspek pendidikan.
                     </p>
                 </div>
 
-                <!-- Akreditasi - Full width -->
-                <div class="md:col-span-2 bg-white dark:bg-gray-900 rounded-[2.5rem] p-8 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:shadow-accent-500/5 transition-all duration-500 group reveal reveal-scale" style="transition-delay: 300ms;">
-                    <div class="flex flex-col md:flex-row md:items-center gap-6">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-400 to-accent-500 flex items-center justify-center text-white shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-lg shadow-accent-500/20">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                <!-- Akreditasi -->
+                <div class="relative md:col-span-2 bg-white dark:bg-gray-900 rounded-2xl p-6 border border-slate-200/80 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <span class="absolute top-4 right-5 font-serif italic text-2xl text-slate-600 dark:text-slate-400">03</span>
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-accent-500 flex items-center justify-center text-white shrink-0">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
                         </div>
                         <div>
-                            <h4 class="text-xl font-black text-gray-900 dark:text-white mb-2 tracking-tight">Akreditasi A</h4>
-                            <p class="text-gray-500 dark:text-gray-400 font-light leading-relaxed text-sm">
+                            <h4 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-1">Akreditasi A</h4>
+                            <p class="text-slate-600 dark:text-gray-400 leading-relaxed text-sm">
                                 SMP ABBS Surakarta telah terakreditasi "A" (Sangat Baik) oleh BAN-S/M, menjamin standar kualitas pendidikan yang mumpuni.
                             </p>
                         </div>

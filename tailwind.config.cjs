@@ -70,6 +70,8 @@ module.exports = {
             fontFamily: {
                 header: ['Outfit', 'sans-serif'],
                 body: ['Inter', 'sans-serif'],
+                serif: ['Fraunces', 'Georgia', 'serif'],
+                hand: ['Caveat', 'cursive'],
             },
         },
     },

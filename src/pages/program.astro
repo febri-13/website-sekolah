@@ -37,134 +37,84 @@ const programs = [
 ---
 
 <Layout title="Program - SMP ABBS Surakarta">
-  <!-- Hero Header -->
-  <section class="pt-32 pb-20 relative overflow-hidden text-center">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[120%] bg-primary-500/5 blur-[120px] rounded-full"></div>
-    </div>
-    <div class="max-w-7xl mx-auto px-6 reveal">
-      <h1 class="text-5xl md:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight">
-        Program <span class="text-primary-600 dark:text-primary-400">Unggulan</span>
+  <section class="pt-32 pb-20 text-center">
+    <div class="max-w-7xl mx-auto px-6">
+      <span class="font-hand text-xl text-accent-600 dark:text-accent-400 rotate-[-2deg] block mb-4">dua program andalan kami</span>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
+        Program <span class="font-serif font-normal italic text-primary-600 dark:text-primary-400">Unggulan</span>
       </h1>
-      <p class="text-xl md:text-2xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
+      <p class="text-lg md:text-xl text-slate-600 dark:text-gray-400 max-w-3xl mx-auto">
         Dirancang khusus untuk membangun kompetensi global dan karakter Islami yang kokoh.
       </p>
     </div>
   </section>
 
-  <!-- Programs Grid Section -->
-  <section class="py-24 relative">
+  <section class="py-12 md:py-20">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 reveal">
-        {programs.map((program, index) => (
-          <div class="group relative">
-            <div class={`absolute inset-0 bg-gradient-to-br ${program.gradientFrom} ${program.gradientTo} opacity-0 group-hover:opacity-5 blur-2xl transition-opacity duration-500 rounded-3xl`}></div>
-            <div class="relative h-full bg-white dark:bg-gray-900/40 backdrop-blur-sm rounded-[2.5rem] p-10 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
-              
-              <!-- Icon with Popup Overlay -->
-              <div class="relative w-14 h-14 mb-8">
-                { (program.id === 'ict' || program.id === 'tcp') && (
-                  <div class={`absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none z-20 popup-anim-${(index % 2) + 1}`}>
-                    <div class="bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] border border-gray-100 dark:border-gray-800 flex items-center justify-center min-w-[120px] backdrop-blur-xl">
-                      <img 
-                        src={program.id === 'ict' ? "/abbs_logos/ict.png" : "/abbs_logos/tcp.png"} 
-                        alt={`${program.id} Logo`} 
-                        class="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                <div class={`w-full h-full bg-gradient-to-br ${program.gradientFrom} ${program.gradientTo} rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500`}>
-                  <i data-feather={program.icon} class="w-7 h-7"></i>
-                </div>
-              </div>
-
-              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                {program.title}
-              </h3>
-              <p class="text-gray-500 dark:text-gray-400 mb-8 leading-relaxed font-light text-sm">
-                {program.description}
-              </p>
-              <ul class="space-y-4">
-                {program.features.map((feature) => (
-                  <li class="flex items-start gap-3">
-                    <div class="mt-1 w-4 h-4 rounded-full bg-gray-50 dark:bg-gray-800 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-500 transition-colors">
-                      <i data-feather="check" class="w-2.5 h-2.5 text-primary-600 dark:text-primary-400 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <span class="text-xs text-gray-500 dark:text-gray-400 font-medium">
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {programs.map((program, i) => (
+          <div class="relative bg-white dark:bg-gray-900 rounded-xl p-8 border border-slate-200/80 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <span class="absolute top-6 right-7 font-serif italic text-4xl text-slate-600 dark:text-slate-400">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white mb-5">
+              <i data-feather={program.icon} class="w-5 h-5"></i>
             </div>
+
+            <h3 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">{program.title}</h3>
+            <p class="text-slate-600 dark:text-gray-400 mb-6 leading-relaxed text-sm">{program.description}</p>
+            <ul class="space-y-3">
+              {program.features.map((feature) => (
+                <li class="flex items-start gap-2">
+                  <div class="mt-0.5 w-3.5 h-3.5 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center shrink-0">
+                    <i data-feather="check" class="w-2 h-2 text-primary-600 dark:text-primary-400"></i>
+                  </div>
+                  <span class="text-xs text-slate-600 dark:text-gray-400">{feature}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Learning Approach Section -->
-  <section class="py-24 bg-gray-50/50 dark:bg-white/5 relative overflow-hidden">
+  <section class="py-12 md:py-20 bg-[#f8fafc] dark:bg-white/[0.03]">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-20 reveal">
-        <h2 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">
-          Metode <span class="text-primary-600 dark:text-primary-400">Pembelajaran</span>
+      <div class="text-center mb-12">
+        <span class="font-hand text-xl text-accent-600 dark:text-accent-400 rotate-[-2deg] block mb-3">begini cara kami mengajar</span>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
+          Metode <span class="font-serif font-normal italic text-primary-600 dark:text-primary-400">Pembelajaran</span>
         </h2>
-        <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-light">
+        <p class="text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">
           Pendekatan inovatif yang memastikan setiap siswa mencapai potensi terbaiknya.
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {[
-          { title: "STEM Education", desc: "Pembelajaran terpadu sains, teknologi, engineering, dan matematika yang menumbuhkan kreativitas dan keterampilan abad 21.", icon: "cpu", color: "primary" },
-          { title: "Leadership Development", desc: "Penguatan kepemimpinan melalui praktik organisasi, kerja tim, dan manajemen proyek nyata.", icon: "briefcase", color: "secondary" },
-          { title: "Tahfidz", desc: "Pembiasaan hafalan Al-Qur'an dan penguatan karakter Islami sebagai dasar pembelajaran holistik.", icon: "book", color: "primary" },
-          { title: "Ekstrakurikuler", desc: "Aktivitas tambahan untuk mengembangkan bakat, minat, dan soft skill siswa di berbagai bidang.", icon: "zap", color: "secondary" }
+          { title: "STEM Education", desc: "Pembelajaran terpadu sains, teknologi, engineering, dan matematika yang menumbuhkan kreativitas dan keterampilan abad 21.", icon: "cpu" },
+          { title: "Leadership Development", desc: "Penguatan kepemimpinan melalui praktik organisasi, kerja tim, dan manajemen proyek nyata.", icon: "briefcase" },
+          { title: "Tahfidz", desc: "Pembiasaan hafalan Al-Qur'an dan penguatan karakter Islami sebagai dasar pembelajaran holistik.", icon: "book" },
+          { title: "Ekstrakurikuler", desc: "Aktivitas tambahan untuk mengembangkan bakat, minat, dan soft skill siswa di berbagai bidang.", icon: "zap" }
         ].map((item) => (
-          <div class="group p-8 bg-white dark:bg-gray-900 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-            <div class={`w-14 h-14 bg-${item.color}-50 dark:bg-${item.color}-900/20 rounded-2xl flex items-center justify-center text-${item.color}-600 dark:text-${item.color}-400 group-hover:bg-${item.color}-600 group-hover:text-white transition-all duration-500 mb-6`}>
-              <i data-feather={item.icon} class="w-6 h-6"></i>
+          <div class="p-6 bg-white dark:bg-gray-900 rounded-xl border border-slate-200/80 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div class="w-12 h-12 bg-slate-50 dark:bg-gray-800 rounded-xl flex items-center justify-center text-slate-500 mb-4">
+              <i data-feather={item.icon} class="w-5 h-5"></i>
             </div>
-            <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3 tracking-tight">{item.title}</h4>
-            <p class="text-gray-500 dark:text-gray-400 font-light text-sm leading-relaxed">{item.desc}</p>
+            <h4 class="text-lg font-semibold tracking-tight text-slate-900 dark:text-white mb-2">{item.title}</h4>
+            <p class="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
   <CTASection 
     id="kontak-cta"
     title="Tertarik dengan Program Kami?"
     description="Daftarkan putra-putri Anda sekarang dan berikan pendidikan terbaik untuk masa depan mereka"
-    primaryButton={{ text: 'Hubungi Kami', href: '/kontak', icon: 'phone' }}
-    secondaryButton={{ text: 'Pelajari Lebih Lanjut', href: '/program', icon: 'book' }}
+    primaryButton={{ text: 'Hubungi Kami', href: '/kontak' }}
+    secondaryButton={{ text: 'Pelajari Lebih Lanjut', href: '/program' }}
   />
 </Layout>
-
-<style>
-  /* Centered Popup Animations */
-  @keyframes popup-center-1 {
-    0% { opacity: 0; transform: scale(0.2) rotate(-20deg); filter: blur(10px); }
-    70% { transform: scale(1.1) rotate(10deg); }
-    100% { opacity: 1; transform: scale(1) rotate(5deg); filter: blur(0); }
-  }
-
-  @keyframes popup-center-2 {
-    0% { opacity: 0; transform: scale(0.2) rotate(20deg); filter: blur(10px); }
-    70% { transform: scale(1.1) rotate(-10deg); }
-    100% { opacity: 1; transform: scale(1) rotate(-5deg); filter: blur(0); }
-  }
-
-  .group:hover .popup-anim-1 {
-    animation: popup-center-1 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  }
-
-  .group:hover .popup-anim-2 {
-    animation: popup-center-2 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  }
-</style>

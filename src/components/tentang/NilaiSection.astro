@@ -70,25 +70,25 @@ const {
 } = Astro.props;
 ---
 
-<section class="py-16 bg-white dark:bg-gray-800">
+<section class="py-12 md:py-20 bg-white dark:bg-gray-950">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
         {title}
       </h2>
-      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+      <p class="text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">
         {subtitle}
       </p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6">
       {values.map((nilai) => (
-        <div class={`bg-gradient-to-br ${nilai.colorFrom} ${nilai.colorTo} dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-2 ${nilai.borderColor} hover:shadow-xl transition-all transform hover:-translate-y-1`}>
+        <div class={`bg-gradient-to-br ${nilai.colorFrom} ${nilai.colorTo} dark:from-gray-900 dark:to-gray-800 rounded-xl p-6 border ${nilai.borderColor} shadow-sm hover:shadow-md transition-shadow duration-300`}>
           <div class="text-4xl mb-4"><i data-feather={nilai.icon} class="inline-block w-8 h-8" /></div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+          <h3 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
             {nilai.title}
           </h3>
-          <p class="text-gray-600 dark:text-gray-400">
+          <p class="text-slate-600 dark:text-gray-400">
             {nilai.description}
           </p>
         </div>

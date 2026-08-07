@@ -5,205 +5,86 @@ import CTASection from "../components/cta/CTASection.astro";
 ---
 
 <Layout title="Kontak - SMP ABBS Surakarta">
-    <!-- Hero Header -->
-    <section
-        class="pt-40 pb-24 relative overflow-hidden text-center bg-cream-50 dark:bg-gray-950"
-    >
-        <div
-            class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-50"
-        >
-            <div
-                class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary-500/10 blur-[120px] rounded-full animate-pulse"
-            >
-            </div>
-            <div
-                class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-secondary-500/5 blur-[100px] rounded-full animate-pulse"
-                style="animation-delay: 2s;"
-            >
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 reveal">
-            <span
-                class="inline-block px-4 py-1 mb-6 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-bold tracking-widest uppercase"
-            >
-                Let's Connect
-            </span>
-            <h1
-                class="text-6xl md:text-[9rem] font-[900] text-gray-900 dark:text-white mb-8 tracking-tighter leading-[0.8]"
-            >
-                Get in <span
-                    class="text-transparent bg-clip-text bg-gradient-to-br from-primary-600 to-primary-400"
-                    >Touch.</span
-                >
-            </h1>
-            <p
-                class="text-xl md:text-2xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-light leading-relaxed"
-            >
-                Punya pertanyaan tentang pendaftaran atau program kami? Kami di
-                sini untuk membantu Anda menemukan solusi terbaik.
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Info Cards -->
-    <section class="py-24 relative">
+    <section class="pt-40 pb-24 text-center bg-[#f8fafc] dark:bg-gray-950">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-10 reveal">
-                <!-- Alamat - Teal -->
-                <div class="group relative">
-                    <div
-                        class="absolute inset-0 bg-primary-500/5 blur-2xl rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity"
-                    >
+            <span class="inline-block px-3 py-1 mb-5 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-xs font-semibold tracking-wider uppercase">
+                Hubungi Kami
+            </span>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
+                Kami Siap <span class="font-serif font-normal italic text-primary-600 dark:text-primary-400">Membantu.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Punya pertanyaan tentang pendaftaran atau program kami? Kami di sini untuk membantu Anda menemukan solusi terbaik.
+            </p>
+            <span class="font-hand text-xl text-accent-600 dark:text-accent-400 rotate-[-2deg] block mt-6">jangan sungkan bertanya ya!</span>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-5">
+                <div class="relative bg-white dark:bg-gray-900 rounded-xl p-6 border border-slate-200/80 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <span class="absolute top-4 right-5 font-serif italic text-2xl text-primary-200 dark:text-primary-900">01</span>
+                    <div class="w-12 h-12 bg-primary-50 dark:bg-primary-900/20 rounded-xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-4">
+                        <i data-feather="map-pin" class="w-5 h-5"></i>
                     </div>
-                    <div
-                        class="relative h-full bg-white dark:bg-gray-900/40 backdrop-blur-sm rounded-[2.5rem] p-10 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2"
-                    >
-                        <div
-                            class="w-14 h-14 bg-primary-50 dark:bg-primary-900/20 rounded-2xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-8 group-hover:scale-110 transition-transform duration-500"
-                        >
-                            <i data-feather="map-pin" class="w-7 h-7"></i>
-                        </div>
-                        <h3
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                        >
-                            Alamat
-                        </h3>
-                        <p
-                            class="text-gray-500 dark:text-gray-400 leading-relaxed font-light mb-6"
-                        >
-                            Jl. Tarumanegara III, Banyuanyar, Kec. Banjarsari,
-                            Kota Surakarta, Jawa Tengah 57137
-                        </p>
-                        <a
-                            href="https://maps.app.goo.gl/nhtZbKCV35aSe5dXA"
-                            target="_blank"
-                            class="text-sm font-bold text-primary-600 dark:text-primary-400 flex items-center gap-2 group/link"
-                        >
-                            Petunjuk Arah <i
-                                data-feather="arrow-right"
-                                class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
-                            ></i>
-                        </a>
-                    </div>
+                    <h3 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-2">Alamat</h3>
+                    <p class="text-slate-600 dark:text-gray-400 leading-relaxed mb-4 text-sm">
+                        Jl. Tarumanegara III, Banyuanyar, Kec. Banjarsari, Kota Surakarta, Jawa Tengah 57137
+                    </p>
+                    <a href="https://maps.app.goo.gl/nhtZbKCV35aSe5dXA" target="_blank" class="text-sm font-semibold text-primary-600 dark:text-primary-400 flex items-center gap-1">
+                        Petunjuk Arah &rarr;
+                    </a>
                 </div>
 
-                <!-- Telepon - Navy -->
-                <div class="group relative">
-                    <div
-                        class="absolute inset-0 bg-secondary-500/5 blur-2xl rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity"
-                    >
+                <div class="relative bg-white dark:bg-gray-900 rounded-xl p-6 border border-slate-200/80 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <span class="absolute top-4 right-5 font-serif italic text-2xl text-secondary-200 dark:text-secondary-900">02</span>
+                    <div class="w-12 h-12 bg-secondary-50 dark:bg-secondary-900/20 rounded-xl flex items-center justify-center text-secondary-600 dark:text-secondary-400 mb-4">
+                        <i data-feather="phone" class="w-5 h-5"></i>
                     </div>
-                    <div
-                        class="relative h-full bg-white dark:bg-gray-900/40 backdrop-blur-sm rounded-[2.5rem] p-10 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2"
-                    >
-                        <div
-                            class="w-14 h-14 bg-secondary-50 dark:bg-secondary-900/20 rounded-2xl flex items-center justify-center text-secondary-600 dark:text-secondary-400 mb-8 group-hover:scale-110 transition-transform duration-500"
-                        >
-                            <i data-feather="phone" class="w-7 h-7"></i>
-                        </div>
-                        <h3
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                        >
-                            Telepon
-                        </h3>
-                        <p
-                            class="text-gray-500 dark:text-gray-400 leading-relaxed font-light mb-6"
-                        >
-                            Layanan informasi dan pendaftaran melalui WhatsApp
-                            Center Ms Nourma.
-                        </p>
-                        <a
-                            href="https://wa.me/6282242719492"
-                            target="_blank"
-                            class="text-sm font-bold text-secondary-600 dark:text-secondary-400 flex items-center gap-2 group/link"
-                        >
-                            Chat WhatsApp <i
-                                data-feather="message-circle"
-                                class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
-                            ></i>
-                        </a>
-                    </div>
+                    <h3 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-2">Telepon</h3>
+                    <p class="text-slate-600 dark:text-gray-400 leading-relaxed mb-4 text-sm">
+                        Layanan informasi dan pendaftaran melalui WhatsApp Center Ms Nourma.
+                    </p>
+                    <a href="https://wa.me/6282242719492" target="_blank" class="text-sm font-semibold text-secondary-600 dark:text-secondary-400 flex items-center gap-1">
+                        Chat WhatsApp &rarr;
+                    </a>
                 </div>
 
-                <!-- Email - Teal -->
-                <div class="group relative">
-                    <div
-                        class="absolute inset-0 bg-primary-500/5 blur-2xl rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity"
-                    >
+                <div class="relative bg-white dark:bg-gray-900 rounded-xl p-6 border border-slate-200/80 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <span class="absolute top-4 right-5 font-serif italic text-2xl text-accent-400 dark:text-accent-700">03</span>
+                    <div class="w-12 h-12 bg-primary-50 dark:bg-primary-900/20 rounded-xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-4">
+                        <i data-feather="mail" class="w-5 h-5"></i>
                     </div>
-                    <div
-                        class="relative h-full bg-white dark:bg-gray-900/40 backdrop-blur-sm rounded-[2.5rem] p-10 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2"
-                    >
-                        <div
-                            class="w-14 h-14 bg-primary-50 dark:bg-primary-900/20 rounded-2xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-8 group-hover:scale-110 transition-transform duration-500"
-                        >
-                            <i data-feather="mail" class="w-7 h-7"></i>
-                        </div>
-                        <h3
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                        >
-                            Email
-                        </h3>
-                        <p
-                            class="text-gray-500 dark:text-gray-400 leading-relaxed font-light mb-6"
-                        >
-                            Kirimkan pertanyaan atau dokumen resmi melalui
-                            alamat email institusi kami.
-                        </p>
-                        <a
-                            href="mailto:smpabbs@alabidin.sch.id"
-                            class="text-sm font-bold text-primary-600 dark:text-primary-400 flex items-center gap-2 group/link"
-                        >
-                            Kirim Email <i
-                                data-feather="send"
-                                class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
-                            ></i>
-                        </a>
-                    </div>
+                    <h3 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-2">Email</h3>
+                    <p class="text-slate-600 dark:text-gray-400 leading-relaxed mb-4 text-sm">
+                        Kirimkan pertanyaan atau dokumen resmi melalui alamat email institusi kami.
+                    </p>
+                    <a href="mailto:smpabbs@alabidin.sch.id" class="text-sm font-semibold text-primary-600 dark:text-primary-400 flex items-center gap-1">
+                        Kirim Email &rarr;
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Social Media Section -->
-    <section class="py-24 bg-gray-50/50 dark:bg-white/5 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 text-center reveal">
-            <h2
-                class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-12 tracking-tight"
-            >
-                Ikuti <span class="text-primary-600 dark:text-primary-400"
-                    >Update Kami</span
-                >
+    <section class="py-12 md:py-20 bg-[#f8fafc] dark:bg-white/[0.03]">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <span class="font-hand text-xl text-accent-600 dark:text-accent-400 rotate-[-2deg] block mb-3">ikuti keseruan kami</span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-10">
+                Ikuti <span class="font-serif font-normal italic text-primary-600 dark:text-primary-400">Update Kami</span>
             </h2>
-            <div class="flex justify-center gap-8 flex-wrap">
+            <div class="flex justify-center gap-6 flex-wrap">
                 {
                     [
-                        {
-                            name: "Facebook",
-                            icon: "facebook",
-                            href: "https://www.facebook.com/people/Smpabbs-Surakarta/100094726835282/#",
-                        },
-                        {
-                            name: "Instagram",
-                            icon: "instagram",
-                            href: "https://www.instagram.com/smpabbssurakarta",
-                        },
-                        {
-                            name: "YouTube",
-                            icon: "youtube",
-                            href: "https://www.youtube.com/@SMPABBSSURAKARTA",
-                        },
+                        { name: "Instagram", icon: "instagram", href: "https://www.instagram.com/smpabbssurakarta" },
+                        { name: "YouTube", icon: "youtube", href: "https://www.youtube.com/@SMPABBSSURAKARTA" },
                     ].map((social) => (
-                        <a
-                            href={social.href}
-                            class="group flex flex-col items-center gap-4"
-                        >
-                            <div class="w-20 h-20 rounded-3xl bg-white dark:bg-gray-900 flex items-center justify-center text-gray-400 border border-gray-100 dark:border-gray-800 shadow-sm group-hover:bg-primary-600 group-hover:text-white group-hover:shadow-xl group-hover:shadow-primary-500/20 group-hover:-translate-y-2 transition-all duration-500">
-                                <i data-feather={social.icon} class="w-8 h-8" />
+                        <a href={social.href} class="flex flex-col items-center gap-3">
+                            <div class="w-16 h-16 rounded-2xl bg-white dark:bg-gray-900 flex items-center justify-center text-slate-500 border border-slate-200/80 dark:border-gray-800 shadow-sm hover:shadow-md hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-200 dark:hover:border-primary-800 transition-all duration-300">
+                                <i data-feather={social.icon} class="w-6 h-6" />
                             </div>
-                            <span class="text-sm font-bold text-gray-500 dark:text-gray-400 tracking-widest uppercase">
-                                {social.name}
-                            </span>
+                            <span class="text-xs font-semibold text-slate-600 dark:text-gray-400 uppercase tracking-wider">{social.name}</span>
                         </a>
                     ))
                 }
@@ -211,36 +92,23 @@ import CTASection from "../components/cta/CTASection.astro";
         </div>
     </section>
 
-    <!-- Map Section -->
-    <section class="py-0 reveal">
-        <div class="w-full h-[500px] relative overflow-hidden">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31642.821748116025!2d110.8052151!3d-7.5364554!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1545963f8f0b%3A0xd7f3fa0e94db1dd1!2sSMP%20ABBS%20SURAKARTA!5e0!3m2!1sid!2sid!4v1778116822748!5m2!1sid!2sid"
-                width="100%"
-                height="100%"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                class="grayscale hover:grayscale-0 transition-all duration-700"
-            ></iframe>
-        </div>
+    <section class="w-full h-[400px]">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31642.821748116025!2d110.8052151!3d-7.5364554!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1545963f8f0b%3A0xd7f3fa0e94db1dd1!2sSMP%20ABBS%20SURAKARTA!5e0!3m2!1sid!2sid!4v1778116822748!5m2!1sid!2sid"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
     </section>
 
-    <!-- CTA Section -->
     <CTASection
         id="kontak-cta"
         title="Hubungi Kami"
         description="Kami siap membantu Anda. Jangan ragu untuk menghubungi kami melalui kanal yang tersedia."
-        primaryButton={{
-            text: "Chat Langsung",
-            href: "https://wa.me/6282242719492",
-            icon: "calendar",
-        }}
-        secondaryButton={{
-            text: "Daftar Sekarang",
-            href: "https://tally.so/r/WOrRgQ",
-            icon: "edit-3",
-        }}
+        primaryButton={{ text: "Chat Langsung", href: "https://wa.me/6282242719492" }}
+        secondaryButton={{ text: "Daftar Sekarang", href: "https://tally.so/r/WOrRgQ" }}
     />
 </Layout>

@@ -11,6 +11,9 @@ importers:
       '@astrojs/tailwind':
         specifier: ^6.0.2
         version: 6.0.2(astro@5.18.1(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.2)(typescript@5.9.3)(yaml@2.8.3))(tailwindcss@3.4.19)
+      '@fontsource/architects-daughter':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource/caveat':
         specifier: ^5.3.0
         version: 5.3.0
@@ -23,6 +26,9 @@ importers:
       '@fontsource/outfit':
         specifier: ^5.2.8
         version: 5.2.8
+      '@fontsource/playfair-display':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@sanity/client':
         specifier: ^7.22.0
         version: 7.22.0
@@ -414,6 +420,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@fontsource/architects-daughter@5.3.0':
+    resolution: {integrity: sha512-uezOgAlbhmf9nDW69VYq31lXNA+0uRFWXBGCSFWLXVcrNESFHpNjvu11kJss1PMsfH/YKz1hnnYB+JSNI/t+ew==}
+
   '@fontsource/caveat@5.3.0':
     resolution: {integrity: sha512-eHTfzQxFSW9ABERRLNruHoNJmKed2J7pqTUc5lp4a4POMgXGKpxmWj3d9Hz10kmAg6iuTTLe6UagbA4bnsmfQw==}
 
@@ -425,6 +434,9 @@ packages:
 
   '@fontsource/outfit@5.2.8':
     resolution: {integrity: sha512-rXC6g0MqD7cOBjht0bMqc43qM6lRqDLML9KXsmg9uykz0wLQhy8Z/ajrMG6iyoT3NJR+MYgU+OEHp7uHoTb+Yw==}
+
+  '@fontsource/playfair-display@5.3.0':
+    resolution: {integrity: sha512-uJSABalvdWc10fEPppQjQocamT21LEyRfzzWfRfqbkPz+sRv+kKpYDKyluBUskvJREkJTos9epj1WjQROGu99Q==}
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -2431,6 +2443,8 @@ snapshots:
   '@esbuild/win32-x64@0.27.7':
     optional: true
 
+  '@fontsource/architects-daughter@5.3.0': {}
+
   '@fontsource/caveat@5.3.0': {}
 
   '@fontsource/fraunces@5.3.0': {}
@@ -2438,6 +2452,8 @@ snapshots:
   '@fontsource/inter@5.2.8': {}
 
   '@fontsource/outfit@5.2.8': {}
+
+  '@fontsource/playfair-display@5.3.0': {}
 
   '@img/colour@1.1.0':
     optional: true

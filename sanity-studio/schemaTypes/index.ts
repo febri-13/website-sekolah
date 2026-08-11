@@ -6,6 +6,7 @@ import pengumuman from './pengumuman'
 import program from './program'
 import guru from './guru'
 import teacher from './teacher'
+import tinkers from './tinkers'
 
 export const schemaTypes = [
     stats,
@@ -15,5 +16,6 @@ export const schemaTypes = [
     pengumuman,
     program,
     guru,
-    teacher
+    teacher,
+    tinkers
 ]
